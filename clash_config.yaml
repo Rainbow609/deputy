@@ -39,7 +39,7 @@ proxies:
       User-Agent:
         "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 11; Redmi K30 5G Build/RKQ1.200826.002)
         baiduboxapp/11.0.5.12 (Baidu; P1 11)"
-        
+
   - name: BaiduProxyX
     type: http
     server: cloudnproxy.baidu.com
@@ -98,14 +98,14 @@ proxy-groups:
       - 负载均衡
       - CN 台湾 Manual
       - CN 台湾 Auto
-      - HK 香港
-      - HK 香港 聚合
-      - JP 日本
-      - JP 日本 聚合
-      - SG 新加坡
-      - SG 新加坡 聚合
-      - US 美国
-      - US 美国 聚合
+      - HK 香港 Manual
+      - HK 香港 Auto
+      - JP 日本 Manual
+      - JP 日本 Auto
+      - SG 新加坡 Manual
+      - SG 新加坡 Auto
+      - US 美国 Manual
+      - US 美国 Auto
       - 手动切换
       - DIRECT
 
@@ -199,7 +199,7 @@ proxy-groups:
     #  round-robin 每访问一个链接，顺序更换节点访问
     filter: '台湾|CN|台灣'
 
-  - name: HK 香港
+  - name: HK 香港 Manual
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -211,7 +211,7 @@ proxy-groups:
       - 小冰_白嫖机场
     filter: '香港|HK|香港'
 
-  - name: HK 香港 聚合
+  - name: HK 香港 Auto
     type: load-balance
     use:
       - 群主_星链云
@@ -226,7 +226,7 @@ proxy-groups:
     #  round-robin 每访问一个链接，顺序更换节点访问
     filter: '香港|HK|香港'
 
-  - name: JP 日本
+  - name: JP 日本 Manual
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -238,7 +238,7 @@ proxy-groups:
       - 小冰_白嫖机场
     filter: '日本|JP'
 
-  - name: JP 日本 聚合
+  - name: JP 日本 Auto
     type: load-balance
     use:
       - 群主_星链云
@@ -253,7 +253,7 @@ proxy-groups:
     #  round-robin 每访问一个链接，顺序更换节点访问
     filter: '日本|JP'
 
-  - name: SG 新加坡
+  - name: SG 新加坡 Manual
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -265,7 +265,7 @@ proxy-groups:
       - 小冰_白嫖机场
     filter: '新加坡|SG|新加坡'
 
-  - name: SG 新加坡 聚合
+  - name: SG 新加坡 Auto
     type: load-balance
     use:
       - 群主_星链云
@@ -279,7 +279,7 @@ proxy-groups:
     # or round-robin
     filter: '新加坡|SG|新加坡'
 
-  - name: US 美国
+  - name: US 美国 Manual
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -291,7 +291,7 @@ proxy-groups:
       - 小冰_白嫖机场
     filter: '美国|USA|美國'
 
-  - name: US 美国 聚合
+  - name: US 美国 Auto
     type: load-balance
     use:
       - 群主_星链云
