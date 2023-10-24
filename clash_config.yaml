@@ -422,11 +422,11 @@ rules:
  - DOMAIN,yacd.haishan.me,国内地址
 
  # 下面的规则是通过上面的rule-provider来确定的
- - GEOSITE,category-ads-all,REJECT  # 广告，屏蔽
+ # - GEOSITE,category-ads-all,REJECT  # 广告，屏蔽
  - GEOSITE,geolocation-cn,国内地址
  - GEOSITE,geolocation-!cn,节点选择
  - RULE-SET,private,国内地址
- - RULE-SET,reject,REJECT   # 广告，屏蔽
+ # - RULE-SET,reject,REJECT   # 广告，屏蔽
  - RULE-SET,icloud,国内地址
  - RULE-SET,apple,国内地址
  - RULE-SET,google,节点选择
