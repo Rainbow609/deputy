@@ -1,0 +1,441 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: :9090
+dns:
+  enable: true
+  ipv6: false
+  default-nameserver: [114.114.114.114, 223.5.5.5]
+  listen: '0.0.0.0:53'
+  enhanced-mode: redir-host
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  # nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+  nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+  fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853']
+  fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
+
+
+proxies:
+#此处用来放本地免流配置，本地免流只能免80/443端口的TCP，其他连接（包括所有udp）不行
+  - name: BaiduProxy_157
+    type: http
+    server: 157.0.148.53
+    port: 443
+    headers:
+      X-T5-Auth: "1962898709"
+      User-Agent:
+        "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 11; Redmi K30 5G Build/RKQ1.200826.002)
+        baiduboxapp/11.0.5.12 (Baidu; P1 11)"
+
+  - name: BaiduProxy_180
+    type: http
+    server: 180.97.93.202
+    port: 443
+    headers:
+      X-T5-Auth: "1962898709"
+      User-Agent:
+        "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 11; Redmi K30 5G Build/RKQ1.200826.002)
+        baiduboxapp/11.0.5.12 (Baidu; P1 11)"
+        
+  - name: BaiduProxyX
+    type: http
+    server: cloudnproxy.baidu.com
+    port: 443
+    headers:
+      X-T5-Auth: "1962898709"
+      User-Agent:
+        "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 11; Redmi K30 5G Build/RKQ1.200826.002)
+        baiduboxapp/11.0.5.12 (Baidu; P1 11)"
+
+proxy-providers:
+  群主_星链云:
+    type: http
+    url: "https://starlinkcloud.org/api/v1/client/subscribe?token=3244403e59624101e781b9e6b1e954d4"
+    path: ./proxies/群主_星链云.yaml
+    interval: 10800
+    health-check:
+      enable: true
+      url: 'http://www.gstatic.com/generate_204'
+      interval: 1800
+  群主_EF:
+    type: http
+    url: "https://v1.efshop.cc/api/v1/client/subscribe?token=9d51fb4005748bc6419d07639cb25781"
+    path: ./proxies/群主_EF.yaml
+    interval: 10800
+    health-check:
+      enable: true
+      url: 'http://www.gstatic.com/generate_204'
+      interval: 1800
+  小冰_EF:
+    type: http
+    url: "https://v1.efshop.cc/api/v1/client/subscribe?token=fbfd7afff691851519a1036895689ea0"
+    path: ./proxies/小冰_EF.yaml
+    interval: 10800
+    health-check:
+      enable: true
+      url: 'http://www.gstatic.com/generate_204'
+      interval: 1800
+  小冰_白嫖机场:
+    type: http
+    url: "https://sub.白嫖机场.com/api/v1/client/subscribe?token=f8b23722df1e100e0a23f4bdcbcaefb8"
+    path: ./proxies/小冰_白嫖机场.yaml
+    interval: 10800
+    health-check:
+      enable: true
+      url: 'http://www.gstatic.com/generate_204'
+      interval: 1800
+
+
+proxy-groups:
+  - name: 节点选择
+    type: select
+    proxies:
+      - 自动选择
+      - 故障转移
+      - 负载均衡
+      - CN 台湾 Manual
+      - CN 台湾 Auto
+      - HK 香港
+      - HK 香港 聚合
+      - JP 日本
+      - JP 日本 聚合
+      - SG 新加坡
+      - SG 新加坡 聚合
+      - US 美国
+      - US 美国 聚合
+      - 手动切换
+      - DIRECT
+
+  - name: 手动切换
+    type: select
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+
+  - name: 国内地址  # 默认不代理，直连
+    type: select
+    proxies:
+      - DIRECT
+      - BaiduProxy_157
+      - BaiduProxy_180
+      - BaiduProxyX
+      - 国内节点
+
+  - name: 国内节点
+    type: select
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+    filter: '国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东'
+
+  - name: 自动选择
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 180
+    tolerance: 1
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+    filter: '台湾|CN|台灣|香港|HK|香港|日本|JP|新加坡|SG|新加坡|美国|USA|美國'
+
+  - name: 负载均衡
+    type: load-balance
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    strategy: consistent-hashing
+    # strategy:
+    #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
+    #  round-robin 每访问一个链接，顺序更换节点访问
+
+  - name: 故障转移
+    type: fallback
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    tolerance: 1
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+
+  - name: CN 台湾 Manual
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    tolerance: 1
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+    filter: '台湾|CN|台灣'
+
+  - name: CN 台湾 Auto
+    type: load-balance
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    strategy: round-robin
+    # strategy:
+    #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
+    #  round-robin 每访问一个链接，顺序更换节点访问
+    filter: '台湾|CN|台灣'
+
+  - name: HK 香港
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    tolerance: 1
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+    filter: '香港|HK|香港'
+
+  - name: HK 香港 聚合
+    type: load-balance
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    strategy: round-robin
+    # strategy:
+    #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
+    #  round-robin 每访问一个链接，顺序更换节点访问
+    filter: '香港|HK|香港'
+
+  - name: JP 日本
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    tolerance: 1
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+    filter: '日本|JP'
+
+  - name: JP 日本 聚合
+    type: load-balance
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    strategy: round-robin
+    # strategy:
+    #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
+    #  round-robin 每访问一个链接，顺序更换节点访问
+    filter: '日本|JP'
+
+  - name: SG 新加坡
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    tolerance: 1
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+    filter: '新加坡|SG|新加坡'
+
+  - name: SG 新加坡 聚合
+    type: load-balance
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    strategy: round-robin
+    # strategy: consistent-hashing
+    # or round-robin
+    filter: '新加坡|SG|新加坡'
+
+  - name: US 美国
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    tolerance: 1
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+    filter: '美国|USA|美國'
+
+  - name: US 美国 聚合
+    type: load-balance
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    strategy: round-robin
+    # strategy:
+    #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
+    #  round-robin 每访问一个链接，顺序更换节点访问
+    filter: '美国|USA|美國'
+
+
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./ruleset/reject.yaml
+    interval: 86400
+
+  icloud:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
+    path: ./ruleset/icloud.yaml
+    interval: 86400
+
+  apple:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
+    path: ./ruleset/apple.yaml
+    interval: 86400
+
+  google:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
+    path: ./ruleset/google.yaml
+    interval: 86400
+
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+  direct:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+    path: ./ruleset/direct.yaml
+    interval: 86400
+
+  private:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+    path: ./ruleset/private.yaml
+    interval: 86400
+
+  gfw:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+    path: ./ruleset/gfw.yaml
+    interval: 86400
+
+  greatfire:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt"
+    path: ./ruleset/greatfire.yaml
+    interval: 86400
+
+  tld-not-cn:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
+    path: ./ruleset/tld-not-cn.yaml
+    interval: 86400
+
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
+
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    path: ./ruleset/lancidr.yaml
+    interval: 86400
+
+  applications:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    path: ./ruleset/applications.yaml
+    interval: 86400
+
+
+rules:
+ # 这些是自定义规则，想要的可以继续加。
+ - DOMAIN-SUFFIX,cnki.net,国内地址
+ - DOMAIN-SUFFIX,ieee.org,国内地址
+ - DOMAIN-SUFFIX,acm.org,国内地址
+ - DOMAIN-SUFFIX,imgtu.com,国内地址
+ - DOMAIN-SUFFIX,dpdk.org,国内地址
+ - DOMAIN-SUFFIX,freenom.com,国内地址
+ - DOMAIN-SUFFIX,sciencedirect.com,国内地址
+ - DOMAIN-SUFFIX,springer.com,国内地址
+ - RULE-SET,applications,国内地址
+ - DOMAIN,clash.razord.top,国内地址
+ - DOMAIN,yacd.haishan.me,国内地址
+
+ # 下面的规则是通过上面的rule-provider来确定的
+ - GEOSITE,category-ads-all,REJECT  # 广告，屏蔽
+ - GEOSITE,geolocation-cn,国内地址
+ - GEOSITE,geolocation-!cn,节点选择
+ - RULE-SET,private,国内地址
+ - RULE-SET,reject,REJECT   # 广告，屏蔽
+ - RULE-SET,icloud,国内地址
+ - RULE-SET,apple,国内地址
+ - RULE-SET,google,节点选择
+ - RULE-SET,proxy,节点选择
+ - RULE-SET,direct,国内地址
+ - RULE-SET,lancidr,国内地址
+ - RULE-SET,cncidr,国内地址
+ - RULE-SET,telegramcidr,节点选择
+ - GEOIP,private,国内地址
+ - GEOIP,CN,国内地址
+ - GEOIP,!CN,节点选择
+ - MATCH,节点选择 # 漏网之鱼
