@@ -1,5 +1,4 @@
-# deputy
-deputy_for_clash
+## 做什么的
+用于更新 clash 代理集
 
-## 这个是做什么的
-用于更新
+随缘更新
