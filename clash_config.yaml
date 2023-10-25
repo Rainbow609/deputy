@@ -158,6 +158,21 @@ proxy-groups:
     # 把国内的排除，留下国外节点
     filter: '台湾|台灣|CN|Taiwan|香港|香港|HK|Hong Kong|日本|日本|JP|Japan|新加坡|新加坡|SG|Singapore|美国|美國|USA|United States|英国|英國|UK|United Kiongdom'
 
+  - name: 自动选择2
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 180
+    tolerance: 1
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+      - 火锅_EF
+      - 火锅_三分
+    # 把国内的排除，留下国外节点
+    filter: '!江苏'
+
   - name: 负载均衡
     type: load-balance
     use:
