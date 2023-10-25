@@ -49,7 +49,11 @@ proxies:
       User-Agent:
         "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 11; Redmi K30 5G Build/RKQ1.200826.002)
         baiduboxapp/11.0.5.12 (Baidu; P1 11)"
-
+  - {"name":"✨baidu-苏州","server":"157.0.148.53","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"✨baidu-南京","server":"153.3.236.22","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"✨baidu-保定1","server":"110.242.70.68","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"✨baidu-保定2","server":"110.242.70.69","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"✨baidu-广州","server":"157.255.78.51","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
 
 proxy-providers:
   群主_星链云:
@@ -88,11 +92,7 @@ proxy-providers:
       enable: true
       url: 'http://www.gstatic.com/generate_204'
       interval: 1800
-  百度直连:
-    type: http
-    url: "https://github.moeyy.xyz/https://gist.githubusercontent.com/XmdChmd/85328e3ecebacb7827cbfd877f4ca025/raw/baidu.yaml"
-    path: ./proxies/百度直连.yaml
-    interval: 86400
+
 
 proxy-groups:
   - name: 节点选择
@@ -129,7 +129,11 @@ proxy-groups:
       - BaiduProxy_157
       - BaiduProxy_180
       - BaiduProxyX
-      - 百度直连
+      - ✨baidu-苏州
+      - ✨baidu-南京
+      - ✨baidu-保定1
+      - ✨baidu-保定2
+      - ✨baidu-广州
       - 国内节点
 
   - name: 国内节点
