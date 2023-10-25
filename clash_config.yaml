@@ -95,6 +95,7 @@ proxy-groups:
     type: select
     proxies:
       - 自动选择
+      - 自动选择2
       - 手动切换
       - 故障转移
       - 负载均衡
