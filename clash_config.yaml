@@ -36,7 +36,7 @@ proxies:
 proxy-providers:
   群主_星链云:
     type: http
-    url: "https://starlinkcloud.org/api/v1/client/subscribe?token=3244403e59624101e781b9e6b1e954d4"
+    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fstarlinkcloud.org%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D3244403e59624101e781b9e6b1e954d4&newhost=t7z.cupid.iqiyi.com"
     path: ./proxies/群主_星链云.yaml
     interval: 86400
     health-check:
@@ -45,7 +45,7 @@ proxy-providers:
       interval: 1800
   群主_EF:
     type: http
-    url: "https://v1.efshop.cc/api/v1/client/subscribe?token=9d51fb4005748bc6419d07639cb25781"
+    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fv1.efshop.cc%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D9d51fb4005748bc6419d07639cb25781&newhost=t7z.cupid.iqiyi.com"
     path: ./proxies/群主_EF.yaml
     interval: 86400
     health-check:
@@ -54,7 +54,7 @@ proxy-providers:
       interval: 1800
   小冰_EF:
     type: http
-    url: "https://v1.efshop.cc/api/v1/client/subscribe?token=fbfd7afff691851519a1036895689ea0"
+    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fv1.efshop.cc%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Dfbfd7afff691851519a1036895689ea0&newhost=t7z.cupid.iqiyi.com"
     path: ./proxies/小冰_EF.yaml
     interval: 86400
     health-check:
@@ -63,7 +63,7 @@ proxy-providers:
       interval: 1800
   小冰_白嫖机场:
     type: http
-    url: "https://sub.白嫖机场.com/api/v1/client/subscribe?token=f8b23722df1e100e0a23f4bdcbcaefb8"
+    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fsub.%E7%99%BD%E5%AB%96%E6%9C%BA%E5%9C%BA.com%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Df8b23722df1e100e0a23f4bdcbcaefb8&newhost=t7z.cupid.iqiyi.com"
     path: ./proxies/小冰_白嫖机场.yaml
     interval: 86400
     health-check:
@@ -72,7 +72,7 @@ proxy-providers:
       interval: 1800
   火锅_EF:
     type: http
-    url: "https://v1.efshop.cc/api/v1/client/subscribe?token=dcde680a8bd36e0bb27de68ee4c208e8"
+    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fv1.efshop.cc%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Ddcde680a8bd36e0bb27de68ee4c208e8&newhost=t7z.cupid.iqiyi.com"
     path: ./proxies/火锅_EF.yaml
     interval: 86400
     health-check:
@@ -81,7 +81,7 @@ proxy-providers:
       interval: 1800
   火锅_三分:
     type: http
-    url: "https://sub.sanfen017.xyz/api/v1/client/subscribe?token=1e9b47a85263bbd23ca567903a41f066"
+    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fsub.sanfen017.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D1e9b47a85263bbd23ca567903a41f066&newhost=t7z.cupid.iqiyi.com"
     path: ./proxies/火锅_三分.yaml
     interval: 86400
     health-check:
