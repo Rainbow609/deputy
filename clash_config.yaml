@@ -182,7 +182,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
-    filter: '台湾|CN|台灣'
+    filter: '台湾|台灣|CN|Taiwan'
 
   - name: CN 台湾 iobalance
     type: load-balance
@@ -195,7 +195,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     strategy: consistent-hashing
-    filter: '台湾|CN|台灣'
+    filter: '台湾|台灣|CN|Taiwan'
 
   - name: HK 香港 urltest
     type: url-test
@@ -208,7 +208,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
-    filter: '香港|HK|香港'
+    filter: '香港|香港|HK|Hong Kong'
 
   - name: HK 香港 iobalance
     type: load-balance
@@ -221,7 +221,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     strategy: consistent-hashing
-    filter: '香港|HK|香港'
+    filter: '香港|香港|HK|Hong Kong'
 
   - name: JP 日本 urltest
     type: url-test
@@ -234,7 +234,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
-    filter: '日本|JP'
+    filter: '日本|日本|JP|Japan'
 
   - name: JP 日本 iobalance
     type: load-balance
@@ -247,7 +247,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     strategy: consistent-hashing
-    filter: '日本|JP'
+    filter: '日本|日本|JP|Japan'
 
   - name: SG 新加坡 urltest
     type: url-test
@@ -260,7 +260,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
-    filter: '新加坡|SG|新加坡'
+    filter: '新加坡|新加坡|SG|Singapore'
 
   - name: SG 新加坡 iobalance
     type: load-balance
@@ -273,7 +273,7 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     strategy: consistent-hashing
-    filter: '新加坡|SG|新加坡'
+    filter: '新加坡|新加坡|SG|Singapore'
 
   - name: US 美国 urltest
     type: url-test
@@ -286,7 +286,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
-    filter: '美国|USA|美國'
+    filter: '美国|美國|USA|United States'
 
   - name: US 美国 iobalance
     type: load-balance
@@ -299,7 +299,34 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     strategy: consistent-hashing
-    filter: '美国|USA|美國'
+    filter: '美国|美國|USA|United States'
+
+  - name: UK 英国 urltest
+    type: url-test
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    tolerance: 1
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+      - 火锅_EF
+    filter: '英国|英國|UK|United Kiongdom'
+
+  - name: UK 英国 iobalance
+    type: load-balance
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+      - 火锅_EF
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    strategy: consistent-hashing
+    filter: '英国|英國|UK|United Kiongdom'
+
 
 
 rule-providers:
