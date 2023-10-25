@@ -20,26 +20,6 @@ dns:
 
 proxies:
 #此处用来放本地免流配置，本地免流只能免80/443端口的TCP，其他连接（包括所有udp）不行
-  - name: BaiduProxy_157
-    type: http
-    server: 157.0.148.53
-    port: 443
-    headers:
-      X-T5-Auth: "683556433"
-      User-Agent:
-        "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 11; Redmi K30 5G Build/RKQ1.200826.002)
-        baiduboxapp/11.0.5.12 (Baidu; P1 11)"
-
-  - name: BaiduProxy_180
-    type: http
-    server: 180.97.93.202
-    port: 443
-    headers:
-      X-T5-Auth: "683556433"
-      User-Agent:
-        "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 11; Redmi K30 5G Build/RKQ1.200826.002)
-        baiduboxapp/11.0.5.12 (Baidu; P1 11)"
-
   - name: BaiduProxyX
     type: http
     server: cloudnproxy.baidu.com
@@ -126,8 +106,6 @@ proxy-groups:
     type: select
     proxies:
       - DIRECT
-      - BaiduProxy_157
-      - BaiduProxy_180
       - BaiduProxyX
       - ✨baidu-苏州
       - ✨baidu-南京
