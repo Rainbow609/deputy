@@ -50,12 +50,13 @@ proxies:
         "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 11; Redmi K30 5G Build/RKQ1.200826.002)
         baiduboxapp/11.0.5.12 (Baidu; P1 11)"
 
+
 proxy-providers:
   群主_星链云:
     type: http
     url: "https://starlinkcloud.org/api/v1/client/subscribe?token=3244403e59624101e781b9e6b1e954d4"
     path: ./proxies/群主_星链云.yaml
-    interval: 10800
+    interval: 86400
     health-check:
       enable: true
       url: 'http://www.gstatic.com/generate_204'
@@ -64,7 +65,7 @@ proxy-providers:
     type: http
     url: "https://v1.efshop.cc/api/v1/client/subscribe?token=9d51fb4005748bc6419d07639cb25781"
     path: ./proxies/群主_EF.yaml
-    interval: 10800
+    interval: 86400
     health-check:
       enable: true
       url: 'http://www.gstatic.com/generate_204'
@@ -73,7 +74,7 @@ proxy-providers:
     type: http
     url: "https://v1.efshop.cc/api/v1/client/subscribe?token=fbfd7afff691851519a1036895689ea0"
     path: ./proxies/小冰_EF.yaml
-    interval: 10800
+    interval: 86400
     health-check:
       enable: true
       url: 'http://www.gstatic.com/generate_204'
@@ -82,12 +83,20 @@ proxy-providers:
     type: http
     url: "https://sub.白嫖机场.com/api/v1/client/subscribe?token=f8b23722df1e100e0a23f4bdcbcaefb8"
     path: ./proxies/小冰_白嫖机场.yaml
-    interval: 10800
+    interval: 86400
     health-check:
       enable: true
       url: 'http://www.gstatic.com/generate_204'
       interval: 1800
-
+  百度直连:
+    type: http
+    url: "https://github.moeyy.xyz/https://gist.githubusercontent.com/XmdChmd/85328e3ecebacb7827cbfd877f4ca025/raw/baidu.yaml"
+    path: ./proxies/百度直连.yaml
+    interval: 86400
+    health-check:
+      enable: true
+      url: 'http://www.gstatic.com/generate_204'
+      interval: 1800
 
 proxy-groups:
   - name: 节点选择
@@ -124,6 +133,7 @@ proxy-groups:
       - BaiduProxy_157
       - BaiduProxy_180
       - BaiduProxyX
+      - 百度直连
       - 国内节点
 
   - name: 国内节点
