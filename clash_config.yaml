@@ -73,7 +73,7 @@ proxy-providers:
   火锅_EF:
     type: http
     url: "https://v1.efshop.cc/api/v1/client/subscribe?token=dcde680a8bd36e0bb27de68ee4c208e8"
-    path: ./proxies/小冰_白嫖机场.yaml
+    path: ./proxies/火锅_EF.yaml
     interval: 86400
     health-check:
       enable: true
@@ -87,16 +87,16 @@ proxy-groups:
       - 自动选择
       - 故障转移
       - 负载均衡
-      - CN 台湾 Manual
-      - CN 台湾 Auto
-      - HK 香港 Manual
-      - HK 香港 Auto
-      - JP 日本 Manual
-      - JP 日本 Auto
-      - SG 新加坡 Manual
-      - SG 新加坡 Auto
-      - US 美国 Manual
-      - US 美国 Auto
+      - CN 台湾 urltest
+      - CN 台湾 iobalance
+      - HK 香港 urltest
+      - HK 香港 iobalance
+      - JP 日本 urltest
+      - JP 日本 iobalance
+      - SG 新加坡 urltest
+      - SG 新加坡 iobalance
+      - US 美国 urltest
+      - US 美国 iobalance
       - 手动切换
       - DIRECT
 
@@ -171,7 +171,7 @@ proxy-groups:
       - 小冰_白嫖机场
       - 火锅_EF
 
-  - name: CN 台湾 Manual
+  - name: CN 台湾 urltest
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -184,7 +184,7 @@ proxy-groups:
       - 火锅_EF
     filter: '台湾|CN|台灣'
 
-  - name: CN 台湾 Auto
+  - name: CN 台湾 iobalance
     type: load-balance
     use:
       - 群主_星链云
@@ -197,7 +197,7 @@ proxy-groups:
     strategy: consistent-hashing
     filter: '台湾|CN|台灣'
 
-  - name: HK 香港 Manual
+  - name: HK 香港 urltest
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -210,7 +210,7 @@ proxy-groups:
       - 火锅_EF
     filter: '香港|HK|香港'
 
-  - name: HK 香港 Auto
+  - name: HK 香港 iobalance
     type: load-balance
     use:
       - 群主_星链云
@@ -223,7 +223,7 @@ proxy-groups:
     strategy: consistent-hashing
     filter: '香港|HK|香港'
 
-  - name: JP 日本 Manual
+  - name: JP 日本 urltest
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -236,7 +236,7 @@ proxy-groups:
       - 火锅_EF
     filter: '日本|JP'
 
-  - name: JP 日本 Auto
+  - name: JP 日本 iobalance
     type: load-balance
     use:
       - 群主_星链云
@@ -249,7 +249,7 @@ proxy-groups:
     strategy: consistent-hashing
     filter: '日本|JP'
 
-  - name: SG 新加坡 Manual
+  - name: SG 新加坡 urltest
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -262,7 +262,7 @@ proxy-groups:
       - 火锅_EF
     filter: '新加坡|SG|新加坡'
 
-  - name: SG 新加坡 Auto
+  - name: SG 新加坡 iobalance
     type: load-balance
     use:
       - 群主_星链云
@@ -275,7 +275,7 @@ proxy-groups:
     strategy: consistent-hashing
     filter: '新加坡|SG|新加坡'
 
-  - name: US 美国 Manual
+  - name: US 美国 urltest
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
@@ -288,7 +288,7 @@ proxy-groups:
       - 火锅_EF
     filter: '美国|USA|美國'
 
-  - name: US 美国 Auto
+  - name: US 美国 iobalance
     type: load-balance
     use:
       - 群主_星链云
