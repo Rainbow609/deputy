@@ -93,10 +93,6 @@ proxy-providers:
     url: "https://github.moeyy.xyz/https://gist.githubusercontent.com/XmdChmd/85328e3ecebacb7827cbfd877f4ca025/raw/baidu.yaml"
     path: ./proxies/百度直连.yaml
     interval: 86400
-    health-check:
-      enable: true
-      url: 'http://www.gstatic.com/generate_204'
-      interval: 1800
 
 proxy-groups:
   - name: 节点选择
