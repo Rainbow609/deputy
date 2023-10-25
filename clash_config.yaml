@@ -94,7 +94,7 @@ proxy-groups:
   - name: 节点选择
     type: select
     proxies:
-      - 自动选择
+      - 国外节点 urltest
       - 手动切换
       - 故障转移
       - 负载均衡
@@ -143,7 +143,7 @@ proxy-groups:
       - 火锅_三分
     filter: '国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州'
 
-  - name: 自动选择
+  - name: 国外节点
     type: url-test
     url: 'http://www.gstatic.com/generate_204'
     interval: 180
@@ -474,7 +474,6 @@ rule-providers:
 rules:
  # 这些是自定义规则，想要的可以继续加。
 
-
  - DOMAIN-SUFFIX,cnki.net,国内地址
  - DOMAIN-SUFFIX,ieee.org,国内地址
  - DOMAIN-SUFFIX,acm.org,国内地址
@@ -495,7 +494,7 @@ rules:
  - GEOSITE,geolocation-!cn,节点选择
 
  - RULE-SET,private,国内地址
- - RULE-SET,reject,REJECT   # 广告，屏蔽
+ # - RULE-SET,reject,REJECT   # 广告，屏蔽
  - RULE-SET,icloud,国内地址
  - RULE-SET,apple,国内地址
  - RULE-SET,google,节点选择
