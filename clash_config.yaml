@@ -85,6 +85,7 @@ proxy-groups:
     type: select
     proxies:
       - 自动选择
+      - 手动切换
       - 故障转移
       - 负载均衡
       - CN 台湾 urltest
@@ -97,7 +98,6 @@ proxy-groups:
       - SG 新加坡 iobalance
       - US 美国 urltest
       - US 美国 iobalance
-      - 手动切换
       - DIRECT
 
   - name: 手动切换
