@@ -172,7 +172,7 @@ proxy-groups:
       - 火锅_EF
       - 火锅_三分
     # 把国内的排除，留下国外节点
-    filter: '!江苏'
+    exclude-filter: '国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州'
 
   - name: 负载均衡
     type: load-balance
