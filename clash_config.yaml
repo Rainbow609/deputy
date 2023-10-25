@@ -26,14 +26,12 @@ proxies:
     port: 443
     headers:
       X-T5-Auth: "683556433"
-      User-Agent:
-        "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 11; Redmi K30 5G Build/RKQ1.200826.002)
-        baiduboxapp/11.0.5.12 (Baidu; P1 11)"
-  - {"name":"✨baidu-苏州","server":"157.0.148.53","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
-  - {"name":"✨baidu-南京","server":"153.3.236.22","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
-  - {"name":"✨baidu-保定1","server":"110.242.70.68","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
-  - {"name":"✨baidu-保定2","server":"110.242.70.69","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
-  - {"name":"✨baidu-广州","server":"157.255.78.51","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+      Host: "153.3.236.22:443"
+  - {"name":"baidu-苏州","server":"157.0.148.53","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"baidu-南京","server":"153.3.236.22","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"baidu-保定1","server":"110.242.70.68","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"baidu-保定2","server":"110.242.70.69","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"baidu-广州","server":"157.255.78.51","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
 
 proxy-providers:
   群主_星链云:
@@ -72,7 +70,15 @@ proxy-providers:
       enable: true
       url: 'http://www.gstatic.com/generate_204'
       interval: 1800
-
+  火锅_EF:
+    type: http
+    url: "https://v1.efshop.cc/api/v1/client/subscribe?token=dcde680a8bd36e0bb27de68ee4c208e8"
+    path: ./proxies/小冰_白嫖机场.yaml
+    interval: 86400
+    health-check:
+      enable: true
+      url: 'http://www.gstatic.com/generate_204'
+      interval: 1800
 
 proxy-groups:
   - name: 节点选择
@@ -101,17 +107,18 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
 
   - name: 国内地址  # 默认不代理，直连
     type: select
     proxies:
       - DIRECT
       - BaiduProxyX
-      - ✨baidu-苏州
-      - ✨baidu-南京
-      - ✨baidu-保定1
-      - ✨baidu-保定2
-      - ✨baidu-广州
+      - baidu-苏州
+      - baidu-南京
+      - baidu-保定1
+      - baidu-保定2
+      - baidu-广州
       - 国内节点
 
   - name: 国内节点
@@ -121,6 +128,7 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
     filter: '国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东'
 
   - name: 自动选择
@@ -133,6 +141,7 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
     filter: '台湾|CN|台灣|香港|HK|香港|日本|JP|新加坡|SG|新加坡|美国|USA|美國'
 
   - name: 负载均衡
@@ -142,6 +151,7 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     strategy: consistent-hashing
@@ -159,6 +169,7 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
 
   - name: CN 台湾 Manual
     type: url-test
@@ -170,6 +181,7 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
     filter: '台湾|CN|台灣'
 
   - name: CN 台湾 Auto
@@ -179,12 +191,10 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
-    strategy: round-robin
-    # strategy:
-    #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
-    #  round-robin 每访问一个链接，顺序更换节点访问
+    strategy: consistent-hashing
     filter: '台湾|CN|台灣'
 
   - name: HK 香港 Manual
@@ -197,6 +207,7 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
     filter: '香港|HK|香港'
 
   - name: HK 香港 Auto
@@ -206,12 +217,10 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
-    strategy: round-robin
-    # strategy:
-    #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
-    #  round-robin 每访问一个链接，顺序更换节点访问
+    strategy: consistent-hashing
     filter: '香港|HK|香港'
 
   - name: JP 日本 Manual
@@ -224,6 +233,7 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
     filter: '日本|JP'
 
   - name: JP 日本 Auto
@@ -233,12 +243,10 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
-    strategy: round-robin
-    # strategy:
-    #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
-    #  round-robin 每访问一个链接，顺序更换节点访问
+    strategy: consistent-hashing
     filter: '日本|JP'
 
   - name: SG 新加坡 Manual
@@ -251,6 +259,7 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
     filter: '新加坡|SG|新加坡'
 
   - name: SG 新加坡 Auto
@@ -260,11 +269,10 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
-    strategy: round-robin
-    # strategy: consistent-hashing
-    # or round-robin
+    strategy: consistent-hashing
     filter: '新加坡|SG|新加坡'
 
   - name: US 美国 Manual
@@ -277,6 +285,7 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
     filter: '美国|USA|美國'
 
   - name: US 美国 Auto
@@ -286,12 +295,10 @@ proxy-groups:
       - 群主_EF
       - 小冰_EF
       - 小冰_白嫖机场
+      - 火锅_EF
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
-    strategy: round-robin
-    # strategy:
-    #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
-    #  round-robin 每访问一个链接，顺序更换节点访问
+    strategy: consistent-hashing
     filter: '美国|USA|美國'
 
 
