@@ -156,7 +156,7 @@ proxy-groups:
       - 火锅_EF
       - 火锅_三分
     # 把国内的排除，留下国外节点
-    filter: '!国内|!四川|!内蒙|!湖北|!海南|!上海|!北京|!江苏|!广东|!广州'
+    filter: '台湾|台灣|CN|Taiwan|香港|香港|HK|Hong Kong|日本|日本|JP|Japan|新加坡|新加坡|SG|Singapore|美国|美國|USA|United States|英国|英國|UK|United Kiongdom'
 
   - name: 负载均衡
     type: load-balance
