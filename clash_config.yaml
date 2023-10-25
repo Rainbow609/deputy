@@ -79,6 +79,16 @@ proxy-providers:
       enable: true
       url: 'http://www.gstatic.com/generate_204'
       interval: 1800
+  火锅_三分:
+    type: http
+    url: "https://sub.sanfen017.xyz/api/v1/client/subscribe?token=1e9b47a85263bbd23ca567903a41f066"
+    path: ./proxies/火锅_三分.yaml
+    interval: 86400
+    health-check:
+      enable: true
+      url: 'http://www.gstatic.com/generate_204'
+      interval: 1800
+
 
 proxy-groups:
   - name: 节点选择
@@ -108,6 +118,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
 
   - name: 国内地址  # 默认不代理，直连
     type: select
@@ -129,6 +140,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
     filter: '国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州'
 
   - name: 自动选择
@@ -142,7 +154,9 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
-    filter: '台湾|CN|台灣|香港|HK|香港|日本|JP|新加坡|SG|新加坡|美国|USA|美國'
+      - 火锅_三分
+    # 把国内的排除，留下国外节点
+    filter: '!国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州'
 
   - name: 负载均衡
     type: load-balance
@@ -152,6 +166,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     strategy: consistent-hashing
@@ -170,6 +185,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
 
   - name: CN 台湾 urltest
     type: url-test
@@ -182,6 +198,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
     filter: '台湾|台灣|CN|Taiwan'
 
   - name: CN 台湾 iobalance
@@ -192,6 +209,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     strategy: consistent-hashing
@@ -208,6 +226,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
     filter: '香港|香港|HK|Hong Kong'
 
   - name: HK 香港 iobalance
@@ -218,6 +237,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     strategy: consistent-hashing
@@ -234,6 +254,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
     filter: '日本|日本|JP|Japan'
 
   - name: JP 日本 iobalance
@@ -244,6 +265,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     strategy: consistent-hashing
@@ -260,6 +282,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
     filter: '新加坡|新加坡|SG|Singapore'
 
   - name: SG 新加坡 iobalance
@@ -270,6 +293,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     strategy: consistent-hashing
@@ -286,6 +310,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
     filter: '美国|美國|USA|United States'
 
   - name: US 美国 iobalance
@@ -296,6 +321,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     strategy: consistent-hashing
@@ -312,6 +338,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
     filter: '英国|英國|UK|United Kiongdom'
 
   - name: UK 英国 iobalance
@@ -322,6 +349,7 @@ proxy-groups:
       - 小冰_EF
       - 小冰_白嫖机场
       - 火锅_EF
+      - 火锅_三分
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
     strategy: consistent-hashing
@@ -331,6 +359,7 @@ proxy-groups:
 
 rule-providers:
   reject:
+    # 广告域名列表
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
@@ -338,6 +367,7 @@ rule-providers:
     interval: 86400
 
   icloud:
+    # iCloud 域名列表
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
@@ -345,6 +375,7 @@ rule-providers:
     interval: 86400
 
   apple:
+    # Apple 在中国大陆可直连的域名列表
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
@@ -352,6 +383,7 @@ rule-providers:
     interval: 86400
 
   google:
+    # [慎用]Google 在中国大陆可直连的域名列表
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
@@ -359,6 +391,7 @@ rule-providers:
     interval: 86400
 
   proxy:
+    # 代理域名列表
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
@@ -366,6 +399,7 @@ rule-providers:
     interval: 86400
 
   direct:
+    # 直连域名列表
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
@@ -373,6 +407,7 @@ rule-providers:
     interval: 86400
 
   private:
+    # 私有网络专用域名列表
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
@@ -380,6 +415,7 @@ rule-providers:
     interval: 86400
 
   gfw:
+    # GFWList 域名列表
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
@@ -387,6 +423,7 @@ rule-providers:
     interval: 86400
 
   greatfire:
+    # GreatFire 域名列表
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt"
@@ -394,6 +431,7 @@ rule-providers:
     interval: 86400
 
   tld-not-cn:
+    # 非中国大陆使用的顶级域名列表
     type: http
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
@@ -401,6 +439,7 @@ rule-providers:
     interval: 86400
 
   telegramcidr:
+    # Telegram 使用的 IP 地址列表
     type: http
     behavior: ipcidr
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
@@ -408,6 +447,7 @@ rule-providers:
     interval: 86400
 
   cncidr:
+    # 中国大陆 IP 地址列表
     type: http
     behavior: ipcidr
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
@@ -415,6 +455,7 @@ rule-providers:
     interval: 86400
 
   lancidr:
+    # 局域网 IP 及保留 IP 地址列表
     type: http
     behavior: ipcidr
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
@@ -422,6 +463,7 @@ rule-providers:
     interval: 86400
 
   applications:
+    # 需要直连的常见软件列表
     type: http
     behavior: classical
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
@@ -431,6 +473,8 @@ rule-providers:
 
 rules:
  # 这些是自定义规则，想要的可以继续加。
+
+
  - DOMAIN-SUFFIX,cnki.net,国内地址
  - DOMAIN-SUFFIX,ieee.org,国内地址
  - DOMAIN-SUFFIX,acm.org,国内地址
@@ -439,7 +483,9 @@ rules:
  - DOMAIN-SUFFIX,freenom.com,国内地址
  - DOMAIN-SUFFIX,sciencedirect.com,国内地址
  - DOMAIN-SUFFIX,springer.com,国内地址
+
  - RULE-SET,applications,国内地址
+
  - DOMAIN,clash.razord.top,国内地址
  - DOMAIN,yacd.haishan.me,国内地址
 
@@ -447,8 +493,9 @@ rules:
  - GEOSITE,category-ads-all,REJECT  # 广告，屏蔽
  - GEOSITE,geolocation-cn,国内地址
  - GEOSITE,geolocation-!cn,节点选择
+
  - RULE-SET,private,国内地址
- # - RULE-SET,reject,REJECT   # 广告，屏蔽
+ - RULE-SET,reject,REJECT   # 广告，屏蔽
  - RULE-SET,icloud,国内地址
  - RULE-SET,apple,国内地址
  - RULE-SET,google,节点选择
@@ -457,7 +504,9 @@ rules:
  - RULE-SET,lancidr,国内地址
  - RULE-SET,cncidr,国内地址
  - RULE-SET,telegramcidr,节点选择
+
  - GEOIP,private,国内地址
  - GEOIP,CN,国内地址
  - GEOIP,!CN,节点选择
+
  - MATCH,节点选择 # 漏网之鱼
