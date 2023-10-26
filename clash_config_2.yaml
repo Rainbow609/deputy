@@ -19,11 +19,13 @@ proxy-providers:
   provider1:
     <<: *p
     url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fstarlinkcloud.org%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D3244403e59624101e781b9e6b1e954d4&newhost=t7z.cupid.iqiyi.com"
+    path: ./proxies/群主_星链云.yaml
 
   provider2:
     <<: *p
     url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fv1.efshop.cc%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D9d51fb4005748bc6419d07639cb25781&newhost=t7z.cupid.iqiyi.com"
-
+    path: ./proxies/群主_EFSHOP.yaml
+    
 mode: rule
 ipv6: true
 log-level: info
