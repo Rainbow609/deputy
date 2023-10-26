@@ -159,7 +159,7 @@ proxy-groups:
 rules:
   # - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT # quic
 
-  - GEOSITE,biliintl, 哔哩东南亚
+  # - GEOSITE,biliintl, 哔哩东南亚
   - GEOSITE,ehentai,ehentai
   - GEOSITE,github,Github
   - GEOSITE,twitter,Twitter
