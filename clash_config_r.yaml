@@ -148,12 +148,12 @@ proxy-groups:
 
   - name: 剩余流量
     type: select
-    <<: *urltest
+    <<: *use
     filter: '剩余流量'
 
   - name: 国内节点
     type: select
-    <<: *urltest
+    <<: *use
     filter: '国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州'
 
   - name: 国外节点 urltest
@@ -162,7 +162,7 @@ proxy-groups:
     exclude-filter: '国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州|剩余流量'
 
   - name: 负载均衡
-    <<: iobalance
+    <<: *iobalance
 
   - name: 故障转移
     type: fallback
@@ -177,7 +177,7 @@ proxy-groups:
     filter: '(?i)台|tw|taiwan'
 
   - name: CN 台湾 iobalance
-    <<: iobalance
+    <<: *iobalance
     filter: '(?i)台|tw|taiwan'
 
   - name: HK 香港 urltest
@@ -185,7 +185,7 @@ proxy-groups:
     filter: '(?i)港|hk|hongkong|hong kong'
 
   - name: HK 香港 iobalance
-    <<: iobalance
+    <<: *iobalance
     filter: '(?i)港|hk|hongkong|hong kong'
 
   - name: JP 日本 urltest
@@ -193,7 +193,7 @@ proxy-groups:
     filter: '(?i)日本|jp|japan'
 
   - name: JP 日本 iobalance
-    <<: iobalance
+    <<: *iobalance
     filter: '(?i)日本|jp|japan'
 
   - name: SG 新加坡 urltest
@@ -201,7 +201,7 @@ proxy-groups:
     filter: '(?i)(新|sg|singapore)'
 
   - name: SG 新加坡 iobalance
-    <<: iobalance
+    <<: *iobalance
     filter: '(?i)(新|sg|singapore)'
 
   - name: US 美国 urltest
@@ -209,7 +209,7 @@ proxy-groups:
     filter: '(?i)美|us|unitedstates|united states'
 
   - name: US 美国 iobalance
-    <<: iobalance
+    <<: *iobalance
     filter: '(?i)美|us|unitedstates|united states'
 
   - name: 其它地区
@@ -217,7 +217,7 @@ proxy-groups:
     filter: '(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*'
 
   - name: 其它地区
-    <<: iobalance
+    <<: *iobalance
     filter: '(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*'
 
 rule_update: &rule_update
