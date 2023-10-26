@@ -132,6 +132,17 @@ proxy-groups:
       - baidu-广州
       - 国内节点
 
+  - name: 剩余流量
+    type: select
+    use:
+      - 群主_星链云
+      - 群主_EF
+      - 小冰_EF
+      - 小冰_白嫖机场
+      - 火锅_EF
+      - 火锅_三分
+    filter: '剩余流量'
+
   - name: 国内节点
     type: select
     use:
@@ -156,7 +167,7 @@ proxy-groups:
       - 火锅_EF
       - 火锅_三分
     # 把国内的排除，留下国外节点
-    exclude-filter: '国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州'
+    exclude-filter: '国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州|剩余流量'
 
   - name: 负载均衡
     type: load-balance
