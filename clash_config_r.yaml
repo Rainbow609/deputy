@@ -17,6 +17,8 @@ dns:
   fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853']
   fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 
+# 配置参考 https://wiki.metacubex.one/example/#_2
+
 proxies:
 #此处用来放本地免流配置，本地免流只能免80/443端口的TCP，其他连接（包括所有udp）不行
   - name: BaiduProxyX
@@ -33,10 +35,7 @@ proxies:
   - {"name":"baidu-广州","server":"157.255.78.51","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
 
 
-# proxy 相关
-pr: &pr {type: select, proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,DIRECT]}
-
-#这里是订阅更新和延迟测试相关的
+# 这里是订阅更新和延迟测试相关的
 p: &p {type: http, interval: 86400, health-check: {enable: true, url: https://www.gstatic.com/generate_204, interval: 300}}
 
 # url 里填写自己的订阅,名称不能重复
@@ -73,7 +72,6 @@ proxy-providers:
 
 # 用于添加上面的订阅
 use: &use
-  type: select
   use:
   - provider1
   - provider2
@@ -82,6 +80,133 @@ use: &use
   - provider5
   - provider6
 
+urltest: &urltest
+  type: url-test
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 180
+  tolerance: 100
+  <<: *use
+
+iobalance: &iobalance
+  type: load-balance
+  url: 'http://www.gstatic.com/generate_204'
+  interval: 300
+  strategy: consistent-hashing
+  <<: *use
+  # strategy:
+  #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
+  #  round-robin 每访问一个链接，顺序更换节点访问
+
+proxy-groups:
+  - name: 节点选择
+    type: select
+    proxies:
+      - 国外节点 urltest
+      - 手动切换
+      - 故障转移
+      - 负载均衡
+      - CN 台湾 urltest
+      - CN 台湾 iobalance
+      - HK 香港 urltest
+      - HK 香港 iobalance
+      - JP 日本 urltest
+      - JP 日本 iobalance
+      - SG 新加坡 urltest
+      - SG 新加坡 iobalance
+      - US 美国 urltest
+      - US 美国 iobalance
+      - DIRECT
+
+  - name: 手动切换
+    type: select
+    <<: *use
+    exclude-filter: '剩余流量'
+
+  - name: 国内地址  # 默认不代理，直连
+    type: select
+    proxies:
+      - DIRECT
+      - BaiduProxyX
+      - baidu-苏州
+      - baidu-南京
+      - baidu-保定1
+      - baidu-保定2
+      - baidu-广州
+      - 国内节点
+
+  - name: 剩余流量
+    type: select
+    <<: *urltest
+    filter: '剩余流量'
+
+  - name: 国内节点
+    type: select
+    <<: *urltest
+    filter: '国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州'
+
+  - name: 国外节点 urltest
+    <<: *urltest
+    # 把国内的排除，留下国外节点
+    exclude-filter: '国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州|剩余流量'
+
+  - name: 负载均衡
+    <<: iobalance
+
+  - name: 故障转移
+    type: fallback
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+    tolerance: 100
+    <<: *use
+
+  # 下面是地区分组
+  - name: CN 台湾 urltest
+    <<: *urltest
+    filter: '(?i)台|tw|taiwan'
+
+  - name: CN 台湾 iobalance
+    <<: iobalance
+    filter: '(?i)台|tw|taiwan'
+
+  - name: HK 香港 urltest
+    <<: *urltest
+    filter: '(?i)港|hk|hongkong|hong kong'
+
+  - name: HK 香港 iobalance
+    <<: iobalance
+    filter: '(?i)港|hk|hongkong|hong kong'
+
+  - name: JP 日本 urltest
+    <<: *urltest
+    filter: '(?i)日本|jp|japan'
+
+  - name: JP 日本 iobalance
+    <<: iobalance
+    filter: '(?i)日本|jp|japan'
+
+  - name: SG 新加坡 urltest
+    <<: *urltest
+    filter: '(?i)(新|sg|singapore)'
+
+  - name: SG 新加坡 iobalance
+    <<: iobalance
+    filter: '(?i)(新|sg|singapore)'
+
+  - name: US 美国 urltest
+    <<: *urltest
+    filter: '(?i)美|us|unitedstates|united states'
+
+  - name: US 美国 iobalance
+    <<: iobalance
+    filter: '(?i)美|us|unitedstates|united states'
+
+  - name: 其它地区
+    <<: *urltest
+    filter: '(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*'
+
+  - name: 其它地区
+    <<: iobalance
+    filter: '(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*'
 
 rule_update: &rule_update
   type: http
