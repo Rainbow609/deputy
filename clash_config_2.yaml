@@ -12,7 +12,7 @@ use: &use
   - provider2
 
 ######### 锚点 end #######
-
+# 尝试添加订阅
 
 # url 里填写自己的订阅,名称不能重复
 proxy-providers:
@@ -25,7 +25,7 @@ proxy-providers:
     <<: *p
     url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fv1.efshop.cc%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D9d51fb4005748bc6419d07639cb25781&newhost=t7z.cupid.iqiyi.com"
     path: ./proxies/群主_EFSHOP.yaml
-    
+
 mode: rule
 ipv6: true
 log-level: info
