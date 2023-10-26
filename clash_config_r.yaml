@@ -1,0 +1,227 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+external-controller: :9090
+dns:
+  enable: true
+  ipv6: false
+  default-nameserver: [114.114.114.114, 223.5.5.5]
+  listen: '0.0.0.0:53'
+  enhanced-mode: redir-host
+  fake-ip-range: 198.18.0.1/16
+  use-hosts: true
+  # nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+  nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
+  fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853']
+  fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
+
+proxies:
+#此处用来放本地免流配置，本地免流只能免80/443端口的TCP，其他连接（包括所有udp）不行
+  - name: BaiduProxyX
+    type: http
+    server: cloudnproxy.baidu.com
+    port: 443
+    headers:
+      X-T5-Auth: "683556433"
+      Host: "153.3.236.22:443"
+  - {"name":"baidu-苏州","server":"157.0.148.53","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"baidu-南京","server":"153.3.236.22","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"baidu-保定1","server":"110.242.70.68","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"baidu-保定2","server":"110.242.70.69","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"baidu-广州","server":"157.255.78.51","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+
+
+# proxy 相关
+pr: &pr {type: select, proxies: [默认,香港,台湾,日本,新加坡,美国,其它地区,全部节点,自动选择,DIRECT]}
+
+#这里是订阅更新和延迟测试相关的
+p: &p {type: http, interval: 86400, health-check: {enable: true, url: https://www.gstatic.com/generate_204, interval: 300}}
+
+# url 里填写自己的订阅,名称不能重复
+proxy-providers:
+  provider1:
+    <<: *p
+    url: "https://starlinkcloud.org/api/v1/client/subscribe?token=3244403e59624101e781b9e6b1e954d4"
+    path: ./proxies/群主_星链云.yaml
+
+  provider2:
+    <<: *p
+    url: "https://v1.efshop.cc/api/v1/client/subscribe?token=9d51fb4005748bc6419d07639cb25781"
+    path: ./proxies/群主_EF.yaml
+
+  provider3:
+    <<: *p
+    url: "https://v1.efshop.cc/api/v1/client/subscribe?token=fbfd7afff691851519a1036895689ea0"
+    path: ./proxies/小冰_EF.yaml
+
+  provider4:
+    <<: *p
+    url: "https://sub.白嫖机场.com/api/v1/client/subscribe?token=f8b23722df1e100e0a23f4bdcbcaefb8"
+    path: ./proxies/小冰_白嫖.yaml
+
+  provider5:
+    <<: *p
+    url: "https://v1.efshop.cc/api/v1/client/subscribe?token=dcde680a8bd36e0bb27de68ee4c208e8"
+    path: ./proxies/火锅_EF.yaml
+
+  provider6:
+    <<: *p
+    url: "https://sub.sanfen017.xyz/api/v1/client/subscribe?token=1e9b47a85263bbd23ca567903a41f066"
+    path: ./proxies/火锅_三分.yaml
+
+# 用于添加上面的订阅
+use: &use
+  type: select
+  use:
+  - provider1
+  - provider2
+  - provider3
+  - provider4
+  - provider5
+  - provider6
+
+
+rule_update: &rule_update
+  type: http
+  interval: 86400
+
+rule-providers:
+  reject:
+    # 广告域名列表
+    <<: *rule_update
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./ruleset/reject.yaml
+
+  icloud:
+    # iCloud 域名列表
+    <<: *rule_update
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
+    path: ./ruleset/icloud.yaml
+
+  apple:
+    # Apple 在中国大陆可直连的域名列表
+    <<: *rule_update
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
+    path: ./ruleset/apple.yaml
+
+  google:
+    # [慎用]Google 在中国大陆可直连的域名列表
+    <<: *rule_update
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
+    path: ./ruleset/google.yaml
+
+  proxy:
+    # 代理域名列表
+    <<: *rule_update
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    path: ./ruleset/proxy.yaml
+
+  direct:
+    # 直连域名列表
+    <<: *rule_update
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+    path: ./ruleset/direct.yaml
+
+  private:
+    # 私有网络专用域名列表
+    <<: *rule_update
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+    path: ./ruleset/private.yaml
+
+  gfw:
+    # GFWList 域名列表
+    <<: *rule_update
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+    path: ./ruleset/gfw.yaml
+
+  greatfire:
+    # GreatFire 域名列表
+    <<: *rule_update
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt"
+    path: ./ruleset/greatfire.yaml
+
+  tld-not-cn:
+    # 非中国大陆使用的顶级域名列表
+    <<: *rule_update
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
+    path: ./ruleset/tld-not-cn.yaml
+
+  telegramcidr:
+    # Telegram 使用的 IP 地址列表
+    <<: *rule_update
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.yaml
+
+  cncidr:
+    # 中国大陆 IP 地址列表
+    <<: *rule_update
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    path: ./ruleset/cncidr.yaml
+
+  lancidr:
+    # 局域网 IP 及保留 IP 地址列表
+    <<: *rule_update
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    path: ./ruleset/lancidr.yaml
+
+  applications:
+    # 需要直连的常见软件列表
+    <<: *rule_update
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    path: ./ruleset/applications.yaml
+
+
+rules:
+ # 这些是自定义规则，想要的可以继续加。
+
+ - DOMAIN-SUFFIX,cnki.net,国内地址
+ - DOMAIN-SUFFIX,ieee.org,国内地址
+ - DOMAIN-SUFFIX,acm.org,国内地址
+ - DOMAIN-SUFFIX,imgtu.com,国内地址
+ - DOMAIN-SUFFIX,dpdk.org,国内地址
+ - DOMAIN-SUFFIX,freenom.com,国内地址
+ - DOMAIN-SUFFIX,sciencedirect.com,国内地址
+ - DOMAIN-SUFFIX,springer.com,国内地址
+
+ - RULE-SET,applications,国内地址
+
+ - DOMAIN,clash.razord.top,国内地址
+ - DOMAIN,yacd.haishan.me,国内地址
+
+ # 下面的规则是通过上面的rule-provider来确定的
+ - GEOSITE,category-ads-all,REJECT  # 广告，屏蔽
+ - GEOSITE,geolocation-cn,国内地址
+ - GEOSITE,geolocation-!cn,节点选择
+
+ - RULE-SET,private,国内地址
+ # - RULE-SET,reject,REJECT   # 广告，屏蔽。移除的原因是因为京东之类的加载不出来图片，移除就好了，有时间再查查是因为什么原因
+ - RULE-SET,icloud,国内地址
+ - RULE-SET,apple,国内地址
+ - RULE-SET,google,节点选择
+ - RULE-SET,proxy,节点选择
+ - RULE-SET,direct,国内地址
+ - RULE-SET,lancidr,国内地址
+ - RULE-SET,cncidr,国内地址
+ - RULE-SET,telegramcidr,节点选择
+
+ - GEOIP,private,国内地址
+ - GEOIP,CN,国内地址
+ - GEOIP,!CN,节点选择
+
+ - MATCH,节点选择 # 漏网之鱼
