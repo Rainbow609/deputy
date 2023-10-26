@@ -85,14 +85,26 @@ urltest: &urltest
   url: 'http://www.gstatic.com/generate_204'
   interval: 180
   tolerance: 100
-  <<: *use
+  use:
+  - provider1
+  - provider2
+  - provider3
+  - provider4
+  - provider5
+  - provider6
 
 iobalance: &iobalance
   type: load-balance
   url: 'http://www.gstatic.com/generate_204'
   interval: 300
   strategy: consistent-hashing
-  <<: *use
+  use:
+  - provider1
+  - provider2
+  - provider3
+  - provider4
+  - provider5
+  - provider6
   # strategy:
   #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
   #  round-robin 每访问一个链接，顺序更换节点访问
