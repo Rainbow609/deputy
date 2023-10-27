@@ -8,19 +8,25 @@ dns:
   enable: true
   ipv6: false
   default-nameserver: [114.114.114.114, 223.5.5.5]
-  listen: '0.0.0.0:53'
+  listen: "0.0.0.0:53"
   enhanced-mode: redir-host
   fake-ip-range: 198.18.0.1/16
   use-hosts: true
   # nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
-  nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
-  fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://8.8.4.4:853']
+  nameserver: ["https://doh.pub/dns-query", "https://dns.alidns.com/dns-query"]
+  fallback:
+    [
+      "https://doh.dns.sb/dns-query",
+      "https://dns.cloudflare.com/dns-query",
+      "https://dns.twnic.tw/dns-query",
+      "tls://8.8.4.4:853",
+    ]
   fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 
 # 配置参考 https://wiki.metacubex.one/example/#_2
 
 proxies:
-#此处用来放本地免流配置，本地免流只能免80/443端口的TCP，其他连接（包括所有udp）不行
+  #此处用来放本地免流配置，本地免流只能免80/443端口的TCP，其他连接（包括所有udp）不行
   - name: BaiduProxyX
     type: http
     server: cloudnproxy.baidu.com
@@ -28,15 +34,50 @@ proxies:
     headers:
       X-T5-Auth: "683556433"
       Host: "153.3.236.22:443"
-  - {"name":"baidu-苏州","server":"157.0.148.53","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
-  - {"name":"baidu-南京","server":"153.3.236.22","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
-  - {"name":"baidu-保定1","server":"110.242.70.68","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
-  - {"name":"baidu-保定2","server":"110.242.70.69","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
-  - {"name":"baidu-广州","server":"157.255.78.51","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
-
+  - {
+      "name": "baidu-苏州",
+      "server": "157.0.148.53",
+      "type": "http",
+      "port": 443,
+      "headers": { "Host": "153.3.236.22:443", "X-T5-Auth": 683556433 },
+    }
+  - {
+      "name": "baidu-南京",
+      "server": "153.3.236.22",
+      "type": "http",
+      "port": 443,
+      "headers": { "Host": "153.3.236.22:443", "X-T5-Auth": 683556433 },
+    }
+  - {
+      "name": "baidu-保定1",
+      "server": "110.242.70.68",
+      "type": "http",
+      "port": 443,
+      "headers": { "Host": "153.3.236.22:443", "X-T5-Auth": 683556433 },
+    }
+  - {
+      "name": "baidu-保定2",
+      "server": "110.242.70.69",
+      "type": "http",
+      "port": 443,
+      "headers": { "Host": "153.3.236.22:443", "X-T5-Auth": 683556433 },
+    }
+  - {
+      "name": "baidu-广州",
+      "server": "157.255.78.51",
+      "type": "http",
+      "port": 443,
+      "headers": { "Host": "153.3.236.22:443", "X-T5-Auth": 683556433 },
+    }
 
 # 这里是订阅更新和延迟测试相关的
-p: &p {type: http, interval: 86400, health-check: {enable: true, url: https://www.gstatic.com/generate_204, interval: 300}}
+p: &p
+  type: http
+  interval: 86400
+  health-check:
+    enable: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
 
 # url 里填写自己的订阅,名称不能重复
 proxy-providers:
@@ -52,12 +93,12 @@ proxy-providers:
 
   群主_快游戏:
     <<: *p
-    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fsub2.jie-quick.buzz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D6f51949086b1c27116bb77a5a520d09d&newhost=t7z.cupid.iqiyi.com"
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fzhuan.chisi.link%2Fauto%2F%3Furl%3Dhttps%253A%252F%252Fzhuan.chisi.link%252Fsub%252F%253Fair_url%253Dhttps%25253A%25252F%25252Fsub2.jie-quick.buzz%25252Fapi%25252Fv1%25252Fclient%25252Fsubscribe%25253Ftoken%25253D6f51949086b1c27116bb77a5a520d09d%2526host%253Dm.iqiyi.com&target=clash"
     path: ./proxies/群主_快游戏.yaml
 
   群主_免流骚:
     <<: *p
-    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fsub8.mlsao.top%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D4c981858904603e85fce6c825c4d6e93&newhost=t7z.cupid.iqiyi.com"
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fzhuan.chisi.link%2Fauto%2F%3Furl%3Dhttps%253A%252F%252Fzhuan.chisi.link%252Fsub%252F%253Fair_url%253Dhttps%25253A%25252F%25252Fsub.mlsao.top%25252Fapi%25252Fv1%25252Fclient%25252Fsubscribe%25253Ftoken%25253D4c981858904603e85fce6c825c4d6e93%2526host%253Dm.iqiyi.com&target=clash"
     path: ./proxies/群主_免流骚.yaml
 
   群主_三分:
@@ -93,27 +134,27 @@ proxy-providers:
 # 用于添加上面的订阅
 use: &use
   use:
-  - 群主_星链云
-  - 群主_EF
-  - 群主_快游戏
-  - 群主_免流骚
-  - 群主_三分
-  - 小冰_EF
-  - 小冰_白嫖
-  - 火锅_EF
-  - 火锅_三分
-  - 达达_三分
+    - 群主_星链云
+    - 群主_EF
+    - 群主_快游戏
+    - 群主_免流骚
+    - 群主_三分
+    - 小冰_EF
+    - 小冰_白嫖
+    - 火锅_EF
+    - 火锅_三分
+    - 达达_三分
 
 urltest: &urltest
   type: url-test
-  url: 'http://www.gstatic.com/generate_204'
+  url: "http://www.gstatic.com/generate_204"
   interval: 180
   tolerance: 100
   <<: *use
 
 iobalance: &iobalance
   type: load-balance
-  url: 'http://www.gstatic.com/generate_204'
+  url: "http://www.gstatic.com/generate_204"
   interval: 300
   strategy: consistent-hashing
   <<: *use
@@ -146,9 +187,9 @@ proxy-groups:
   - name: 手动切换
     type: select
     <<: *use
-    exclude-filter: '剩余流量'
+    exclude-filter: "剩余流量"
 
-  - name: 国内地址  # 默认不代理，直连
+  - name: 国内地址 # 默认不代理，直连
     type: select
     proxies:
       - DIRECT
@@ -163,24 +204,24 @@ proxy-groups:
   - name: 剩余流量
     type: select
     <<: *use
-    filter: '剩余流量'
+    filter: "剩余流量"
 
   - name: 国内节点
     type: select
     <<: *use
-    filter: '国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州'
+    filter: "国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州"
 
   - name: 国外节点 urltest
     <<: *urltest
     # 把国内的排除，留下国外节点
-    exclude-filter: '国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州|剩余流量'
+    exclude-filter: "国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州|剩余流量"
 
   - name: 负载均衡
     <<: *iobalance
 
   - name: 故障转移
     type: fallback
-    url: 'http://www.gstatic.com/generate_204'
+    url: "http://www.gstatic.com/generate_204"
     interval: 300
     tolerance: 100
     <<: *use
@@ -188,51 +229,51 @@ proxy-groups:
   # 下面是地区分组
   - name: TW urltest
     <<: *urltest
-    filter: '(?i)台|tw|taiwan'
+    filter: "(?i)台|tw|taiwan"
 
   - name: TW iobalance
     <<: *iobalance
-    filter: '(?i)台|tw|taiwan'
+    filter: "(?i)台|tw|taiwan"
 
   - name: HK urltest
     <<: *urltest
-    filter: '(?i)港|hk|hongkong|hong kong'
+    filter: "(?i)港|hk|hongkong|hong kong"
 
   - name: HK iobalance
     <<: *iobalance
-    filter: '(?i)港|hk|hongkong|hong kong'
+    filter: "(?i)港|hk|hongkong|hong kong"
 
   - name: JP urltest
     <<: *urltest
-    filter: '(?i)日本|jp|japan'
+    filter: "(?i)日本|jp|japan"
 
   - name: JP iobalance
     <<: *iobalance
-    filter: '(?i)日本|jp|japan'
+    filter: "(?i)日本|jp|japan"
 
   - name: SG urltest
     <<: *urltest
-    filter: '(?i)(新|sg|singapore)'
+    filter: "(?i)(新|sg|singapore)"
 
   - name: SG iobalance
     <<: *iobalance
-    filter: '(?i)(新|sg|singapore)'
+    filter: "(?i)(新|sg|singapore)"
 
   - name: US urltest
     <<: *urltest
-    filter: '(?i)美|us|unitedstates|united states'
+    filter: "(?i)美|us|unitedstates|united states"
 
   - name: US iobalance
     <<: *iobalance
-    filter: '(?i)美|us|unitedstates|united states'
+    filter: "(?i)美|us|unitedstates|united states"
 
   - name: Other urltest
     <<: *urltest
-    filter: '(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*'
+    filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
 
   - name: Other iobalance
     <<: *iobalance
-    filter: '(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*'
+    filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"
 
 rule_update: &rule_update
   type: http
@@ -337,42 +378,41 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
     path: ./ruleset/applications.yaml
 
-
 rules:
- # 这些是自定义规则，想要的可以继续加。
+  # 这些是自定义规则，想要的可以继续加。
 
- - DOMAIN-SUFFIX,cnki.net,国内地址
- - DOMAIN-SUFFIX,ieee.org,国内地址
- - DOMAIN-SUFFIX,acm.org,国内地址
- - DOMAIN-SUFFIX,imgtu.com,国内地址
- - DOMAIN-SUFFIX,dpdk.org,国内地址
- - DOMAIN-SUFFIX,freenom.com,国内地址
- - DOMAIN-SUFFIX,sciencedirect.com,国内地址
- - DOMAIN-SUFFIX,springer.com,国内地址
+  - DOMAIN-SUFFIX,cnki.net,国内地址
+  - DOMAIN-SUFFIX,ieee.org,国内地址
+  - DOMAIN-SUFFIX,acm.org,国内地址
+  - DOMAIN-SUFFIX,imgtu.com,国内地址
+  - DOMAIN-SUFFIX,dpdk.org,国内地址
+  - DOMAIN-SUFFIX,freenom.com,国内地址
+  - DOMAIN-SUFFIX,sciencedirect.com,国内地址
+  - DOMAIN-SUFFIX,springer.com,国内地址
 
- - RULE-SET,applications,国内地址
+  - RULE-SET,applications,国内地址
 
- - DOMAIN,clash.razord.top,国内地址
- - DOMAIN,yacd.haishan.me,国内地址
+  - DOMAIN,clash.razord.top,国内地址
+  - DOMAIN,yacd.haishan.me,国内地址
 
- # 下面的规则是通过上面的rule-provider来确定的
- - GEOSITE,category-ads-all,REJECT  # 广告，屏蔽
- - GEOSITE,geolocation-cn,国内地址
- - GEOSITE,geolocation-!cn,节点选择
+  # 下面的规则是通过上面的rule-provider来确定的
+  - GEOSITE,category-ads-all,REJECT # 广告，屏蔽
+  - GEOSITE,geolocation-cn,国内地址
+  - GEOSITE,geolocation-!cn,节点选择
 
- - RULE-SET,private,国内地址
- # - RULE-SET,reject,REJECT   # 广告，屏蔽。移除的原因是因为京东之类的加载不出来图片，移除就好了，有时间再查查是因为什么原因
- - RULE-SET,icloud,国内地址
- - RULE-SET,apple,国内地址
- - RULE-SET,google,节点选择
- - RULE-SET,proxy,节点选择
- - RULE-SET,direct,国内地址
- - RULE-SET,lancidr,国内地址
- - RULE-SET,cncidr,国内地址
- - RULE-SET,telegramcidr,节点选择
+  - RULE-SET,private,国内地址
+  # - RULE-SET,reject,REJECT   # 广告，屏蔽。移除的原因是因为京东之类的加载不出来图片，移除就好了，有时间再查查是因为什么原因
+  - RULE-SET,icloud,国内地址
+  - RULE-SET,apple,国内地址
+  - RULE-SET,google,节点选择
+  - RULE-SET,proxy,节点选择
+  - RULE-SET,direct,国内地址
+  - RULE-SET,lancidr,国内地址
+  - RULE-SET,cncidr,国内地址
+  - RULE-SET,telegramcidr,节点选择
 
- - GEOIP,private,国内地址
- - GEOIP,CN,国内地址
- - GEOIP,!CN,节点选择
+  - GEOIP,private,国内地址
+  - GEOIP,CN,国内地址
+  - GEOIP,!CN,节点选择
 
- - MATCH,节点选择 # 漏网之鱼
+  - MATCH,节点选择 # 漏网之鱼
