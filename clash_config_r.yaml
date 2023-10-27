@@ -40,32 +40,37 @@ p: &p {type: http, interval: 86400, health-check: {enable: true, url: https://ww
 
 # url 里填写自己的订阅,名称不能重复
 proxy-providers:
-  provider1:
+  群主_星链云:
     <<: *p
     url: "https://starlinkcloud.org/api/v1/client/subscribe?token=3244403e59624101e781b9e6b1e954d4"
     path: ./proxies/群主_星链云.yaml
 
-  provider2:
+  群主_EF:
     <<: *p
     url: "https://v1.efshop.cc/api/v1/client/subscribe?token=9d51fb4005748bc6419d07639cb25781"
     path: ./proxies/群主_EF.yaml
 
-  provider3:
+  群主_快游戏:
+    <<: *p
+    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fsub2.jie-quick.buzz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D6f51949086b1c27116bb77a5a520d09d&newhost=t7z.cupid.iqiyi.com"
+    path: ./proxies/群主_快游戏.yaml
+
+  小冰_EF:
     <<: *p
     url: "https://v1.efshop.cc/api/v1/client/subscribe?token=fbfd7afff691851519a1036895689ea0"
     path: ./proxies/小冰_EF.yaml
 
-  provider4:
+  小冰_白嫖:
     <<: *p
     url: "https://sub.白嫖机场.com/api/v1/client/subscribe?token=f8b23722df1e100e0a23f4bdcbcaefb8"
     path: ./proxies/小冰_白嫖.yaml
 
-  provider5:
+  火锅_EF:
     <<: *p
     url: "https://v1.efshop.cc/api/v1/client/subscribe?token=dcde680a8bd36e0bb27de68ee4c208e8"
     path: ./proxies/火锅_EF.yaml
 
-  provider6:
+  火锅_三分:
     <<: *p
     url: "https://sub.sanfen017.xyz/api/v1/client/subscribe?token=1e9b47a85263bbd23ca567903a41f066"
     path: ./proxies/火锅_三分.yaml
@@ -73,38 +78,27 @@ proxy-providers:
 # 用于添加上面的订阅
 use: &use
   use:
-  - provider1
-  - provider2
-  - provider3
-  - provider4
-  - provider5
-  - provider6
+  - 群主_星链云
+  - 群主_EF
+  - 小冰_EF
+  - 小冰_白嫖
+  - 火锅_EF
+  - 火锅_三分
+  - 群主_快游戏
 
 urltest: &urltest
   type: url-test
   url: 'http://www.gstatic.com/generate_204'
   interval: 180
   tolerance: 100
-  use:
-  - provider1
-  - provider2
-  - provider3
-  - provider4
-  - provider5
-  - provider6
+  <<: *use
 
 iobalance: &iobalance
   type: load-balance
   url: 'http://www.gstatic.com/generate_204'
   interval: 300
   strategy: consistent-hashing
-  use:
-  - provider1
-  - provider2
-  - provider3
-  - provider4
-  - provider5
-  - provider6
+  <<: *use
   # strategy:
   #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
   #  round-robin 每访问一个链接，顺序更换节点访问
@@ -117,18 +111,18 @@ proxy-groups:
       - 手动切换
       - 故障转移
       - 负载均衡
-      - CN 台湾 urltest
-      - CN 台湾 iobalance
-      - HK 香港 urltest
-      - HK 香港 iobalance
-      - JP 日本 urltest
-      - JP 日本 iobalance
-      - SG 新加坡 urltest
-      - SG 新加坡 iobalance
-      - US 美国 urltest
-      - US 美国 iobalance
-      - 其它地区 urltest
-      - 其它地区 iobalance
+      - TW urltest
+      - TW iobalance
+      - HK urltest
+      - HK iobalance
+      - JP urltest
+      - JP iobalance
+      - SG urltest
+      - SG iobalance
+      - US urltest
+      - US iobalance
+      - Other urltest
+      - Other iobalance
       - DIRECT
 
   - name: 手动切换
@@ -174,51 +168,51 @@ proxy-groups:
     <<: *use
 
   # 下面是地区分组
-  - name: CN 台湾 urltest
+  - name: TW urltest
     <<: *urltest
     filter: '(?i)台|tw|taiwan'
 
-  - name: CN 台湾 iobalance
+  - name: TW iobalance
     <<: *iobalance
     filter: '(?i)台|tw|taiwan'
 
-  - name: HK 香港 urltest
+  - name: HK urltest
     <<: *urltest
     filter: '(?i)港|hk|hongkong|hong kong'
 
-  - name: HK 香港 iobalance
+  - name: HK iobalance
     <<: *iobalance
     filter: '(?i)港|hk|hongkong|hong kong'
 
-  - name: JP 日本 urltest
+  - name: JP urltest
     <<: *urltest
     filter: '(?i)日本|jp|japan'
 
-  - name: JP 日本 iobalance
+  - name: JP iobalance
     <<: *iobalance
     filter: '(?i)日本|jp|japan'
 
-  - name: SG 新加坡 urltest
+  - name: SG urltest
     <<: *urltest
     filter: '(?i)(新|sg|singapore)'
 
-  - name: SG 新加坡 iobalance
+  - name: SG iobalance
     <<: *iobalance
     filter: '(?i)(新|sg|singapore)'
 
-  - name: US 美国 urltest
+  - name: US urltest
     <<: *urltest
     filter: '(?i)美|us|unitedstates|united states'
 
-  - name: US 美国 iobalance
+  - name: US iobalance
     <<: *iobalance
     filter: '(?i)美|us|unitedstates|united states'
 
-  - name: 其它地区 urltest
+  - name: Other urltest
     <<: *urltest
     filter: '(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*'
 
-  - name: 其它地区 iobalance
+  - name: Other iobalance
     <<: *iobalance
     filter: '(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*'
 
