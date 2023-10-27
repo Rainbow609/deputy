@@ -55,6 +55,11 @@ proxy-providers:
     url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fsub2.jie-quick.buzz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D6f51949086b1c27116bb77a5a520d09d&newhost=t7z.cupid.iqiyi.com"
     path: ./proxies/群主_快游戏.yaml
 
+  群主_免流骚:
+    <<: *p
+    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fsub8.mlsao.top%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D4c981858904603e85fce6c825c4d6e93&newhost=t7z.cupid.iqiyi.com"
+    path: ./proxies/群主_免流骚.yaml
+
   小冰_EF:
     <<: *p
     url: "https://v1.efshop.cc/api/v1/client/subscribe?token=fbfd7afff691851519a1036895689ea0"
@@ -111,6 +116,7 @@ proxy-groups:
       - 手动切换
       - 故障转移
       - 负载均衡
+      - DIRECT
       - TW urltest
       - TW iobalance
       - HK urltest
@@ -123,7 +129,6 @@ proxy-groups:
       - US iobalance
       - Other urltest
       - Other iobalance
-      - DIRECT
 
   - name: 手动切换
     type: select
