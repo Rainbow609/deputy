@@ -85,6 +85,11 @@ proxy-providers:
     url: "https://sub.sanfen017.xyz/api/v1/client/subscribe?token=1e9b47a85263bbd23ca567903a41f066"
     path: ./proxies/火锅_三分.yaml
 
+  达达_三分:
+    <<: *p
+    url: "https://www.efcloud.bio/api/v1/client/subscribe?token=9d51fb4005748bc6419d07639cb25781"
+    path: ./proxies/达达_三分.yaml
+
 # 用于添加上面的订阅
 use: &use
   use:
@@ -97,6 +102,7 @@ use: &use
   - 小冰_白嫖
   - 火锅_EF
   - 火锅_三分
+  - 达达_三分
 
 urltest: &urltest
   type: url-test
