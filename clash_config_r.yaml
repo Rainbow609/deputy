@@ -60,6 +60,11 @@ proxy-providers:
     url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fsub8.mlsao.top%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D4c981858904603e85fce6c825c4d6e93&newhost=t7z.cupid.iqiyi.com"
     path: ./proxies/群主_免流骚.yaml
 
+  群主_三分:
+    <<: *p
+    url: "https://sub.sanfen017.xyz/api/v1/client/subscribe?token=0b73731d54a0e74695ff0429b4dc2870&flag=clash"
+    path: ./proxies/群主_三分.yaml
+
   小冰_EF:
     <<: *p
     url: "https://v1.efshop.cc/api/v1/client/subscribe?token=fbfd7afff691851519a1036895689ea0"
