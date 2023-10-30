@@ -108,27 +108,27 @@ proxy-providers:
 
   小冰_EF:
     <<: *p
-    url: "https://v1.efshop.cc/api/v1/client/subscribe?token=fbfd7afff691851519a1036895689ea0"
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fv1.efshop.cc%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Dfbfd7afff691851519a1036895689ea0&target=clash"
     path: ./proxies/小冰_EF.yaml
 
   小冰_白嫖:
     <<: *p
-    url: "https://sub.白嫖机场.com/api/v1/client/subscribe?token=f8b23722df1e100e0a23f4bdcbcaefb8"
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fsub.%E7%99%BD%E5%AB%96%E6%9C%BA%E5%9C%BA.com%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Df8b23722df1e100e0a23f4bdcbcaefb8&target=clash"
     path: ./proxies/小冰_白嫖.yaml
 
   火锅_EF:
     <<: *p
-    url: "https://v1.efshop.cc/api/v1/client/subscribe?token=dcde680a8bd36e0bb27de68ee4c208e8"
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fv1.efshop.cc%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Ddcde680a8bd36e0bb27de68ee4c208e8&target=clash"
     path: ./proxies/火锅_EF.yaml
 
   火锅_三分:
     <<: *p
-    url: "https://sub.sanfen017.xyz/api/v1/client/subscribe?token=1e9b47a85263bbd23ca567903a41f066"
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fsub.sanfen017.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D1e9b47a85263bbd23ca567903a41f066&target=clash"
     path: ./proxies/火锅_三分.yaml
 
   达达_三分:
     <<: *p
-    url: "https://www.efcloud.bio/api/v1/client/subscribe?token=9d51fb4005748bc6419d07639cb25781"
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fwww.efcloud.bio%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D9d51fb4005748bc6419d07639cb25781&target=clash"
     path: ./proxies/达达_三分.yaml
 
 # 用于添加上面的订阅
