@@ -187,7 +187,7 @@ proxy-groups:
   - name: 手动切换
     type: select
     <<: *use
-    exclude-filter: "剩余流量"
+    exclude-filter: "剩余流量|距离下次重置剩余|套餐到期|官网"
 
   - name: 国内地址 # 默认不代理，直连
     type: select
