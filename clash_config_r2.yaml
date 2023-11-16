@@ -145,6 +145,11 @@ use: &use
     - 火锅_三分
     - 达达_三分
 
+use2: &use2
+  use:
+    - 群主_快游戏
+    - 群主_免流骚
+
 urltest: &urltest
   type: url-test
   url: "http://www.gstatic.com/generate_204"
@@ -170,6 +175,7 @@ proxy-groups:
       - 手动切换
       - 故障转移
       - 负载均衡
+      - 国外免流
       - DIRECT
       - TW urltest
       - TW lobalance
@@ -225,6 +231,12 @@ proxy-groups:
     interval: 300
     tolerance: 100
     <<: *use
+
+  # 免流分组
+  - name: 国外免流
+    type: select
+    <<: *use2
+    exclude-filter: "国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州|剩余流量|距离下次重置剩余|套餐到期|官网"
 
   # 下面是地区分组
   - name: TW urltest
