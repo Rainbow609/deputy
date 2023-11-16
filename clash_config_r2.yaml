@@ -93,12 +93,12 @@ proxy-providers:
 
   群主_快游戏:
     <<: *p
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fzhuan.chisi.link%2Fauto%2F%3Furl%3Dhttps%253A%252F%252Fzhuan.chisi.link%252Fsub%252F%253Fair_url%253Dhttps%25253A%25252F%25252Fsub2.jie-quick.buzz%25252Fapi%25252Fv1%25252Fclient%25252Fsubscribe%25253Ftoken%25253D6f51949086b1c27116bb77a5a520d09d%2526host%253Dm.iqiyi.com&target=clash"
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fapi.orangeapi.org%2Fsub%3Fsuburl%3Dhttps%253A%252F%252Fsub2.jie-quick.buzz%252Fapi%252Fv1%252Fclient%252Fsubscribe%253Ftoken%253D6f51949086b1c27116bb77a5a520d09d%26newhost%3Dm.iqiyi.com&target=clash"
     path: ./proxies/群主_快游戏.yaml
 
   群主_免流骚:
     <<: *p
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fzhuan.chisi.link%2Fauto%2F%3Furl%3Dhttps%253A%252F%252Fzhuan.chisi.link%252Fsub%252F%253Fair_url%253Dhttps%25253A%25252F%25252Fsub.mlsao.top%25252Fapi%25252Fv1%25252Fclient%25252Fsubscribe%25253Ftoken%25253D4c981858904603e85fce6c825c4d6e93%2526host%253Dm.iqiyi.com&target=clash"
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fapi.orangeapi.org%2Fsub%3Fsuburl%3Dhttps%253A%252F%252Fsub.mlsao.top%252Fapi%252Fv1%252Fclient%252Fsubscribe%253Ftoken%253D4c981858904603e85fce6c825c4d6e93%26newhost%3Dm.iqiyi.com&target=clash"
     path: ./proxies/群主_免流骚.yaml
 
   群主_三分:
