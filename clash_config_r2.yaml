@@ -295,10 +295,13 @@ geox-url:
   # geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
   # geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
   # mmdb: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+  # geoip: "https://raw.gitmirror.com/MetaCubeX/meta-rules-dat/release/geoip.dat"
+  # geosite: "https://raw.gitmirror.com/MetaCubeX/meta-rules-dat/release/geosite.dat"
+  # mmdb: "https://raw.gitmirror.com/MetaCubeX/meta-rules-dat/release/country.mmdb"
   geoip: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
   geosite: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
   mmdb: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
-
+  
 rule_update: &rule_update
   type: http
   interval: 86400
