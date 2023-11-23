@@ -93,7 +93,8 @@ proxy-providers:
 
   群主_快游戏:
     <<: *p
-    url: "https://api.orangeapi.org/sub?suburl=https://sub2.jie-quick.buzz/api/v1/client/subscribe?token=6f51949086b1c27116bb77a5a520d09d&newhost=m.iqiyi.com"
+    # url: "https://api.orangeapi.org/sub?suburl=https://sub2.jie-quick.buzz/api/v1/client/subscribe?token=6f51949086b1c27116bb77a5a520d09d&newhost=m.iqiyi.com"
+    url: "https://sub2.jie-quick.buzz/api/v1/client/subscribe?token=6f51949086b1c27116bb77a5a520d09d&sethost=m.iqiyi.com"
     path: ./proxies/群主_快游戏.yaml
 
   群主_免流骚:
