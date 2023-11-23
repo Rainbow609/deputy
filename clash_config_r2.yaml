@@ -99,7 +99,7 @@ proxy-providers:
 
   群主_免流骚:
     <<: *p
-    url: "https://api.orangeapi.org/sub?suburl=https://sub.mlsao.top/api/v1/client/subscribe?token=4c981858904603e85fce6c825c4d6e93&newhost=m.iqiyi.com"
+    url: "https://sub.mlsao.top/api/v1/client/subscribe?token=4c981858904603e85fce6c825c4d6e93&sethost=m.iqiyi.com"
     path: ./proxies/群主_免流骚.yaml
 
   群主_三分:
