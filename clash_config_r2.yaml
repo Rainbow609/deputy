@@ -99,12 +99,17 @@ proxy-providers:
 
   群主_免流骚:
     <<: *p
-    url: "https://sub.mlsao.top/api/v1/client/subscribe?token=4c981858904603e85fce6c825c4d6e93&sethost=m.iqiyi.com"
+    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fsub.mlsao.top%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D4c981858904603e85fce6c825c4d6e93&newhost=m.iqiyi.com"
     path: ./proxies/群主_免流骚.yaml
 
   群主_三分:
     <<: *p
     url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fsub.sanfen017.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D0b73731d54a0e74695ff0429b4dc2870&target=clash"
+    path: ./proxies/群主_三分.yaml
+
+  群主_三分_免流:
+    <<: *p
+    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fsub.sanfen017.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D0b73731d54a0e74695ff0429b4dc2870&newhost=m.iqiyi.com"
     path: ./proxies/群主_三分.yaml
 
   小冰_EF:
@@ -150,6 +155,7 @@ use2: &use2
   use:
     - 群主_快游戏
     - 群主_免流骚
+    - 群主_三分_免流
 
 urltest: &urltest
   type: url-test
