@@ -5,7 +5,7 @@ mode: Rule
 log-level: info
 external-controller: :9090
 dns:
-  enable: false
+  enable: true
   ipv6: false
   default-nameserver: [114.114.114.114, 223.5.5.5]
   listen: "0.0.0.0:53"
@@ -24,6 +24,9 @@ dns:
   fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 
 # 配置参考 https://wiki.metacubex.one/example/#_2
+
+hosts:
+  'appupdate.189.cn': '127.0.0.1'
 
 proxies:
   #此处用来放本地免流配置，本地免流只能免80/443端口的TCP，其他连接（包括所有udp）不行
