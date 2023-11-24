@@ -25,6 +25,7 @@ dns:
 
 # 配置参考 https://wiki.metacubex.one/example/#_2
 
+# 用于DNS服务器和连接建立的静态主机 (如/etc/hosts) .
 hosts:
   'appupdate.189.cn': '127.0.0.1'
 
