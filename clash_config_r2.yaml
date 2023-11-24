@@ -429,7 +429,7 @@ rules:
   - GEOSITE,geolocation-cn,国内地址
   - GEOSITE,geolocation-!cn,节点选择
 
-  - DOMAIN,appupdate.189.cn,REJECT  # 屏蔽电信营业厅的更新
+  - DOMAIN-SUFFIX,appupdate.189.cn,REJECT  # 屏蔽电信营业厅的更新
 
   - RULE-SET,private,国内地址
   # - RULE-SET,reject,REJECT  # 若有加载不出来的情况则删除这个
