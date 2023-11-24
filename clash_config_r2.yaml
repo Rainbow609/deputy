@@ -122,11 +122,6 @@ proxy-providers:
     url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fsub.%E7%99%BD%E5%AB%96%E6%9C%BA%E5%9C%BA.com%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Df8b23722df1e100e0a23f4bdcbcaefb8&target=clash"
     path: ./proxies/小冰_白嫖.yaml
 
-  火锅_EF:
-    <<: *p
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fv1.efshop.cc%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Ddcde680a8bd36e0bb27de68ee4c208e8&target=clash"
-    path: ./proxies/火锅_EF.yaml
-
   火锅_三分:
     <<: *p
     url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fsub.sanfen017.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D1e9b47a85263bbd23ca567903a41f066&target=clash"
@@ -147,7 +142,6 @@ use: &use
     - 群主_免流骚
     - 小冰_EF
     - 小冰_白嫖
-    - 火锅_EF
     - 火锅_三分
     - 达达_三分
 
@@ -435,8 +429,10 @@ rules:
   - GEOSITE,geolocation-cn,国内地址
   - GEOSITE,geolocation-!cn,节点选择
 
+  - DOMAIN,appupdate.189.cn,REJECT  # 屏蔽电信营业厅的更新
+
   - RULE-SET,private,国内地址
-  - RULE-SET,reject,REJECT
+  # - RULE-SET,reject,REJECT  # 若有加载不出来的情况则删除这个
   # 广告，屏蔽。移除原因是因为免流下京东加载不出来图片，针对大部分广告已有 GEO 屏蔽
   - RULE-SET,icloud,国内地址
   - RULE-SET,apple,国内地址
