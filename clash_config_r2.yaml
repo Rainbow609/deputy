@@ -67,8 +67,8 @@ proxies:
       "headers": { "Host": "153.3.236.22:443", "X-T5-Auth": 683556433 },
     }
   - {
-      "name": "baidu-广州",
-      "server": "157.255.78.51",
+      "name": "baidu-深圳",
+      "server": "14.215.182.75",
       "type": "http",
       "port": 443,
       "headers": { "Host": "153.3.236.22:443", "X-T5-Auth": 683556433 },
