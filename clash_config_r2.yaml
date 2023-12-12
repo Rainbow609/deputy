@@ -209,7 +209,7 @@ proxy-groups:
       - baidu-南京
       - baidu-保定1
       - baidu-保定2
-      - baidu-广州
+      - baidu-深圳
       - 国内免流
 
   - name: 剩余流量
