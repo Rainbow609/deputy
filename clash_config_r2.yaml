@@ -29,50 +29,39 @@ dns:
 hosts:
   'appupdate.189.cn': '127.0.0.1'
 
+# > 百度
+baidu: &baidu
+  type: http
+  port: 443
+  headers:
+    X-T5-Auth: "683556433"
+    Host: 153.3.236.22:443
+    User-Agent:
+      "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 13; 2210132C Build/TKQ1.220905.001)
+      baiduboxapp/11.0.5.12 (Baidu; P1 11)"
+
 proxies:
   #此处用来放本地免流配置，本地免流只能免80/443端口的TCP，其他连接（包括所有udp）不行
-  - name: BaiduProxyX
-    type: http
+  - name: "🇨🇳北京电信"
+    server: 220.181.111.189
+    <<: *baidu
+  - name: "🇨🇳苏州电信"
+    server: 180.97.93.202
+    <<: *baidu
+  - name: "🇨🇳广州电信"
+    server: 14.215.179.244
+    <<: *baidu
+  - name: "🇨🇳南京电信"
+    server: 180.97.104.168
+    <<: *baidu
+  - name: "BaiduProxyX"
     server: cloudnproxy.baidu.com
-    port: 443
-    headers:
-      X-T5-Auth: "683556433"
-      Host: "153.3.236.22:443"
-  - {
-      "name": "baidu-苏州",
-      "server": "157.0.148.53",
-      "type": "http",
-      "port": 443,
-      "headers": { "Host": "153.3.236.22:443", "X-T5-Auth": 683556433 },
-    }
-  - {
-      "name": "baidu-南京",
-      "server": "153.3.236.22",
-      "type": "http",
-      "port": 443,
-      "headers": { "Host": "153.3.236.22:443", "X-T5-Auth": 683556433 },
-    }
-  - {
-      "name": "baidu-保定1",
-      "server": "110.242.70.68",
-      "type": "http",
-      "port": 443,
-      "headers": { "Host": "153.3.236.22:443", "X-T5-Auth": 683556433 },
-    }
-  - {
-      "name": "baidu-保定2",
-      "server": "110.242.70.69",
-      "type": "http",
-      "port": 443,
-      "headers": { "Host": "153.3.236.22:443", "X-T5-Auth": 683556433 },
-    }
-  - {
-      "name": "baidu-深圳",
-      "server": "14.215.182.75",
-      "type": "http",
-      "port": 443,
-      "headers": { "Host": "153.3.236.22:443", "X-T5-Auth": 683556433 },
-    }
+    <<: *baidu
+  - {"name":"baidu-苏州","server":"157.0.148.53","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"baidu-南京","server":"153.3.236.22","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"baidu-保定1","server":"110.242.70.68","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"baidu-保定2","server":"110.242.70.69","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
+  - {"name":"baidu-深圳","server":"14.215.182.75","type":"http","port":443,"headers":{"Host":"153.3.236.22:443","X-T5-Auth":683556433}}
 
 # 这里是订阅更新和延迟测试相关的
 p: &p
@@ -210,6 +199,10 @@ proxy-groups:
       - baidu-保定1
       - baidu-保定2
       - baidu-广州
+      - 🇨🇳北京电信
+      - 🇨🇳苏州电信
+      - 🇨🇳广州电信
+      - 🇨🇳南京电信
       - 国内免流
 
   - name: 剩余流量
