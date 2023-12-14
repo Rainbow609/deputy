@@ -132,6 +132,12 @@ proxy-providers:
     url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fanaer%2FSub%40main%2Fclash.yaml&target=clash"
     path: ./proxies/共享_anaer.yaml
 
+  共享_ermaozi:
+  # 來自 https://github.com/ermaozi/get_subscribe
+    <<: *p
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fgit.io%2Femzclash&target=clash"
+    path: ./proxies/共享_ermaozi.yaml
+
 
 # 用于添加上面的订阅
 use: &use
@@ -146,6 +152,7 @@ use: &use
     - 火锅_三分
     - 达达_三分
     - 共享_anaer
+    - 共享_ermaozi
 
 use2: &use2
   use:
