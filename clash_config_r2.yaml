@@ -407,6 +407,10 @@ rule-providers:
 rules:
   # 这些是自定义规则，想要的可以继续加。
 
+  # 解决谷歌浏览器不能下载的问题
+  - DOMAIN-SUFFIX,googleapis.cn,节点选择
+  - DOMAIN-SUFFIX,services.googleapis.cn,节点选择
+
   - DOMAIN-SUFFIX,cnki.net,国内地址
   - DOMAIN-SUFFIX,ieee.org,国内地址
   - DOMAIN-SUFFIX,acm.org,国内地址
