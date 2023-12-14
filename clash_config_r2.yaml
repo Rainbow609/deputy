@@ -23,6 +23,7 @@ dns:
     ]
   fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 
+# 源地址 https://raw.githubusercontent.com/Rainbow609/deputy/main/clash_config_r2.yaml
 # 配置参考 https://wiki.metacubex.one/example/#_2
 
 # 用于DNS服务器和连接建立的静态主机 (如/etc/hosts) .
@@ -125,6 +126,13 @@ proxy-providers:
     url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fwww.efcloud.bio%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D9d51fb4005748bc6419d07639cb25781&target=clash"
     path: ./proxies/达达_三分.yaml
 
+  共享_anaer:
+  # 來自 https://github.com/anaer/Sub
+    <<: *p
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fanaer%2FSub%40main%2Fclash.yaml&target=clash"
+    path: ./proxies/共享_anaer.yaml
+
+
 # 用于添加上面的订阅
 use: &use
   use:
@@ -137,6 +145,7 @@ use: &use
     - 小冰_白嫖
     - 火锅_三分
     - 达达_三分
+    - 共享_anaer
 
 use2: &use2
   use:
