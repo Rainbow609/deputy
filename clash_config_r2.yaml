@@ -407,11 +407,6 @@ rule-providers:
 rules:
   # 这些是自定义规则，想要的可以继续加。
 
-  # 解决谷歌商店不能下载的问题
-  # - DOMAIN-SUFFIX,googleapis.cn,节点选择
-  # - DOMAIN-SUFFIX,services.googleapis.cn,节点选择
-  - RULE-SET,gfw,节点选择
-
   - DOMAIN-SUFFIX,cnki.net,国内地址
   - DOMAIN-SUFFIX,ieee.org,国内地址
   - DOMAIN-SUFFIX,acm.org,国内地址
@@ -421,29 +416,35 @@ rules:
   - DOMAIN-SUFFIX,sciencedirect.com,国内地址
   - DOMAIN-SUFFIX,springer.com,国内地址
 
-  - RULE-SET,applications,国内地址
-
+  # 面板，不需要代理
   - DOMAIN,clash.razord.top,国内地址
   - DOMAIN,yacd.haishan.me,国内地址
 
   # 下面的规则是通过上面的rule-provider来确定的
-  - GEOSITE,category-ads-all,REJECT # 广告，屏蔽
+  # - GEOSITE,category-ads-all,REJECT # 广告，屏蔽
   - GEOSITE,geolocation-cn,国内地址
   - GEOSITE,geolocation-!cn,节点选择
 
   # - DOMAIN-SUFFIX,appupdate.189.cn,REJECT  # 屏蔽电信营业厅的更新
 
-  - RULE-SET,private,国内地址
   # - RULE-SET,reject,REJECT  # 若有加载不出来的情况则删除这个
   # 广告，屏蔽。移除原因是因为免流下京东加载不出来图片，针对大部分广告已有 GEO 屏蔽
+
+  # 国外地址
+  - RULE-SET,telegramcidr,节点选择
+  - RULE-SET,google,节点选择
+  - RULE-SET,gfw,节点选择  # 解决谷歌商店不能下载的问题 https://github.com/Loyalsoldier/clash-rules/issues/131
+  - RULE-SET,proxy,节点选择
+  - RULE-SET,tld-not-cn,节点选择
+
+  # 国内地址
   - RULE-SET,icloud,国内地址
   - RULE-SET,apple,国内地址
-  - RULE-SET,google,节点选择
-  - RULE-SET,proxy,节点选择
-  - RULE-SET,direct,国内地址
-  - RULE-SET,lancidr,国内地址
+  - RULE-SET,applications,国内地址
   - RULE-SET,cncidr,国内地址
-  - RULE-SET,telegramcidr,节点选择
+  - RULE-SET,direct,国内地址
+  - RULE-SET,private,国内地址
+  - RULE-SET,lancidr,国内地址
 
   - GEOIP,private,国内地址
   - GEOIP,CN,国内地址
