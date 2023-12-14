@@ -12,7 +12,6 @@ dns:
   enhanced-mode: redir-host
   fake-ip-range: 198.18.0.1/16
   use-hosts: true
-  # nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
   nameserver: ["https://doh.pub/dns-query", "https://dns.alidns.com/dns-query"]
   fallback:
     [
@@ -30,7 +29,7 @@ dns:
 hosts:
   'appupdate.189.cn': '127.0.0.1'
 
-# > 百度
+# 免流百度直连
 baidu: &baidu
   type: http
   port: 443
@@ -87,7 +86,7 @@ proxy-providers:
 
   群主_快游戏:
     <<: *p
-    # url: "https://api.orangeapi.org/sub?suburl=https://sub2.jie-quick.buzz/api/v1/client/subscribe?token=6f51949086b1c27116bb77a5a520d09d&newhost=m.iqiyi.com"
+    # url: "https://sub2.jie-quick.buzz/api/v1/client/subscribe?token=6f51949086b1c27116bb77a5a520d09d&host=m.iqiyi.com"
     url: "https://sub2.jie-quick.buzz/api/v1/client/subscribe?token=6f51949086b1c27116bb77a5a520d09d&sethost=m.iqiyi.com"
     path: ./proxies/群主_快游戏.yaml
 
@@ -139,7 +138,7 @@ proxy-providers:
     path: ./proxies/共享_ermaozi.yaml
 
 
-# 用于添加上面的订阅
+# 用于普通的订阅
 use: &use
   use:
     - 群主_三分
@@ -154,6 +153,7 @@ use: &use
     - 共享_anaer
     - 共享_ermaozi
 
+# 用于免流订阅
 use2: &use2
   use:
     - 群主_快游戏
@@ -162,14 +162,15 @@ use2: &use2
 
 urltest: &urltest
   type: url-test
-  url: "http://www.gstatic.com/generate_204"
+  # url: "http://www.gstatic.com/generate_204"
+  url: "http://www.apple.com/library/test/success.html"  # 替换成苹果的测速
   interval: 180
   tolerance: 100
   <<: *use
 
 lobalance: &lobalance
   type: load-balance
-  url: "http://www.gstatic.com/generate_204"
+  url: "http://www.apple.com/library/test/success.html"
   interval: 300
   strategy: consistent-hashing
   <<: *use
@@ -177,6 +178,7 @@ lobalance: &lobalance
   #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
   #  round-robin 每访问一个链接，顺序更换节点访问
 
+# 节点组
 proxy-groups:
   - name: 节点选择
     type: select
@@ -236,7 +238,7 @@ proxy-groups:
 
   - name: 故障转移
     type: fallback
-    url: "http://www.gstatic.com/generate_204"
+    url: "http://www.apple.com/library/test/success.html"
     interval: 300
     tolerance: 100
     <<: *use
