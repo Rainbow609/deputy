@@ -1,0 +1,53 @@
+http-port: 7890
+socks-port: 7891
+redir-port: 7892
+tproxy-port: 7893
+allow-lan: true
+geodata-mode: true
+unified-delay: true
+mode: rule
+log-level: info
+ipv6: true
+tcp-concurrent: true
+geo-auto-update: true
+geo-update-interval: 24
+geox-url:
+  geoip: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/geoip.dat"
+  geosite: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
+  mmdb: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/Country.mmdb"
+find-process-mode: strict
+global-client-fingerprint: chrome
+
+sniffer:
+  enable: true
+  sniffing:
+    - tls
+    - http
+
+profile:
+  store-fake-ip: true
+  store-selected: true
+
+external-controller: 127.0.0.1:9090
+external-ui: yacd
+
+tun:
+  enable: false
+  device: Meta
+  stack: system #system or gvisor
+  dns-hijack:
+    - any:53
+  # auto-route: true
+  # auto-detect-interface: true
+
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  nameserver-policy:
+    "geosite:cn,geoip:cn,private":
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+  nameserver:
+    - tls://8.8.4.4
+    - https://1.0.0.1/dns-query
+
