@@ -125,11 +125,11 @@ proxy-providers:
     url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fwww.efcloud.bio%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D9d51fb4005748bc6419d07639cb25781&target=clash"
     path: ./proxies/达达_三分.yaml
 
-  共享_anaer:
-  # 來自 https://github.com/anaer/Sub
-    <<: *p
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fanaer%2FSub%40main%2Fclash.yaml&target=clash"
-    path: ./proxies/共享_anaer.yaml
+  # 共享_anaer:
+  # # 來自 https://github.com/anaer/Sub
+  #   <<: *p
+  #   url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fanaer%2FSub%40main%2Fclash.yaml&target=clash"
+  #   path: ./proxies/共享_anaer.yaml
 
   共享_ermaozi:
   # 來自 https://github.com/ermaozi/get_subscribe
@@ -150,7 +150,7 @@ use: &use
     - 小冰_白嫖
     - 火锅_三分
     - 达达_三分
-    - 共享_anaer
+    # - 共享_anaer
     - 共享_ermaozi
 
 # 用于免流订阅
