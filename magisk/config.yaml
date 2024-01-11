@@ -334,7 +334,20 @@ rules:
   - RULE-SET,秋风广告规则,REJECT
   - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT
 
+
   # 国内地址
+  - DOMAIN-SUFFIX,cnki.net,国内地址
+  - DOMAIN-SUFFIX,ieee.org,国内地址
+  - DOMAIN-SUFFIX,acm.org,国内地址
+  - DOMAIN-SUFFIX,imgtu.com,国内地址
+  - DOMAIN-SUFFIX,dpdk.org,国内地址
+  - DOMAIN-SUFFIX,freenom.com,国内地址
+  - DOMAIN-SUFFIX,sciencedirect.com,国内地址
+  - DOMAIN-SUFFIX,springer.com,国内地址
+
+  - DOMAIN,clash.razord.top,国内地址
+  - DOMAIN,yacd.haishan.me,国内地址
+
   - GEOSITE,geolocation-cn,国内地址
   - RULE-SET,icloud,国内地址
   - RULE-SET,apple,国内地址
@@ -345,6 +358,7 @@ rules:
   - RULE-SET,lancidr,国内地址
   - GEOIP,private,国内地址
   - GEOIP,CN,国内地址
+
 
   # 国外地址
   - GEOIP,!CN,代理设置
