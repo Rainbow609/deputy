@@ -325,12 +325,11 @@ rule_update: &rule_update
 
 rule-providers:
   秋风广告规则:
-    type: http
+    <<: *rule_update
     behavior: domain
     format: yaml
     path: ./ruleset/AWAvenue-Ads-Rule-Clash.yaml
     url: "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.yaml"
-    interval: 60480
 
   reject:
     # 广告域名列表
