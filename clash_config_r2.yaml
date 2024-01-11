@@ -324,6 +324,14 @@ rule_update: &rule_update
   interval: 86400
 
 rule-providers:
+  秋风广告规则:
+    type: http
+    behavior: domain
+    format: yaml
+    path: ./ruleset/AWAvenue-Ads-Rule-Clash.yaml
+    url: "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.yaml"
+    interval: 60480
+
   reject:
     # 广告域名列表
     <<: *rule_update
@@ -424,6 +432,10 @@ rule-providers:
 
 rules:
   # 这些是自定义规则，想要的可以继续加。
+  
+  # 去广告
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT # 禁用quic(不包括国内)
+  - RULE-SET,秋风广告规则,REJECT
 
   - DOMAIN-SUFFIX,cnki.net,国内地址
   - DOMAIN-SUFFIX,ieee.org,国内地址
