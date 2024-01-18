@@ -348,7 +348,8 @@ rules:
   - DOMAIN,clash.razord.top,国内地址
   - DOMAIN,yacd.haishan.me,国内地址
 
-  - GEOSITE,geolocation-cn,国内地址
+  
+  # - GEOSITE,geolocation-cn,国内地址
   - RULE-SET,icloud,国内地址
   - RULE-SET,apple,国内地址
   - RULE-SET,applications,国内地址
@@ -358,10 +359,11 @@ rules:
   - RULE-SET,lancidr,国内地址
   - GEOIP,private,国内地址
   - GEOIP,CN,国内地址
+  - GEOSITE,cn,国内地址
 
 
   # 国外地址
-  - GEOIP,!CN,代理设置
+  # - GEOIP,!CN,代理设置
   # - GEOSITE,cn,国内地址
   # - GEOIP,CN,国内地址
   - MATCH,代理设置
