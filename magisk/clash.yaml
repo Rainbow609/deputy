@@ -51,3 +51,7 @@ dns:
     - tls://8.8.4.4
     - https://1.0.0.1/dns-query
 
+# 用于DNS服务器和连接建立的静态主机 (如/etc/hosts) .
+hosts:
+  'appupdate.189.cn': '127.0.0.1'
+
