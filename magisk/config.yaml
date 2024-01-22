@@ -84,7 +84,7 @@ use: &use
 
 
 # 代理提供(订阅)组
-#添加/修改机场(名)请保证proxy-providers名称和proxy-groups同步添加/修改
+# 添加/修改机场(名)请保证 proxy-providers 名称和 proxy-groups 同步添加/修改
 proxy-providers:
   群主_星链云:
     <<: *p
@@ -197,10 +197,20 @@ proxy-groups:
       - 🇨🇳广州电信
       - 🇨🇳南京电信
 
-
   - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong"}
-
   - {name: HK lobalance, <<: *lobalance, filter: "(?i)港|hk|hongkong|hong kong"}
+
+  - {name: TW urltest, <<: *urltest, filter: "(?i)台|tw|taiwan"}
+  - {name: TW lobalance, <<: *lobalance, filter: "(?i)台|tw|taiwan"}
+
+  - {name: JP urltest, <<: *urltest, filter: "(?i)日本|jp|japan"}
+  - {name: JP lobalance, <<: *lobalance, filter: "(?i)日本|jp|japan"}
+
+  - {name: SG urltest, <<: *urltest, filter: "(?i)(新|sg|singapore)"}
+  - {name: SG lobalance, <<: *lobalance, filter: "(?i)(新|sg|singapore)"}
+
+  - {name: US urltest, <<: *urltest, filter: "(?i)美|us|unitedstates|united states"}
+  - {name: US lobalance, <<: *lobalance, filter: "(?i)美|us|unitedstates|united states"}
 
   - {name: 香港, <<: *use, filter: "(?i)港|hk|hongkong|hong kong"}
 
@@ -225,7 +235,7 @@ rule_update: &rule_update
 
 # 分流规则提供(订阅)组
 rule-providers:
-# 秋风广告规则Clash版本
+# 秋风广告规则 Clash 版本
 # Github：https://github.com/TG-Twilight/AWAvenue-Ads-Rule
 # 此为域名拦截规则，请根据实际情况，自行设置为REJECT/广告拦截之类的分组。
   秋风广告规则:
