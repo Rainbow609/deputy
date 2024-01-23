@@ -2,6 +2,7 @@
 proxies:
   # clashMeta配置参考可以看看这个wiki
   # https://docs.metacubex.one/
+  # https://wiki.metacubex.one/
   # https://clash-meta.wiki
 
   - name: "🇨🇳北京电信"
@@ -232,10 +233,13 @@ proxy-groups:
 
   - {name: 其它地区, <<: *use, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
   
-  - name: 直连
-    type: select
-    proxies: 
-      - DIRECT
+  # - name: 直连
+  #   type: select
+  #   upd: true
+  #   proxies: 
+  #     - DIRECT
+
+  - {name: 直连, type: select, upd: true,proxies: [DIRECT]}
       
 rule_update: &rule_update
   type: http
