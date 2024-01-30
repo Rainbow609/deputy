@@ -243,7 +243,7 @@ proxy-groups:
       
 rule_update: &rule_update
   type: http
-  interval: 86400
+  interval: 36000
 
 # 分流规则提供(订阅)组
 rule-providers:
@@ -251,103 +251,102 @@ rule-providers:
 # Github：https://github.com/TG-Twilight/AWAvenue-Ads-Rule
 # 此为域名拦截规则，请根据实际情况，自行设置为REJECT/广告拦截之类的分组。
   秋风广告规则:
-    type: http
+    <<: *rule_update
     behavior: domain
     format: yaml
     path: ./rule_providers/AWAvenue-Ads-Rule-Clash.yaml
     url: "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.yaml"
-    interval: 60480
 
   icloud:
     # iCloud 域名列表
     <<: *rule_update
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
-    path: ./ruleset/icloud.yaml
+    path: ./rule_providers/icloud.yaml
 
   apple:
     # Apple 在中国大陆可直连的域名列表
     <<: *rule_update
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
-    path: ./ruleset/apple.yaml
+    path: ./rule_providers/apple.yaml
 
   google:
     # [慎用]Google 在中国大陆可直连的域名列表
     <<: *rule_update
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
-    path: ./ruleset/google.yaml
+    path: ./rule_providers/google.yaml
 
   proxy:
     # 代理域名列表
     <<: *rule_update
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
-    path: ./ruleset/proxy.yaml
+    path: ./rule_providers/proxy.yaml
 
   direct:
     # 直连域名列表
     <<: *rule_update
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
-    path: ./ruleset/direct.yaml
+    path: ./rule_providers/direct.yaml
 
   private:
     # 私有网络专用域名列表
     <<: *rule_update
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
-    path: ./ruleset/private.yaml
+    path: ./rule_providers/private.yaml
 
   gfw:
     # GFWList 域名列表
     <<: *rule_update
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
-    path: ./ruleset/gfw.yaml
+    path: ./rule_providers/gfw.yaml
 
   greatfire:
     # GreatFire 域名列表
     <<: *rule_update
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt"
-    path: ./ruleset/greatfire.yaml
+    path: ./rule_providers/greatfire.yaml
 
   tld-not-cn:
     # 非中国大陆使用的顶级域名列表
     <<: *rule_update
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
-    path: ./ruleset/tld-not-cn.yaml
+    path: ./rule_providers/tld-not-cn.yaml
 
   telegramcidr:
     # Telegram 使用的 IP 地址列表
     <<: *rule_update
     behavior: ipcidr
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
-    path: ./ruleset/telegramcidr.yaml
+    path: ./rule_providers/telegramcidr.yaml
 
   cncidr:
     # 中国大陆 IP 地址列表
     <<: *rule_update
     behavior: ipcidr
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
-    path: ./ruleset/cncidr.yaml
+    path: ./rule_providers/cncidr.yaml
 
   lancidr:
     # 局域网 IP 及保留 IP 地址列表
     <<: *rule_update
     behavior: ipcidr
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
-    path: ./ruleset/lancidr.yaml
+    path: ./rule_providers/lancidr.yaml
 
   applications:
     # 需要直连的常见软件列表
     <<: *rule_update
     behavior: classical
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
-    path: ./ruleset/applications.yaml
+    path: ./rule_providers/applications.yaml
 
 # 分流规则
 rules:
