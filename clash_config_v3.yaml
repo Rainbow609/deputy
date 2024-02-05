@@ -191,7 +191,7 @@ lobalance: &lobalance
 
 # 节点组
 proxy-groups:
-  - name: 节点选择
+  - name: 代理设置
     type: select
     proxies:
       - HK urltest
