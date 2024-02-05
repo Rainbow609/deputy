@@ -195,16 +195,28 @@ proxy-groups:
     type: select
     proxies:
       - HK urltest
+      - HK fallback
+      - HK select
       - HK lobalance
       - TW urltest
+      - TW fallback
+      - TW select
       - TW lobalance
       - JP urltest
+      - JP fallback
+      - JP select
       - JP lobalance
       - SG urltest
+      - SG fallback
+      - SG select
       - SG lobalance
       - US urltest
+      - US fallback
+      - US select
       - US lobalance
       - Other urltest
+      - Other fallback
+      - Other select
       - Other lobalance
       - 手动切换
       - DIRECT
