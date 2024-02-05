@@ -240,8 +240,8 @@ proxy-groups:
     # 把国内的排除，留下国外节点
     exclude-filter: "国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州|剩余流量|距离下次重置剩余|套餐到期|官网|客户端"
 
-  - name: 负载均衡
-    <<: *lobalance
+  # - name: 负载均衡
+  #   <<: *lobalance
 
   - name: 故障转移
     type: fallback
