@@ -1,0 +1,273 @@
+http-port: 7890
+socks-port: 7891
+redir-port: 7892
+tproxy-port: 7893
+allow-lan: true
+geodata-mode: true
+unified-delay: true
+mode: rule
+log-level: info
+ipv6: true
+tcp-concurrent: true
+geo-auto-update: true
+geo-update-interval: 24
+geox-url:
+  geoip: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/geoip.dat"
+  geosite: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
+  mmdb: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/Country.mmdb"
+find-process-mode: strict
+global-client-fingerprint: chrome
+
+sniffer:
+  enable: true
+  sniffing:
+    - tls
+    - http
+
+profile:
+  store-fake-ip: true
+  store-selected: true
+
+external-controller: 127.0.0.1:9090
+external-ui: yacd
+
+tun:
+  enable: false
+  device: Meta
+  stack: system #system or gvisor
+  dns-hijack:
+    - any:53
+  # auto-route: true
+  # auto-detect-interface: true
+
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  nameserver-policy:
+    "geosite:cn,geoip:cn,private":
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+  nameserver:
+    - tls://8.8.4.4
+    - https://1.0.0.1/dns-query
+
+# 用于DNS服务器和连接建立的静态主机 (如/etc/hosts) .
+hosts:
+  'appupdate.189.cn': '127.0.0.1'
+
+
+# 免流百度直连
+baidu: &baidu
+  type: http
+  port: 443
+  headers:
+    X-T5-Auth: "683556433"
+    Host: 153.3.236.22:443
+    User-Agent:
+      "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 13; 2210132C Build/TKQ1.220905.001)
+      baiduboxapp/11.0.5.12 (Baidu; P1 11)"
+
+
+# 这里是订阅更新和延迟测试相关的
+p: &p
+  type: http
+  interval: 86400
+  health-check:
+    enable: true
+    url: https://www.gstatic.com/generate_204
+    interval: 300
+
+# url 里填写自己的订阅,名称不能重复
+proxy-providers:
+  群主_星链云:
+    <<: *p
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fstarlinkcloud.org%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D3244403e59624101e781b9e6b1e954d4&target=clash"
+    path: ./proxies/群主_星链云.yaml
+
+  群主_EF:
+    <<: *p
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fv1.efshop.cc%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D9d51fb4005748bc6419d07639cb25781&target=clash"
+    path: ./proxies/群主_EF.yaml
+
+  群主_快游戏:
+    <<: *p
+    # url: "https://sub2.jie-quick.buzz/api/v1/client/subscribe?token=6f51949086b1c27116bb77a5a520d09d&host=m.iqiyi.com"
+    url: "https://sub2.jie-quick.buzz/api/v1/client/subscribe?token=6f51949086b1c27116bb77a5a520d09d&sethost=m.iqiyi.com"
+    path: ./proxies/群主_快游戏.yaml
+
+  群主_免流骚:
+    <<: *p
+    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fsub.mlsao.top%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D4c981858904603e85fce6c825c4d6e93&newhost=m.iqiyi.com"
+    path: ./proxies/群主_免流骚.yaml
+
+  群主_三分:
+    <<: *p
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fsub.sanfen017.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D0b73731d54a0e74695ff0429b4dc2870&target=clash"
+    path: ./proxies/群主_三分.yaml
+
+  群主_三分_免流:
+    <<: *p
+    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fsub.sanfen017.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D0b73731d54a0e74695ff0429b4dc2870&newhost=m.iqiyi.com"
+    path: ./proxies/群主_三分.yaml
+
+  小冰_EF:
+    <<: *p
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fv1.efshop.cc%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Dfbfd7afff691851519a1036895689ea0&target=clash"
+    path: ./proxies/小冰_EF.yaml
+
+  小冰_白嫖:
+    <<: *p
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fsub.%E7%99%BD%E5%AB%96%E6%9C%BA%E5%9C%BA.com%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Df8b23722df1e100e0a23f4bdcbcaefb8&target=clash"
+    path: ./proxies/小冰_白嫖.yaml
+
+  火锅_三分:
+    <<: *p
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fsub.sanfen017.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D1e9b47a85263bbd23ca567903a41f066&target=clash"
+    path: ./proxies/火锅_三分.yaml
+
+  达达_三分:
+    <<: *p
+    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fwww.efcloud.bio%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D9d51fb4005748bc6419d07639cb25781&target=clash"
+    path: ./proxies/达达_三分.yaml
+
+  # 共享_anaer:
+  # # 來自 https://github.com/anaer/Sub
+  #   <<: *p
+  #   url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fanaer%2FSub%40main%2Fclash.yaml&target=clash"
+  #   path: ./proxies/共享_anaer.yaml
+
+  共享_ermaozi:
+  # 來自 https://github.com/ermaozi/get_subscribe
+    <<: *p
+    url: "https://www.nite07.com/sub/s/1X53si"
+    path: ./proxies/共享_ermaozi.yaml
+
+
+# 用于普通的订阅
+use: &use
+  use:
+    - 群主_三分
+    - 群主_星链云
+    - 群主_EF
+    - 群主_快游戏
+    - 群主_免流骚
+    - 小冰_EF
+    - 小冰_白嫖
+    - 火锅_三分
+    - 达达_三分
+    # - 共享_anaer
+    - 共享_ermaozi
+
+urltest: &urltest
+  type: url-test
+  # url: "http://www.gstatic.com/generate_204"
+  url: "http://www.apple.com/library/test/success.html"  # 替换成苹果的测速
+  interval: 180
+  tolerance: 100
+  <<: *use
+
+fallback: &fallback
+  type: fallback
+  # url: "http://www.gstatic.com/generate_204"
+  url: "http://www.apple.com/library/test/success.html"  # 替换成苹果的测速
+  interval: 180
+  tolerance: 100
+  <<: *use
+
+select: &select
+  type: select
+  <<: *use
+
+lobalance: &lobalance
+  type: load-balance
+  url: "http://www.apple.com/library/test/success.html"
+  interval: 300
+  strategy: consistent-hashing
+  <<: *use
+  # strategy:
+  #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
+  #  round-robin 每访问一个链接，顺序更换节点访问
+
+
+# 节点组
+proxy-groups:
+  - name: 节点选择
+    type: select
+    proxies:
+      - HK urltest
+      - HK lobalance
+      - TW urltest
+      - TW lobalance
+      - JP urltest
+      - JP lobalance
+      - SG urltest
+      - SG lobalance
+      - US urltest
+      - US lobalance
+      - Other urltest
+      - Other lobalance
+      - 手动切换
+      - DIRECT
+
+  - {name: 手动切换, type: select, <<: *use, exclude-filter: "剩余流量|距离下次重置剩余|套餐到期|官网|站内返利|客户端"}
+
+  - name: 剩余流量
+    type: select
+    <<: *use
+    filter: "剩余流量|距离下次重置剩余|套餐到期|官网"
+
+  - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: HK select, <<: *select, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: HK lobalance, <<: *lobalance, filter: "(?i)港|hk|hongkong|hong kong"}
+
+  - {name: TW urltest, <<: *urltest, filter: "(?i)台|tw|taiwan"}
+  - {name: TW fallback, <<: *fallback, filter: "(?i)台|tw|taiwan"}
+  - {name: TW select, <<: *select, filter: "(?i)台|tw|taiwan"}
+  - {name: TW lobalance, <<: *lobalance, filter: "(?i)台|tw|taiwan"}
+
+  - {name: JP urltest, <<: *urltest, filter: "(?i)日本|jp|japan"}
+  - {name: JP fallback, <<: *fallback, filter: "(?i)日本|jp|japan"}
+  - {name: JP select, <<: *select, filter: "(?i)日本|jp|japan"}
+  - {name: JP lobalance, <<: *lobalance, filter: "(?i)日本|jp|japan"}
+
+  - {name: SG urltest, <<: *urltest, filter: "(?i)(新|sg|singapore)"}
+  - {name: SG fallback, <<: *fallback, filter: "(?i)(新|sg|singapore)"}
+  - {name: SG select, <<: *select, filter: "(?i)(新|sg|singapore)"}
+  - {name: SG lobalance, <<: *lobalance, filter: "(?i)(新|sg|singapore)"}
+
+  - {name: US urltest, <<: *urltest, filter: "(?i)美|us|unitedstates|united states"}
+  - {name: US fallback, <<: *fallback, filter: "(?i)美|us|unitedstates|united states"}
+  - {name: US select, <<: *select, filter: "(?i)美|us|unitedstates|united states"}
+  - {name: US lobalance, <<: *lobalance, filter: "(?i)美|us|unitedstates|united states"}
+
+  - {name: Other urltest, <<: *urltest, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
+  - {name: Other fallback, <<: *fallback, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
+  - {name: Other select, <<: *select, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
+  - {name: Other lobalance, <<: *lobalance, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
+
+
+rule_update: &rule_update
+  type: http
+  interval: 86400
+
+rule-providers:
+  秋风广告规则:
+    <<: *rule_update
+    behavior: domain
+    format: yaml
+    path: ./ruleset/AWAvenue-Ads-Rule-Clash.yaml
+    url: "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.yaml"
+
+
+# 分流规则
+rules:
+  # 广告规则
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT # 禁用quic(不包括国内)
+  - RULE-SET,秋风广告规则,REJECT
+  - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT
+
+  - GEOSITE,cn,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,代理设置
+
