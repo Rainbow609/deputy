@@ -263,45 +263,20 @@ proxy-groups:
     exclude-filter: "国内|四川|内蒙|湖北|海南|上海|北京|江苏|广东|广州|剩余流量|距离下次重置剩余|套餐到期|官网|校园网|客户端"
 
   # 下面是地区分组
-  - name: TW urltest
-    <<: *urltest
-    filter: "(?i)台|tw|taiwan"
+  - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: HK lobalance, <<: *lobalance, filter: "(?i)港|hk|hongkong|hong kong"}
 
-  - name: TW lobalance
-    <<: *lobalance
-    filter: "(?i)台|tw|taiwan"
+  - {name: TW urltest, <<: *urltest, filter: "(?i)台|tw|taiwan"}
+  - {name: TW lobalance, <<: *lobalance, filter: "(?i)台|tw|taiwan"}
 
-  - name: HK urltest
-    <<: *urltest
-    filter: "(?i)港|hk|hongkong|hong kong"
+  - {name: JP urltest, <<: *urltest, filter: "(?i)日本|jp|japan"}
+  - {name: JP lobalance, <<: *lobalance, filter: "(?i)日本|jp|japan"}
 
-  - name: HK lobalance
-    <<: *lobalance
-    filter: "(?i)港|hk|hongkong|hong kong"
+  - {name: SG urltest, <<: *urltest, filter: "(?i)(新|sg|singapore)"}
+  - {name: SG lobalance, <<: *lobalance, filter: "(?i)(新|sg|singapore)"}
 
-  - name: JP urltest
-    <<: *urltest
-    filter: "(?i)日本|jp|japan"
-
-  - name: JP lobalance
-    <<: *lobalance
-    filter: "(?i)日本|jp|japan"
-
-  - name: SG urltest
-    <<: *urltest
-    filter: "(?i)(新|sg|singapore)"
-
-  - name: SG lobalance
-    <<: *lobalance
-    filter: "(?i)(新|sg|singapore)"
-
-  - name: US urltest
-    <<: *urltest
-    filter: "(?i)美|us|unitedstates|united states"
-
-  - name: US lobalance
-    <<: *lobalance
-    filter: "(?i)美|us|unitedstates|united states"
+  - {name: US urltest, <<: *urltest, filter: "(?i)美|us|unitedstates|united states"}
+  - {name: US lobalance, <<: *lobalance, filter: "(?i)美|us|unitedstates|united states"}
 
   - name: Other urltest
     <<: *urltest
