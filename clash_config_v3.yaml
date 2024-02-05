@@ -259,6 +259,41 @@ rule-providers:
     path: ./ruleset/AWAvenue-Ads-Rule-Clash.yaml
     url: "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.yaml"
 
+  direct:
+    # 直连域名列表
+    <<: *rule_update
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+    path: ./rule_providers/direct.yaml
+
+  private:
+    # 私有网络专用域名列表
+    <<: *rule_update
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+    path: ./rule_providers/private.yaml
+
+  cncidr:
+    # 中国大陆 IP 地址列表
+    <<: *rule_update
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    path: ./rule_providers/cncidr.yaml
+
+  lancidr:
+    # 局域网 IP 及保留 IP 地址列表
+    <<: *rule_update
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    path: ./rule_providers/lancidr.yaml
+
+  applications:
+    # 需要直连的常见软件列表
+    <<: *rule_update
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    path: ./rule_providers/applications.yaml
+
 
 # 分流规则
 rules:
@@ -266,6 +301,13 @@ rules:
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT # 禁用quic(不包括国内)
   - RULE-SET,秋风广告规则,REJECT
   - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT
+
+  - RULE-SET,applications,DIRECT
+  - RULE-SET,cncidr,DIRECT
+  - RULE-SET,direct,DIRECT
+  - RULE-SET,private,DIRECT
+  - RULE-SET,lancidr,DIRECT
+  - GEOIP,private,DIRECT
 
   - GEOSITE,cn,DIRECT
   - GEOIP,CN,DIRECT
