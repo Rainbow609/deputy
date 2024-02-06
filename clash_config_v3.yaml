@@ -225,6 +225,12 @@ proxy-groups:
 
   - {name: 剩余流量, type: select, <<: *use, filter: "剩余流量|距离下次重置剩余|套餐到期|官网"}
 
+  - name: NoAD
+    type: select
+    proxies:
+      - REJECT
+      - PASS
+
   - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong"}
   - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong"}
   - {name: HK select, <<: *select, filter: "(?i)港|hk|hongkong|hong kong"}
@@ -308,7 +314,7 @@ rule-providers:
 rules:
   # 广告规则
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT # 禁用quic(不包括国内)
-  - RULE-SET,秋风广告规则,REJECT
+  - RULE-SET,秋风广告规则,NoAD
   - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT
 
   - RULE-SET,applications,DIRECT
