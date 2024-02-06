@@ -161,7 +161,7 @@ use: &use
 urltest: &urltest
   type: url-test
   # url: "http://www.gstatic.com/generate_204"
-  url: "http://www.apple.com/library/test/success.html"  # 替换成苹果的测速
+  url: "https://www.apple.com/library/test/success.html"  # 替换成苹果的测速
   interval: 180
   tolerance: 100
   <<: *use
@@ -169,7 +169,7 @@ urltest: &urltest
 fallback: &fallback
   type: fallback
   # url: "http://www.gstatic.com/generate_204"
-  url: "http://www.apple.com/library/test/success.html"  # 替换成苹果的测速
+  url: "https://www.apple.com/library/test/success.html"  # 替换成苹果的测速
   interval: 180
   tolerance: 100
   <<: *use
@@ -180,7 +180,7 @@ select: &select
 
 lobalance: &lobalance
   type: load-balance
-  url: "http://www.apple.com/library/test/success.html"
+  url: "https://www.apple.com/library/test/success.html"
   interval: 300
   strategy: consistent-hashing
   <<: *use
