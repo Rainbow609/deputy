@@ -1,83 +1,39 @@
-http-port: 7890
-socks-port: 7891
-redir-port: 7892
-tproxy-port: 7893
-allow-lan: true
-geodata-mode: true
-unified-delay: true
-mode: rule
-log-level: info
-ipv6: true
-tcp-concurrent: true
-geo-auto-update: true
-geo-update-interval: 24
-geox-url:
-  geoip: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/geoip.dat"
-  geosite: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
-  mmdb: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/Country.mmdb"
-find-process-mode: strict
-global-client-fingerprint: chrome
 
-sniffer:
-  enable: true
-  sniffing:
-    - tls
-    - http
-
-profile:
-  store-fake-ip: true
-  store-selected: true
-
-external-controller: 127.0.0.1:9090
-external-ui: yacd
-
-tun:
-  enable: false
-  device: Meta
-  stack: system #system or gvisor
-  dns-hijack:
-    - any:53
-  # auto-route: true
-  # auto-detect-interface: true
-
-dns:
-  enable: true
-  listen: 0.0.0.0:53
-  nameserver-policy:
-    "geosite:cn,geoip:cn,private":
-      - https://doh.pub/dns-query
-      - https://dns.alidns.com/dns-query
-  nameserver:
-    - tls://8.8.4.4
-    - https://1.0.0.1/dns-query
-
-# 用于DNS服务器和连接建立的静态主机 (如/etc/hosts) .
-hosts:
-  'appupdate.189.cn': '127.0.0.1'
+proxies:
+  # clashMeta配置参考可以看看这个wiki
+  # https://docs.metacubex.one/
+  # https://wiki.metacubex.one/
+  # https://clash-meta.wiki
 
 
-# 免流百度直连
-baidu: &baidu
-  type: http
-  port: 443
-  headers:
-    X-T5-Auth: "683556433"
-    Host: 153.3.236.22:443
-    User-Agent:
-      "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 13; 2210132C Build/TKQ1.220905.001)
-      baiduboxapp/11.0.5.12 (Baidu; P1 11)"
-
-
-# 这里是订阅更新和延迟测试相关的
+# 官方clash配置(纯英文)
+# https://github.com/Dreamacro/clash/wiki/Configuration#introduction
+#预设
 p: &p
   type: http
-  interval: 86400
+  interval: 1800
   health-check:
     enable: true
-    url: https://www.gstatic.com/generate_204
+    url: http://cp.cloudflare.com/generate_204
     interval: 300
 
-# url 里填写自己的订阅,名称不能重复
+use: &use
+  type: select
+  use:
+    - 群主_三分
+    - 群主_星链云
+    - 群主_EF
+    - 群主_快游戏
+    - 小冰_EF
+    - 小冰_白嫖
+    - 火锅_三分
+    - 达达_三分
+    # - 共享_anaer
+    - 共享_ermaozi
+
+
+# 代理提供(订阅)组
+# 添加/修改机场(名)请保证 proxy-providers 名称和 proxy-groups 同步添加/修改
 proxy-providers:
   群主_星链云:
     <<: *p
@@ -122,30 +78,14 @@ proxy-providers:
   # 共享_anaer:
   # # 來自 https://github.com/anaer/Sub
   #   <<: *p
-  #   url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fanaer%2FSub%40main%2Fclash.yaml&target=clash"
-  #   path: ./proxies/共享_anaer.yaml
+  #   url: "https://www.nite07.com/sub/s/UtrOyH"
+  #   path: ./proxy_providers/共享_anaer.yaml
 
   共享_ermaozi:
   # 來自 https://github.com/ermaozi/get_subscribe
     <<: *p
-    url: "https://www.nite07.com/sub/s/1X53si"
-    path: ./proxies/共享_ermaozi.yaml
-
-
-# 用于普通的订阅
-use: &use
-  use:
-    - 群主_三分
-    - 群主_星链云
-    - 群主_EF
-    - 群主_快游戏
-    - 群主_免流骚
-    - 小冰_EF
-    - 小冰_白嫖
-    - 火锅_三分
-    - 达达_三分
-    # - 共享_anaer
-    - 共享_ermaozi
+    url: "https://www.nite07.com/sub/s/Fgf0jg"
+    path: ./proxy_providers/共享_ermaozi.yaml
 
 urltest: &urltest
   type: url-test
@@ -177,8 +117,7 @@ lobalance: &lobalance
   #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
   #  round-robin 每访问一个链接，顺序更换节点访问
 
-
-# 节点组
+# 代理组
 proxy-groups:
   - name: 代理设置
     type: select
@@ -245,7 +184,7 @@ proxy-groups:
   - {name: Other fallback, <<: *fallback, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
   - {name: Other select, <<: *select, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
   - {name: Other lobalance, <<: *lobalance, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
-
+      
 
 rule_update: &rule_update
   type: http
@@ -253,6 +192,7 @@ rule_update: &rule_update
 
 rule-providers:
   秋风广告规则:
+    # Github：https://github.com/TG-Twilight/AWAvenue-Ads-Rule
     <<: *rule_update
     behavior: domain
     format: yaml
@@ -294,7 +234,6 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
     path: ./rule_providers/applications.yaml
 
-
 # 分流规则
 rules:
   # 广告规则
@@ -312,4 +251,5 @@ rules:
   - GEOSITE,cn,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,代理设置
+
 
