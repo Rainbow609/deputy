@@ -40,16 +40,16 @@ tun:
   # auto-route: true
   # auto-detect-interface: true
 
-# dns:
-#   enable: true
-#   listen: 0.0.0.0:53
-#   nameserver-policy:
-#     "geosite:cn,geoip:cn,private":
-#       - https://doh.pub/dns-query
-#       - https://dns.alidns.com/dns-query
-#   nameserver:
-#     - tls://8.8.4.4
-#     - https://1.0.0.1/dns-query
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  nameserver-policy:
+    "geosite:cn,geoip:cn,private":
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+  nameserver:
+    - tls://8.8.4.4
+    - https://1.0.0.1/dns-query
 
 # 用于DNS服务器和连接建立的静态主机 (如/etc/hosts) .
 hosts:
