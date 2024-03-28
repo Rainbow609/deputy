@@ -18,22 +18,106 @@ p: &p
 
 # 代理提供(订阅)组
 proxy-providers:
-  机场1: #机场名
+  群主_星链云:
     <<: *p
-    url: "https://sub.pigfarmcloud.com/api/v1/client/subscribe?token=166b7d2d906d6e8b303c7635ecaf8f41"
-    # path: ./proxy_providers/jichang1.yaml #指定保存路径 非必填
+    url: "https://www.nite07.com/sub/s/i2tZBl"
+    path: ./proxy_providers/群主_星链云.yaml
 
-  # 机场2: #机场名
-    # <<: *p
-    # url: "这里填机场订阅"
-    # path: ./proxy_providers/jichang2.yaml #保存路径
+  群主_EF:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/kf0qMD"
+    path: ./proxy_providers/群主_EF.yaml
+
+  群主_快游戏:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/A6SkOd"
+    path: ./proxy_providers/群主_快游戏.yaml
+
+  群主_三分:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/9p329U"
+    path: ./proxy_providers/群主_三分.yaml
+
+  群主_wget:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/U5VXPD"
+    path: ./proxy_providers/群主_wget.yaml
+    # wget.moe
+
+  群主_养猪场:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/3byz1Y"
+    path: ./proxy_providers/群主_养猪场.yaml
+
+  小冰_EF:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/ZIiqkz"
+    path: ./proxy_providers/小冰_EF.yaml
+
+  小冰_白嫖:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/lOfPFe"
+    path: ./proxy_providers/小冰_白嫖.yaml
+
+  火锅_三分:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/Wg5ZyU"
+    path: ./proxy_providers/火锅_三分.yaml
+
+  达达_EF:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/gH7qDB"
+    path: ./proxy_providers/达达_EF.yaml
+
+  共享_ermaozi:
+  # 來自 https://github.com/ermaozi/get_subscribe
+    <<: *p
+    url: "https://www.nite07.com/sub/s/1X53si"
+    path: ./proxies/共享_ermaozi.yaml
+
+
+use: &use
+  include-all-providers: true
+
+urltest: &urltest
+  type: url-test
+  # url: "http://www.gstatic.com/generate_204"
+  url: "https://www.apple.com/library/test/success.html"  # 替换成苹果的测速
+  interval: 180
+  tolerance: 100
+  <<: *use
+
+fallback: &fallback
+  type: fallback
+  # url: "http://www.gstatic.com/generate_204"
+  url: "https://www.apple.com/library/test/success.html"  # 替换成苹果的测速
+  interval: 180
+  tolerance: 100
+  <<: *use
+
+select: &select
+  type: select
+  <<: *use
+
+lobalance: &lobalance
+  type: load-balance
+  url: "https://www.apple.com/library/test/success.html"
+  interval: 300
+  strategy: consistent-hashing
+  <<: *use
+  # strategy:
+  #  consistent-hashing 同一个域名下会持续使用同一个ip, 默认选择该项，防止频繁跳ip被网站ban
+  #  round-robin 每访问一个链接，顺序更换节点访问
 
 # 代理组
 proxy-groups:
   - name: proxy
     type: select
     proxies:
-      - 香港
+      - HK urltest
+      - HK fallback
+      - HK select
+      - HK lobalance
       - 台湾
       - 日本
       - 新加坡
@@ -43,13 +127,18 @@ proxy-groups:
       - 直连
 
 # 按照区域划定策略组
-  - {name: 香港, type: url-test , include-all-providers: true, filter: "(?i)港|hk|hongkong|hong kong"}
-  - {name: 台湾, type: url-test , include-all-providers: true, filter: "(?i)台|tw|taiwan"}
-  - {name: 日本, type: url-test , include-all-providers: true, filter: "(?i)日|jp|japan"}
-  - {name: 美国, type: url-test , include-all-providers: true, filter: "(?i)美|us|unitedstates|united states"}
-  - {name: 新加坡, type: url-test , include-all-providers: true, filter: "(?i)(新|sg|singapore)"}
-  - {name: 其它地区, type: select , include-all-providers: true, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
-  - {name: 全部节点, type: select , include-all-providers: true}
+  - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: HK select, <<: *select, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: HK lobalance, <<: *lobalance, filter: "(?i)港|hk|hongkong|hong kong"}
+
+  - {name: 台湾, << *urltest , <<: *use, filter: "(?i)台|tw|taiwan"}
+  - {name: 日本, << *urltest , <<: *use, filter: "(?i)日|jp|japan"}
+  - {name: 美国, << *urltest , <<: *use, filter: "(?i)美|us|unitedstates|united states"}
+  - {name: 新加坡, << *urltest , <<: *use, filter: "(?i)(新|sg|singapore)"}
+  - {name: 其它地区, type: select , <<: *use, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
+  - {name: 全部节点, type: select , <<: *use}
+  - {name: 剩余流量, type: select, <<: *use, filter: "剩余流量|距离下次重置剩余|套餐到期|官网"}
   
   - name: 直连
     type: select
@@ -70,10 +159,53 @@ rule-providers:
     url: "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.yaml"
     interval: 60480
 
+  direct:
+    # 直连域名列表
+    <<: *rule_update
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+    path: ./rule_providers/direct.yaml
+
+  private:
+    # 私有网络专用域名列表
+    <<: *rule_update
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+    path: ./rule_providers/private.yaml
+
+  cncidr:
+    # 中国大陆 IP 地址列表
+    <<: *rule_update
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    path: ./rule_providers/cncidr.yaml
+
+  lancidr:
+    # 局域网 IP 及保留 IP 地址列表
+    <<: *rule_update
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    path: ./rule_providers/lancidr.yaml
+
+  applications:
+    # 需要直连的常见软件列表
+    <<: *rule_update
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    path: ./rule_providers/applications.yaml
+
 # 分流规则
 rules:
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
   - RULE-SET,AWAvenue,REJECT-DROP
+
+  - RULE-SET,lancidr,DIRECT
+  - RULE-SET,applications,DIRECT
+  - RULE-SET,cncidr,DIRECT
+  - RULE-SET,direct,DIRECT
+  - RULE-SET,private,DIRECT
+  - GEOIP,private,DIRECT
+
   - GEOSITE,cn,DIRECT
   - GEOIP,CN,DIRECT
   - MATCH,proxy

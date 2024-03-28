@@ -228,7 +228,7 @@ proxy-groups:
 
   - {name: 剩余流量, type: select, <<: *use, filter: "剩余流量|距离下次重置剩余|套餐到期|官网"}
 
-  - {name: NoAD, type: select, proxies: [REJECT, PASS]}
+  - {name: NoAD, type: select, proxies: [REJECT-DROP, PASS]}
 
   - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong"}
   - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong"}
