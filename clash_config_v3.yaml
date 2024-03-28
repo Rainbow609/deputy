@@ -99,6 +99,17 @@ proxy-providers:
     url: "https://www.nite07.com/sub/s/9p329U"
     path: ./proxy_providers/群主_三分.yaml
 
+  群主_wget:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/U5VXPD"
+    path: ./proxy_providers/群主_wget.yaml
+    # wget.moe
+
+  群主_养猪场:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/3byz1Y"
+    path: ./proxy_providers/群主_养猪场.yaml
+
   小冰_EF:
     <<: *p
     url: "https://www.nite07.com/sub/s/ZIiqkz"
@@ -132,19 +143,23 @@ proxy-providers:
     path: ./proxies/共享_ermaozi.yaml
 
 
+# # 用于普通的订阅
+# use: &use
+#   use:
+#     - 群主_三分
+#     - 群主_星链云
+#     - 群主_EF
+#     - 群主_快游戏
+#     - 小冰_EF
+#     - 小冰_白嫖
+#     - 火锅_三分
+#     - 达达_EF
+#     # - 共享_anaer
+#     - 共享_ermaozi
+
 # 用于普通的订阅
 use: &use
-  use:
-    - 群主_三分
-    - 群主_星链云
-    - 群主_EF
-    - 群主_快游戏
-    - 小冰_EF
-    - 小冰_白嫖
-    - 火锅_三分
-    - 达达_EF
-    # - 共享_anaer
-    - 共享_ermaozi
+  include-all-providers: true
 
 urltest: &urltest
   type: url-test
