@@ -201,14 +201,16 @@ rules:
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
   - RULE-SET,AWAvenue,REJECT-DROP
 
+  - GEOIP,private,DIRECT,no-resolve
+  - GEOSITE,private,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT
+  - GEOSITE,cn,DIRECT
+
   - RULE-SET,lancidr,DIRECT
   - RULE-SET,applications,DIRECT
-  # - RULE-SET,cncidr,DIRECT
   - RULE-SET,direct,DIRECT
+  # - RULE-SET,cncidr,DIRECT
   # - RULE-SET,private,DIRECT
-  - GEOIP,private,DIRECT,no-resolve
 
-  - GEOSITE,cn,DIRECT
-  - GEOIP,CN,DIRECT
   - MATCH,proxy
 
