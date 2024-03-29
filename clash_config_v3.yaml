@@ -312,14 +312,14 @@ rule-providers:
 # 分流规则
 rules:
   # 广告规则
-  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT # 禁用quic(不包括国内)
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
   - RULE-SET,秋风广告规则,NoAD
-  - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT
+  - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT-DROP
 
   - RULE-SET,applications,DIRECT
-  - RULE-SET,cncidr,DIRECT
+  # - RULE-SET,cncidr,DIRECT
   - RULE-SET,direct,DIRECT
-  - RULE-SET,private,DIRECT
+  # - RULE-SET,private,DIRECT
   - RULE-SET,lancidr,DIRECT
   - GEOIP,private,DIRECT
 
