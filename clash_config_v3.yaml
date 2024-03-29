@@ -14,7 +14,8 @@ geo-update-interval: 24
 geox-url:
   geoip: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/geoip.dat"
   geosite: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
-  mmdb: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/Country.mmdb"
+  # mmdb: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/Country.mmdb"
+  mmdb: "https://cdn.jsdelivr.net/gh/Hackl0us/GeoIP2-CN@release/Country.mmdb"  # 替換到 GeoIP2.CN(https://github.com/Hackl0us/GeoIP2-CN/tree/master)
 find-process-mode: strict
 global-client-fingerprint: chrome
 
