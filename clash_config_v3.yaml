@@ -123,20 +123,23 @@ proxy-providers:
     url: "https://www.nite07.com/sub/s/1X53si"
     path: ./proxy_providers/共享_ermaozi.yaml
 
+  共享_钓鱼池:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/zCEEgi"
+    path: ./proxy_providers/共享_钓鱼池.yaml
 
-# # 用于普通的订阅
-# use: &use
-#   use:
-#     - 群主_三分
-#     - 群主_星链云
-#     - 群主_EF
-#     - 群主_快游戏
-#     - 小冰_EF
-#     - 小冰_白嫖
-#     - 火锅_三分
-#     - 达达_EF
-#     # - 共享_anaer
-#     - 共享_ermaozi
+  共享_vxiaov:
+  # 来自 https://github.com/vxiaov/free_proxy_ss
+    <<: *p
+    url: "https://www.nite07.com/sub/s/S7nO9n"
+    path: ./proxy_providers/共享_vxiaov.yaml
+
+  共享_dong:
+  # 来自 https://github.com/dongyubin/Free-AppleId-Serve
+    <<: *p
+    url: "https://www.nite07.com/sub/s/MOeOI8"
+    path: ./proxy_providers/共享_dong.yaml
+
 
 # 引入所有代理集合，这样就不需要使用 use 了
 use: &use
