@@ -318,7 +318,7 @@ rules:
   # - RULE-SET,秋风广告规则,NoAD
   # - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT-DROP
   - GEOSITE,ads,NoAD
-  - GEOIP,private,DIRECT
+  - GEOSITE,private,DIRECT
   - GEOSITE,cn,DIRECT
   - GEOIP,CN,DIRECT
 
