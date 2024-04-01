@@ -239,12 +239,21 @@ rule_update: &rule_update
   interval: 86400
 
 rule-providers:
-  秋风广告规则:
+  AWAvenue:
     <<: *rule_update
     behavior: domain
     format: yaml
-    path: ./ruleset/AWAvenue-Ads-Rule-Clash.yaml
+    path: ./rule_providers/AWAvenue-Ads-Rule-Clash.yaml
     url: "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.yaml"
+
+  # anti-AD 广告规则 Clash 版本
+  # Github：https://github.com/privacy-protection-tools/anti-AD?tab=readme-ov-file
+  antiAD:
+    <<: *rule_update
+    behavior: domain
+    format: yaml
+    path: ./rule_providers/antiAD.yaml
+    url: "https://anti-ad.net/clash.yaml"
 
   direct:
     # 直连域名列表
@@ -286,9 +295,10 @@ rule-providers:
 rules:
   # 广告规则
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
-  # - RULE-SET,秋风广告规则,NoAD
+  - RULE-SET,AWAvenue,NoAD
+  - RULE-SET,antiAD,NoAD
   # - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT-DROP
-  - GEOSITE,ads,NoAD
+  # - GEOSITE,ads,NoAD
   - GEOSITE,private,DIRECT
   - GEOSITE,cn,DIRECT
   - GEOIP,CN,DIRECT
