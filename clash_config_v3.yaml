@@ -86,11 +86,6 @@ proxy-providers:
     url: "https://www.nite07.com/sub/s/i2tZBl"
     path: ./proxy_providers/群主_星链云.yaml
 
-  群主_EF:
-    <<: *p
-    url: "https://www.nite07.com/sub/s/kf0qMD"
-    path: ./proxy_providers/群主_EF.yaml
-
   群主_快游戏:
     <<: *p
     url: "https://www.nite07.com/sub/s/A6SkOd"
@@ -112,25 +107,15 @@ proxy-providers:
     url: "https://www.nite07.com/sub/s/3byz1Y"
     path: ./proxy_providers/群主_养猪场.yaml
 
-  小冰_EF:
-    <<: *p
-    url: "https://www.nite07.com/sub/s/ZIiqkz"
-    path: ./proxy_providers/小冰_EF.yaml
-
   小冰_白嫖:
     <<: *p
     url: "https://www.nite07.com/sub/s/lOfPFe"
     path: ./proxy_providers/小冰_白嫖.yaml
 
-  火锅_三分:
+  小冰_三分:
     <<: *p
     url: "https://www.nite07.com/sub/s/Wg5ZyU"
-    path: ./proxy_providers/火锅_三分.yaml
-
-  达达_EF:
-    <<: *p
-    url: "https://www.nite07.com/sub/s/gH7qDB"
-    path: ./proxy_providers/达达_EF.yaml
+    path: ./proxy_providers/小冰_三分.yaml
 
   共享_ermaozi:
   # 來自 https://github.com/ermaozi/get_subscribe
