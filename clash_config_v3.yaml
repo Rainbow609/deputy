@@ -14,7 +14,7 @@ geo-update-interval: 24
 geox-url:
   geoip: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/geoip.dat"
   # geosite: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
-  geosite: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geosite-all.dat"  # 替换到 (https://github.com/DustinWin/ruleset_geodata)
+  geosite: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geosite.dat"  # 替换到 (https://github.com/DustinWin/ruleset_geodata)
   # mmdb: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/Country.mmdb"
   mmdb: "https://cdn.jsdelivr.net/gh/Hackl0us/GeoIP2-CN@release/Country.mmdb"  # 替換到 GeoIP2.CN(https://github.com/Hackl0us/GeoIP2-CN/tree/master)
 find-process-mode: strict
@@ -286,9 +286,9 @@ rule-providers:
 rules:
   # 广告规则
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
-  - RULE-SET,秋风广告规则,NoAD
+  # - RULE-SET,秋风广告规则,NoAD
   # - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT-DROP
-  # - GEOSITE,ads,NoAD
+  - GEOSITE,ads,NoAD
   - GEOSITE,private,DIRECT
   - GEOSITE,cn,DIRECT
   - GEOIP,CN,DIRECT
