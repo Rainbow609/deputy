@@ -79,17 +79,17 @@ proxy-providers:
   #   url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fstarlinkcloud.org%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D3244403e59624101e781b9e6b1e954d4&target=clash"
   #   path: ./proxies/群主_星链云.yaml
 
-  # 共享_anaer:
-  # # 來自 https://github.com/anaer/Sub
-  #   <<: *p
-  #   url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fanaer%2FSub%40main%2Fclash.yaml&target=clash"
-  #   path: ./proxies/共享_anaer.yaml
+  共享_anaer:
+  # 來自 https://github.com/anaer/Sub
+    <<: *p
+    url: "https://www.nite07.com/sub/s/wEZElh"
+    path: ./proxy_providers/共享_anaer.yaml
 
   共享_ermaozi:
   # 來自 https://github.com/ermaozi/get_subscribe
     <<: *p
     url: "https://www.nite07.com/sub/s/1X53si"
-    path: ./proxies/共享_ermaozi.yaml
+    path: ./proxy_providers/共享_ermaozi.yaml
 
   共享_钓鱼池:
     <<: *p
