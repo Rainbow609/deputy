@@ -88,7 +88,7 @@ proxy-providers:
   共享_ermaozi:
   # 來自 https://github.com/ermaozi/get_subscribe
     <<: *p
-    url: "https://www.nite07.com/sub/s/1X53si"
+    url: "https://www.nite07.com/sub/s/niBNfQ"
     path: ./proxy_providers/共享_ermaozi.yaml
 
   共享_钓鱼池:
