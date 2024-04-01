@@ -132,12 +132,6 @@ proxy-providers:
     url: "https://www.nite07.com/sub/s/gH7qDB"
     path: ./proxy_providers/达达_EF.yaml
 
-  # 共享_anaer:
-  # # 來自 https://github.com/anaer/Sub
-  #   <<: *p
-  #   url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fanaer%2FSub%40main%2Fclash.yaml&target=clash"
-  #   path: ./proxies/共享_anaer.yaml
-
   共享_ermaozi:
   # 來自 https://github.com/ermaozi/get_subscribe
     <<: *p
@@ -201,28 +195,16 @@ proxy-groups:
     proxies:
       - HK urltest
       - HK fallback
-      # - HK select
-      # - HK lobalance
       - TW urltest
       - TW fallback
-      # - TW select
-      # - TW lobalance
       - JP urltest
       - JP fallback
-      # - JP select
-      # - JP lobalance
       - SG urltest
       - SG fallback
-      # - SG select
-      # - SG lobalance
       - US urltest
       - US fallback
-      # - US select
-      # - US lobalance
       - Other urltest
       - Other fallback
-      # - Other select
-      # - Other lobalance
       - 手动切换
       - DIRECT
 
@@ -236,34 +218,21 @@ proxy-groups:
 
   - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong"}
   - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong"}
-  # - {name: HK select, <<: *select, filter: "(?i)港|hk|hongkong|hong kong"}
-  # - {name: HK lobalance, <<: *lobalance, filter: "(?i)港|hk|hongkong|hong kong"}
 
   - {name: TW urltest, <<: *urltest, filter: "(?i)台|tw|taiwan"}
   - {name: TW fallback, <<: *fallback, filter: "(?i)台|tw|taiwan"}
-  # - {name: TW select, <<: *select, filter: "(?i)台|tw|taiwan"}
-  # - {name: TW lobalance, <<: *lobalance, filter: "(?i)台|tw|taiwan"}
 
   - {name: JP urltest, <<: *urltest, filter: "(?i)日本|jp|japan"}
   - {name: JP fallback, <<: *fallback, filter: "(?i)日本|jp|japan"}
-  # - {name: JP select, <<: *select, filter: "(?i)日本|jp|japan"}
-  # - {name: JP lobalance, <<: *lobalance, filter: "(?i)日本|jp|japan"}
 
   - {name: SG urltest, <<: *urltest, filter: "(?i)(新|sg|singapore)"}
   - {name: SG fallback, <<: *fallback, filter: "(?i)(新|sg|singapore)"}
-  # - {name: SG select, <<: *select, filter: "(?i)(新|sg|singapore)"}
-  # - {name: SG lobalance, <<: *lobalance, filter: "(?i)(新|sg|singapore)"}
 
   - {name: US urltest, <<: *urltest, filter: "(?i)美|us|unitedstates|united states"}
   - {name: US fallback, <<: *fallback, filter: "(?i)美|us|unitedstates|united states"}
-  # - {name: US select, <<: *select, filter: "(?i)美|us|unitedstates|united states"}
-  # - {name: US lobalance, <<: *lobalance, filter: "(?i)美|us|unitedstates|united states"}
 
   - {name: Other urltest, <<: *urltest, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
   - {name: Other fallback, <<: *fallback, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
-  # - {name: Other select, <<: *select, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
-  # - {name: Other lobalance, <<: *lobalance, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
-
 
 rule_update: &rule_update
   type: http
@@ -317,9 +286,9 @@ rule-providers:
 rules:
   # 广告规则
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
-  # - RULE-SET,秋风广告规则,NoAD
+  - RULE-SET,秋风广告规则,NoAD
   # - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT-DROP
-  - GEOSITE,ads,NoAD
+  # - GEOSITE,ads,NoAD
   - GEOSITE,private,DIRECT
   - GEOSITE,cn,DIRECT
   - GEOIP,CN,DIRECT
