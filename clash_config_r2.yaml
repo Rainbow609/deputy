@@ -74,56 +74,10 @@ p: &p
 
 # url 里填写自己的订阅,名称不能重复
 proxy-providers:
-  群主_星链云:
-    <<: *p
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fstarlinkcloud.org%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D3244403e59624101e781b9e6b1e954d4&target=clash"
-    path: ./proxies/群主_星链云.yaml
-
-  群主_EF:
-    <<: *p
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fv1.efshop.cc%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D9d51fb4005748bc6419d07639cb25781&target=clash"
-    path: ./proxies/群主_EF.yaml
-
-  群主_快游戏:
-    <<: *p
-    # url: "https://sub2.jie-quick.buzz/api/v1/client/subscribe?token=6f51949086b1c27116bb77a5a520d09d&host=m.iqiyi.com"
-    url: "https://sub2.jie-quick.buzz/api/v1/client/subscribe?token=6f51949086b1c27116bb77a5a520d09d&sethost=m.iqiyi.com"
-    path: ./proxies/群主_快游戏.yaml
-
-  群主_免流骚:
-    <<: *p
-    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fsub.mlsao.top%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D4c981858904603e85fce6c825c4d6e93&newhost=m.iqiyi.com"
-    path: ./proxies/群主_免流骚.yaml
-
-  群主_三分:
-    <<: *p
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fsub.sanfen017.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D0b73731d54a0e74695ff0429b4dc2870&target=clash"
-    path: ./proxies/群主_三分.yaml
-
-  群主_三分_免流:
-    <<: *p
-    url: "https://api.orangeapi.org/sub?suburl=https%3A%2F%2Fsub.sanfen017.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D0b73731d54a0e74695ff0429b4dc2870&newhost=m.iqiyi.com"
-    path: ./proxies/群主_三分.yaml
-
-  小冰_EF:
-    <<: *p
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fv1.efshop.cc%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Dfbfd7afff691851519a1036895689ea0&target=clash"
-    path: ./proxies/小冰_EF.yaml
-
-  小冰_白嫖:
-    <<: *p
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fsub.%E7%99%BD%E5%AB%96%E6%9C%BA%E5%9C%BA.com%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Df8b23722df1e100e0a23f4bdcbcaefb8&target=clash"
-    path: ./proxies/小冰_白嫖.yaml
-
-  火锅_三分:
-    <<: *p
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fsub.sanfen017.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D1e9b47a85263bbd23ca567903a41f066&target=clash"
-    path: ./proxies/火锅_三分.yaml
-
-  达达_三分:
-    <<: *p
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fwww.efcloud.bio%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D9d51fb4005748bc6419d07639cb25781&target=clash"
-    path: ./proxies/达达_三分.yaml
+  # 群主_星链云:
+  #   <<: *p
+  #   url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https%3A%2F%2Fstarlinkcloud.org%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D3244403e59624101e781b9e6b1e954d4&target=clash"
+  #   path: ./proxies/群主_星链云.yaml
 
   # 共享_anaer:
   # # 來自 https://github.com/anaer/Sub
@@ -137,28 +91,30 @@ proxy-providers:
     url: "https://www.nite07.com/sub/s/1X53si"
     path: ./proxies/共享_ermaozi.yaml
 
+  共享_钓鱼池:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/zCEEgi"
+    path: ./proxy_providers/共享_钓鱼池.yaml
 
-# 用于普通的订阅
+  共享_vxiaov:
+  # 来自 https://github.com/vxiaov/free_proxy_ss
+    <<: *p
+    url: "https://www.nite07.com/sub/s/S7nO9n"
+    path: ./proxy_providers/共享_vxiaov.yaml
+
+  共享_dong:
+  # 来自 https://github.com/dongyubin/Free-AppleId-Serve
+    <<: *p
+    url: "https://www.nite07.com/sub/s/MOeOI8"
+    path: ./proxy_providers/共享_dong.yaml
+
+# 引入所有代理集合，这样就不需要使用 use 了
 use: &use
-  use:
-    - 群主_三分
-    - 群主_星链云
-    - 群主_EF
-    - 群主_快游戏
-    - 群主_免流骚
-    - 小冰_EF
-    - 小冰_白嫖
-    - 火锅_三分
-    - 达达_三分
-    # - 共享_anaer
-    - 共享_ermaozi
+  include-all-providers: true
 
 # 用于免流订阅
 use2: &use2
-  use:
-    - 群主_快游戏
-    - 群主_免流骚
-    - 群主_三分_免流
+  include-all-providers: true
 
 urltest: &urltest
   type: url-test
