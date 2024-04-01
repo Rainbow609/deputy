@@ -141,7 +141,7 @@ proxy-providers:
   # 來自 https://github.com/ermaozi/get_subscribe
     <<: *p
     url: "https://www.nite07.com/sub/s/1X53si"
-    path: ./proxies/共享_ermaozi.yaml
+    path: ./proxy_providers/共享_ermaozi.yaml
 
 
 # # 用于普通的订阅
@@ -158,7 +158,7 @@ proxy-providers:
 #     # - 共享_anaer
 #     - 共享_ermaozi
 
-# 用于普通的订阅
+# 引入所有代理集合，这样就不需要使用 use 了
 use: &use
   include-all-providers: true
 
