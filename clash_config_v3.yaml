@@ -311,7 +311,7 @@ rules:
   - GEOSITE,cn,DIRECT
   - GEOIP,CN,DIRECT
 
-  - RULE-SET,openAI,AI
+  - RULE-SET,OpenAI,AI
   - RULE-SET,Bing,AI
   - RULE-SET,Gemini,AI
   - RULE-SET,Claude,AI
