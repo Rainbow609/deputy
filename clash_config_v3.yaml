@@ -121,22 +121,22 @@ proxy-providers:
     url: "https://www.nite07.com/sub/s/niBNfQ"
     path: ./proxy_providers/共享_ermaozi.yaml
 
-  # 共享_钓鱼池:
-  #   <<: *p
-  #   url: "https://www.nite07.com/sub/s/zCEEgi"
-  #   path: ./proxy_providers/共享_钓鱼池.yaml
+  共享_钓鱼池:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/zCEEgi"
+    path: ./proxy_providers/共享_钓鱼池.yaml
 
-  # 共享_vxiaov:
-  # # 来自 https://github.com/vxiaov/free_proxy_ss
-  #   <<: *p
-  #   url: "https://www.nite07.com/sub/s/S7nO9n"
-  #   path: ./proxy_providers/共享_vxiaov.yaml
+  共享_vxiaov:
+  # 来自 https://github.com/vxiaov/free_proxy_ss
+    <<: *p
+    url: "https://www.nite07.com/sub/s/S7nO9n"
+    path: ./proxy_providers/共享_vxiaov.yaml
 
-  # 共享_dong:
-  # # 来自 https://github.com/dongyubin/Free-AppleId-Serve
-  #   <<: *p
-  #   url: "https://www.nite07.com/sub/s/MOeOI8"
-  #   path: ./proxy_providers/共享_dong.yaml
+  共享_dong:
+  # 来自 https://github.com/dongyubin/Free-AppleId-Serve
+    <<: *p
+    url: "https://www.nite07.com/sub/s/MOeOI8"
+    path: ./proxy_providers/共享_dong.yaml
 
 
 # 引入所有代理集合，这样就不需要使用 use 了
@@ -181,28 +181,16 @@ proxy-groups:
     proxies:
       - HK urltest
       - HK fallback
-      - HK select
-      - HK lobalance
       - TW urltest
       - TW fallback
-      - TW select
-      - TW lobalance
       - JP urltest
       - JP fallback
-      - JP select
-      - JP lobalance
       - SG urltest
       - SG fallback
-      - SG select
-      - SG lobalance
       - US urltest
       - US fallback
-      - US select
-      - US lobalance
       - Other urltest
       - Other fallback
-      - Other select
-      - Other lobalance
       - 手动切换
       - DIRECT
 
@@ -210,50 +198,48 @@ proxy-groups:
 
   - {name: 剩余流量, type: select, <<: *use, filter: "剩余流量|距离下次重置剩余|套餐到期|官网"}
 
-  - {name: NoAD, type: select, proxies: [REJECT-DROP, PASS]}
+  - {name: NoAD, type: select, proxies: [REJECT, PASS]}
 
   - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong"}
   - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong"}
-  - {name: HK select, <<: *select, filter: "(?i)港|hk|hongkong|hong kong"}
-  - {name: HK lobalance, <<: *lobalance, filter: "(?i)港|hk|hongkong|hong kong"}
 
   - {name: TW urltest, <<: *urltest, filter: "(?i)台|tw|taiwan"}
   - {name: TW fallback, <<: *fallback, filter: "(?i)台|tw|taiwan"}
-  - {name: TW select, <<: *select, filter: "(?i)台|tw|taiwan"}
-  - {name: TW lobalance, <<: *lobalance, filter: "(?i)台|tw|taiwan"}
 
   - {name: JP urltest, <<: *urltest, filter: "(?i)日本|jp|japan"}
   - {name: JP fallback, <<: *fallback, filter: "(?i)日本|jp|japan"}
-  - {name: JP select, <<: *select, filter: "(?i)日本|jp|japan"}
-  - {name: JP lobalance, <<: *lobalance, filter: "(?i)日本|jp|japan"}
 
   - {name: SG urltest, <<: *urltest, filter: "(?i)(新|sg|singapore)"}
   - {name: SG fallback, <<: *fallback, filter: "(?i)(新|sg|singapore)"}
-  - {name: SG select, <<: *select, filter: "(?i)(新|sg|singapore)"}
-  - {name: SG lobalance, <<: *lobalance, filter: "(?i)(新|sg|singapore)"}
 
   - {name: US urltest, <<: *urltest, filter: "(?i)美|us|unitedstates|united states"}
   - {name: US fallback, <<: *fallback, filter: "(?i)美|us|unitedstates|united states"}
-  - {name: US select, <<: *select, filter: "(?i)美|us|unitedstates|united states"}
-  - {name: US lobalance, <<: *lobalance, filter: "(?i)美|us|unitedstates|united states"}
 
   - {name: Other urltest, <<: *urltest, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
   - {name: Other fallback, <<: *fallback, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
-  - {name: Other select, <<: *select, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
-  - {name: Other lobalance, <<: *lobalance, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
-
 
 rule_update: &rule_update
   type: http
   interval: 86400
 
 rule-providers:
+  # 秋风广告规则Clash版本
+  # Github：https://github.com/TG-Twilight/AWAvenue-Ads-Rule
   AWAvenue:
     <<: *rule_update
     behavior: domain
     format: yaml
     path: ./rule_providers/AWAvenue-Ads-Rule-Clash.yaml
     url: "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.yaml"
+
+  # anti-AD 广告规则 Clash 版本
+  # Github：https://github.com/privacy-protection-tools/anti-AD?tab=readme-ov-file
+  antiAD:
+    <<: *rule_update
+    behavior: domain
+    format: yaml
+    path: ./rule_providers/antiAD.yaml
+    url: "https://anti-ad.net/clash.yaml"
 
   direct:
     # 直连域名列表
@@ -294,18 +280,20 @@ rule-providers:
 # 分流规则
 rules:
   # 广告规则
-  # - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT # 禁用quic(不包括国内)
-  - RULE-SET,AWAvenue,NoAD
-  # - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT # 禁用quic(不包括国内)
+  - RULE-SET,AWAvenue,REJECT-DROP
+  - RULE-SET,antiAD,REJECT-DROP
+  - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT
 
-  - RULE-SET,applications,DIRECT
-  - RULE-SET,cncidr,DIRECT
-  - RULE-SET,direct,DIRECT
-  - RULE-SET,private,DIRECT
-  - RULE-SET,lancidr,DIRECT
   - GEOIP,private,DIRECT
-
   - GEOSITE,cn,DIRECT
   - GEOIP,CN,DIRECT
+
+  - RULE-SET,cncidr,DIRECT
+  - RULE-SET,direct,DIRECT
+  # - RULE-SET,private,DIRECT
+  - RULE-SET,lancidr,DIRECT
+  - RULE-SET,applications,DIRECT
+
   - MATCH,代理设置
 
