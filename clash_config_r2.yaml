@@ -142,7 +142,7 @@ proxy-groups:
       - 国外节点 urltest
       - 手动切换
       - 故障转移
-      - 负载均衡
+      # - 负载均衡
       - 国外免流
       - DIRECT
       - TW urltest
