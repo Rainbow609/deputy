@@ -201,7 +201,7 @@ proxy-groups:
   - {name: AI, type: select, proxies: [US fallback, JP fallback, SG fallback, Other fallback]}
 
   - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong"}
-  - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong", exclude-filter: "[2-9]x"}
 
   - {name: TW urltest, <<: *urltest, filter: "(?i)台|tw|taiwan"}
   - {name: TW fallback, <<: *fallback, filter: "(?i)台|tw|taiwan"}
