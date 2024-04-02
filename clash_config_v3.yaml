@@ -294,9 +294,9 @@ rule-providers:
 # 分流规则
 rules:
   # 广告规则
-  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT # 禁用quic(不包括国内)
-  - RULE-SET,秋风广告规则,NoAD
-  - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT
+  # - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT # 禁用quic(不包括国内)
+  - RULE-SET,AWAvenue,NoAD
+  # - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT
 
   - RULE-SET,applications,DIRECT
   - RULE-SET,cncidr,DIRECT
