@@ -318,7 +318,7 @@ rules:
   - RULE-SET,lancidr,DIRECT
   - RULE-SET,applications,DIRECT
 
-  - RULE-SET,openAI,AI
+  - RULE-SET,OpenAI,AI
   - RULE-SET,Bing,AI
   - RULE-SET,Gemini,AI
   - RULE-SET,Claude,AI
