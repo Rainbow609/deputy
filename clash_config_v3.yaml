@@ -202,7 +202,7 @@ proxy-groups:
 
   - {name: NoAD, type: select, proxies: [REJECT-DROP, PASS]}
 
-  - {name: AI, type: select, proxies: [US fallback, JP fallback, SG fallback, Other fallback]}
+  # - {name: AI, type: select, proxies: [US fallback, JP fallback, SG fallback, Other fallback]}
 
   - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong"}
   - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong"}
@@ -314,10 +314,10 @@ rules:
   - GEOSITE,cn,DIRECT
   - GEOIP,CN,DIRECT
 
-  - RULE-SET,OpenAI,AI
-  - RULE-SET,Bing,AI
-  - RULE-SET,Gemini,AI
-  - RULE-SET,Claude,AI
+  # - RULE-SET,OpenAI,AI
+  # - RULE-SET,Bing,AI
+  # - RULE-SET,Gemini,AI
+  # - RULE-SET,Claude,AI
 
   - RULE-SET,applications,DIRECT
   - RULE-SET,direct,DIRECT
