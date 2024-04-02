@@ -23,16 +23,6 @@ proxy-providers:
     url: "https://www.nite07.com/sub/s/i2tZBl"
     path: ./proxy_providers/群主_星链云.yaml
 
-  群主_EF:
-    <<: *p
-    url: "https://www.nite07.com/sub/s/kf0qMD"
-    path: ./proxy_providers/群主_EF.yaml
-
-  群主_快游戏:
-    <<: *p
-    url: "https://www.nite07.com/sub/s/A6SkOd"
-    path: ./proxy_providers/群主_快游戏.yaml
-
   群主_三分:
     <<: *p
     url: "https://www.nite07.com/sub/s/9p329U"
@@ -49,31 +39,48 @@ proxy-providers:
     url: "https://www.nite07.com/sub/s/3byz1Y"
     path: ./proxy_providers/群主_养猪场.yaml
 
-  小冰_EF:
-    <<: *p
-    url: "https://www.nite07.com/sub/s/ZIiqkz"
-    path: ./proxy_providers/小冰_EF.yaml
-
   小冰_白嫖:
     <<: *p
     url: "https://www.nite07.com/sub/s/lOfPFe"
     path: ./proxy_providers/小冰_白嫖.yaml
 
-  火锅_三分:
+  小冰_三分:
     <<: *p
     url: "https://www.nite07.com/sub/s/Wg5ZyU"
-    path: ./proxy_providers/火锅_三分.yaml
+    path: ./proxy_providers/小冰_三分.yaml
 
-  达达_EF:
+  22_三分:
     <<: *p
-    url: "https://www.nite07.com/sub/s/gH7qDB"
-    path: ./proxy_providers/达达_EF.yaml
+    url: "https://www.nite07.com/sub/s/lB349z"
+    path: ./proxy_providers/22_三分.yaml
+
+  火锅_EF:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/PpuDHj"
+    path: ./proxy_providers/火锅_EF.yaml
 
   共享_ermaozi:
   # 來自 https://github.com/ermaozi/get_subscribe
     <<: *p
     url: "https://www.nite07.com/sub/s/niBNfQ"
     path: ./proxy_providers/共享_ermaozi.yaml
+
+  共享_钓鱼池:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/zCEEgi"
+    path: ./proxy_providers/共享_钓鱼池.yaml
+
+  共享_vxiaov:
+  # 来自 https://github.com/vxiaov/free_proxy_ss
+    <<: *p
+    url: "https://www.nite07.com/sub/s/S7nO9n"
+    path: ./proxy_providers/共享_vxiaov.yaml
+
+  共享_dong:
+  # 来自 https://github.com/dongyubin/Free-AppleId-Serve
+    <<: *p
+    url: "https://www.nite07.com/sub/s/MOeOI8"
+    path: ./proxy_providers/共享_dong.yaml
 
 
 use: &use
@@ -205,9 +212,40 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
     path: ./rule_providers/applications.yaml
 
+  OpenAI:
+    <<: *rule_update
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml"
+    path: ./rule_providers/openAI.yaml
+
+  Bing:
+    <<: *rule_update
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.yaml"
+    path: ./rule_providers/Bing.yaml
+
+  Gemini:
+    <<: *rule_update
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.yaml"
+    path: ./rule_providers/Gemini.yaml
+
+  Claude:
+    <<: *rule_update
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml"
+    path: ./rule_providers/Claude.yaml
+
+  EHGallery:
+    <<: *rule_update
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/EHGallery/EHGallery.yaml"
+    path: ./rule_providers/EHGallery.yaml
+
 # 分流规则
 rules:
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
+  - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT-DROP
   - RULE-SET,AWAvenue,REJECT-DROP
   - RULE-SET,antiAD,REJECT-DROP
 
