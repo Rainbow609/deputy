@@ -14,9 +14,7 @@ geo-update-interval: 24
 geox-url:
   geoip: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/geoip.dat"
   geosite: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
-  # geosite: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geosite.dat"  # 替换到 (https://github.com/DustinWin/ruleset_geodata)
   mmdb: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/Country.mmdb"
-  # mmdb: "https://cdn.jsdelivr.net/gh/Hackl0us/GeoIP2-CN@release/Country.mmdb"  # 替換到 GeoIP2.CN(https://github.com/Hackl0us/GeoIP2-CN/tree/master)
 find-process-mode: strict
 global-client-fingerprint: chrome
 
@@ -183,16 +181,28 @@ proxy-groups:
     proxies:
       - HK urltest
       - HK fallback
+      - HK select
+      - HK lobalance
       - TW urltest
       - TW fallback
+      - TW select
+      - TW lobalance
       - JP urltest
       - JP fallback
+      - JP select
+      - JP lobalance
       - SG urltest
       - SG fallback
+      - SG select
+      - SG lobalance
       - US urltest
       - US fallback
+      - US select
+      - US lobalance
       - Other urltest
       - Other fallback
+      - Other select
+      - Other lobalance
       - 手动切换
       - DIRECT
 
@@ -202,25 +212,36 @@ proxy-groups:
 
   - {name: NoAD, type: select, proxies: [REJECT-DROP, PASS]}
 
-  # - {name: AI, type: select, proxies: [US fallback, JP fallback, SG fallback, Other fallback]}
-
   - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong"}
   - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: HK select, <<: *select, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: HK lobalance, <<: *lobalance, filter: "(?i)港|hk|hongkong|hong kong"}
 
   - {name: TW urltest, <<: *urltest, filter: "(?i)台|tw|taiwan"}
   - {name: TW fallback, <<: *fallback, filter: "(?i)台|tw|taiwan"}
+  - {name: TW select, <<: *select, filter: "(?i)台|tw|taiwan"}
+  - {name: TW lobalance, <<: *lobalance, filter: "(?i)台|tw|taiwan"}
 
   - {name: JP urltest, <<: *urltest, filter: "(?i)日本|jp|japan"}
   - {name: JP fallback, <<: *fallback, filter: "(?i)日本|jp|japan"}
+  - {name: JP select, <<: *select, filter: "(?i)日本|jp|japan"}
+  - {name: JP lobalance, <<: *lobalance, filter: "(?i)日本|jp|japan"}
 
   - {name: SG urltest, <<: *urltest, filter: "(?i)(新|sg|singapore)"}
   - {name: SG fallback, <<: *fallback, filter: "(?i)(新|sg|singapore)"}
+  - {name: SG select, <<: *select, filter: "(?i)(新|sg|singapore)"}
+  - {name: SG lobalance, <<: *lobalance, filter: "(?i)(新|sg|singapore)"}
 
   - {name: US urltest, <<: *urltest, filter: "(?i)美|us|unitedstates|united states"}
   - {name: US fallback, <<: *fallback, filter: "(?i)美|us|unitedstates|united states"}
+  - {name: US select, <<: *select, filter: "(?i)美|us|unitedstates|united states"}
+  - {name: US lobalance, <<: *lobalance, filter: "(?i)美|us|unitedstates|united states"}
 
   - {name: Other urltest, <<: *urltest, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
   - {name: Other fallback, <<: *fallback, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
+  - {name: Other select, <<: *select, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
+  - {name: Other lobalance, <<: *lobalance, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
+
 
 rule_update: &rule_update
   type: http
@@ -233,39 +254,6 @@ rule-providers:
     format: yaml
     path: ./rule_providers/AWAvenue-Ads-Rule-Clash.yaml
     url: "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Clash.yaml"
-
-  # anti-AD 广告规则 Clash 版本
-  # Github：https://github.com/privacy-protection-tools/anti-AD?tab=readme-ov-file
-  antiAD:
-    <<: *rule_update
-    behavior: domain
-    format: yaml
-    path: ./rule_providers/antiAD.yaml
-    url: "https://anti-ad.net/clash.yaml"
-
-  OpenAI:
-    <<: *rule_update
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml"
-    path: ./rule_providers/openAI.yaml
-
-  Bing:
-    <<: *rule_update
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Bing/Bing.yaml"
-    path: ./rule_providers/Bing.yaml
-
-  Gemini:
-    <<: *rule_update
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini.yaml"
-    path: ./rule_providers/Gemini.yaml
-
-  Claude:
-    <<: *rule_update
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml"
-    path: ./rule_providers/Claude.yaml
 
   direct:
     # 直连域名列表
@@ -306,22 +294,18 @@ rule-providers:
 # 分流规则
 rules:
   # 广告规则
-  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
-  - RULE-SET,AWAvenue,NoAD
-  # - RULE-SET,antiAD,NoAD
-  # - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT-DROP
-  - GEOSITE,private,DIRECT
-  - GEOSITE,cn,DIRECT
-  - GEOIP,CN,DIRECT
-
-  # - RULE-SET,OpenAI,AI
-  # - RULE-SET,Bing,AI
-  # - RULE-SET,Gemini,AI
-  # - RULE-SET,Claude,AI
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT # 禁用quic(不包括国内)
+  - RULE-SET,秋风广告规则,NoAD
+  - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT
 
   - RULE-SET,applications,DIRECT
+  - RULE-SET,cncidr,DIRECT
   - RULE-SET,direct,DIRECT
+  - RULE-SET,private,DIRECT
   - RULE-SET,lancidr,DIRECT
+  - GEOIP,private,DIRECT
 
+  - GEOSITE,cn,DIRECT
+  - GEOIP,CN,DIRECT
   - MATCH,代理设置
 
