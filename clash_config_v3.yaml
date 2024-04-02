@@ -200,23 +200,23 @@ proxy-groups:
 
   - {name: AI, type: select, proxies: [US fallback, JP fallback, SG fallback, Other fallback]}
 
-  - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong", exclude-filter: "[2-9]x"}
   - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong", exclude-filter: "[2-9]x"}
 
-  - {name: TW urltest, <<: *urltest, filter: "(?i)台|tw|taiwan"}
-  - {name: TW fallback, <<: *fallback, filter: "(?i)台|tw|taiwan"}
+  - {name: TW urltest, <<: *urltest, filter: "(?i)台|tw|taiwan", exclude-filter: "[2-9]x"}
+  - {name: TW fallback, <<: *fallback, filter: "(?i)台|tw|taiwan", exclude-filter: "[2-9]x"}
 
-  - {name: JP urltest, <<: *urltest, filter: "(?i)日本|jp|japan"}
-  - {name: JP fallback, <<: *fallback, filter: "(?i)日本|jp|japan"}
+  - {name: JP urltest, <<: *urltest, filter: "(?i)日本|jp|japan", exclude-filter: "[2-9]x"}
+  - {name: JP fallback, <<: *fallback, filter: "(?i)日本|jp|japan", exclude-filter: "[2-9]x"}
 
-  - {name: SG urltest, <<: *urltest, filter: "(?i)(新|sg|singapore)"}
-  - {name: SG fallback, <<: *fallback, filter: "(?i)(新|sg|singapore)"}
+  - {name: SG urltest, <<: *urltest, filter: "(?i)(新|sg|singapore)", exclude-filter: "[2-9]x"}
+  - {name: SG fallback, <<: *fallback, filter: "(?i)(新|sg|singapore)", exclude-filter: "[2-9]x"}
 
-  - {name: US urltest, <<: *urltest, filter: "(?i)美|us|unitedstates|united states"}
-  - {name: US fallback, <<: *fallback, filter: "(?i)美|us|unitedstates|united states"}
+  - {name: US urltest, <<: *urltest, filter: "(?i)美|us|unitedstates|united states", exclude-filter: "[2-9]x"}
+  - {name: US fallback, <<: *fallback, filter: "(?i)美|us|unitedstates|united states", exclude-filter: "[2-9]x"}
 
-  - {name: Other urltest, <<: *urltest, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
-  - {name: Other fallback, <<: *fallback, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
+  - {name: Other urltest, <<: *urltest, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*", exclude-filter: "[2-9]x"}
+  - {name: Other fallback, <<: *fallback, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*", exclude-filter: "[2-9]x"}
 
 rule_update: &rule_update
   type: http
