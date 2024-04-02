@@ -316,19 +316,20 @@ rule-providers:
 rules:
   # 广告规则
   - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
+  - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT-DROP
   - RULE-SET,AWAvenue,REJECT-DROP
   - RULE-SET,antiAD,REJECT-DROP
-  - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT-DROP
 
   - GEOIP,private,DIRECT
-  - GEOSITE,cn,DIRECT
+  - GEOSITE,private,DIRECT
   - GEOIP,CN,DIRECT
+  - GEOSITE,cn,DIRECT
 
+  - RULE-SET,lancidr,DIRECT
+  - RULE-SET,applications,DIRECT
   - RULE-SET,cncidr,DIRECT
   - RULE-SET,direct,DIRECT
   # - RULE-SET,private,DIRECT
-  - RULE-SET,lancidr,DIRECT
-  - RULE-SET,applications,DIRECT
 
   - RULE-SET,OpenAI,AI
   - RULE-SET,Bing,AI
