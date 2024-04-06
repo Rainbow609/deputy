@@ -42,7 +42,7 @@ p: &p
   health-check:
     enable: true
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 180
 
 proxy-providers:
   群主_星链云:
