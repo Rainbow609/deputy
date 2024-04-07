@@ -75,7 +75,7 @@ p: &p
   health-check:
     enable: true
     url: https://www.gstatic.com/generate_204
-    interval: 300
+    interval: 180
 
 # url 里填写自己的订阅,名称不能重复
 proxy-providers:
@@ -171,7 +171,7 @@ select: &select
 lobalance: &lobalance
   type: load-balance
   url: "https://www.apple.com/library/test/success.html"
-  interval: 300
+  interval: 180
   strategy: consistent-hashing
   <<: *use
   # strategy:
