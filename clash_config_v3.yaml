@@ -81,7 +81,7 @@ p: &p
 proxy-providers:
   群主_星链云:
     <<: *p
-    url: "https://www.nite07.com/sub/s/i2tZBl"
+    url: "https://www.nite07.com/sub/s/aeZwYl"
     path: ./proxy_providers/群主_星链云.yaml
 
   群主_三分:
