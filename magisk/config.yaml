@@ -123,34 +123,47 @@ proxy-groups:
     proxies:
       - HK urltest
       - HK fallback
-      - HK select
-      - HK lobalance
-      - 台湾
-      - 日本
-      - 新加坡
-      - 美国
-      - 其它地区
-      - 全部节点
+      - TW urltest
+      - TW fallback
+      - JP urltest
+      - JP fallback
+      - SG urltest
+      - SG fallback
+      - US urltest
+      - US fallback
+      - Other urltest
+      - Other fallback
       - 直连
+      - 手动切换
 
-# 按照区域划定策略组
-  - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong"}
-  - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong"}
-  - {name: HK select, <<: *select, filter: "(?i)港|hk|hongkong|hong kong"}
-  - {name: HK lobalance, <<: *lobalance, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: 手动切换, type: select, <<: *use, exclude-filter: "剩余流量|距离下次重置剩余|套餐到期|官网|站内返利|客户端"}
 
-  - {name: 台湾, <<: *urltest, filter: "(?i)台|tw|taiwan"}
-  - {name: 日本, <<: *urltest, filter: "(?i)日|jp|japan"}
-  - {name: 美国, <<: *urltest, filter: "(?i)美|us|unitedstates|united states"}
-  - {name: 新加坡, <<: *urltest, filter: "(?i)(新|sg|singapore)"}
-  - {name: 其它地区, <<: *select, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*"}
-  - {name: 全部节点, <<: *select}
-  - {name: 剩余流量, <<: *select, filter: "剩余流量|距离下次重置剩余|套餐到期|官网"}
-  
-  - name: 直连
-    type: select
-    proxies:
-      - DIRECT
+  - {name: 剩余流量, type: select, <<: *use, filter: "剩余流量|距离下次重置剩余|套餐到期|官网"}
+
+  # - {name: EH, type: select, proxies: [手动切换]}
+
+  - {name: AI, type: select, proxies: [US fallback, JP fallback, SG fallback, Other fallback]}
+
+  # 按照区域划定策略组
+  - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong", exclude-filter: "[2-9]x"}
+  - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong", exclude-filter: "[2-9]x"}
+
+  - {name: TW urltest, <<: *urltest, filter: "(?i)台|tw|taiwan", exclude-filter: "[2-9]x"}
+  - {name: TW fallback, <<: *fallback, filter: "(?i)台|tw|taiwan", exclude-filter: "[2-9]x"}
+
+  - {name: JP urltest, <<: *urltest, filter: "(?i)日本|jp|japan", exclude-filter: "[2-9]x"}
+  - {name: JP fallback, <<: *fallback, filter: "(?i)日本|jp|japan", exclude-filter: "[2-9]x"}
+
+  - {name: SG urltest, <<: *urltest, filter: "(?i)(新|sg|singapore)", exclude-filter: "[2-9]x"}
+  - {name: SG fallback, <<: *fallback, filter: "(?i)(新|sg|singapore)", exclude-filter: "[2-9]x"}
+
+  - {name: US urltest, <<: *urltest, filter: "(?i)美|us|unitedstates|united states", exclude-filter: "[2-9]x"}
+  - {name: US fallback, <<: *fallback, filter: "(?i)美|us|unitedstates|united states", exclude-filter: "[2-9]x"}
+
+  - {name: Other urltest, <<: *urltest, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*", exclude-filter: "[2-9]x"}
+  - {name: Other fallback, <<: *fallback, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*", exclude-filter: "[2-9]x"}
+
+  - {name: 直连, type: select, proxies: [DIRECT]}
       
 rule_update: &rule_update
   type: http
@@ -259,6 +272,12 @@ rules:
   - RULE-SET,direct,DIRECT
   # - RULE-SET,cncidr,DIRECT
   # - RULE-SET,private,DIRECT
+
+  - RULE-SET,OpenAI,AI
+  - RULE-SET,Bing,AI
+  - RULE-SET,Gemini,AI
+  - RULE-SET,Claude,AI
+  - RULE-SET,EHGallery,手动切换
 
   - MATCH,proxy
 
