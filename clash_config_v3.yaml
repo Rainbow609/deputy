@@ -120,6 +120,11 @@ proxy-providers:
     url: "https://www.nite07.com/sub/s/PpuDHj"
     path: ./proxy_providers/火锅_EF.yaml
 
+  火锅_白嫖:
+    <<: *p
+    url: "https://www.nite07.com/sub/s/dyoCKX"
+    path: ./proxy_providers/火锅_白嫖.yaml
+
   共享_ermaozi:
   # 來自 https://github.com/ermaozi/get_subscribe
     <<: *p
