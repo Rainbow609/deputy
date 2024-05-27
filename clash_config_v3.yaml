@@ -106,14 +106,23 @@ proxy-providers:
     override:
       additional-prefix: "群主_wget "
 
-  # 群主_养猪场:
-  #   <<: *p
-  #   # https://sub.pigfarmcloud.com/api/v1/client/subscribe?token=166b7d2d906d6e8b303c7635ecaf8f41
-  #   url: "https://www.nite07.com/sub/meta?sub=https://sub.pigfarmcloud.com/api/v1/client/subscribe?token=166b7d2d906d6e8b303c7635ecaf8f41&flag=clash&nodeList=true"
-  #   path: ./proxy_providers/群主_养猪场.yaml
-  #   override:
-  #     additional-prefix: "群主_养猪场 "
+  群主_养猪场:
+    <<: *p
+    # https://sub.pigfarmcloud.com/api/v1/client/subscribe?token=166b7d2d906d6e8b303c7635ecaf8f41
+    url: "https://www.nite07.com/sub/s/3byz1Y"
+    path: ./proxy_providers/群主_养猪场.yaml
+    override:
+      additional-prefix: "群主_养猪场 "
 
+  达达_极速:
+    <<: *p
+    # https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01
+    url: "https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01"
+    path: ./proxy_providers/达达_极速.yaml
+    override:
+      additional-prefix: "达达_极速 "
+      
+      
   # 共享_ermaozi:
   # # 來自 https://github.com/ermaozi/get_subscribe
   #   <<: *p
