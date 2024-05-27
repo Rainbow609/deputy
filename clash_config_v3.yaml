@@ -122,6 +122,14 @@ proxy-providers:
     override:
       additional-prefix: "达达_极速 "
       
+  火锅_白嫖:
+    <<: *p
+    # https://sub.xn--mesv7f5toqlp.com/api/v1/client/subscribe?token=f62b4f8cbb84e14bcca1c58943e884ea
+    url: "https://sub.xn--mesv7f5toqlp.com/api/v1/client/subscribe?token=f62b4f8cbb84e14bcca1c58943e884ea"
+    path: ./proxy_providers/火锅_白嫖.yaml
+    override:
+      additional-prefix: "火锅_白嫖 "
+      
       
   # 共享_ermaozi:
   # # 來自 https://github.com/ermaozi/get_subscribe
