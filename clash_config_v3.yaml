@@ -117,7 +117,7 @@ proxy-providers:
   火锅_白嫖:
     <<: *p
     # https://sub.xn--mesv7f5toqlp.com/api/v1/client/subscribe?token=f62b4f8cbb84e14bcca1c58943e884ea
-    url: "https://sub.xn--mesv7f5toqlp.com/api/v1/client/subscribe?token=f62b4f8cbb84e14bcca1c58943e884ea"
+    url: "https://www.nite07.com/sub/meta?sub=https://sub.xn--mesv7f5toqlp.com/api/v1/client/subscribe?token=f62b4f8cbb84e14bcca1c58943e884ea&nodeList=true"
     path: ./proxy_providers/火锅_白嫖.yaml
     override:
       additional-prefix: "火锅_白嫖 "
@@ -325,6 +325,11 @@ rule-providers:
 
 # 分流规则
 rules:
+  # 常用软件直连
+  - PROCESS-NAME,com.hihonor.cloudmusic,DIRECT
+  - PROCESS-NAME,com.netease.cloudmusic,DIRECT
+  - PROCESS-NAME,com.tencent.qqmusic,DIRECT
+
   # 广告规则
   # - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
   # - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT-DROP
