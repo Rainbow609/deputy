@@ -85,12 +85,16 @@ proxy-providers:
     url: "https://www.nite07.com/sub/meta?sub=https%3A%2F%2Fstarlinkcloud.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D5ba4e95580963e89050945ddf20d50b1&nodeList=true"
     path: ./proxy_providers/群主_星链云.yaml
     override:
-      additional-prefix: "群主_星链云"
+      additional-prefix: "群主_星链云 "
 
   群主_三分:
     <<: *p
-    url: "https://www.nite07.com/sub/s/9p329U"
+    # https://xn--ehq00hgtfdmt.xyz/
+    # https://sub.sanfen018.xyz/api/v1/client/subscribe?token=0b73731d54a0e74695ff0429b4dc2870&flag=clash
+    url: "https://www.nite07.com/sub/meta?sub=https://sub.sanfen018.xyz/api/v1/client/subscribe?token=0b73731d54a0e74695ff0429b4dc2870&flag=clash&nodeList=true"
     path: ./proxy_providers/群主_三分.yaml
+    override:
+      additional-prefix: "群主_三分 "
 
   群主_wget:
     <<: *p
@@ -100,60 +104,46 @@ proxy-providers:
     url: "https://www.nite07.com/sub/meta?sub=https://gawrgura.moe/api/v1/client/subscribe?token=7d523c439301979d3b113bb7f58c4d7b&nodeList=true"
     path: ./proxy_providers/群主_wget.yaml
     override:
-      additional-prefix: "群主_wget"
+      additional-prefix: "群主_wget "
 
   群主_养猪场:
     <<: *p
     url: "https://www.nite07.com/sub/s/3byz1Y"
     path: ./proxy_providers/群主_养猪场.yaml
-
-  小冰_白嫖:
-    <<: *p
-    url: "https://www.nite07.com/sub/s/lOfPFe"
-    path: ./proxy_providers/小冰_白嫖.yaml
-
-  小冰_三分:
-    <<: *p
-    url: "https://www.nite07.com/sub/s/Wg5ZyU"
-    path: ./proxy_providers/小冰_三分.yaml
-
-  22_三分:
-    <<: *p
-    url: "https://www.nite07.com/sub/s/lB349z"
-    path: ./proxy_providers/22_三分.yaml
-
-  火锅_EF:
-    <<: *p
-    url: "https://www.nite07.com/sub/s/PpuDHj"
-    path: ./proxy_providers/火锅_EF.yaml
-
-  火锅_白嫖:
-    <<: *p
-    url: "https://www.nite07.com/sub/s/dyoCKX"
-    path: ./proxy_providers/火锅_白嫖.yaml
-
-  共享_ermaozi:
-  # 來自 https://github.com/ermaozi/get_subscribe
-    <<: *p
-    url: "https://www.nite07.com/sub/meta?sub=https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml&nodeList=true"
-    path: ./proxy_providers/共享_ermaozi.yaml
     override:
-      additional-prefix: "共享_ermaozi"
+      additional-prefix: "群主_养猪场 "
 
-  共享_vxiaov:
-  # 来自 https://github.com/vxiaov/free_proxy_ss
-    <<: *p
-    url: "https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml"
-    path: ./proxy_providers/共享_vxiaov.yaml
-    override:
-      additional-prefix: "共享_vxiaov"
+  # 共享_ermaozi:
+  # # 來自 https://github.com/ermaozi/get_subscribe
+  #   <<: *p
+  #   url: "https://www.nite07.com/sub/meta?sub=https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml&nodeList=true"
+  #   path: ./proxy_providers/共享_ermaozi.yaml
+  #   override:
+  #     additional-prefix: "共享_ermaozi "
 
-  共享_dong:
-  # 来自 https://github.com/dongyubin/Free-AppleId-Serve
-    <<: *p
-    url: "https://www.nite07.com/sub/s/MOeOI8"
-    path: ./proxy_providers/共享_dong.yaml
+  # 共享_vxiaov:
+  # # 来自 https://github.com/vxiaov/free_proxy_ss
+  #   <<: *p
+  #   url: "https://www.nite07.com/sub/meta?sub=https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml&nodeList=true"
+  #   path: ./proxy_providers/共享_vxiaov.yaml
+  #   override:
+  #     additional-prefix: "共享_vxiaov "
 
+  # 共享_dong:
+  # # 来自 https://github.com/dongyubin/Free-AppleId-Serve
+  #   <<: *p
+  #   url: "https://www.nite07.com/sub/meta?sub=https://raw.githubusercontent.com/ssrsub/ssr/master/ssrsub&nodeList=true"
+  #   path: ./proxy_providers/共享_dong.yaml
+  #   override:
+  #     additional-prefix: "共享_dong "
+
+  # 共享_getNode:
+  # # 来自 https://github.com/Flik6/getNode?tab=readme-ov-file
+  #   <<: *p
+  #   url: "https://www.nite07.com/sub/meta?sub=https://raw.githubusercontent.com/a2470982985/getNode/main/clash.yaml&nodeList=true"
+  #   path: ./proxy_providers/共享_getNode.yaml
+  #   override:
+  #     additional-prefix: "共享_getNode "
 
 # 引入所有代理集合，这样就不需要使用 use 了
 use: &use
