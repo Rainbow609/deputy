@@ -82,7 +82,7 @@ proxy-providers:
   群主_星链云:
     <<: *p
     # https://starlinkcloud.xyz/api/v1/client/subscribe?token=5ba4e95580963e89050945ddf20d50b1
-    url: "https://www.nite07.com/sub/meta?sub=https%3A%2F%2Fstarlinkcloud.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D5ba4e95580963e89050945ddf20d50b1&nodeList=true"
+    url: "https://www.nite07.com/sub/meta?sub=https://starlinkcloud.xyz/api/v1/client/subscribe?token=5ba4e95580963e89050945ddf20d50b1&nodeList=true"
     path: ./proxy_providers/群主_星链云.yaml
     override:
       additional-prefix: "群主_星链云 "
@@ -90,8 +90,8 @@ proxy-providers:
   群主_三分:
     <<: *p
     # https://xn--ehq00hgtfdmt.xyz/
-    # https://sub.sanfen018.xyz/api/v1/client/subscribe?token=0b73731d54a0e74695ff0429b4dc2870&flag=clash
-    url: "https://www.nite07.com/sub/meta?sub=https://sub.sanfen018.xyz/api/v1/client/subscribe?token=0b73731d54a0e74695ff0429b4dc2870&flag=clash&nodeList=true"
+    # https://sub.sanfen018.xyz/api/v1/client/subscribe?token=0b73731d54a0e74695ff0429b4dc2870
+    url: "https://www.nite07.com/sub/meta?sub=https://sub.sanfen018.xyz/api/v1/client/subscribe?token=0b73731d54a0e74695ff0429b4dc2870&nodeList=true"
     path: ./proxy_providers/群主_三分.yaml
     override:
       additional-prefix: "群主_三分 "
@@ -109,7 +109,7 @@ proxy-providers:
   达达_极速:
     <<: *p
     # https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01
-    url: "https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01"
+    url: "https://www.nite07.com/sub/meta?sub=https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01&nodeList=true"
     path: ./proxy_providers/达达_极速.yaml
     override:
       additional-prefix: "达达_极速 "
