@@ -1,0 +1,41 @@
+# 这里是订阅更新和延迟测试相关的
+p: &p
+  type: http
+  interval: 86400
+  health-check:
+    enable: true
+    url: https://www.gstatic.com/generate_204
+    interval: 180
+
+proxy-providers:
+  共享_ermaozi:
+    # 來自 https://github.com/ermaozi/get_subscribe
+    <<: *p
+    url: "https://www.nite07.com/sub/meta?sub=https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml&nodeList=true"
+    path: ./proxy_providers/共享_ermaozi.yaml
+    override:
+      additional-prefix: "共享_ermaozi "
+
+  共享_vxiaov:
+    # 来自 https://github.com/vxiaov/free_proxy_ss
+    <<: *p
+    url: "https://www.nite07.com/sub/meta?sub=https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml&nodeList=true"
+    path: ./proxy_providers/共享_vxiaov.yaml
+    override:
+      additional-prefix: "共享_vxiaov "
+
+  共享_dong:
+    # 来自 https://github.com/dongyubin/Free-AppleId-Serve
+    <<: *p
+    url: "https://www.nite07.com/sub/meta?sub=https://raw.githubusercontent.com/ssrsub/ssr/master/ssrsub&nodeList=true"
+    path: ./proxy_providers/共享_dong.yaml
+    override:
+      additional-prefix: "共享_dong "
+
+  共享_getNode:
+    # 来自 https://github.com/Flik6/getNode?tab=readme-ov-file
+    <<: *p
+    url: "https://www.nite07.com/sub/meta?sub=https://raw.githubusercontent.com/a2470982985/getNode/main/clash.yaml&nodeList=true"
+    path: ./proxy_providers/共享_getNode.yaml
+    override:
+      additional-prefix: "共享_getNode "
