@@ -1,0 +1,69 @@
+http-port: 7890
+socks-port: 7891
+redir-port: 7892
+tproxy-port: 7893
+allow-lan: true
+geodata-mode: true
+unified-delay: true
+mode: rule
+log-level: info
+ipv6: true
+tcp-concurrent: true
+geo-auto-update: true
+geo-update-interval: 24
+geodata-loader: standard
+geox-url:
+  geoip: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/geoip.dat"
+  geosite: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
+  mmdb: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/Country.mmdb"
+find-process-mode: strict
+global-client-fingerprint: chrome
+
+sniffer:
+  enable: true
+  sniffing:
+    - tls
+    - http
+
+profile:
+  store-fake-ip: true  # 储存 API 对策略组的选择，以供下次启动时使用
+  store-selected: true  # 储存 fakeip 映射表，域名再次发生连接时，使用原有映射地址
+
+external-controller: 127.0.0.1:9090
+external-ui: yacd
+
+tun:
+  enable: false
+  device: Meta
+  stack: system
+  dns-hijack:
+    - any:53
+  # auto-route: true
+  # auto-detect-interface: true
+
+dns:
+  enable: true
+  listen: 0.0.0.0:53
+  nameserver-policy:
+    "geosite:cn,geoip:cn,private":
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+  nameserver:
+    - tls://8.8.4.4
+    - https://1.0.0.1/dns-query
+
+# 用于DNS服务器和连接建立的静态主机 (如/etc/hosts) .
+hosts:
+  'appupdate.189.cn': '127.0.0.1'
+
+
+# 免流百度直连
+baidu: &baidu
+  type: http
+  port: 443
+  headers:
+    X-T5-Auth: "683556433"
+    Host: 153.3.236.22:443
+    User-Agent:
+      "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 13; 2210132C Build/TKQ1.220905.001)
+      baiduboxapp/11.0.5.12 (Baidu; P1 11)"
