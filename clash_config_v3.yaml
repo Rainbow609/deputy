@@ -11,6 +11,7 @@ ipv6: true
 tcp-concurrent: true
 geo-auto-update: true
 geo-update-interval: 24
+geodata-loader: standard
 geox-url:
   geoip: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/geoip@release/geoip.dat"
   geosite: "https://jsd.onmicrosoft.cn/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
@@ -25,8 +26,8 @@ sniffer:
     - http
 
 profile:
-  store-fake-ip: true
-  store-selected: true
+  store-fake-ip: true  # 储存 API 对策略组的选择，以供下次启动时使用
+  store-selected: true  # 储存 fakeip 映射表，域名再次发生连接时，使用原有映射地址
 
 external-controller: 127.0.0.1:9090
 external-ui: yacd
