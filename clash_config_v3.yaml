@@ -110,7 +110,7 @@ proxy-providers:
   达达_极速:
     <<: *p
     # https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01"
+    url: "https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01"
     path: ./proxy_providers/达达_极速.yaml
     override:
       additional-prefix: "达达_极速 "
