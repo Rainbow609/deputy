@@ -79,6 +79,7 @@ p: &p
     interval: 180
 
 # url 里填写自己的订阅,名称不能重复
+# 订阅转换: https://sub-web.netlify.app/
 proxy-providers:
   群主_星链云:
     <<: *p
