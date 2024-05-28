@@ -83,7 +83,7 @@ proxy-providers:
   群主_星链云:
     <<: *p
     # https://starlinkcloud.xyz/api/v1/client/subscribe?token=5ba4e95580963e89050945ddf20d50b1
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https://starlinkcloud.xyz/api/v1/client/subscribe?token=5ba4e95580963e89050945ddf20d50b1"
+    url: "https://api.wcc.best/sub?target=clash&url=https%3A%2F%2Fstarlinkcloud.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D5ba4e95580963e89050945ddf20d50b1&insert=false&emoji=false&list=true&tfo=false&scv=true&fdn=false&sort=false&new_name=true"
     path: ./proxy_providers/群主_星链云.yaml
     override:
       additional-prefix: "群主_星链云 "
@@ -92,7 +92,7 @@ proxy-providers:
     <<: *p
     # https://xn--ehq00hgtfdmt.xyz/
     # https://sub.sanfen018.xyz/api/v1/client/subscribe?token=0b73731d54a0e74695ff0429b4dc2870
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https://sub.sanfen018.xyz/api/v1/client/subscribe?token=0b73731d54a0e74695ff0429b4dc2870"
+    url: "https://api.wcc.best/sub?target=clash&url=https%3A%2F%2Fsub.sanfen018.xyz%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D0b73731d54a0e74695ff0429b4dc2870&insert=false&emoji=false&list=true&tfo=false&scv=true&fdn=false&sort=false&new_name=true"
     path: ./proxy_providers/群主_三分.yaml
     override:
       additional-prefix: "群主_三分 "
@@ -102,7 +102,7 @@ proxy-providers:
     # wget.moe
     # https://sr.12306.me.uk/
     # https://gawrgura.moe/api/v1/client/subscribe?token=7d523c439301979d3b113bb7f58c4d7b
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https://gawrgura.moe/api/v1/client/subscribe?token=7d523c439301979d3b113bb7f58c4d7b"
+    url: "https://api.wcc.best/sub?target=clash&url=https%3A%2F%2Fgawrgura.moe%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D7d523c439301979d3b113bb7f58c4d7b&insert=false&emoji=false&list=true&tfo=false&scv=true&fdn=false&sort=false&new_name=true"
     path: ./proxy_providers/群主_wget.yaml
     override:
       additional-prefix: "群主_wget "
@@ -110,7 +110,7 @@ proxy-providers:
   达达_极速:
     <<: *p
     # https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01
-    url: "https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01"
+    url: "https://api.wcc.best/sub?target=clash&url=https%3A%2F%2Fjsjc.cfd%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3D70e468efdcf48393fcea004ee0d3cf01&insert=false&emoji=false&list=true&tfo=false&scv=true&fdn=false&sort=false&new_name=true"
     path: ./proxy_providers/达达_极速.yaml
     override:
       additional-prefix: "达达_极速 "
@@ -118,7 +118,7 @@ proxy-providers:
   火锅_白嫖:
     <<: *p
     # https://sub.xn--mesv7f5toqlp.com/api/v1/client/subscribe?token=f62b4f8cbb84e14bcca1c58943e884ea
-    url: "https://proxy-provider-converter-git-main-rainbow609s-projects.vercel.app/api/convert?url=https://sub.xn--mesv7f5toqlp.com/api/v1/client/subscribe?token=f62b4f8cbb84e14bcca1c58943e884ea"
+    url: "https://api.wcc.best/sub?target=clash&url=https%3A%2F%2Fsub.xn--mesv7f5toqlp.com%2Fapi%2Fv1%2Fclient%2Fsubscribe%3Ftoken%3Df62b4f8cbb84e14bcca1c58943e884ea&insert=false&emoji=false&list=true&tfo=false&scv=true&fdn=false&sort=false&new_name=true"
     path: ./proxy_providers/火锅_白嫖.yaml
     override:
       additional-prefix: "火锅_白嫖 "
