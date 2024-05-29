@@ -1,6 +1,7 @@
 import yaml
 import requests
 import chardet
+import os
 
 
 def detect_encoding(file):
@@ -16,13 +17,12 @@ def parse_yaml(file_path):
 
 
 def merge_yamls(files, output_file):
-    data = {}
+    directory = 'templates'
 
     with open(output_file, 'w', encoding='utf-8') as output:
-        # 遍歷每個 SQL 文件並將內容寫入輸出文件
         for file_name in files:
-            # file_path = os.path.join(directory, file_name)
-            with open(file_name, 'r', encoding='utf-8') as input_file:
+            file_path = os.path.join(directory, file_name)
+            with open(file_path, 'r', encoding='utf-8') as input_file:
                 output.write(input_file.read())
 
 
@@ -36,8 +36,7 @@ def download_file(url, path):
         print(f"Error downloading file from {url}: {e}")
 
 
-def main():
-    file_path = 'clash_config_v3.yaml'
+def get_node_list_and_rule(file_path):
     data = parse_yaml(file_path)
 
     downloaded_files = set()
@@ -48,10 +47,10 @@ def main():
         print(f"Proxy Provider: {provider}")
         print(f"URL: {url}")
         print(f"Path: {path}")
-        print()
         if url not in downloaded_files:
             download_file(url, path)
             downloaded_files.add(url)
+        print()
 
     for provider, info in data['rule-providers'].items():
         url = info['url']
@@ -59,13 +58,13 @@ def main():
         print(f"Rule Provider: {provider}")
         print(f"URL: {url}")
         print(f"Path: {path}")
-        print()
         if url not in downloaded_files:
             download_file(url, path)
             downloaded_files.add(url)
+        print()
 
 
 if __name__ == '__main__':
-    # main()
-    file_list = ['templates/head.yaml', 'templates/proxy-providers.yaml', 'templates/rules_group.yaml']
-    merge_yamls(file_list, 'out.yaml')
+    # get_node_list_and_rule('clash_config_v3.yaml')
+    file_list = ['head.yaml', 'proxy-providers.yaml', 'rules_group.yaml']
+    merge_yamls(file_list, 'clash_config_v3.yaml')

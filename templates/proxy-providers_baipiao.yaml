@@ -11,7 +11,7 @@ proxy-providers:
   共享_ermaozi:
     # 來自 https://github.com/ermaozi/get_subscribe
     <<: *p
-    url: "https://www.nite07.com/sub/meta?sub=https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml&nodeList=true"
+    url: "https://api.wcc.best/sub?target=clash&list=true&url=https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
     path: ./proxy_providers/共享_ermaozi.yaml
     override:
       additional-prefix: "共享_ermaozi "
@@ -19,7 +19,7 @@ proxy-providers:
   共享_vxiaov:
     # 来自 https://github.com/vxiaov/free_proxy_ss
     <<: *p
-    url: "https://www.nite07.com/sub/meta?sub=https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml&nodeList=true"
+    url: "https://api.wcc.best/sub?target=clash&list=true&url=https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml"
     path: ./proxy_providers/共享_vxiaov.yaml
     override:
       additional-prefix: "共享_vxiaov "
@@ -27,7 +27,7 @@ proxy-providers:
   共享_dong:
     # 来自 https://github.com/dongyubin/Free-AppleId-Serve
     <<: *p
-    url: "https://www.nite07.com/sub/meta?sub=https://raw.githubusercontent.com/ssrsub/ssr/master/ssrsub&nodeList=true"
+    url: "https://api.wcc.best/sub?target=clash&list=true&url=https://www.xrayvip.com/free.yaml"
     path: ./proxy_providers/共享_dong.yaml
     override:
       additional-prefix: "共享_dong "
@@ -35,7 +35,7 @@ proxy-providers:
   共享_getNode:
     # 来自 https://github.com/Flik6/getNode?tab=readme-ov-file
     <<: *p
-    url: "https://www.nite07.com/sub/meta?sub=https://raw.githubusercontent.com/a2470982985/getNode/main/clash.yaml&nodeList=true"
+    url: "https://api.wcc.best/sub?target=clash&list=true&url=https://raw.githubusercontent.com/a2470982985/getNode/main/clash.yaml"
     path: ./proxy_providers/共享_getNode.yaml
     override:
       additional-prefix: "共享_getNode "
