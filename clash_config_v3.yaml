@@ -315,7 +315,7 @@ rules:
   - RULE-SET,applications,DIRECT
   - RULE-SET,cncidr,DIRECT
   - RULE-SET,direct,DIRECT
-  # - RULE-SET,private,DIRECT
+  - RULE-SET,private,DIRECT
 
   - RULE-SET,OpenAI,AI
   - RULE-SET,Bing,AI
