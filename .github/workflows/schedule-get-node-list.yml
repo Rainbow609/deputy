@@ -19,7 +19,7 @@ jobs:
         python-version: "3.x" # 請將 x 替換為具體的 Python 版本號，例如 3.10
 
     - name: Install dependencies
-      run: pip install pyyaml
+      run: pip install pyyaml requests chardet
 
     - name: Run get_node_list.py
       run: python get_node_list.py
