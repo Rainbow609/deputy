@@ -1,0 +1,418 @@
+proxies:
+    - type: vmess
+      name: '最新官网: wget.moe'
+      server: 127.0.0.1
+      port: 53
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 徐州移动 01 | ws
+      server: 223.113.54.140
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 徐州移动 02 | tcp
+      server: 223.113.54.141
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 武汉电信 01 | ws
+      server: 61.184.8.51
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 武汉电信 02 | tcp
+      server: 61.184.8.62
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 济南联通 01 | ws
+      server: 60.215.152.136
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 济南联通 02 | tcp
+      server: 60.215.152.142
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 广州移动 01 | ws
+      server: 183.232.170.98
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 广州移动 02 | tcp
+      server: 183.232.170.93
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 广州移动 03 | ws | ipv6
+      server: 2409:8c54:2000:c00:0:1:0:93
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 广州移动 04 | tcp | ipv6
+      server: 2409:8c54:2000:c00:0:1:0:98
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 杭州电信 01 | ws | 非80
+      server: 125.124.254.5
+      port: 1080
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 杭州电信 02 | tcp | 非80
+      server: 125.124.254.5
+      port: 1081
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 香港 01 | ws
+      server: ef4e4860-008c-3e01-d1f8-bd56dc5b419b.oneplus.pub
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 香港 02 | ws
+      server: ddd47481-0d6f-08b9-7209-b0ddc0c5fa45.oneplus.pub
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 香港 03 | ws
+      server: ba3c486b-cbbb-3c87-fbf4-f162ab3af3c1.oneplus.pub
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 香港 04 | tcp
+      server: 45975a96-8e25-f0bf-6e5c-5589026317b6.oneplus.pub
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 香港 05 | tcp
+      server: 25784925-0fc7-10be-e4d0-9c6fec392dc2.oneplus.pub
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 台湾 01 | ws
+      server: 7cc02ab9-3478-1733-ea94-2b45d8e115a0.bugtik.ltd
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 台湾 02 | ws
+      server: 207c13fb-83b6-2021-766b-6c95e56a4a33.bugtik.ltd
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 台湾 03 | tcp
+      server: 7a0add83-5270-1775-a87c-691656dba7c3.bugtik.ltd
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 台湾 04 | tcp
+      server: 98ee7637-0cdb-3fe7-dd09-2f619134fb1c.bugtik.ltd
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 新加坡 01 | ws
+      server: fe14a220-14f4-29a3-210c-22e85c445656.oneplus.pub
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 新加坡 02 | ws
+      server: 8095978a-4cf8-3668-bdf2-4bf7bd179086.oneplus.pub
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 新加坡 03 | tcp
+      server: b5446620-31eb-31dd-2c10-f1aa77e5eb19.oneplus.pub
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 新加坡 04 | tcp
+      server: 10b36246-4b91-3dfe-e2c4-5e560e2b8d11.genshinimpact.moe
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 日本 01 | ws
+      server: 6e0c29ce-e096-d19a-fe89-04374c0dc670.oneplus.pub
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 日本 02 | ws
+      server: 56e4e417-d752-7f4e-9441-f8ff3fa01faf.oneplus.pub
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 日本 03 | tcp
+      server: e69bdf61-f7f9-ead2-6b31-3a33db345d9a.genshinimpact.moe
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 日本 04 | tcp
+      server: d811ce06-6dec-6ccf-8633-2af47e9d2699.oneplus.pub
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 韩国 01 | ws
+      server: 163dca3b-fa3b-0235-11ca-06989e818bac.oneplus.pub
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 韩国 02 | tcp
+      server: 001f1121-d7f9-c93f-2f51-7730f4fd1e9b.oneplus.pub
+      port: 80
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+    - type: vmess
+      name: 泰国 01 | ws
+      server: ddbcb0bb-0765-dacc-887b-bf8c113b6d02.xn--37qy2m7z0cohn.xn--6qq986b3xl
+      port: 20027
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 美国 01 | ws
+      server: ddbcb0bb-0765-dacc-887b-bf8c113b6d02.xn--37qy2m7z0cohn.xn--6qq986b3xl
+      port: 20032
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 俄罗斯 01 | ws
+      server: ddbcb0bb-0765-dacc-887b-bf8c113b6d02.xn--37qy2m7z0cohn.xn--6qq986b3xl
+      port: 20003
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 德国 01 | ws
+      server: ddbcb0bb-0765-dacc-887b-bf8c113b6d02.xn--37qy2m7z0cohn.xn--6qq986b3xl
+      port: 20004
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 芬兰 01 | ws
+      server: ddbcb0bb-0765-dacc-887b-bf8c113b6d02.xn--37qy2m7z0cohn.xn--6qq986b3xl
+      port: 20012
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 土耳其 01 | ws
+      server: ddbcb0bb-0765-dacc-887b-bf8c113b6d02.xn--37qy2m7z0cohn.xn--6qq986b3xl
+      port: 20029
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 伊拉克 01 | ws
+      server: ddbcb0bb-0765-dacc-887b-bf8c113b6d02.xn--37qy2m7z0cohn.xn--6qq986b3xl
+      port: 20011
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 阿根廷 01 | ws
+      server: ddbcb0bb-0765-dacc-887b-bf8c113b6d02.xn--37qy2m7z0cohn.xn--6qq986b3xl
+      port: 20030
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com
+    - type: vmess
+      name: 阿根廷 02 | ws
+      server: ddbcb0bb-0765-dacc-887b-bf8c113b6d02.xn--37qy2m7z0cohn.xn--6qq986b3xl
+      port: 20031
+      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /
+        headers:
+            Host: tms.dingtalk.com

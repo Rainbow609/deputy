@@ -1,0 +1,275 @@
+proxies:
+    - type: hysteria2
+      name: ""
+      server: 163.123.192.167
+      port: 2899
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "www.microsoft.com#剩余流量：198.09 GB\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "1"
+      server: 205.178.183.33
+      port: 2899
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "www.microsoft.com#\U0001F1EF\U0001F1F5日本 | 0.1x\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "2"
+      server: 132.145.59.119
+      port: 443
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "www.microsoft.com#\U0001F1EC\U0001F1E7英国伦敦\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "3"
+      server: 89.163.221.228
+      port: 443
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "www.baidu.com#\U0001F1E9\U0001F1EA德国Hy\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "4"
+      server: 62.210.71.30
+      port: 38443
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "www.microsoft.com#\U0001F1EB\U0001F1F7法国\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "5"
+      server: 152.69.160.246
+      port: 443
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "fastcdn.hoyoverse.com#\U0001F1E6\U0001F1FA澳大利亚悉尼\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "6"
+      server: 168.138.4.0
+      port: 443
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "fastcdn.hoyoverse.com#\U0001F1E6\U0001F1FA澳大利亚墨尔本\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "7"
+      server: 140.238.243.72
+      port: 443
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "fastcdn.hoyoverse.com#\U0001F1EE\U0001F1F3印度孟买\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "8"
+      server: 152.67.172.185
+      port: 443
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "fastcdn.hoyoverse.com#\U0001F1EE\U0001F1F3印度海得拉巴\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "9"
+      server: 152.67.197.173
+      port: 443
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "fastcdn.hoyoverse.com#\U0001F1F0\U0001F1F7韩国春川\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "10"
+      server: 152.67.209.118
+      port: 443
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "fastcdn.hoyoverse.com#\U0001F1F0\U0001F1F7韩国春川2\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "11"
+      server: 193.123.79.115
+      port: 443
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "fastcdn.hoyoverse.com#\U0001F1E6\U0001F1EA迪拜\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "12"
+      server: 193.123.69.170
+      port: 443
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "fastcdn.hoyoverse.com#\U0001F1E6\U0001F1EA迪拜2\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "13"
+      server: 144.22.219.99
+      port: 443
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "fastcdn.hoyoverse.com#\U0001F1E7\U0001F1F7巴西圣保罗\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "14"
+      server: 129.151.189.79
+      port: 443
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "fastcdn.hoyoverse.com#\U0001F1FF\U0001F1E6非洲约翰内斯堡\r"
+      skip-cert-verify: true
+    - type: hysteria2
+      name: "15"
+      server: 129.151.221.241
+      port: 443
+      password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      sni: "fastcdn.hoyoverse.com#\U0001F1F8\U0001F1EA瑞典斯德哥尔摩\r"
+      skip-cert-verify: true
+    - type: vless
+      name: "\U0001F1ED\U0001F1F0香港1号 | 0.1x"
+      server: 162.159.58.102
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      tls: true
+      network: ws
+      ws-opts:
+        path: /jsjc/hk1
+        headers:
+            Host: jsjchk1.jsjc.sbs
+      ws-path: /jsjc/hk1
+      ws-headers:
+        Host: jsjchk1.jsjc.sbs
+      client-fingerprint: chrome
+    - type: vless
+      name: "\U0001F1ED\U0001F1F0香港 | 1x"
+      server: 178.173.236.236
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      flow: xtls-rprx-vision
+      tls: true
+      client-fingerprint: chrome
+    - type: vless
+      name: "\U0001F1E9\U0001F1EA德国 | 1x"
+      server: 89.163.221.228
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      flow: xtls-rprx-vision
+      tls: true
+      client-fingerprint: chrome
+    - type: vless
+      name: "\U0001F1FA\U0001F1F8美国凤凰城 | 0.1x"
+      server: 141.193.68.81
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      flow: xtls-rprx-vision
+      tls: true
+      client-fingerprint: ios
+    - type: vless
+      name: "\U0001F1FA\U0001F1F8美国凤凰城01 | 0.1x"
+      server: 146.19.21.118
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      tls: true
+      network: ws
+      ws-opts:
+        path: /jsjc/us1
+        headers:
+            Host: j1us1.jsjc.sbs
+      ws-path: /jsjc/us1
+      ws-headers:
+        Host: j1us1.jsjc.sbs
+      client-fingerprint: chrome
+    - type: vless
+      name: "\U0001F1FA\U0001F1F8美国凤凰城03 | 0.1x"
+      server: 185.162.228.36
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      tls: true
+      network: ws
+      ws-opts:
+        path: /jsjc/us3
+        headers:
+            Host: j1us3.jsjc.sbs
+      ws-path: /jsjc/us3
+      ws-headers:
+        Host: j1us3.jsjc.sbs
+      client-fingerprint: firefox
+    - type: vless
+      name: "\U0001F1FA\U0001F1F8美国凤凰城04 | 0.1x"
+      server: 45.131.209.202
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      tls: true
+      network: ws
+      ws-opts:
+        path: /jsjc/us4
+        headers:
+            Host: j1us4.jsjc.sbs
+      ws-path: /jsjc/us4
+      ws-headers:
+        Host: j1us4.jsjc.sbs
+      client-fingerprint: ios
+    - type: vless
+      name: "\U0001F1EF\U0001F1F5日本东京 | x0.1"
+      server: 23.227.38.76
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      tls: true
+      network: ws
+      ws-opts:
+        path: /jsjc/jp1
+        headers:
+            Host: jjp1.jsjc.sbs
+      ws-path: /jsjc/jp1
+      ws-headers:
+        Host: jjp1.jsjc.sbs
+      client-fingerprint: edge
+    - type: vless
+      name: "\U0001F1E9\U0001F1EA德国—GPT"
+      server: 45.131.7.126
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      tls: true
+      network: ws
+      ws-opts:
+        path: /jsjc/de1
+        headers:
+            Host: j1de1.jsjc.sbs
+      ws-path: /jsjc/de1
+      ws-headers:
+        Host: j1de1.jsjc.sbs
+      client-fingerprint: edge
+    - type: vless
+      name: "\U0001F1F9\U0001F1FC台湾｜推特专线"
+      server: c8217-b2a.h1.49d2.5e11.613.b297.djjsvip.cfd
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      flow: xtls-rprx-vision
+      tls: true
+      client-fingerprint: edge
+    - type: vless
+      name: "\U0001F1ED\U0001F1F0香港hkt | x1.5—tiktok"
+      server: c8217-b2a.h2.49d2.5e11.613.b297.djjsvip.cfd
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      flow: xtls-rprx-vision
+      tls: true
+      client-fingerprint: edge
+    - type: vless
+      name: "\U0001F1ED\U0001F1F0香港hkt2 | x1.5—抖音"
+      server: c8217-b2a.h3.49d2.5e11.613.b297.djjsvip.cfd
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      flow: xtls-rprx-vision
+      tls: true
+      client-fingerprint: edge
+    - type: vless
+      name: "\U0001F1FA\U0001F1F8美国洛杉矶1号—GPT"
+      server: 108.181.24.29
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      flow: xtls-rprx-vision
+      tls: true
+      client-fingerprint: edge
+    - type: vless
+      name: "\U0001F1FA\U0001F1F8美国洛杉矶2号—奈飞"
+      server: 108.181.24.53
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      flow: xtls-rprx-vision
+      tls: true
+      client-fingerprint: ios
+    - type: vless
+      name: "\U0001F1FA\U0001F1F8美国洛杉矶3号—流媒体"
+      server: 208.87.243.143
+      port: 443
+      uuid: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
+      flow: xtls-rprx-vision
+      tls: true
+      client-fingerprint: safari

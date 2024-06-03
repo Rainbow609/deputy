@@ -1,0 +1,301 @@
+proxies:
+    - type: ss
+      name: 剩余流量：91.46 GB
+      server: sz.myzf.xyz
+      port: 16982
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[香港] Hong Kong 4'
+      server: sz.myzf.xyz
+      port: 38532
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[香港] Hong Kong  7'
+      server: sz.myzf.xyz
+      port: 24201
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[香港] Hong Kong  10'
+      server: sz.myzf.xyz
+      port: 14099
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[香港] Hong Kong  19'
+      server: sz.myzf.xyz
+      port: 49754
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[台湾] Taiwan 1'
+      server: zz.myzf.xyz
+      port: 17769
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[台湾] Taiwan 2'
+      server: c6.myzf.xyz
+      port: 28646
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[台湾] Taiwan 3'
+      server: sz.myzf.xyz
+      port: 47392
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[日本] Japan 1'
+      server: zz.myzf.xyz
+      port: 44838
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[日本] Japan 2'
+      server: c6.myzf.xyz
+      port: 48491
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[日本] Japan 3'
+      server: zz.myzf.xyz
+      port: 18230
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[日本] Japan 4'
+      server: zy.myzf.xyz
+      port: 25890
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[新加坡] Singapore 1'
+      server: c6.myzf.xyz
+      port: 15436
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[新加坡] Singapore 3'
+      server: zz.myzf.xyz
+      port: 18861
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[新加坡] Singapore 4'
+      server: c6.myzf.xyz
+      port: 24946
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[美国] United States 1'
+      server: c6.myzf.xyz
+      port: 40285
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[美国] United States 2'
+      server: c6.myzf.xyz
+      port: 17406
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[美国] United States 3'
+      server: c6.myzf.xyz
+      port: 45515
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[美国] United States 4'
+      server: c6.myzf.xyz
+      port: 39710
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[美国] United States 5'
+      server: c6.myzf.xyz
+      port: 38113
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[美国] Misaka United States'
+      server: zz.myzf.xyz
+      port: 15528
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[英国] United Kiongdom'
+      server: c6.myzf.xyz
+      port: 11261
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[马来西亚] Malaysia'
+      server: zz.myzf.xyz
+      port: 27645
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[柬埔寨] Cambodia'
+      server: c6.myzf.xyz
+      port: 40793
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[越南] Vietnam'
+      server: zz.myzf.xyz
+      port: 39005
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[印度] India'
+      server: zz.myzf.xyz
+      port: 37186
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[泰国] Thailand'
+      server: zz.myzf.xyz
+      port: 39130
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[泰国] Thailand 2'
+      server: zz.myzf.xyz
+      port: 27476
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[韩国] South Korea'
+      server: zz.myzf.xyz
+      port: 31885
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[菲律宾] Philippines'
+      server: zz.myzf.xyz
+      port: 14546
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[印度尼西亚] Indonesia'
+      server: zz.myzf.xyz
+      port: 26622
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[土耳其] Turkey'
+      server: zz.myzf.xyz
+      port: 26969
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[阿根廷] Argentina'
+      server: zz.myzf.xyz
+      port: 35653
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[澳门] x5'
+      server: zz.myzf.xyz
+      port: 10673
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[香港]  IPLC x 1'
+      server: any.hmbiplc-02.com
+      port: 53451
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[台湾]  IPLC x 1'
+      server: any.hmbiplc-02.com
+      port: 53649
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[日本]  IPLC x 1'
+      server: any.hmbiplc-02.com
+      port: 53393
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[新加坡]  IPLC x 1'
+      server: any.hmbiplc-02.com
+      port: 54596
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: vmess
+      name: '[香港]'
+      server: my1.go-relay.top
+      port: 80
+      uuid: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /ws?ed=2560
+        headers:
+            Host: my1.go-relay.top
+    - type: vmess
+      name: HKLite
+      server: cf1.go-relay.top
+      port: 80
+      uuid: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /ws?ed=2560
+        headers:
+            Host: cf1.go-relay.top
+    - type: vmess
+      name: HKLite2
+      server: cf2.go-relay.top
+      port: 80
+      uuid: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /ws?ed=2560
+        headers:
+            Host: cf1.go-relay.top
+    - type: vmess
+      name: HKLite3
+      server: cf3.go-relay.top
+      port: 80
+      uuid: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /ws?ed=2560
+        headers:
+            Host: cf1.go-relay.top
+    - type: vmess
+      name: '[新加坡] 1'
+      server: sg2.go-relay.top
+      port: 80
+      uuid: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /ws?ed=2560
+        headers:
+            Host: sg2.go-relay.top
+    - type: vmess
+      name: '[新加坡] 2'
+      server: sg3.go-relay.top
+      port: 80
+      uuid: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /ws?ed=2560
+        headers:
+            Host: sg3.go-relay.top

@@ -1,0 +1,103 @@
+proxies:
+  - {name: 🇯🇵 节点日期：05-26, server: 118.163.128.81, port: 13688, type: trojan, password: moist, sni: trojan.freenods.sbs, network: ws, ws-opts: {path: /, headers: {Host: trojan.freenods.sbs}}}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】2, server: 149.202.82.172, port: 7306, type: ss, cipher: aes-256-gcm, password: FoOiGlkAA9yPEGP}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】3, server: 183.232.170.47, port: 15611, type: vmess, uuid: aaaaaaaa-aaaa-aaaa-aaaa-daaaaaaaaaad, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇦 加拿大【付费推荐：https://jdyvip.link/】4, server: 51.222.157.179, port: 49602, type: ss, cipher: aes-256-gcm, password: 7gaTTlW73G}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】5, server: 149.202.82.172, port: 6379, type: ss, cipher: aes-256-gcm, password: zDNVedRFPQexG9v}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】6, server: 172.67.214.33, port: 2095, type: vmess, uuid: 7a737f41-b792-4260-94ff-3d864da67b80, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: fcdn.flha.ru}}}
+  - {name: 🇨🇦 加拿大【付费推荐：https://jdyvip.link/】7, server: 146.19.106.89, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: ZjNmOGE0}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】8, server: 172.67.204.84, port: 80, type: vmess, uuid: 753d0d83-3f5b-4821-860e-082f0b3db609, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: no1-vmess.sshmax.xyz}}}
+  - {name: 🇿🇦 南非【付费推荐：https://jdyvip.link/】9, server: 129.232.129.156, port: 444, type: ss, cipher: chacha20-ietf-poly1305, password: DiPietyory}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】10, server: 149.202.82.172, port: 8000, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】11, server: 66.225.246.221, port: 30129, type: ss, cipher: aes-128-gcm, password: Yc2CtrIz8L}
+  - {name: 🇬🇧 英国【付费推荐：https://jdyvip.link/】12, server: 212.102.53.196, port: 443, type: ss, cipher: aes-128-gcm, password: shadowsocks}
+  - {name: 🇬🇧 英国【付费推荐：https://jdyvip.link/】13, server: 51.145.96.134, port: 18869, type: ss, cipher: chacha20-ietf-poly1305, password: V8QywnpW9gaAwJfzkStkVp}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】14, server: s1c.v2.v001sss.xyz, port: 2082, type: vmess, uuid: 112ac36f-3f53-4e26-8371-d25c028e1b9a, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: s1c.v2.v001sss.xyz}}}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】15, server: 104.16.45.79, port: 80, type: vmess, uuid: c0453a16-67e9-4eab-bdc9-b9624ad6bd29, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: "/?ed=2048&Telegram🇨🇳 @WangCai_8", headers: {Host: jp.xlb8.eu.org}}}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】106, server: hk.wish.ml, port: 2052, type: vmess, uuid: c286daa2-59de-455c-8de8-ec032b6ce2e8, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: sg1.wish.ml}}}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】17, server: deepf.hjkdsak2.com, port: 20003, type: ss, cipher: chacha20-ietf-poly1305, password: 99301d55-a41f-4919-986b-1435996533aa}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】18, server: 205.134.180.139, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: lWaGPVFjmnag}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】19, server: 23.154.136.137, port: 5498, type: ss, cipher: aes-256-gcm, password: lGqs95QkFHo2NV}
+  - {name: 🇬🇧 英国【付费推荐：https://jdyvip.link/】20, server: 51.143.130.36, port: 38984, type: ss, cipher: chacha20-ietf-poly1305, password: aNT97VqNG4vuwK2EkcLQKM}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】21, server: data-hk-v1.usabooks.com.cn, port: 20206, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /debian, headers: {Host: data-hk-v1.usabooks.com.cn}}}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】83, server: onea.flha.ru, port: 2095, type: vmess, uuid: 7a737f41-b792-4260-94ff-3d864da67b80, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: onea.flha.ru}}}
+  - {name: 🇬🇧 英国【付费推荐：https://jdyvip.link/】23, server: 212.102.53.80, port: 443, type: ss, cipher: aes-128-gcm, password: shadowsocks}
+  - {name: 🇬🇧 英国【付费推荐：https://jdyvip.link/】24, server: 52.151.99.42, port: 58939, type: ss, cipher: chacha20-ietf-poly1305, password: jha5ZXvI7J4CkWQn4iB3AF}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】25, server: 183.232.199.28, port: 15605, type: vmess, uuid: aaaaaaaa-aaaa-aaaa-aaaa-daaaaaaaaaad, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇭 瑞士【付费推荐：https://jdyvip.link/】26, server: 51.103.174.155, port: 7660, type: ss, cipher: chacha20-ietf-poly1305, password: YNewlpyKqjdNyOIoyhPw8k}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】27, server: m.cnmjin.net, port: 16632, type: vmess, uuid: 2b8cfb7b-d3e7-4525-8418-e13a9b8fd73b, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: dcef278233434a15c3587ef998dd119d.mobgslb.tbcache.com}}}
+  - {name: 🇬🇧 英国【付费推荐：https://jdyvip.link/】28, server: 51.145.101.254, port: 19054, type: ss, cipher: chacha20-ietf-poly1305, password: mGUCxJURD8yHfXexvivQhJ}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】51, server: 183.240.179.207, port: 30013, type: vmess, uuid: 5bd5899a-4b78-4d75-8570-4d21b43422c4, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】52, server: 183.240.179.207, port: 30127, type: vmess, uuid: 5bd5899a-4b78-4d75-8570-4d21b43422c4, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】31, server: 119.23.104.213, port: 8474, type: ss, cipher: chacha20-ietf-poly1305, password: a501c82c72d790b8}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】32, server: 104.21.8.157, port: 2082, type: vmess, uuid: 112ac36f-3f53-4e26-8371-d25c028e1b9a, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: s1c.v2.v001sss.xyz}}}
+  - {name: 波兰【付费推荐：https://jdyvip.link/】33, server: 51.77.53.200, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
+  - {name: 波兰【付费推荐：https://jdyvip.link/】34, server: 51.77.53.200, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】35, server: 89.117.109.97, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: rhnAUMfOWIgjT917yYCG7u}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】36, server: russia.com, port: 2095, type: vmess, uuid: 64a57b5f-45e0-40c3-8316-97d0ff53fd96, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /api/v3/download.getFile, headers: {Host: sssub.v2.001.ssrsub.com}}}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】37, server: russia.com, port: 8880, type: vmess, uuid: 64a57b5f-45e0-40c3-8316-97d0ff53fd96, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /api/v3/download.getFile, headers: {Host: sssub.v2.001.ssrsub.com}}}
+  - {name: 波兰【付费推荐：https://jdyvip.link/】38, server: 51.77.53.200, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】39, server: 172.67.130.140, port: 2082, type: vmess, uuid: 112ac36f-3f53-4e26-8371-d25c028e1b9a, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: s1c.v2.v001sss.xyz}}}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】40, server: yes.cnmjcn.net, port: 16632, type: vmess, uuid: 2b8cfb7b-d3e7-4525-8418-e13a9b8fd73b, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: dcef278233434a15c3587ef998dd119d.mobgslb.tbcache.com}}}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】41, server: 104.19.45.88, port: 2095, type: vmess, uuid: 7a737f41-b792-4260-94ff-3d864da67b80, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: onea.flha.ru}}}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】42, server: 66.42.84.121, port: 443, type: trojan, password: wkmY1R4EcP, sni: z-v2-002797.kailib.com}
+  - {name: 🇯🇵 日本【付费推荐：https://jdyvip.link/】44, server: jp05.421421.xyz, port: 20230, type: trojan, password: ebbf7922-f9c6-4e99-b588-edd68108f269, sni: 421421.xyz}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】45, server: 38.86.135.141, port: 8882, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4}
+  - {name: 🇩🇪 德国【付费推荐：https://jdyvip.link/】46, server: 136.243.85.167, port: 443, type: trojan, password: a5da0a9c-97e2-4179-a51a-66566b677740, sni: speedtestc.dastresan.net.prod.hosts.ooklaserver.net}
+  - {name: 波兰【付费推荐：https://jdyvip.link/】47, server: 51.77.53.200, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】48, server: 183.232.199.28, port: 42001, type: vmess, uuid: aaaaaaaa-aaaa-aaaa-aaaa-daaaaaaaaaad, alterId: 0, cipher: auto, tls: false}
+  - {name: 波兰【付费推荐：https://jdyvip.link/】49, server: 51.77.53.200, port: 7306, type: ss, cipher: aes-256-gcm, password: FoOiGlkAA9yPEGP}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】50, server: 183.232.199.61, port: 15603, type: vmess, uuid: aaaaaaaa-aaaa-aaaa-aaaa-daaaaaaaaaad, alterId: 0, cipher: auto, tls: false}
+  - {name: 波兰【付费推荐：https://jdyvip.link/】53, server: 51.77.53.200, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: 🇷🇺 俄罗斯联邦【付费推荐：https://jdyvip.link/】54, server: hk-full.privateip.net, port: 443, type: vmess, uuid: 43e63f99-37ec-489f-a657-ba6127628421, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /RACEVPN, headers: {Host: hk-full.privateip.net}}}
+  - {name: 🇸🇬 新加坡【付费推荐：https://jdyvip.link/】55, server: sg08.421421.xyz, port: 20230, type: trojan, password: 0f408453-2589-4fc2-bf9d-22e0cef8b8d2, sni: 421421.xyz}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】56, server: 183.240.179.207, port: 30038, type: vmess, uuid: 5bd5899a-4b78-4d75-8570-4d21b43422c4, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】57, server: 183.232.142.47, port: 16632, type: vmess, uuid: 2b8cfb7b-d3e7-4525-8418-e13a9b8fd73b, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: dcef278233434a15c3587ef998dd119d.mobgslb.tbcache.com}}}
+  - {name: 波兰【付费推荐：https://jdyvip.link/】58, server: 51.77.53.200, port: 5004, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】59, server: data-us-v1.shwjfkw.cn, port: 20401, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /debian, headers: {Host: data-us-v1.shwjfkw.cn}}}
+  - {name: 波兰【付费推荐：https://jdyvip.link/】60, server: 51.77.53.200, port: 6379, type: ss, cipher: aes-256-gcm, password: zDNVedRFPQexG9v}
+  - {name: 波兰【付费推荐：https://jdyvip.link/】61, server: 51.77.53.200, port: 8881, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】62, server: 172.67.185.79, port: 8080, type: vmess, uuid: b551aa22-22af-11ee-b8d8-f23c932eb68d, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: oiictw.yydsii.com}}}
+  - {name: 波兰【付费推荐：https://jdyvip.link/】63, server: 51.77.53.200, port: 8091, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
+  - {name: 🇬🇧 英国【付费推荐：https://jdyvip.link/】64, server: 212.102.53.194, port: 443, type: ss, cipher: aes-128-gcm, password: shadowsocks}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】65, server: data-jp-v1.usabooks.com.cn, port: 20301, type: vmess, uuid: b1478e24-4916-3abe-8f17-15931012ecbe, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /debian, headers: {Host: data-jp-v1.usabooks.com.cn}}}
+  - {name: 孟加拉国【付费推荐：https://jdyvip.link/】66, server: 103.106.2.90, port: 8881, type: ss, cipher: chacha20-ietf-poly1305, password: oxp4Xr64OKpXV127Zwtzl14P8L8PovqbFGPHbnbhRf7CxCSW1E}
+  - {name: 🇬🇧 英国【付费推荐：https://jdyvip.link/】67, server: 212.102.53.197, port: 443, type: ss, cipher: aes-128-gcm, password: shadowsocks}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】68, server: 149.202.82.172, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】69, server: 149.202.82.172, port: 2376, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】70, server: 204.93.164.41, port: 16899, type: ss, cipher: aes-128-gcm, password: Yc2CtrIz8L}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】71, server: 183.232.199.28, port: 15603, type: vmess, uuid: aaaaaaaa-aaaa-aaaa-aaaa-daaaaaaaaaad, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】72, server: 149.202.82.172, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】73, server: 149.202.82.172, port: 8881, type: ss, cipher: aes-256-gcm, password: kDWvXYZoTBcGkC4}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】74, server: 149.202.82.172, port: 5600, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】75, server: 149.202.82.172, port: 8008, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】76, server: 149.202.82.172, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
+  - {name: 🇬🇧 英国【付费推荐：https://jdyvip.link/】77, server: 212.102.53.193, port: 443, type: ss, cipher: aes-128-gcm, password: shadowsocks}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】78, server: 149.202.82.172, port: 7307, type: ss, cipher: aes-256-gcm, password: FoOiGlkAA9yPEGP}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】79, server: 149.202.82.172, port: 9102, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】80, server: 149.202.82.172, port: 2375, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】81, server: 149.202.82.172, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
+  - {name: 🇬🇧 英国【付费推荐：https://jdyvip.link/】82, server: 212.102.53.195, port: 443, type: ss, cipher: aes-128-gcm, password: shadowsocks}
+  - {name: 波兰【付费推荐：https://jdyvip.link/】84, server: 51.77.53.200, port: 2375, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】85, server: 172.67.164.78, port: 2052, type: vmess, uuid: c286daa2-59de-455c-8de8-ec032b6ce2e8, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: in3.wish.ml}}}
+  - {name: 波兰【付费推荐：https://jdyvip.link/】86, server: 51.77.53.200, port: 6679, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】87, server: 183.232.199.28, port: 21006, type: vmess, uuid: aaaaaaaa-aaaa-aaaa-aaaa-daaaaaaaaaad, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】88, server: 120.233.204.126, port: 16632, type: vmess, uuid: d9a9d508-67e1-4929-8bea-8733d5a30c93, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: ee1683cb66f83a1d45e5fdf2e7bdc7dd.mobgslb.tbcache.com}}}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】89, server: 38.114.114.207, port: 8080, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】90, server: 38.54.25.49, port: 16899, type: ss, cipher: aes-128-gcm, password: Yc2CtrIz8L}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】91, server: 183.232.199.61, port: 61001, type: vmess, uuid: aaaaaaaa-aaaa-aaaa-aaaa-daaaaaaaaaad, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】92, server: fcdn.flha.ru, port: 2095, type: vmess, uuid: 7a737f41-b792-4260-94ff-3d864da67b80, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: fcdn.flha.ru}}}
+  - {name: 🇨🇳 中国【付费推荐：https://jdyvip.link/】93, server: 183.232.199.61, port: 21006, type: vmess, uuid: aaaaaaaa-aaaa-aaaa-aaaa-daaaaaaaaaad, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】94, server: 172.233.121.218, port: 2082, type: vmess, uuid: 38e00251-2aa8-4bc1-a2b2-c36a122a58a2, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】95, server: 172.67.185.64, port: 8080, type: vmess, uuid: b551aa22-22af-11ee-b8d8-f23c932eb68d, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: oiictw.yydsii.com}}}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】96, server: www.hkbu.edu.hk, port: 80, type: vmess, uuid: c0b05000-23dd-4de9-9041-ec130166ff1a, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: "/aries?ed=2048", headers: {Host: nmsl.kp}}}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】97, server: 149.202.82.172, port: 8888, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: 🇰🇷 韩国【付费推荐：https://jdyvip.link/】98, server: 146.56.38.95, port: 57770, type: trojan, password: moist, sni: trojan.freenods.sbs, network: ws, ws-opts: {path: /, headers: {Host: trojan.freenods.sbs}}}
+  - {name: 🇫🇷 法国【付费推荐：https://jdyvip.link/】99, server: 149.202.82.172, port: 7001, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
+  - {name: 🇹🇷 土耳其【付费推荐：https://jdyvip.link/】100, server: 31.210.50.190, port: 30817, type: ss, cipher: chacha20-ietf-poly1305, password: bLqlUs14iXWqKYvmVQC5ba}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】101, server: 172.67.172.67, port: 8080, type: vmess, uuid: b551aa22-22af-11ee-b8d8-f23c932eb68d, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: oiictw.yydsii.com}}}
+  - {name: 🇲🇴 澳门【付费推荐：https://jdyvip.link/】102, server: cdn2.twitter.now.cc, port: 50000, type: vmess, uuid: cab438c4-9c5a-43fd-a623-ce81cb93085c, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /ikun, headers: {Host: hkv6.linyuch3.eu.org}}}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】103, server: 38.114.114.207, port: 7001, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】105, server: 154.3.8.151, port: 30067, type: ss, cipher: aes-256-gcm, password: iUB0923RBA}
+  - {name: 🇺🇸 美国【付费推荐：https://jdyvip.link/】107, server: 23.154.136.148, port: 6679, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
+  - {name: 🇷🇺 俄罗斯联邦【付费推荐：https://jdyvip.link/】108, server: 194.26.229.18, port: 50744, type: ss, cipher: chacha20-ietf-poly1305, password: sIZ80DZsAC9ZSshS69gYql}
