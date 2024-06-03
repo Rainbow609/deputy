@@ -68,3 +68,4 @@ if __name__ == '__main__':
     get_node_list_and_rule('clash_config_v3.yaml')
     file_list = ['head.yaml', 'proxy-providers.yaml', 'rules_group.yaml']
     merge_yamls(file_list, 'clash_config_v3.yaml')
+
