@@ -19,7 +19,23 @@ jobs:
         python-version: "3.x" # 請將 x 替換為具體的 Python 版本號，例如 3.10
 
     - name: Install dependencies
-      run: pip install pyyaml requests chardet
+      run: |
+        pip install pyyaml requests chardet
 
     - name: Run get_node_list.py
       run: python get_node_list.py
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Update results from get_node_list.py" || true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main  # 修改為你的主要分支名稱
