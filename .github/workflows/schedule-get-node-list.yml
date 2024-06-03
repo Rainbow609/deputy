@@ -11,12 +11,12 @@ jobs:
   run-get-node-list:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up Python 3.x
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: "3.x" # 請將 x 替換為具體的 Python 版本號，例如 3.10
+        python-version: "3.10" # 請將 x 替換為具體的 Python 版本號，例如 3.10
 
     - name: Install dependencies
       run: |
@@ -35,7 +35,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Push changes
-      uses: ad-m/github-push-action@v0.6.0
+      uses: ad-m/github-push-action@v0.7.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: main  # 修改為你的主要分支名稱
