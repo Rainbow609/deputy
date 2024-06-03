@@ -1,0 +1,22 @@
+name: Run get_node_list.py every 30 minutes and on push
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  push:
+    branches:
+      - main  # 修改為你的主要分支名稱，通常是 main 或 master
+
+jobs:
+  run-get-node-list:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.x" # 請將 x 替換為具體的 Python 版本號，例如 3.10
+
+    - name: Run get_node_list.py
+      run: python get_node_list.py
