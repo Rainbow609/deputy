@@ -4,7 +4,7 @@ proxies:
       server: 163.123.192.167
       port: 2899
       password: 53a7c299-dc9b-469f-8740-d7aa2ba17c17
-      sni: "www.microsoft.com#剩余流量：198.09 GB\r"
+      sni: "www.microsoft.com#剩余流量：198.04 GB\r"
       skip-cert-verify: true
     - type: hysteria2
       name: "1"

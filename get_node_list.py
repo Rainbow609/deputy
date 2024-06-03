@@ -36,9 +36,8 @@ def download_file(url, path):
         print(f"Error downloading file from {url}: {e}")
 
 
-def get_node_list_and_rule(file_path):
+def get_node_list(file_path):
     data = parse_yaml(file_path)
-
     downloaded_files = set()
 
     for provider, info in data['proxy-providers'].items():
@@ -51,6 +50,11 @@ def get_node_list_and_rule(file_path):
             download_file(url, path)
             downloaded_files.add(url)
         print()
+
+
+def get_rules(file_path):
+    data = parse_yaml(file_path)
+    downloaded_files = set()
 
     for provider, info in data['rule-providers'].items():
         url = info['url']
@@ -65,7 +69,8 @@ def get_node_list_and_rule(file_path):
 
 
 if __name__ == '__main__':
-    get_node_list_and_rule('clash_config_v3.yaml')
+    get_node_list('templates/proxy-providers.yaml')
+    get_node_list('templates/proxy-providers_baipiao.yaml')
+    get_rules('templates/rules_group.yaml')
     file_list = ['head.yaml', 'proxy-providers.yaml', 'rules_group.yaml']
     merge_yamls(file_list, 'clash_config_v3.yaml')
-

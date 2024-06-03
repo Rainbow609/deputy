@@ -1,6 +1,6 @@
 proxies:
     - type: vmess
-      name: 剩余流量：882.1 GB
+      name: 剩余流量：881.68 GB
       server: digitalocean.com
       port: 80
       uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3

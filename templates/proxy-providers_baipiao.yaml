@@ -8,6 +8,14 @@ p: &p
     interval: 180
 
 proxy-providers:
+  共享_anaer:
+    # 来自 https://github.com/anaer/Sub
+    <<: *p
+    url: "https://api.wcc.best/sub?target=clash&list=true&url=https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    path: ./proxy_providers/共享_anaer.yaml
+    override:
+      additional-prefix: "共享_anaer "
+
   共享_ermaozi:
     # 來自 https://github.com/ermaozi/get_subscribe
     <<: *p
