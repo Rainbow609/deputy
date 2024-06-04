@@ -174,8 +174,6 @@ rules:
   - PROCESS-NAME,com.tencent.qqmusic,DIRECT
 
   # 广告规则
-  # - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
-  # - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT-DROP
   # - RULE-SET,AWAvenue,REJECT-DROP
   - RULE-SET,antiAD,REJECT-DROP
 
