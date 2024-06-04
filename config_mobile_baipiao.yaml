@@ -72,12 +72,6 @@ dns:
     - '+.ntp.org.cn'
     - '+.pool.ntp.org'
     - '+.qpic.cn'
-    - e-hentai.org
-    - ehgt.org
-    - ehwiki.org
-    - exhentai.org
-    - hath.network
-    - hentaiverse.org
   nameserver:
     - https://1.0.0.1/dns-query
     - https://223.5.5.5/dns-query
@@ -329,8 +323,6 @@ rules:
   - PROCESS-NAME,com.tencent.qqmusic,DIRECT
 
   # 广告规则
-  # - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
-  # - AND,((PROCESS-NAME,clashMeta),(NETWORK,UDP)),REJECT-DROP
   # - RULE-SET,AWAvenue,REJECT-DROP
   - RULE-SET,antiAD,REJECT-DROP
 
