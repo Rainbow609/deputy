@@ -1,7 +1,7 @@
 name: Run get_node_list.py on push
 
 on:
-  schedule:
+#  schedule:
 #    - cron: "*/30 * * * *"
   push:
     branches:
