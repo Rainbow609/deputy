@@ -162,8 +162,10 @@ rule-providers:
     url: "https://anti-ad.net/clash.yaml"
 
 rules:
-  - RULE-SET,antiAD,REJECT-DROP
+  - GEOSITE,category-ads-all,REJECT
+
   - GEOIP,lan,直连,no-resolve
+
   - GEOSITE,biliintl,哔哩东南亚
   - GEOSITE,ehentai,ehentai
   - GEOSITE,github,Github
