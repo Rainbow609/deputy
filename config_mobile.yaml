@@ -4,8 +4,6 @@ mixed-port: 7890
 unified-delay: false
 tcp-concurrent: true
 external-controller: 127.0.0.1:9090
-external-ui: ui
-external-ui-url: "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip"
 
 geodata-mode: true
 geox-url:
@@ -164,6 +162,7 @@ rule-providers:
     url: "https://anti-ad.net/clash.yaml"
 
 rules:
+  - RULE-SET,antiAD,REJECT-DROP
   - GEOIP,lan,直连,no-resolve
   - GEOSITE,biliintl,哔哩东南亚
   - GEOSITE,ehentai,ehentai
