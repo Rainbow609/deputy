@@ -162,7 +162,7 @@ rule-providers:
     url: "https://anti-ad.net/clash.yaml"
 
 rules:
-  - GEOSITE,category-ads-all,REJECT
+  - RULE-SET,antiAD,REJECT
 
   - GEOIP,lan,直连,no-resolve
 
