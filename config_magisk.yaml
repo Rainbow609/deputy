@@ -232,7 +232,7 @@ rules:
 
   # 广告规则
   # - RULE-SET,AWAvenue,REJECT-DROP
-  - RULE-SET,antiAD,REJECT-DROP
+  - RULE-SET,antiAD,REJECT
 
   - GEOIP,private,DIRECT
   - GEOSITE,private,DIRECT
