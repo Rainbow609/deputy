@@ -40,14 +40,14 @@ external-controller: 127.0.0.1:9090
 external-ui: yacd
 bind-address: "*"
 
-tun:
-  enable: true
-  device: Meta
-  stack: mixed
-  mtu: 1280
-  dns-hijack:
-    - any:53
-  auto-route: true
+#tun:
+#  enable: true
+#  device: Meta
+#  stack: mixed
+#  mtu: 1280
+#  dns-hijack:
+#    - any:53
+#  auto-route: true
 
 dns:
   enable: true
