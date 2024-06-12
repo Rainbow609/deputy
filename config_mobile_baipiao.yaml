@@ -97,7 +97,6 @@ baidu: &baidu
     User-Agent:
       "okhttp/3.11.0 Dalvik/2.1.0 (Linux; U; Android 13; 2210132C Build/TKQ1.220905.001)
       baiduboxapp/11.0.5.12 (Baidu; P1 11)"
-
 # 这里是订阅更新和延迟测试相关的
 p: &p
   type: http
@@ -107,54 +106,46 @@ p: &p
     url: https://www.gstatic.com/generate_204
     interval: 180
 
-
-# url 里填写自己的订阅,名称不能重复
-# 订阅转换: https://sub-web.netlify.app/
-# 订阅转换: https://www.nite07.com/sub
 proxy-providers:
-  群主_星链云:
+  共享_anaer:
+    # 来自 https://github.com/anaer/Sub
     <<: *p
-    # https://starlinkcloud.xyz/api/v1/client/subscribe?token=5ba4e95580963e89050945ddf20d50b1
-    url: "https://www.nite07.com/sub/meta?nodeList=true&sub=https://starlinkcloud.xyz/api/v1/client/subscribe?token=5ba4e95580963e89050945ddf20d50b1"
-    path: ./proxy_providers/群主_星链云.yaml
+    url: "https://api.wcc.best/sub?target=clash&list=true&url=https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    path: ./proxy_providers/共享_anaer.yaml
     override:
-      additional-prefix: "群主_星链云 "
+      additional-prefix: "共享_anaer "
 
-  群主_三分:
+  共享_ermaozi:
+    # 來自 https://github.com/ermaozi/get_subscribe
     <<: *p
-    # https://xn--ehq00hgtfdmt.xyz/
-    # https://sub.sanfen018.xyz/api/v1/client/subscribe?token=0b73731d54a0e74695ff0429b4dc2870
-    url: "https://www.nite07.com/sub/meta?nodeList=true&sub=https://sub.sanfen018.xyz/api/v1/client/subscribe?token=0b73731d54a0e74695ff0429b4dc2870"
-    path: ./proxy_providers/群主_三分.yaml
+    url: "https://api.wcc.best/sub?target=clash&list=true&url=https://raw.githubusercontent.com/ermaozi/get_subscribe/main/subscribe/clash.yml"
+    path: ./proxy_providers/共享_ermaozi.yaml
     override:
-      additional-prefix: "群主_三分 "
+      additional-prefix: "共享_ermaozi "
 
-  群主_wget:
+  共享_vxiaov:
+    # 来自 https://github.com/vxiaov/free_proxy_ss
     <<: *p
-    # wget.moe
-    # https://sr.12306.me.uk/
-    # https://gawrgura.moe/api/v1/client/subscribe?token=7d523c439301979d3b113bb7f58c4d7b
-    url: "https://www.nite07.com/sub/meta?nodeList=true&sub=https://gawrgura.moe/api/v1/client/subscribe?token=7d523c439301979d3b113bb7f58c4d7b"
-    path: ./proxy_providers/群主_wget.yaml
+    url: "https://api.wcc.best/sub?target=clash&list=true&url=https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml"
+    path: ./proxy_providers/共享_vxiaov.yaml
     override:
-      additional-prefix: "群主_wget "
+      additional-prefix: "共享_vxiaov "
 
-  达达_极速:
+  共享_dong:
+    # 来自 https://github.com/dongyubin/Free-AppleId-Serve
     <<: *p
-    # https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01
-    url: "https://www.nite07.com/sub/meta?nodeList=true&sub=https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01"
-    path: ./proxy_providers/达达_极速.yaml
+    url: "https://api.wcc.best/sub?target=clash&list=true&url=https://www.xrayvip.com/free.yaml"
+    path: ./proxy_providers/共享_dong.yaml
     override:
-      additional-prefix: "达达_极速 "
+      additional-prefix: "共享_dong "
 
-  火锅_白嫖:
+  共享_getNode:
+    # 来自 https://github.com/Flik6/getNode?tab=readme-ov-file
     <<: *p
-    # https://sub.xn--mesv7f5toqlp.com/api/v1/client/subscribe?token=f62b4f8cbb84e14bcca1c58943e884ea
-    url: "https://www.nite07.com/sub/meta?nodeList=true&sub=https://sub.xn--mesv7f5toqlp.com/api/v1/client/subscribe?token=f62b4f8cbb84e14bcca1c58943e884ea"
-    path: ./proxy_providers/火锅_白嫖.yaml
+    url: "https://api.wcc.best/sub?target=clash&list=true&url=https://raw.githubusercontent.com/a2470982985/getNode/main/clash.yaml"
+    path: ./proxy_providers/共享_getNode.yaml
     override:
-      additional-prefix: "火锅_白嫖 "
-
+      additional-prefix: "共享_getNode "
 # 引入所有代理集合，这样就不需要使用 use 了
 use: &use
   include-all-providers: true

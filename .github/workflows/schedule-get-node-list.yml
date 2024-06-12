@@ -1,0 +1,41 @@
+name: Run get_node_list.py on push
+
+on:
+#  schedule:
+#    - cron: "*/30 * * * *"
+  push:
+    branches:
+      - main  # 修改為你的主要分支名稱，通常是 main 或 master
+
+jobs:
+  run-get-node-list:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10" # 請將 x 替換為具體的 Python 版本號，例如 3.10
+
+    - name: Install dependencies
+      run: |
+        pip install pyyaml requests chardet
+
+    - name: Run get_node_list.py
+      run: python get_node_list.py
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Update results from get_node_list.py" || true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.8.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: main  # 修改為你的主要分支名稱

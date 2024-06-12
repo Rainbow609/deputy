@@ -1,0 +1,109 @@
+proxies:
+    - type: vmess
+      name: 剩余流量：107.76 GB
+      server: cfcdn1.sanfencdn9.com
+      port: 2052
+      uuid: c9b81546-259b-472c-973a-71bbe83f4768
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /video/6VBhAkCtV4/
+        headers:
+            Host: us1cPZiz8nb.fzbqfrse.xyz
+    - type: vmess
+      name: "\U0001F1FA\U0001F1F8美国高速接入点-04"
+      server: cfcdn1.sanfencdn9.com
+      port: 2082
+      uuid: c9b81546-259b-472c-973a-71bbe83f4768
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /video/CuTy87zAzV/
+        headers:
+            Host: us4Bb5oSgJA.fzbqfrse.xyz
+    - type: vmess
+      name: "\U0001F1FA\U0001F1F8美国高速接入点-05"
+      server: cfcdn1.sanfencdn9.com
+      port: 8080
+      uuid: c9b81546-259b-472c-973a-71bbe83f4768
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /video/f8ZKTGaGoC/
+        headers:
+            Host: us5PhAx6xsj.fzbqfrse.xyz
+    - type: vmess
+      name: "\U0001F1FA\U0001F1F8美国高速接入点-06"
+      server: cfcdn1.sanfencdn9.com
+      port: 8880
+      uuid: c9b81546-259b-472c-973a-71bbe83f4768
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /video/bYdJ7Vc2We
+        headers:
+            Host: us6gzxQRrE4.fzbqfrse.xyz
+    - type: vmess
+      name: "\U0001F1FA\U0001F1F8美国高速接入点-07"
+      server: cfcdn1.sanfencdn9.com
+      port: 2086
+      uuid: c9b81546-259b-472c-973a-71bbe83f4768
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /video/Z7qdcrAGRw
+        headers:
+            Host: us77SmSk86j.fzbqfrse.xyz
+    - type: vmess
+      name: "\U0001F1FA\U0001F1F8美国高速接入点-08"
+      server: cfcdn1.sanfencdn9.com
+      port: 2095
+      uuid: c9b81546-259b-472c-973a-71bbe83f4768
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /video/qYZue4zaWS
+        headers:
+            Host: us82pRzxDMb.fzbqfrse.xyz
+    - type: vmess
+      name: "\U0001F1F8\U0001F1EC新加坡高速接入点-01"
+      server: cfcdn2.sanfencdn9.com
+      port: 2052
+      uuid: c9b81546-259b-472c-973a-71bbe83f4768
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /video/c9efxRCi
+        headers:
+            Host: 7nAi74jJsg1.yofnhkfc.xyz
+    - type: vmess
+      name: "\U0001F1EF\U0001F1F5日本高速接入点-01"
+      server: cfcdn3.sanfencdn9.com
+      port: 80
+      uuid: c9b81546-259b-472c-973a-71bbe83f4768
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /video/P7EExoE2
+        headers:
+            Host: oA5FSz9Tjp1.yofnhkfc.xyz
+    - type: vmess
+      name: "\U0001F1EF\U0001F1F5日本高速接入点-05"
+      server: cfcdn3.sanfencdn9.com
+      port: 2052
+      uuid: c9b81546-259b-472c-973a-71bbe83f4768
+      alterId: 0
+      cipher: auto
+      network: ws
+      ws-opts:
+        path: /video/9TfVEyku
+        headers:
+            Host: wtywwcrzjp5.yofnhkfc.xyz
