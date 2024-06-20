@@ -4,6 +4,12 @@ import chardet
 import os
 
 
+def create_parent_directory(file_path):
+    parent_dir = os.path.dirname(file_path)
+    if not os.path.exists(parent_dir):
+        os.makedirs(parent_dir)
+
+
 def detect_encoding(file):
     with open(file, 'rb') as f:
         result = chardet.detect(f.read())
@@ -46,6 +52,7 @@ def get_node_list(file_path):
         print(f"Proxy Provider: {provider}")
         print(f"URL: {url}")
         print(f"Path: {path}")
+        create_parent_directory(path)
         if url not in downloaded_files:
             download_file(url, path)
             downloaded_files.add(url)
@@ -62,6 +69,7 @@ def get_rules(file_path):
         print(f"Rule Provider: {provider}")
         print(f"URL: {url}")
         print(f"Path: {path}")
+        create_parent_directory(path)
         if url not in downloaded_files:
             download_file(url, path)
             downloaded_files.add(url)
