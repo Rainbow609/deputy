@@ -12,6 +12,7 @@ p: &p
 # url 里填写自己的订阅,名称不能重复
 # 订阅转换: https://sub-web.netlify.app/
 # 订阅转换: https://www.nite07.com/sub
+# 转换成 node_list: https://www.nite07.com/sub/meta?nodeList=true&sub=
 proxy-providers:
   群主_星链云:
     <<: *p
