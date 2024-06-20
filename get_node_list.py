@@ -70,9 +70,9 @@ def get_rules(file_path):
 
 if __name__ == '__main__':
     # 下载基础文件
-    # get_node_list('templates/proxy-providers.yaml')
-    # get_node_list('templates/proxy-providers_baipiao.yaml')
-    # get_rules('templates/rules_group.yaml')
+    get_node_list('templates/proxy-providers.yaml')
+    get_node_list('templates/proxy-providers_baipiao.yaml')
+    get_rules('templates/rules_group.yaml')
 
     # clash_config_v3
     file_list = ['head.yaml', 'proxy-providers.yaml', 'rules_group.yaml']
