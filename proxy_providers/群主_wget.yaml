@@ -107,25 +107,6 @@ proxies:
       alterId: 0
       cipher: auto
     - type: vmess
-      name: 杭州电信 01 | ws | 非80
-      server: 125.124.254.5
-      port: 1080
-      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
-      alterId: 0
-      cipher: auto
-      network: ws
-      ws-opts:
-        path: /
-        headers:
-            Host: tms.dingtalk.com
-    - type: vmess
-      name: 杭州电信 02 | tcp | 非80
-      server: 125.124.254.5
-      port: 1081
-      uuid: 4e152726-941a-4196-afa4-58aa03d38f8f
-      alterId: 0
-      cipher: auto
-    - type: vmess
       name: 香港 01 | ws
       server: ef4e4860-008c-3e01-d1f8-bd56dc5b419b.oneplus.pub
       port: 80

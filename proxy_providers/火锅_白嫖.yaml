@@ -1,6 +1,6 @@
 proxies:
     - type: vmess
-      name: 剩余流量：876.23 GB
+      name: 剩余流量：934.72 GB
       server: digitalocean.com
       port: 80
       uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
@@ -113,66 +113,6 @@ proxies:
       port: 51753
       password: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
       cipher: aes-128-gcm
-    - type: vmess
-      name: "\U0001F1FA\U0001F1F8美国2丨白嫖机场.com"
-      server: 162.159.200.12
-      port: 443
-      uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
-      alterId: 0
-      cipher: auto
-      network: grpc
-      tls: true
-      servername: usvip.mybestjj.com
-      grpc-opts:
-        grpc-service-name: "1654431"
-    - type: vmess
-      name: "\U0001F1FA\U0001F1F8美国3丨白嫖机场.com"
-      server: 162.159.200.13
-      port: 443
-      uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
-      alterId: 0
-      cipher: auto
-      network: grpc
-      tls: true
-      servername: usvip.mybestjj.com
-      grpc-opts:
-        grpc-service-name: "1654431"
-    - type: vmess
-      name: "\U0001F1FA\U0001F1F8美国4丨白嫖机场.com"
-      server: www.udemy.com
-      port: 443
-      uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
-      alterId: 0
-      cipher: auto
-      network: grpc
-      tls: true
-      servername: usvip.mybestjj.com
-      grpc-opts:
-        grpc-service-name: "1654431"
-    - type: vmess
-      name: "\U0001F1FA\U0001F1F8美国5丨白嫖机场.com"
-      server: 104.19.174.68
-      port: 443
-      uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
-      alterId: 0
-      cipher: auto
-      network: grpc
-      tls: true
-      servername: usvip.mybestjj.com
-      grpc-opts:
-        grpc-service-name: "1654431"
-    - type: vmess
-      name: "\U0001F1FA\U0001F1F8美国6丨白嫖机场.com"
-      server: 162.159.133.16
-      port: 443
-      uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
-      alterId: 0
-      cipher: auto
-      network: grpc
-      tls: true
-      servername: usvip.visaapp.top
-      grpc-opts:
-        grpc-service-name: "1654431"
     - type: vmess
       name: "\U0001F1ED\U0001F1F0香港2丨白嫖机场.com"
       server: 104.19.173.61
@@ -330,7 +270,7 @@ proxies:
         headers:
             Host: sg3.889611.com
     - type: vmess
-      name: "\U0001F1EF\U0001F1F5日本3丨电报群@bp520"
+      name: "\U0001F1EF\U0001F1F5日本3"
       server: 162.159.136.13
       port: 80
       uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
@@ -342,7 +282,7 @@ proxies:
         headers:
             Host: jp3.visaapp.top
     - type: vmess
-      name: "\U0001F1EF\U0001F1F5日本4丨电报群@bp520"
+      name: "\U0001F1EF\U0001F1F5日本4"
       server: 104.19.175.68
       port: 80
       uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
@@ -354,7 +294,7 @@ proxies:
         headers:
             Host: jp3.889611.com
     - type: vmess
-      name: "\U0001F1EF\U0001F1F5日本5丨电报群@bp520"
+      name: "\U0001F1EF\U0001F1F5日本5"
       server: 104.19.176.68
       port: 80
       uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
@@ -366,7 +306,7 @@ proxies:
         headers:
             Host: jp3.889611.com
     - type: vmess
-      name: "\U0001F1EF\U0001F1F5日本6丨电报群@bp520"
+      name: "\U0001F1EF\U0001F1F5日本6"
       server: 162.159.136.16
       port: 80
       uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
@@ -378,7 +318,7 @@ proxies:
         headers:
             Host: jp3.visaapp.top
     - type: vmess
-      name: "\U0001F1EC\U0001F1E7英国2丨白嫖机场.com"
+      name: "\U0001F1EC\U0001F1E7英国2丨ChatGpt"
       server: 162.159.134.12
       port: 80
       uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
@@ -390,7 +330,7 @@ proxies:
         headers:
             Host: uk3.889611.com
     - type: vmess
-      name: "\U0001F1EC\U0001F1E7英国3丨白嫖机场.com"
+      name: "\U0001F1EC\U0001F1E7英国3丨ChatGpt"
       server: 162.159.134.13
       port: 80
       uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
@@ -402,7 +342,7 @@ proxies:
         headers:
             Host: uk3.889611.com
     - type: vmess
-      name: "\U0001F1EC\U0001F1E7英国4丨白嫖机场.com"
+      name: "\U0001F1EC\U0001F1E7英国4丨ChatGpt"
       server: 162.159.134.14
       port: 80
       uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
@@ -414,7 +354,7 @@ proxies:
         headers:
             Host: uk3.889611.com
     - type: vmess
-      name: "\U0001F1EC\U0001F1E7英国5丨白嫖机场.com"
+      name: "\U0001F1EC\U0001F1E7英国5丨ChatGpt"
       server: 162.159.134.15
       port: 80
       uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3
@@ -426,7 +366,7 @@ proxies:
         headers:
             Host: uk3.889611.com
     - type: vmess
-      name: "\U0001F1EC\U0001F1E7英国6丨白嫖机场.com"
+      name: "\U0001F1EC\U0001F1E7英国6丨ChatGpt"
       server: 162.159.134.16
       port: 80
       uuid: 5a0bcb9a-70d4-4f21-ab78-710a942ef9d3

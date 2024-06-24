@@ -1,6 +1,6 @@
 proxies:
     - type: vmess
-      name: 剩余流量：107.76 GB
+      name: 剩余流量：27.21 GB
       server: cfcdn1.sanfencdn9.com
       port: 2052
       uuid: c9b81546-259b-472c-973a-71bbe83f4768

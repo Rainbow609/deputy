@@ -1,6 +1,6 @@
 proxies:
     - type: ss
-      name: 剩余流量：88.69 GB
+      name: 剩余流量：335.7 GB
       server: sz.myzf.xyz
       port: 16982
       password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
@@ -48,12 +48,6 @@ proxies:
       password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
       cipher: chacha20-ietf-poly1305
     - type: ss
-      name: '[台湾] Taiwan 4'
-      server: s5.myzf.xyz
-      port: 47392
-      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
-      cipher: chacha20-ietf-poly1305
-    - type: ss
       name: '[日本] Japan 1'
       server: zz.myzf.xyz
       port: 44838
@@ -67,25 +61,25 @@ proxies:
       cipher: chacha20-ietf-poly1305
     - type: ss
       name: '[日本] Japan 3'
-      server: zz.myzf.xyz
-      port: 18230
+      server: sz.myzf.xyz
+      port: 22765
       password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
       cipher: chacha20-ietf-poly1305
     - type: ss
       name: '[日本] Japan 4'
       server: zy.myzf.xyz
-      port: 25890
+      port: 22765
+      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
+      cipher: chacha20-ietf-poly1305
+    - type: ss
+      name: '[日本] Japan 5'
+      server: c6.myzf.xyz
+      port: 15048
       password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
       cipher: chacha20-ietf-poly1305
     - type: ss
       name: '[新加坡] Singapore 1'
       server: c6.myzf.xyz
-      port: 15436
-      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
-      cipher: chacha20-ietf-poly1305
-    - type: ss
-      name: '[新加坡] Singapore 2'
-      server: c5.myzf.xyz
       port: 15436
       password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
       cipher: chacha20-ietf-poly1305
@@ -103,7 +97,7 @@ proxies:
       cipher: chacha20-ietf-poly1305
     - type: ss
       name: '[美国] United States 1'
-      server: c5.myzf.xyz
+      server: c6.myzf.xyz
       port: 40285
       password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
       cipher: chacha20-ietf-poly1305
@@ -115,7 +109,7 @@ proxies:
       cipher: chacha20-ietf-poly1305
     - type: ss
       name: '[美国] United States 3'
-      server: c5.myzf.xyz
+      server: c6.myzf.xyz
       port: 45515
       password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
       cipher: chacha20-ietf-poly1305
@@ -127,14 +121,8 @@ proxies:
       cipher: chacha20-ietf-poly1305
     - type: ss
       name: '[美国] United States 5'
-      server: c5.myzf.xyz
+      server: c6.myzf.xyz
       port: 38113
-      password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
-      cipher: chacha20-ietf-poly1305
-    - type: ss
-      name: 官网 starlinkcloud.top
-      server: c5.myzf.xyz
-      port: 39710
       password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
       cipher: chacha20-ietf-poly1305
     - type: ss
@@ -157,7 +145,7 @@ proxies:
       cipher: chacha20-ietf-poly1305
     - type: ss
       name: '[柬埔寨] Cambodia'
-      server: c5.myzf.xyz
+      server: c6.myzf.xyz
       port: 40793
       password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
       cipher: chacha20-ietf-poly1305
@@ -245,18 +233,6 @@ proxies:
       port: 54596
       password: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
       cipher: chacha20-ietf-poly1305
-    - type: vmess
-      name: '[香港]'
-      server: my1.go-relay.top
-      port: 80
-      uuid: 7890d4db-6b61-461e-b19f-44fb18c4d9b4
-      alterId: 0
-      cipher: auto
-      network: ws
-      ws-opts:
-        path: /ws?ed=2560
-        headers:
-            Host: my1.go-relay.top
     - type: vmess
       name: HKLite
       server: cf1.go-relay.top
