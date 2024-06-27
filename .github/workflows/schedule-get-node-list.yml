@@ -1,8 +1,8 @@
 name: Run get_node_list.py on push
 
 on:
-#  schedule:
-#    - cron: "*/30 * * * *"
+  schedule:
+    - cron: "*/30 * * * *"
   push:
     branches:
       - main  # 修改為你的主要分支名稱，通常是 main 或 master
