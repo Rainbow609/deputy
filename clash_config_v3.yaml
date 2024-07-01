@@ -216,7 +216,7 @@ proxy-groups:
   - {name: 剩余流量, type: select, <<: *use, filter: "剩余流量|距离下次重置剩余|套餐到期|官网"}
 
   - {name: AI, type: select, proxies: [US fallback, JP fallback, SG fallback, Other fallback]}
-  - {name: Twitter, type: select, proxies: [HK urltest, HK fallback, TW urltest, TW fallback, JP urltest, JP fallback, SG urltest, SG fallback, US urltest, US fallback, Other urltest, Other fallback]}
+  - {name: Twitter, type: select, proxies: [HK urltest, HK fallback, TW urltest, TW fallback, JP urltest, JP fallback, SG urltest, SG fallback, US urltest, US fallback, Other urltest, Other fallback, 手动切换]}
 
   - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong", exclude-filter: "[2-9]x"}
   - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong", exclude-filter: "[2-9]x"}
@@ -365,6 +365,6 @@ rules:
   - RULE-SET,Gemini,AI
   - RULE-SET,Claude,AI
   - RULE-SET,EHGallery,手动切换
-  - RULE-SET,Twitter,手动切换
+  - RULE-SET,Twitter,Twitter
 
   - MATCH,代理设置
