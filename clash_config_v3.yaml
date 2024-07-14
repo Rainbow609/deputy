@@ -343,7 +343,7 @@ rules:
   - PROCESS-NAME,com.netease.cloudmusic,DIRECT
   - PROCESS-NAME,com.tencent.qqmusic,DIRECT
   - PROCESS-NAME,com.tencent.gamehelper.smoba,DIRECT
-  - RULE-SET,WeChat,DIRECT
+  #- RULE-SET,WeChat,DIRECT
 
   # 广告规则
   # - RULE-SET,AWAvenue,REJECT
