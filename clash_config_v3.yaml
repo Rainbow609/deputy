@@ -130,15 +130,12 @@ proxy-providers:
     override:
       additional-prefix: "群主_三分 "
 
-  群主_wget:
+  22_三分:
     <<: *p
-    # wget.moe
-    # https://sr.12306.me.uk/
-    # https://gawrgura.moe/api/v1/client/subscribe?token=7d523c439301979d3b113bb7f58c4d7b
-    url: "https://clash.nite07.com/meta?nodeList=true&sub=https://gawrgura.moe/api/v1/client/subscribe?token=7d523c439301979d3b113bb7f58c4d7b"
-    path: ./proxy_providers/群主_wget.yaml
+    url: "https://clash.nite07.com/meta?nodeList=true&sub=https://sub.sanfen018.xyz/api/v1/client/subscribe?token=bd1d618d46844f83911ccee929512f67"
+    path: ./proxy_providers/22_三分.yaml
     override:
-      additional-prefix: "群主_wget "
+      additional-prefix: "22_三分 "
 
   达达_极速:
     <<: *p
