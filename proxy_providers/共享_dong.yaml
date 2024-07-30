@@ -1,7 +1,6 @@
 proxies:
-  - {name: 🇯🇵 节点日期：07-30, server: 51.103.233.181, port: 37576, type: ss, cipher: chacha20-ietf-poly1305, password: GeXlCLj6oV0CDlszmbL1LK}
+  - {name: 🇯🇵 节点日期：07-31, server: 51.103.233.181, port: 37576, type: ss, cipher: chacha20-ietf-poly1305, password: GeXlCLj6oV0CDlszmbL1LK}
   - {name: 🇷🇺 俄罗斯【付费推荐：https://a0a.xyz】77, server: 22.lwdh.us, port: 12910, type: vmess, uuid: 8259cb1c-dd6c-4739-9c88-af550d977525, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /, headers: {Host: 22.lwdh.us}}}
-  - {name: 🇬🇧 英国【付费推荐：https://a0a.xyz】52, server: 51.21.22.244, port: 22222, type: trojan, password: telegram-id-directvpn, sni: trojan.burgerip.co.uk}
   - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】28, server: www.zula.ir, port: 80, type: vmess, uuid: 3e5cda0a-6122-4f54-9e3c-3f49e7a526f9, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: nlch.blueberrynetwork.store}}}
   - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】82, server: 104.26.0.56, port: 2086, type: vmess, uuid: e9e3cc13-db48-4cc1-8c24-7626439a5339, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: github.com/Alvin9999, headers: {Host: ip14.freegradely.xyz}}}
   - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】57, server: 162.159.140.19, port: 2086, type: vmess, uuid: e9e3cc13-db48-4cc1-8c24-7626439a5339, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: github.com/Alvin9999, headers: {Host: ip1.1789034.xyz}}}
@@ -28,4 +27,3 @@ proxies:
   - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】44, server: 23.227.38.5, port: 2086, type: vmess, uuid: 29eebb60-b27b-4a9d-bba5-947763d9205e, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: github.com/Alvin9999, headers: {Host: ip006.freegradely.xyz}}}
   - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】15, server: 104.19.59.89, port: 2086, type: vmess, uuid: e9e3cc13-db48-4cc1-8c24-7626439a5339, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: github.com/Alvin9999, headers: {Host: ip14.freegradely.xyz}}}
   - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】91, server: pplaca05.top, port: 443, type: trojan, password: NUeBvQHox0BmnHpu, sni: pplaca05.top}
-  - {name: 🇬🇧 英国【付费推荐：https://a0a.xyz】5, server: 51.103.232.91, port: 8929, type: ss, cipher: chacha20-ietf-poly1305, password: 76ZehNxtyrhe4tLmDYfHsq}
