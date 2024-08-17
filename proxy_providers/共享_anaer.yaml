@@ -69,3 +69,4 @@ proxies:
   - {name: 拉脱维亚 001, server: 85.159.228.23, port: 8443, type: trojan, password: CMLiu, sni: aliorg.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: aliorg.filegear-sg.me}}}
   - {name: 🇦🇺 澳大利亚 003, server: 43.153.80.208, port: 443, type: trojan, password: CMLiu, sni: aliorg.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: aliorg.filegear-sg.me}}}
   - {name: 🇨🇦 加拿大 012, server: 104.19.47.77, port: 2086, type: vmess, uuid: e9e3cc13-db48-4cc1-8c24-7626439a5339, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: github.com/Alvin9999, headers: {Host: ip14.freegradely.xyz}}}
+  - {name: 🇭🇰 香港 002, server: hkt.skycloud.lol, port: 28088, type: vmess, uuid: cec2bf7c-df93-46e0-8451-24cf7d653d9b, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /www/wwwroot/hkg.cylink.tech, headers: {Host: hkg.cylink.tech}}, udp: true}
