@@ -1,7 +1,7 @@
 proxies:
   - {name: 🇺🇸 SS-美国-ChatGPT-TikTok-YouTube-15.204.87.222:2375, server: 15.204.87.222, port: 2375, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
   - {name: 🇺🇸 SS-美国-ChatGPT-TikTok-YouTube-15.204.87.217:8118, server: 15.204.87.217, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
-  - {name: 🇫🇷 VMESS-未知>法国-ChatGPT-TikTok-YouTube-harriscity.com:443, server: harriscity.com, port: 443, type: vmess, uuid: 03fcc618-b93d-6796-6aed-8a38c975d581, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: harriscity.com, network: ws, ws-opts: {path: /linkvws, headers: {Host: harriscity.com}}}
+  - {name: 🇺🇸 VMESS-美国>法国-ChatGPT-TikTok-YouTube-harriscity.com:443, server: harriscity.com, port: 443, type: vmess, uuid: 03fcc618-b93d-6796-6aed-8a38c975d581, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: harriscity.com, network: ws, ws-opts: {path: /linkvws, headers: {Host: harriscity.com}}}
   - {name: 🇺🇸 SS-美国-ChatGPT-TikTok-YouTube-15.204.87.222:5004, server: 15.204.87.222, port: 5004, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
   - {name: 🇺🇸 VMESS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-capellare.com:443, server: capellare.com, port: 443, type: vmess, uuid: 03fcc618-b93d-6796-6aed-8a38c975d581, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: capellare.com, network: ws, ws-opts: {path: /linkvws, headers: {Host: capellare.com}}}
   - {name: 🇺🇸 SS-美国-ChatGPT-TikTok-YouTube-15.204.87.222:5499, server: 15.204.87.222, port: 5499, type: ss, cipher: aes-256-gcm, password: lGqs95QkFHo2NV}
@@ -11,7 +11,7 @@ proxies:
   - {name: 🇺🇸 SS-美国-ChatGPT-TikTok-YouTube-15.204.87.217:5499, server: 15.204.87.217, port: 5499, type: ss, cipher: aes-256-gcm, password: lGqs95QkFHo2NV}
   - {name: 🇺🇸 SS-美国-ChatGPT-TikTok-YouTube-15.204.87.217:6697, server: 15.204.87.217, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
   - {name: 🇺🇸 SS-美国-ChatGPT-TikTok-YouTube-15.204.87.222:8009, server: 15.204.87.222, port: 8009, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74}
-  - {name: 🇺🇸 VMESS-未知>美国-NF解锁法国自制剧-ChatGPT-TikTok-YouTube-gt021.bestforxray.buzz:443, server: gt021.bestforxray.buzz, port: 443, type: vmess, uuid: c1fd780a-3408-4f48-a932-5832a28ce9f6, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-opts: {path: /linkws, headers: {Host: ausgt02.bestforxray.buzz}}}
+  - {name: 🇺🇸 VMESS-美国-NF解锁法国自制剧-ChatGPT-TikTok-YouTube-gt021.bestforxray.buzz:443, server: gt021.bestforxray.buzz, port: 443, type: vmess, uuid: c1fd780a-3408-4f48-a932-5832a28ce9f6, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-opts: {path: /linkws, headers: {Host: ausgt02.bestforxray.buzz}}}
   - {name: 🇺🇸 SS-美国-ChatGPT-TikTok-YouTube-15.204.87.222:5601, server: 15.204.87.222, port: 5601, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
   - {name: 🇺🇸 SS-美国-ChatGPT-TikTok-YouTube-15.204.87.217:8000, server: 15.204.87.217, port: 8000, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
   - {name: 🇺🇸 SS-美国-ChatGPT-TikTok-YouTube-15.204.87.222:5500, server: 15.204.87.222, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
