@@ -1,6 +1,5 @@
 proxies:
   - {name: 🇨🇦 加拿大 140, server: 104.20.17.186, port: 2052, type: vmess, uuid: d6b6d982-d52f-465a-b988-85670b23f64a, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: github.com/Alvin9999, headers: {Host: cdn1.freegradely.xyz}}}
-  - {name: 🇨🇦 加拿大 058, server: 104.19.21.230, port: 2052, type: vmess, uuid: d6b6d982-d52f-465a-b988-85670b23f64a, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, servername: cdn1.freegradely.xyz, network: ws, ws-opts: {path: github.com/Alvin9999, headers: {Host: cdn1.freegradely.xyz}}}
   - {name: 🇨🇦 加拿大 091, server: 104.26.7.132, port: 2052, type: vmess, uuid: d6b6d982-d52f-465a-b988-85670b23f64a, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, network: ws, ws-opts: {path: github.com/Alvin9999, headers: {Host: cdn1.freegradely.xyz}}, udp: true}
   - {name: 🇨🇦 加拿大 133, server: 104.19.32.216, port: 2052, type: vmess, uuid: d6b6d982-d52f-465a-b988-85670b23f64a, alterId: 0, cipher: auto, tls: false, skip-cert-verify: false, network: ws, ws-opts: {path: github.com/Alvin9999, headers: {Host: cdn1.freegradely.xyz}}}
   - {name: 🇺🇸 美国 021, server: MI.HUY.OVH, port: 38406, type: vmess, uuid: 8114cffb-928f-4ce1-a376-d48546573fcb, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true}
