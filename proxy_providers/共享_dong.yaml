@@ -1,31 +1,30 @@
 proxies:
-  - {name: 🇯🇵 节点日期：10-19, server: z8.fragranceninja.com, port: 12910, type: vmess, uuid: a32313ad-5e39-4f9a-9cad-512041790050, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /, headers: {Host: z8.fragranceninja.com}}}
-  - {name: 未知【付费推荐：https://a0a.xyz】60, server: 103.174.86.113, port: 51348, type: ss, cipher: chacha20-ietf-poly1305, password: vZr8MlUXUihNEndqIpjDxQdSeqi37FbgoHBmQ1syy6ZjkbBn}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】34, server: 23.150.248.29, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】36, server: 34.175.202.195, port: 443, type: trojan, password: NISHIKUITAN222, network: ws, ws-opts: {path: /}}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】11, server: 69.50.93.113, port: 5004, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://a0a.xyz】17, server: giving-marmoset.opossum872.cfd, port: 443, type: trojan, password: !<str> 3648425794742788096}
-  - {name: 🇸🇪 瑞典【付费推荐：https://a0a.xyz】12, server: 141.147.190.128, port: 443, type: trojan, password: NISHIKUITAN222, network: ws, ws-opts: {path: /}}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】58, server: z2.fragranceninja.com, port: 12969, type: vmess, uuid: a32313ad-5e39-4f9a-9cad-512041790050, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /, headers: {Host: z2.fragranceninja.com}}}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】61, server: 1.65.205.116, port: 30251, type: vmess, uuid: 9e88a10b-655c-5120-89d0-408634169561, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇬🇧 英国【付费推荐：https://a0a.xyz】21, server: 140.238.88.47, port: 443, type: trojan, password: NISHIKUITAN222, network: ws, ws-opts: {path: /}}
-  - {name: 未知【付费推荐：https://a0a.xyz】43, server: naiu-other.05vr9nyqg5.download, port: 13036, type: trojan, password: 8d4a8689-e8fd-4405-9834-3f812c528db0, sni: cloudflare.node-ssl.cdn-alibaba.com}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】66, server: 208.67.105.196, port: 42029, type: ss, cipher: chacha20-ietf-poly1305, password: SjdGCHwafjktt1rzpGxTKYTvVBWb8Xa6E5DTr6MzbdHQSwvpLiDczj3n6MBjy2uyFSzgqgvCWsDQmpM4VQzfPzyGYF58wdyD}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】65, server: z2.fragranceninja.com, port: 12925, type: vmess, uuid: a32313ad-5e39-4f9a-9cad-512041790050, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /, headers: {Host: z2.fragranceninja.com}}}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】38, server: 69.50.95.218, port: 5499, type: ss, cipher: aes-256-gcm, password: lGqs95QkFHo2NV}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】16, server: 23.170.40.116, port: 12345, type: vmess, uuid: 0c7fe100-fcce-4c6d-8208-a53f73e93e17, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: github.com/Alvin9999, headers: {Host: www.bing.com}}}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】35, server: 158.178.192.221, port: 443, type: trojan, password: NISHIKUITAN222, network: ws, ws-opts: {path: /}}
-  - {name: 🇬🇧 英国【付费推荐：https://a0a.xyz】44, server: 212.102.53.198, port: 443, type: ss, cipher: aes-128-gcm, password: shadowsocks}
-  - {name: 🇧🇷 巴西【付费推荐：https://a0a.xyz】53, server: 168.138.215.251, port: 443, type: trojan, password: NISHIKUITAN222, network: ws, ws-opts: {path: /}}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】41, server: 69.50.93.113, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】26, server: 34.91.136.173, port: 443, type: trojan, password: NISHIKUITAN222, network: ws, ws-opts: {path: /}}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】15, server: 150.230.196.248, port: 443, type: trojan, password: NISHIKUITAN222, network: ws, ws-opts: {path: /}}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】24, server: z3.fragranceninja.com, port: 12960, type: vmess, uuid: a32313ad-5e39-4f9a-9cad-512041790050, alterId: 0, cipher: auto, tls: true}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】3, server: twnode11.oportal.cc, port: 443, type: trojan, password: 981db44e-9f07-49eb-9ba0-6ab4939919a2, sni: twnode11.oportal.cc}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】45, server: z2.fragranceninja.com, port: 12968, type: vmess, uuid: a32313ad-5e39-4f9a-9cad-512041790050, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /, headers: {Host: z2.fragranceninja.com}}}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】63, server: 61.220.126.180, port: 443, type: trojan, password: 981db44e-9f07-49eb-9ba0-6ab4939919a2, sni: twnode11.oportal.cc}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】13, server: hknode07.oportal.cc, port: 443, type: trojan, password: 981db44e-9f07-49eb-9ba0-6ab4939919a2, sni: hknode07.oportal.cc}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】18, server: hkt2.bika.hk, port: 30251, type: vmess, uuid: 9e88a10b-655c-5120-89d0-408634169561, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇮🇳 印度【付费推荐：https://a0a.xyz】7, server: artistic-cat.sheepdog670.boats, port: 443, type: trojan, password: !<str> 3648425794742788096}
-  - {name: 🇬🇧 英国【付费推荐：https://a0a.xyz】6, server: 144.24.83.39, port: 443, type: trojan, password: NISHIKUITAN222, network: ws, ws-opts: {path: /}}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】37, server: z6.fragranceninja.com, port: 12928, type: vmess, uuid: a32313ad-5e39-4f9a-9cad-512041790050, alterId: 0, cipher: auto, tls: true}
+  - {name: 🇯🇵 节点日期：10-23, server: std1.loadingip.com, port: 443, type: trojan, password: 94d219c9-1afc-4d42-b090-8b3794764380}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】3, server: 172.64.167.19, port: 2082, type: vmess, uuid: 5f3f09ad-89cb-4e94-a7ad-aa8239913555, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /github.com/Alvin9999, headers: {Host: ip18.6929198.xyz}}}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】17, server: z2.fragranceninja.com, port: 12968, type: vmess, uuid: a32313ad-5e39-4f9a-9cad-512041790050, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /, headers: {Host: z2.fragranceninja.com}}}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】22, server: z3.fragranceninja.com, port: 12960, type: vmess, uuid: a32313ad-5e39-4f9a-9cad-512041790050, alterId: 0, cipher: auto, tls: true}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】35, server: 169.197.141.84, port: 8091, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】34, server: 216.128.147.13, port: 443, type: trojan, password: wkmY1R4EcP, sni: z-v2-003274.kailib.com}
+  - {name: 🇧🇪 比利时【付费推荐：https://a0a.xyz】10, server: 57.129.24.124, port: 443, type: vmess, uuid: 03fcc618-b93d-6796-6aed-8a38c975d581, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /linkvws, headers: {Host: aveiror.com}}}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】31, server: z6.fragranceninja.com, port: 12928, type: vmess, uuid: a32313ad-5e39-4f9a-9cad-512041790050, alterId: 0, cipher: auto, tls: true}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】39, server: z8.fragranceninja.com, port: 12910, type: vmess, uuid: a32313ad-5e39-4f9a-9cad-512041790050, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /, headers: {Host: z8.fragranceninja.com}}}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】11, server: 104.21.90.210, port: 443, type: trojan, password: auto, sni: 159d770e-fd74-4069-a73b-fe6ececa7951.f82aee4c-752c-4b0c-9793-380d4d76435c.ddnsgeek.com, network: ws, ws-opts: {path: /abbas.ab841vpn.workers.dev/, headers: {Host: 159d770e-fd74-4069-a73b-fe6ececa7951.f82aee4c-752c-4b0c-9793-380d4d76435c.ddnsgeek.com}}}
+  - {name: 🇬🇧 英国【付费推荐：https://a0a.xyz】6, server: 51.44.40.40, port: 22222, type: trojan, password: telegram-id-privatevpns, sni: trojan.burgerip.co.uk}
+  - {name: 未知【付费推荐：https://a0a.xyz】18, server: naiu-hk.05vr9nyqg5.download, port: 13008, type: trojan, password: d6d86a97-2bef-4f89-9527-ce2003377677, sni: cloudflare.node-ssl.cdn-alibaba.com}
+  - {name: 🇮🇳 印度【付费推荐：https://a0a.xyz】7, server: 202.78.174.87, port: 443, type: trojan, password: !<str> 3648425794742788096, sni: artistic-cat.sheepdog670.boats}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】33, server: 169.197.142.216, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
+  - {name: 🇮🇳 印度【付费推荐：https://a0a.xyz】19, server: artistic-cat.sheepdog670.boats, port: 443, type: trojan, password: !<str> 3648425794742788096}
+  - {name: 未知【付费推荐：https://a0a.xyz】15, server: tg_mfbpn03.52cloud.us.kg, port: 42348, type: ss, cipher: chacha20-ietf-poly1305, password: 5409bf78-b122-4b9b-9050-da36576f5bbc}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】16, server: 162.159.152.246, port: 443, type: trojan, password: auto, sni: tg.cmliussss.us.kg, network: ws, ws-opts: {path: /, headers: {Host: tg.cmliussss.us.kg}}}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】13, server: 1.65.205.116, port: 30251, type: vmess, uuid: 9e88a10b-655c-5120-89d0-408634169561, alterId: 0, cipher: auto, tls: false}
+  - {name: 未知【付费推荐：https://a0a.xyz】32, server: tg_mfbpn03.52cloud.us.kg, port: 38404, type: ss, cipher: chacha20-ietf-poly1305, password: 5409bf78-b122-4b9b-9050-da36576f5bbc}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】30, server: gdgs.tarioblink.me, port: 30001, type: ss, cipher: chacha20-ietf-poly1305, password: 0d43fd02-cb36-4f3c-be19-c9cbed362646}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】28, server: gdgs.tarioblink.me, port: 30002, type: ss, cipher: chacha20-ietf-poly1305, password: 0d43fd02-cb36-4f3c-be19-c9cbed362646}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】29, server: z2.fragranceninja.com, port: 12925, type: vmess, uuid: a32313ad-5e39-4f9a-9cad-512041790050, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /, headers: {Host: z2.fragranceninja.com}}}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】12, server: hkt2.bika.hk, port: 30251, type: vmess, uuid: 9e88a10b-655c-5120-89d0-408634169561, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】4, server: 169.197.142.216, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】36, server: hzhz2.sssyun.xyz, port: 40018, type: ss, cipher: chacha20-ietf-poly1305, password: 9ddd5a1c-2d57-4c68-9f3d-b39ea2b8b698}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】37, server: z2.fragranceninja.com, port: 12969, type: vmess, uuid: a32313ad-5e39-4f9a-9cad-512041790050, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /, headers: {Host: z2.fragranceninja.com}}}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】26, server: 169.197.142.216, port: 6679, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
+  - {name: 🇧🇪 比利时【付费推荐：https://a0a.xyz】38, server: 57.129.24.141, port: 443, type: vmess, uuid: 03fcc618-b93d-6796-6aed-8a38c975d581, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /linkvws}}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】1, server: 23.157.88.6, port: 443, type: vmess, uuid: 03fcc618-b93d-6796-6aed-8a38c975d581, alterId: 1, cipher: auto, tls: true, network: ws, ws-opts: {path: /linkvws, headers: {Host: 23.157.88.6}}}
