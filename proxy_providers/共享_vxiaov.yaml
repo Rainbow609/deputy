@@ -98,3 +98,4 @@ proxies:
   - {name: 🇬🇧 SS-英国-NF解锁英国自制剧-ChatGPT-TikTok-YouTube-141.98.101.178:443, server: 141.98.101.178, port: 443, type: ss, cipher: aes-128-gcm, password: shadowsocks}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-38.110.1.107:3389, server: 38.110.1.107, port: 3389, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.150.152.41:5601, server: 23.150.152.41, port: 5601, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: 🇳🇱 SS-荷兰-NF解锁荷兰自制剧-ChatGPT-TikTok-YouTube-79.127.239.84:19175, server: 79.127.239.84, port: 19175, type: ss, cipher: chacha20-ietf-poly1305, password: 5Au7NhFmcBqMnika4KVk7h4ZdV3wD4hFtJ8PJ3AlHzLeU1chEBaz19a643q7hBPV}
