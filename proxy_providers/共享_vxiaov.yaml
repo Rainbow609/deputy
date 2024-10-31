@@ -94,4 +94,5 @@ proxies:
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-69.50.92.110:5498, server: 69.50.92.110, port: 5498, type: ss, cipher: aes-256-gcm, password: lGqs95QkFHo2NV}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-156.146.38.168:443, server: 156.146.38.168, port: 443, type: ss, cipher: aes-128-gcm, password: shadowsocks}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-69.50.92.110:8118, server: 69.50.92.110, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
-  - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-69.50.92.71:2376, server: 69.50.92.71, port: 2376, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
+  - {name: 🇸🇬 VMESS-未知>新加坡-NF解锁新加坡地区非自制剧-ChatGPT-TikTok-YouTube-172.67.213.19:8080, server: 172.67.213.19, port: 8080, type: vmess, uuid: 237c632a-8ac0-4040-ab02-adbc3b9e6610, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, servername: de-new01.daluquan.top, network: ws, ws-opts: {path: /}}
+  - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-38.114.114.143:7002, server: 38.114.114.143, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
