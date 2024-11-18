@@ -1,31 +1,20 @@
 proxies:
-  - {name: 🇯🇵 节点日期：11-17, server: 65.75.192.48, port: 37543, type: vmess, uuid: 4674cbfc-f9ab-4c47-eec1-ba0a98ae370e, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /67jfsf}}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】3, server: 38.110.1.46, port: 443, type: ss, cipher: aes-256-gcm, password: pKEW8JPByTVTLtM}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】27, server: 58.63.250.61, port: 18003, type: ss, cipher: aes-256-gcm, password: LQC0I83BPCS02ZTZ}
-  - {name: 未知【付费推荐：https://a0a.xyz】30, server: 103.170.72.120, port: 27061, type: trojan, password: auto, sni: trojanfree-76s.pages.dev, network: ws, ws-opts: {path: /, headers: {Host: trojanfree-76s.pages.dev}}}
-  - {name: 🇦🇺 澳大利亚【付费推荐：https://a0a.xyz】35, server: std1.loadingip.com, port: 443, type: trojan, password: 94d219c9-1afc-4d42-b090-8b3794764380}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】24, server: 38.110.1.46, port: 6379, type: ss, cipher: aes-256-gcm, password: zDNVedRFPQexG9v}
-  - {name: 🇦🇺 澳大利亚【付费推荐：https://a0a.xyz】6, server: 160.30.21.105, port: 443, type: trojan, password: 94d219c9-1afc-4d42-b090-8b3794764380, sni: std1.loadingip.com}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】25, server: 58.63.250.61, port: 15003, type: ss, cipher: aes-256-gcm, password: 1S4F61F85M49UAJP}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】15, server: 58.63.250.61, port: 15010, type: ss, cipher: aes-256-gcm, password: QMOLGIKYZW15TD56}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】29, server: 58.63.250.61, port: 18010, type: ss, cipher: aes-256-gcm, password: ZV56BC6UCQD3NDXG}
-  - {name: 🇫🇷 法国【付费推荐：https://a0a.xyz】32, server: 62.210.88.22, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: cjlNhDAZQMuDH6MI8F0E6m}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】28, server: 58.63.250.61, port: 15014, type: ss, cipher: aes-256-gcm, password: 0MX167RBF00ZI9CR}
-  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】18, server: 45.87.175.178, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: cvII85TrW6n0OGyfpHVS1u}
-  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】12, server: 45.87.175.164, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 4a2rfixophdjffa8KVA4Aa}
-  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】11, server: 45.87.175.192, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: cvII85TrW6n0OGyfpHVS1u}
-  - {name: 🇳🇱 荷兰【付费推荐：https://a0a.xyz】31, server: 45.155.249.178, port: 29746, type: ss, cipher: chacha20-ietf-poly1305, password: Fd2zvd70MYxXQIZbZBNbL3}
-  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】14, server: 45.87.175.188, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 1RWwXhwfAB5gAEozU4G2Pg}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】19, server: 58.63.250.61, port: 15004, type: ss, cipher: aes-256-gcm, password: Z4ZQB7LIKEVW7H3A}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://a0a.xyz】26, server: 46.17.40.57, port: 12345, type: ss, cipher: aes-256-gcm, password: dongtaiwang.com}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】22, server: yd2.ainivp.com, port: 33202, type: vmess, uuid: 9204afcd-023e-781f-1abc-c12efccd1344, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /ray, headers: {Host: yd2.ainivp.com}}}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://a0a.xyz】20, server: 193.124.22.253, port: 33068, type: ss, cipher: chacha20-ietf-poly1305, password: 3MgIhqwp4pjM8SKwixNkYZ}
-  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】17, server: 45.87.175.166, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 4a2rfixophdjffa8KVA4Aa}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://a0a.xyz】1, server: 89.185.84.185, port: 12575, type: ss, cipher: chacha20-ietf-poly1305, password: MdeeQzzQP9HTGvy3NKC9FR}
-  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】4, server: 45.87.175.199, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 1RWwXhwfAB5gAEozU4G2Pg}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】10, server: 172.67.204.84, port: 443, type: vmess, uuid: 96c4b760-0fcc-4050-8ad7-9bfee0e2bd20, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /6mHwql1HSSV5FOZe0UV1BYvuQ, headers: {Host: download.game-one.ir}}}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】16, server: 58.63.250.61, port: 18016, type: ss, cipher: aes-256-gcm, password: PQN6UOVSN1RDYITF}
-  - {name: 🇬🇧 英国【付费推荐：https://a0a.xyz】5, server: 141.11.251.231, port: 52728, type: vmess, uuid: d5e16b83-7b5c-45ea-d749-d6f6ad214447, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】7, server: 45.87.175.154, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 4a2rfixophdjffa8KVA4Aa}
+  - {name: 🇯🇵 节点日期：11-18, server: 65.75.192.48, port: 37543, type: vmess, uuid: 4674cbfc-f9ab-4c47-eec1-ba0a98ae370e, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /67jfsf}}
   - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】33, server: 16.724064.xyz, port: 443, type: vmess, uuid: b7cf4466-956a-4639-b861-0cf78cbb6f8f, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /zlppvws, headers: {Host: 16.724064.xyz}}}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】13, server: hzhz1.sssyun.xyz, port: 39206, type: ss, cipher: chacha20-ietf-poly1305, password: d4eeaa7b-43c6-49dc-8020-7389bba4d033}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】22, server: yd2.ainivp.com, port: 33202, type: vmess, uuid: 9204afcd-023e-781f-1abc-c12efccd1344, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /ray, headers: {Host: yd2.ainivp.com}}}
+  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】4, server: 45.87.175.199, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 1RWwXhwfAB5gAEozU4G2Pg}
+  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】7, server: 45.87.175.154, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 4a2rfixophdjffa8KVA4Aa}
+  - {name: 未知【付费推荐：https://a0a.xyz】30, server: 103.170.72.120, port: 27061, type: trojan, password: auto, sni: trojanfree-76s.pages.dev, network: ws, ws-opts: {path: /, headers: {Host: trojanfree-76s.pages.dev}}}
+  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】11, server: 45.87.175.192, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: cvII85TrW6n0OGyfpHVS1u}
+  - {name: 🇷🇺 俄罗斯【付费推荐：https://a0a.xyz】26, server: 46.17.40.57, port: 12345, type: ss, cipher: aes-256-gcm, password: dongtaiwang.com}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】25, server: 58.63.250.61, port: 15003, type: ss, cipher: aes-256-gcm, password: 1S4F61F85M49UAJP}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】19, server: 58.63.250.61, port: 15004, type: ss, cipher: aes-256-gcm, password: Z4ZQB7LIKEVW7H3A}
+  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】18, server: 45.87.175.178, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: cvII85TrW6n0OGyfpHVS1u}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】27, server: 58.63.250.61, port: 18003, type: ss, cipher: aes-256-gcm, password: LQC0I83BPCS02ZTZ}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】15, server: 58.63.250.61, port: 15010, type: ss, cipher: aes-256-gcm, password: QMOLGIKYZW15TD56}
+  - {name: 🇦🇺 澳大利亚【付费推荐：https://a0a.xyz】6, server: 160.30.21.105, port: 443, type: trojan, password: 94d219c9-1afc-4d42-b090-8b3794764380, sni: std1.loadingip.com}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】29, server: 58.63.250.61, port: 18010, type: ss, cipher: aes-256-gcm, password: ZV56BC6UCQD3NDXG}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】28, server: 58.63.250.61, port: 15014, type: ss, cipher: aes-256-gcm, password: 0MX167RBF00ZI9CR}
+  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】14, server: 45.87.175.188, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 1RWwXhwfAB5gAEozU4G2Pg}
+  - {name: 🇦🇺 澳大利亚【付费推荐：https://a0a.xyz】35, server: std1.loadingip.com, port: 443, type: trojan, password: 94d219c9-1afc-4d42-b090-8b3794764380}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】16, server: 58.63.250.61, port: 18016, type: ss, cipher: aes-256-gcm, password: PQN6UOVSN1RDYITF}
