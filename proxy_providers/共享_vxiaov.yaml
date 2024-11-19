@@ -51,6 +51,7 @@ proxies:
   - {name: 🇩🇪 SS-德国-NF解锁德国自制剧-ChatGPT-TikTok-YouTube-217.182.198.219:2375, server: 217.182.198.219, port: 2375, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
   - {name: 🇩🇪 SS-德国-NF解锁德国自制剧-ChatGPT-TikTok-YouTube-217.182.198.219:2376, server: 217.182.198.219, port: 2376, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
   - {name: 🇺🇸 SS-美国-NF解锁英国自制剧-ChatGPT-TikTok-YouTube-150.241.95.62:57263, server: 150.241.95.62, port: 57263, type: ss, cipher: chacha20-ietf-poly1305, password: As=Qe0JVvH}
+  - {name: 🇺🇸 SSR-美国-TikTok-YouTube-54.68.160.24:443, server: 54.68.160.24, port: 443, type: ssr, cipher: aes-256-cfb, password: amazonskr05, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
   - {name: 🇩🇪 SS-德国-NF解锁德国自制剧-ChatGPT-TikTok-YouTube-217.182.198.219:8090, server: 217.182.198.219, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
   - {name: 🇩🇪 SS-德国-NF解锁德国自制剧-ChatGPT-TikTok-YouTube-217.182.198.219:3306, server: 217.182.198.219, port: 3306, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
   - {name: 🇱🇹 SS-立陶宛>荷兰-NF解锁荷兰自制剧-ChatGPT-TikTok-YouTube-45.87.175.192:8080, server: 45.87.175.192, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 1RWwXhwfAB5gAEozU4G2Pg}
@@ -69,3 +70,7 @@ proxies:
   - {name: 🇩🇪 SS-德国-NF解锁德国自制剧-ChatGPT-TikTok-YouTube-217.182.198.219:9101, server: 217.182.198.219, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
   - {name: 🇩🇪 SS-德国-NF解锁德国自制剧-ChatGPT-TikTok-YouTube-217.182.198.219:8118, server: 217.182.198.219, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-69.50.93.47:6379, server: 69.50.93.47, port: 6379, type: ss, cipher: aes-256-gcm, password: zDNVedRFPQexG9v}
+  - {name: 🇩🇪 SS-德国-NF解锁德国自制剧-ChatGPT-TikTok-YouTube-217.182.198.219:7306, server: 217.182.198.219, port: 7306, type: ss, cipher: aes-256-gcm, password: FoOiGlkAA9yPEGP}
+  - {name: 🇭🇰 SS-美国-NF解锁香港自制剧-ChatGPT-TikTok-YouTube-154.3.8.151:30067, server: 154.3.8.151, port: 30067, type: ss, cipher: aes-256-gcm, password: iUB0923RBA}
+  - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-15.204.87.217:5600, server: 15.204.87.217, port: 5600, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: 🇩🇪 SS-德国-NF解锁德国自制剧-ChatGPT-TikTok-YouTube-217.182.198.219:4444, server: 217.182.198.219, port: 4444, type: ss, cipher: aes-256-gcm, password: pKEW8JPByTVTLtM}
