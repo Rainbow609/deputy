@@ -1,37 +1,14 @@
 proxies:
-  - {name: 🇯🇵 节点日期：11-22, server: naiu-other.05vr9nyqg5.download, port: 13036, type: trojan, password: ad6e2bae-d580-4117-aa37-a8c111100740, sni: cloudflare.node-ssl.cdn-alibaba.com}
-  - {name: 未知【付费推荐：https://a0a.xyz】23, server: naiu-sg.05vr9nyqg5.download, port: 13028, type: trojan, password: ad6e2bae-d580-4117-aa37-a8c111100740, sni: cloudflare.node-ssl.cdn-alibaba.com}
+  - {name: 🇯🇵 节点日期：11-23, server: naiu-other.05vr9nyqg5.download, port: 13036, type: trojan, password: ad6e2bae-d580-4117-aa37-a8c111100740, sni: cloudflare.node-ssl.cdn-alibaba.com}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】5, server: 36.141.40.92, port: 15016, type: ss, cipher: aes-256-gcm, password: MAADD8JLM8XKVW56}
   - {name: 未知【付费推荐：https://a0a.xyz】12, server: naiu-us.05vr9nyqg5.download, port: 13021, type: trojan, password: ad6e2bae-d580-4117-aa37-a8c111100740, sni: cloudflare.node-ssl.cdn-alibaba.com}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】8, server: 183.236.48.158, port: 59952, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
   - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】26, server: 4.api-catssr.catcloud.host, port: 32184, type: ss, cipher: chacha20-ietf-poly1305, password: bb741d28-cd11-4ce8-8799-459407bacde8}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】28, server: projp.ccdox.icu, port: 24013, type: ss, cipher: aes-256-gcm, password: 486c819c-dc4a-4981-8949-a02a6b327287}
-  - {name: 🇦🇺 澳大利亚【付费推荐：https://a0a.xyz】6, server: 43.153.80.208, port: 443, type: vmess, uuid: 3fd7b958-2161-46e1-b6fc-bd6bb2165312, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /, headers: {Host: shs.xiaoqi666.xyz}}}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】15, server: 58.63.250.61, port: 15011, type: ss, cipher: aes-256-gcm, password: Z1K84W4D8G5KO54J}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】17, server: hk.ccdox.icu, port: 24014, type: ss, cipher: aes-256-gcm, password: 486c819c-dc4a-4981-8949-a02a6b327287}
+  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】3, server: 45.87.175.164, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 4a2rfixophdjffa8KVA4Aa}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】24, server: gychun.ccdox.icu, port: 34001, type: ss, cipher: aes-256-gcm, password: 486c819c-dc4a-4981-8949-a02a6b327287}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】34, server: hzhz1.sssyun.xyz, port: 39202, type: ss, cipher: chacha20-ietf-poly1305, password: b40fb56c-f538-4bf2-951e-b645f48b9937}
   - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】39, server: 45.87.175.178, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 4a2rfixophdjffa8KVA4Aa}
+  - {name: 未知【付费推荐：https://a0a.xyz】23, server: naiu-sg.05vr9nyqg5.download, port: 13028, type: trojan, password: ad6e2bae-d580-4117-aa37-a8c111100740, sni: cloudflare.node-ssl.cdn-alibaba.com}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】15, server: 58.63.250.61, port: 15011, type: ss, cipher: aes-256-gcm, password: Z1K84W4D8G5KO54J}
   - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】22, server: hzhz2.sssyun.xyz, port: 40016, type: ss, cipher: chacha20-ietf-poly1305, password: b40fb56c-f538-4bf2-951e-b645f48b9937}
   - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】10, server: yd2.ainivp.com, port: 33202, type: vmess, uuid: 9204afcd-023e-781f-1abc-c12efccd1344, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /ray, headers: {Host: yd2.ainivp.com}}}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】20, server: 185.143.233.200, port: 443, type: trojan, password: dTaXAtuoQF, sni: nginx-4561f180e2-anssdsfsdf.apps.ir-northwest1.arvancaas.ir, network: ws, ws-opts: {path: /downloadgame, headers: {Host: nginx-4561f180e2-anssdsfsdf.apps.ir-northwest1.arvancaas.ir}}}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】24, server: gychun.ccdox.icu, port: 34001, type: ss, cipher: aes-256-gcm, password: 486c819c-dc4a-4981-8949-a02a6b327287}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】19, server: 185.143.232.200, port: 443, type: trojan, password: dTaXAtuoQF, sni: nginx-4561f180e2-anssdsfsdf.apps.ir-northwest1.arvancaas.ir, network: ws, ws-opts: {path: /downloadgame, headers: {Host: nginx-4561f180e2-anssdsfsdf.apps.ir-northwest1.arvancaas.ir}}}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】36, server: gy1.xinyeo.cc, port: 45010, type: ss, cipher: aes-256-gcm, password: 186d82fb-7cd4-45f5-b519-4e95f726cdc1}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】5, server: 36.141.40.92, port: 15016, type: ss, cipher: aes-256-gcm, password: MAADD8JLM8XKVW56}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】16, server: 185.143.235.200, port: 443, type: trojan, password: dTaXAtuoQF, sni: nginx-4561f180e2-anssdsfsdf.apps.ir-northwest1.arvancaas.ir, network: ws, ws-opts: {path: /downloadgame, headers: {Host: nginx-4561f180e2-anssdsfsdf.apps.ir-northwest1.arvancaas.ir}}}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】21, server: 185.143.234.200, port: 443, type: trojan, password: dTaXAtuoQF, sni: nginx-4561f180e2-anssdsfsdf.apps.ir-northwest1.arvancaas.ir, network: ws, ws-opts: {path: /downloadgame, headers: {Host: nginx-4561f180e2-anssdsfsdf.apps.ir-northwest1.arvancaas.ir}}}
-  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】3, server: 45.87.175.164, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 4a2rfixophdjffa8KVA4Aa}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】13, server: 120.232.153.27, port: 58002, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】37, server: sy1.xinyeo.cc, port: 45013, type: ss, cipher: aes-256-gcm, password: 186d82fb-7cd4-45f5-b519-4e95f726cdc1}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】40, server: gy1.xinyeo.cc, port: 45006, type: ss, cipher: aes-256-gcm, password: 186d82fb-7cd4-45f5-b519-4e95f726cdc1}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】32, server: sy1.xinyeo.cc, port: 45011, type: ss, cipher: aes-256-gcm, password: 186d82fb-7cd4-45f5-b519-4e95f726cdc1}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】38, server: sy2.xinyeo.cc, port: 45016, type: ss, cipher: aes-256-gcm, password: 186d82fb-7cd4-45f5-b519-4e95f726cdc1}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】7, server: 183.236.48.163, port: 58831, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】29, server: sychun.ccdox.icu, port: 24012, type: ss, cipher: aes-256-gcm, password: 486c819c-dc4a-4981-8949-a02a6b327287}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】33, server: gy1.xinyeo.cc, port: 45009, type: ss, cipher: aes-256-gcm, password: 186d82fb-7cd4-45f5-b519-4e95f726cdc1}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】11, server: 183.236.51.23, port: 53002, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】9, server: gy1.xinyeo.cc, port: 45007, type: ss, cipher: aes-256-gcm, password: 186d82fb-7cd4-45f5-b519-4e95f726cdc1}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】14, server: sychun.ccdox.icu, port: 24013, type: ss, cipher: aes-256-gcm, password: 486c819c-dc4a-4981-8949-a02a6b327287}
-  - {name: 🇦🇺 澳大利亚【付费推荐：https://a0a.xyz】41, server: 43.153.103.203, port: 443, type: vmess, uuid: 3fd7b958-2161-46e1-b6fc-bd6bb2165312, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /, headers: {Host: shs.xiaoqi666.xyz}}}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】31, server: jp.ccdox.icu, port: 24012, type: ss, cipher: aes-256-gcm, password: 486c819c-dc4a-4981-8949-a02a6b327287}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】18, server: prohk.ccdox.icu, port: 24015, type: ss, cipher: aes-256-gcm, password: 486c819c-dc4a-4981-8949-a02a6b327287}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】34, server: hzhz1.sssyun.xyz, port: 39202, type: ss, cipher: chacha20-ietf-poly1305, password: b40fb56c-f538-4bf2-951e-b645f48b9937}
   - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】25, server: 45.87.175.154, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 4a2rfixophdjffa8KVA4Aa}
