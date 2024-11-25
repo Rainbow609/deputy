@@ -1,17 +1,72 @@
 proxies:
-  - {name: 🇯🇵 节点日期：11-24, server: yd2.ainivp.com, port: 33202, type: vmess, uuid: 9204afcd-023e-781f-1abc-c12efccd1344, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /ray, headers: {Host: yd2.ainivp.com}}}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://a0a.xyz】2, server: 194.87.31.160, port: 8081, type: vmess, uuid: a7e00c2f-411a-438f-9119-0f022a85a5e3, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://a0a.xyz】29, server: 194.87.82.28, port: 12224, type: ss, cipher: chacha20-ietf-poly1305, password: 2fwufOmJ9ELfN4umzcHBfV}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】17, server: 104.18.71.140, port: 443, type: trojan, password: WOeXShhJpL, sni: 09jzus.zdzdzd.xyz, network: ws, ws-opts: {path: /juzigongyi, headers: {Host: 09jzus.zdzdzd.xyz}}}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】21, server: 16.724064.xyz, port: 443, type: vmess, uuid: b7cf4466-956a-4639-b861-0cf78cbb6f8f, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /zlppvws, headers: {Host: 16.724064.xyz}}}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】35, server: hzhz1.sssyun.xyz, port: 39202, type: ss, cipher: chacha20-ietf-poly1305, password: b40fb56c-f538-4bf2-951e-b645f48b9937}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://a0a.xyz】18, server: 193.124.22.253, port: 33068, type: ss, cipher: chacha20-ietf-poly1305, password: 3MgIhqwp4pjM8SKwixNkYZ}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】7, server: 205.134.180.150, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: 5cp9Z3iWnJZ2}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】40, server: 104.17.49.240, port: 443, type: trojan, password: WOeXShhJpL, sni: 09jzus.zdzdzd.xyz, network: ws, ws-opts: {path: /juzigongyi, headers: {Host: 09jzus.zdzdzd.xyz}}}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】32, server: 172.67.67.64, port: 443, type: trojan, password: WOeXShhJpL, sni: 09jzus.zdzdzd.xyz, network: ws, ws-opts: {path: /juzigongyi, headers: {Host: 09jzus.zdzdzd.xyz}}}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】15, server: 61.172.235.22, port: 11001, type: ss, cipher: chacha20-ietf-poly1305, password: 2852c164-1a5b-4628-b668-3554c7aa4453}
-  - {name: 未知【付费推荐：https://a0a.xyz】23, server: naiu-sg.05vr9nyqg5.download, port: 13028, type: trojan, password: ad6e2bae-d580-4117-aa37-a8c111100740, sni: cloudflare.node-ssl.cdn-alibaba.com}
-  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】16, server: 45.87.175.154, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 4a2rfixophdjffa8KVA4Aa}
-  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】5, server: 63.176.182.62, port: 22222, type: trojan, password: telegram-id-privatevpns, sni: trojan.burgerip.co.uk}
-  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】20, server: iepl1.nezha.tech, port: 33577, type: ss, cipher: chacha20-ietf-poly1305, password: 96a8c243-0219-403e-b8fa-f48f696435e1}
-  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】6, server: 3.125.56.135, port: 22222, type: trojan, password: telegram-id-privatevpns, sni: trojan.burgerip.co.uk}
+  - {name: 🇯🇵 节点日期：11-25, server: 104.26.7.132, port: 2082, type: vmess, uuid: 5f3f09ad-89cb-4e94-a7ad-aa8239913555, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: github.com/Alvin9999, headers: {Host: ip3.6929198.xyz}}}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】47, server: 142.202.49.119, port: 8000, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: 未知【付费推荐：https://a0a.xyz】49, server: naiu-jp.05vr9nyqg5.download, port: 13012, type: trojan, password: ad6e2bae-d580-4117-aa37-a8c111100740, sni: cloudflare.node-ssl.cdn-alibaba.com}
+  - {name: 🇦🇺 澳大利亚【付费推荐：https://a0a.xyz】78, server: std1.loadingip.com, port: 443, type: trojan, password: 94d219c9-1afc-4d42-b090-8b3794764380}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】16, server: 52.30.54.77, port: 22222, type: trojan, password: telegram-id-privatevpns, sni: trojan.burgerip.co.uk}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】68, server: 36.151.192.239, port: 17806, type: trojan, password: QwwHvrnN}
+  - {name: 🇮🇪 爱尔兰【付费推荐：https://a0a.xyz】11, server: 52.212.133.245, port: 22222, type: trojan, password: telegram-id-privatevpns, sni: trojan.burgerip.co.uk}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】31, server: 205.134.180.150, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: 5cp9Z3iWnJZ2}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】67, server: 38.110.1.203, port: 8888, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】5, server: cf.090227.xyz, port: 443, type: trojan, password: bpb-trojan, sni: bpbpanel.ac.cn.eu.org, network: ws, ws-opts: {path: /tr, headers: {Host: bpbpanel.ac.cn.eu.org}}}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】61, server: 142.202.49.119, port: 5499, type: ss, cipher: aes-256-gcm, password: lGqs95QkFHo2NV}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】28, server: 51.158.252.130, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: sn9wq4rWWo4rtvdZpedsZh}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】2, server: 104.17.49.240, port: 443, type: trojan, password: WOeXShhJpL, sni: 09jzus.zdzdzd.xyz, network: ws, ws-opts: {path: /juzigongyi, headers: {Host: 09jzus.zdzdzd.xyz}}}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】79, server: 142.202.49.119, port: 5001, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】62, server: 16.724064.xyz, port: 443, type: vmess, uuid: b7cf4466-956a-4639-b861-0cf78cbb6f8f, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /zlppvws, headers: {Host: 16.724064.xyz}}}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】35, server: 36.151.192.196, port: 42395, type: trojan, password: QwwHvrnN}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】75, server: 38.110.1.203, port: 7306, type: ss, cipher: aes-256-gcm, password: FoOiGlkAA9yPEGP}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】6, server: 142.202.49.119, port: 2375, type: ss, cipher: aes-256-gcm, password: faBAoD54k87UJG7}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】42, server: 38.110.1.203, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
+  - {name: 🇷🇺 俄罗斯【付费推荐：https://a0a.xyz】41, server: 194.87.82.28, port: 12224, type: ss, cipher: chacha20-ietf-poly1305, password: 2fwufOmJ9ELfN4umzcHBfV}
+  - {name: 🇷🇺 俄罗斯【付费推荐：https://a0a.xyz】58, server: 193.124.22.253, port: 33068, type: ss, cipher: chacha20-ietf-poly1305, password: 3MgIhqwp4pjM8SKwixNkYZ}
+  - {name: 🇨🇦 加拿大【付费推荐：https://a0a.xyz】33, server: 35.182.140.174, port: 22222, type: trojan, password: telegram-id-directvpn, sni: trojan.burgerip.co.uk}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】63, server: 142.202.49.119, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】82, server: 38.110.1.203, port: 8091, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
+  - {name: 🇩🇪 德国【付费推荐：https://a0a.xyz】50, server: 45.87.175.178, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 4a2rfixophdjffa8KVA4Aa}
+  - {name: 🇷🇺 俄罗斯【付费推荐：https://a0a.xyz】71, server: socks5tobefree.ydns.eu, port: 33026, type: vmess, uuid: e00f5c12-09e3-490c-b702-29155b6dcc50, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /dangerzone, headers: {Host: socks5tobefree.ydns.eu}}}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】44, server: series-a2.varzesh360.co, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: mps3FwmDjLrWaOVg}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】81, server: 142.202.49.119, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】22, server: 38.110.1.203, port: 8000, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】77, server: 142.202.49.119, port: 8091, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】21, server: 38.110.1.203, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】1, server: yd2.ainivp.com, port: 33202, type: vmess, uuid: 9204afcd-023e-781f-1abc-c12efccd1344, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /ray, headers: {Host: yd2.ainivp.com}}}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】48, server: 3.147.17.142, port: 22222, type: trojan, password: telegram-id-directvpn, sni: trojan.burgerip.co.uk}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】72, server: 117.176.203.229, port: 30017, type: ss, cipher: aes-256-gcm, password: cbd12f94-bfa2-4079-95bb-50c49d7aaf7e}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】37, server: ent1.imyourdaddy.top, port: 20987, type: trojan, password: 64f33df2-4f9d-4cf3-bb69-b82b08cf149a, sni: sale.alibaba.com}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】84, server: 38.110.1.203, port: 5600, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】40, server: 142.202.49.119, port: 8080, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】19, server: 36.151.192.242, port: 14505, type: trojan, password: QwwHvrnN}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】46, server: 142.202.49.119, port: 8009, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】60, server: 142.202.49.119, port: 443, type: ss, cipher: aes-256-gcm, password: pKEW8JPByTVTLtM}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】52, server: 162.159.140.66, port: 2095, type: vmess, uuid: 18d96190-c10f-448f-a82a-2d36df5c3cde, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: github.com/Alvin9999, headers: {Host: ip2.6016725.xyz}}}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】26, server: visa.cn, port: 443, type: trojan, password: bpb-trojan, sni: bpbpanel.ac.cn.eu.org, network: ws, ws-opts: {path: /tr, headers: {Host: bpbpanel.ac.cn.eu.org}}}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】53, server: 154.90.63.193, port: 990, type: ss, cipher: chacha20-ietf-poly1305, password: f8f7aCzcPKbsF8p3}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】23, server: hzhz1.sssyun.xyz, port: 39202, type: ss, cipher: chacha20-ietf-poly1305, password: b40fb56c-f538-4bf2-951e-b645f48b9937}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】64, server: 142.202.49.119, port: 7307, type: ss, cipher: aes-256-gcm, password: FoOiGlkAA9yPEGP}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】17, server: singapore.com, port: 2095, type: vmess, uuid: 18d96190-c10f-448f-a82a-2d36df5c3cde, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /github.com/Alvin9999, headers: {Host: ip11.6016725.xyz}}}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】10, server: 142.202.49.119, port: 6697, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】39, server: 142.202.49.119, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】27, server: 142.202.49.119, port: 5003, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】43, server: 104.18.71.140, port: 443, type: trojan, password: WOeXShhJpL, sni: 09jzus.zdzdzd.xyz, network: ws, ws-opts: {path: /juzigongyi, headers: {Host: 09jzus.zdzdzd.xyz}}}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】20, server: 172.67.67.64, port: 443, type: trojan, password: WOeXShhJpL, sni: 09jzus.zdzdzd.xyz, network: ws, ws-opts: {path: /juzigongyi, headers: {Host: 09jzus.zdzdzd.xyz}}}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】15, server: 142.202.49.119, port: 6679, type: ss, cipher: aes-256-gcm, password: TEzjfAYq2IjtuoS}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】30, server: 34.92.66.193, port: 30251, type: vmess, uuid: 9e88a10b-655c-5120-89d0-408634169561, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】12, server: 142.202.49.119, port: 6379, type: ss, cipher: aes-256-gcm, password: zDNVedRFPQexG9v}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】13, server: 36.151.192.198, port: 36900, type: trojan, password: QwwHvrnN}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】59, server: 38.110.1.203, port: 5004, type: ss, cipher: aes-256-gcm, password: g5MeD6Ft3CWlJId}
+  - {name: 未知【付费推荐：https://a0a.xyz】51, server: naiu-other.05vr9nyqg5.download, port: 13036, type: trojan, password: ad6e2bae-d580-4117-aa37-a8c111100740, sni: cloudflare.node-ssl.cdn-alibaba.com}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】38, server: 183.240.255.75, port: 11001, type: ss, cipher: chacha20-ietf-poly1305, password: 38c4951c-4975-4737-a5d4-7faad420b4c5}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】69, server: 142.202.49.119, port: 9101, type: ss, cipher: aes-256-gcm, password: e4FCWrgpkji3QY}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】66, server: 142.202.49.119, port: 8008, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】32, server: 65.20.115.19, port: 443, type: trojan, password: wkmY1R4EcP, sni: myket.io}
+  - {name: 🇸🇬 新加坡【付费推荐：https://a0a.xyz】73, server: sg005.421421.xyz, port: 20230, type: trojan, password: d971ee7a-32d9-402a-8a4f-d2135d48a47b, sni: 421421.xyz}
+  - {name: 🇧🇪 比利时【付费推荐：https://a0a.xyz】54, server: 57.129.28.69, port: 443, type: vmess, uuid: 03fcc618-b93d-6796-6aed-8a38c975d581, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /linkvws, headers: {Host: baradiha.com}}}
+  - {name: 🇷🇺 俄罗斯【付费推荐：https://a0a.xyz】14, server: 194.87.31.160, port: 8081, type: vmess, uuid: a7e00c2f-411a-438f-9119-0f022a85a5e3, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】83, server: 203.23.128.33, port: 990, type: ss, cipher: chacha20-ietf-poly1305, password: f8f7aCzcPKbsF8p3}
+  - {name: 🇨🇳 中国【付费推荐：https://a0a.xyz】86, server: 4.api-catssr.catcloud.host, port: 49897, type: ss, cipher: chacha20-ietf-poly1305, password: bb741d28-cd11-4ce8-8799-459407bacde8}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】56, server: admin.c2.havij.co, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: btF2uCBn2Cz11kIA}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】65, server: 142.202.49.119, port: 5000, type: ss, cipher: aes-256-gcm, password: Y6R9pAtvxxzmGC}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】25, server: 38.110.1.203, port: 8009, type: ss, cipher: aes-256-gcm, password: XKFKl2rULjIp74}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】70, server: series-a2-mec.varzesh360.co, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: u17T3BvpYaaiuW2c}
+  - {name: 🇺🇸 美国【付费推荐：https://a0a.xyz】36, server: 38.110.1.203, port: 8090, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
