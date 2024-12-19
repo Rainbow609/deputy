@@ -61,3 +61,6 @@ proxies:
   - {name: 🇧🇪 SSR-比利时-NF解锁比利时自制剧-ChatGPT-TikTok-YouTube-192.71.249.78:989, server: 192.71.249.78, port: 989, type: ssr, cipher: aes-256-cfb, password: f8f7aCzcPKbsF8p3, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
   - {name: 🇬🇧 SSR-英国-NF解锁英国自制剧-ChatGPT-TikTok-YouTube-77.72.5.150:989, server: 77.72.5.150, port: 989, type: ssr, cipher: aes-256-cfb, password: f8f7aCzcPKbsF8p3, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-38.114.114.77:5500, server: 38.114.114.77, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
+  - {name: 🇺🇸 SSR-美国-NF解锁自制剧-TikTok-YouTube-34.222.136.128:443, server: 34.222.136.128, port: 443, type: ssr, cipher: aes-256-cfb, password: amazonskr05, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
+  - {name: 🇺🇸 SSR-美国-54.244.200.142:443, server: 54.244.200.142, port: 443, type: ssr, cipher: aes-256-cfb, password: amazonskr05, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
+  - {name: 🇺🇸 SSR-美国-TikTok-YouTube-52.89.164.115:443, server: 52.89.164.115, port: 443, type: ssr, cipher: aes-256-cfb, password: amazonskr05, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
