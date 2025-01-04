@@ -16,7 +16,6 @@ proxies:
   - {name: 🇫🇷 SS-法国-NF解锁英国自制剧-ChatGPT-TikTok-YouTube-54.37.18.75:7002, server: 54.37.18.75, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-15.204.87.217:6379, server: 15.204.87.217, port: 6379, type: ss, cipher: aes-256-gcm, password: zDNVedRFPQexG9v}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-15.204.87.217:5500, server: 15.204.87.217, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
-  - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-15.204.87.225:5499, server: 15.204.87.225, port: 5499, type: ss, cipher: aes-256-gcm, password: lGqs95QkFHo2NV}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-15.204.87.215:8119, server: 15.204.87.215, port: 8119, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
   - {name: 🇫🇷 SS-法国-NF解锁英国自制剧-ChatGPT-TikTok-YouTube-54.37.18.75:5499, server: 54.37.18.75, port: 5499, type: ss, cipher: aes-256-gcm, password: lGqs95QkFHo2NV}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-15.204.87.217:8118, server: 15.204.87.217, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
@@ -48,4 +47,3 @@ proxies:
   - {name: 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-184.170.241.194:443, server: 184.170.241.194, port: 443, type: ssr, cipher: aes-128-cfb, password: shadowsocks, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
   - {name: 🇩🇪 SSR-英国-NF解锁德国自制剧-ChatGPT-TikTok-YouTube-169.150.210.233:8080, server: 169.150.210.233, port: 8080, type: ssr, cipher: rc4-md5, password: 14fFPrbezE3HDZzsMOr6, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
   - {name: 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-54.69.180.74:443, server: 54.69.180.74, port: 443, type: ssr, cipher: aes-256-cfb, password: amazonskr05, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
-  - {name: 🇺🇸 SSR-美国-ChatGPT-TikTok-34.211.229.86:443, server: 34.211.229.86, port: 443, type: ssr, cipher: aes-256-cfb, password: amazonskr05, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
