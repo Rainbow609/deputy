@@ -17,7 +17,7 @@ proxy-providers:
   群主_星链云:
     <<: *p
     # https://starlinkcloud.xyz/api/v1/client/subscribe?token=5ba4e95580963e89050945ddf20d50b1
-    url: "https://www.nite07.com/sub/meta?nodeList=true&sub=https://starlinkcloud.xyz/api/v1/client/subscribe?token=5ba4e95580963e89050945ddf20d50b1"
+    url: "https://clash.nite07.com/meta?nodeList=true&sub=https://starlinkcloud.xyz/api/v1/client/subscribe?token=5ba4e95580963e89050945ddf20d50b1"
     path: ./proxy_providers/群主_星链云.yaml
     override:
       additional-prefix: "群主_星链云 "
@@ -26,25 +26,22 @@ proxy-providers:
     <<: *p
     # https://xn--ehq00hgtfdmt.xyz/
     # https://sub.sanfen018.xyz/api/v1/client/subscribe?token=0b73731d54a0e74695ff0429b4dc2870
-    url: "https://www.nite07.com/sub/meta?nodeList=true&sub=https://sub.sanfen018.xyz/api/v1/client/subscribe?token=0b73731d54a0e74695ff0429b4dc2870"
+    url: "https://clash.nite07.com/meta?nodeList=true&sub=https://sub.sanfen018.xyz/api/v1/client/subscribe?token=0b73731d54a0e74695ff0429b4dc2870"
     path: ./proxy_providers/群主_三分.yaml
     override:
       additional-prefix: "群主_三分 "
 
-  群主_wget:
+  22_三分:
     <<: *p
-    # wget.moe
-    # https://sr.12306.me.uk/
-    # https://gawrgura.moe/api/v1/client/subscribe?token=7d523c439301979d3b113bb7f58c4d7b
-    url: "https://www.nite07.com/sub/meta?nodeList=true&sub=https://gawrgura.moe/api/v1/client/subscribe?token=7d523c439301979d3b113bb7f58c4d7b"
-    path: ./proxy_providers/群主_wget.yaml
+    url: "https://clash.nite07.com/meta?nodeList=true&sub=https://sub.sanfen018.xyz/api/v1/client/subscribe?token=bd1d618d46844f83911ccee929512f67"
+    path: ./proxy_providers/22_三分.yaml
     override:
-      additional-prefix: "群主_wget "
+      additional-prefix: "22_三分 "
 
   达达_极速:
     <<: *p
     # https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01
-    url: "https://www.nite07.com/sub/meta?nodeList=true&sub=https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01"
+    url: "https://clash.nite07.com/meta?nodeList=true&sub=https://jsjc.cfd/api/v1/client/subscribe?token=70e468efdcf48393fcea004ee0d3cf01"
     path: ./proxy_providers/达达_极速.yaml
     override:
       additional-prefix: "达达_极速 "
@@ -52,7 +49,7 @@ proxy-providers:
   火锅_白嫖:
     <<: *p
     # https://sub.xn--mesv7f5toqlp.com/api/v1/client/subscribe?token=f62b4f8cbb84e14bcca1c58943e884ea
-    url: "https://www.nite07.com/sub/meta?nodeList=true&sub=https://sub.xn--mesv7f5toqlp.com/api/v1/client/subscribe?token=f62b4f8cbb84e14bcca1c58943e884ea"
+    url: "https://clash.nite07.com/meta?nodeList=true&sub=https://sub.xn--mesv7f5toqlp.com/api/v1/client/subscribe?token=f62b4f8cbb84e14bcca1c58943e884ea"
     path: ./proxy_providers/火锅_白嫖.yaml
     override:
       additional-prefix: "火锅_白嫖 "
@@ -117,7 +114,7 @@ proxy-groups:
   - {name: 剩余流量, type: select, <<: *use, filter: "剩余流量|距离下次重置剩余|套餐到期|官网"}
 
   - {name: AI, type: select, proxies: [US fallback, JP fallback, SG fallback, Other fallback]}
-  - {name: Twitter, type: select, proxies: [HK urltest, HK fallback, TW urltest, TW fallback, JP urltest, JP fallback, SG urltest, SG fallback, US urltest, US fallback, Other urltest, Other fallback]}
+  - {name: Twitter, type: select, proxies: [HK urltest, HK fallback, TW urltest, TW fallback, JP urltest, JP fallback, SG urltest, SG fallback, US urltest, US fallback, Other urltest, Other fallback, 手动切换]}
 
   - {name: HK urltest, <<: *urltest, filter: "(?i)港|hk|hongkong|hong kong", exclude-filter: "[2-9]x"}
   - {name: HK fallback, <<: *fallback, filter: "(?i)港|hk|hongkong|hong kong", exclude-filter: "[2-9]x"}
@@ -266,6 +263,6 @@ rules:
   - RULE-SET,Gemini,AI
   - RULE-SET,Claude,AI
   - RULE-SET,EHGallery,手动切换
-  - RULE-SET,Twitter,手动切换
+  - RULE-SET,Twitter,Twitter
 
   - MATCH,代理设置
