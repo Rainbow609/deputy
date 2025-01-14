@@ -5,34 +5,21 @@ on:
     - cron: "*/30 * * * *"
   push:
     branches:
-      - main
+      - main  # 修改為你的主要分支名稱，通常是 main 或 master
 
 jobs:
   run-get-node-list:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    strategy:
-      matrix:
-        python-version: ["3.9", "3.10", "3.11"]
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python 3.x
       uses: actions/setup-python@v5
       with:
-        python-version: ${{ matrix.python-version }}
-
-    - name: Cache pip dependencies
-      uses: actions/cache@v3
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
+        python-version: "3.10" # 請將 x 替換為具體的 Python 版本號，例如 3.10
 
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
         pip install pyyaml requests chardet
 
     - name: Run get_node_list.py
@@ -51,16 +38,4 @@ jobs:
       uses: ad-m/github-push-action@v0.8.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
-
-    - name: Notify on failure
-      if: failure()
-      uses: actions/github-script@v6
-      with:
-        script: |
-          github.rest.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: "⚠️ Workflow failed! Please check the logs."
-          })
+        branch: main  # 修改為你的主要分支名稱
