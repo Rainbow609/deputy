@@ -1,39 +1,18 @@
 proxies:
-  - {name: 🇯🇵 节点日期：01-18, server: 66.81.247.88, port: 2083, type: trojan, password: Aimer, sni: ameqo.esslh.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: ameqo.esslh.filegear-sg.me}}}
-  - {name: 🇪🇸 西班牙【付费推荐：https://socks.news】6, server: 212.192.12.70, port: 17926, type: vmess, uuid: 1cc59a3a-9625-40f7-b0e6-e233286ae82d, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://socks.news】41, server: 89.221.224.166, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: MDZhNTAz}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】36, server: ti3hyra4.slashdevslashnetslashtun.net, port: 16014, type: ss, cipher: aes-256-gcm, password: H5IGGU6EPG7XR7X4}
-  - {name: 未知【付费推荐：https://socks.news】12, server: naiu-other.05vr9nyqg5.download, port: 13035, type: trojan, password: e279c494-c426-443a-a034-a04516409242, sni: cloudflare.node-ssl.cdn-alibaba.com}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】62, server: w72tapyb.slashdevslashnetslashtun.net, port: 16008, type: ss, cipher: aes-256-gcm, password: 9O695G99XQ9IB757}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://socks.news】1, server: 194.87.69.52, port: 17926, type: vmess, uuid: 1cc59a3a-9625-40f7-b0e6-e233286ae82d, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】22, server: 154.197.64.166, port: 2053, type: trojan, password: Aimer, sni: ameqo.esslh.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: ameqo.esslh.filegear-sg.me}}}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】2, server: 198.62.62.192, port: 2083, type: trojan, password: Aimer, sni: ameqo.esslh.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: ameqo.esslh.filegear-sg.me}}}
-  - {name: 🇳🇱 荷兰【付费推荐：https://socks.news】40, server: 213.109.147.242, port: 62685, type: ss, cipher: chacha20-ietf-poly1305, password: VpKABcOpNNA0l5G2AVOmw8}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】31, server: 27.50.48.189, port: 2083, type: trojan, password: Aimer, sni: ameqo.esslh.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: ameqo.esslh.filegear-sg.me}}}
-  - {name: 🇺🇸 亚美尼亚【付费推荐：https://socks.news】32, server: 188.164.159.91, port: 2083, type: trojan, password: Aimer, sni: ameqo.esslh.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: ameqo.esslh.filegear-sg.me}}}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】7, server: 104.19.107.190, port: 2096, type: trojan, password: Aimer, sni: ameqo.esslh.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: ameqo.esslh.filegear-sg.me}}}
-  - {name: 🇨🇦 加拿大【付费推荐：https://socks.news】47, server: 64.74.163.130, port: 990, type: ss, cipher: chacha20-ietf-poly1305, password: f8f7aCzcPKbsF8p3}
-  - {name: 🇺🇦 乌克兰【付费推荐：https://socks.news】33, server: 95.164.44.221, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: ZDAxZDE2}
-  - {name: 🇬🇧 英国【付费推荐：https://socks.news】44, server: 5.39.252.204, port: 17926, type: vmess, uuid: 960c95a9-8502-4cbc-a527-d40c2d68d2b1, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://socks.news】54, server: 195.58.49.42, port: 17926, type: vmess, uuid: 1cc59a3a-9625-40f7-b0e6-e233286ae82d, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
-  - {name: 🇳🇱 荷兰【付费推荐：https://socks.news】29, server: 45.140.146.223, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: YjJiYzBj}
-  - {name: 🇺🇦 乌克兰【付费推荐：https://socks.news】4, server: 95.164.36.59, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: ZmQwZjFk}
-  - {name: 未知【付费推荐：https://socks.news】9, server: 209.94.90.87, port: 2087, type: trojan, password: Aimer, sni: ameqo.esslh.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: ameqo.esslh.filegear-sg.me}}}
+  - {name: 🇯🇵 节点日期：01-19, server: 45.250.184.183, port: 6181, type: ss, cipher: chacha20-ietf-poly1305, password: 11a805f2-41a7-4cd8-8406-0470c3cde0d3}
+  - {name: 🇷🇺 俄罗斯【付费推荐：https://socks.news】55, server: 195.58.49.86, port: 17926, type: vmess, uuid: 1cc59a3a-9625-40f7-b0e6-e233286ae82d, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
+  - {name: 🇱🇻 拉脱维亚【付费推荐：https://socks.news】30, server: 46.183.217.232, port: 990, type: ss, cipher: chacha20-ietf-poly1305, password: f8f7aCzcPKbsF8p3}
   - {name: 未知【付费推荐：https://socks.news】50, server: naiu-jp.05vr9nyqg5.download, port: 13012, type: trojan, password: e279c494-c426-443a-a034-a04516409242, sni: cloudflare.node-ssl.cdn-alibaba.com}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】15, server: 206.238.236.134, port: 443, type: trojan, password: Aimer, sni: ameqo.esslh.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: ameqo.esslh.filegear-sg.me}}}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】19, server: qh62onjn.slashdevslashnetslashtun.net, port: 15011, type: ss, cipher: aes-256-gcm, password: 2N0M0MMOXEJMXKPN}
+  - {name: 🇺🇦 乌克兰【付费推荐：https://socks.news】13, server: at1.opensocks.site, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: ZmQwZjFk}
+  - {name: 🇷🇺 俄罗斯【付费推荐：https://socks.news】54, server: 195.58.49.42, port: 17926, type: vmess, uuid: 1cc59a3a-9625-40f7-b0e6-e233286ae82d, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
+  - {name: 🇳🇱 荷兰【付费推荐：https://socks.news】40, server: 213.109.147.242, port: 62685, type: ss, cipher: chacha20-ietf-poly1305, password: VpKABcOpNNA0l5G2AVOmw8}
+  - {name: 🇳🇱 荷兰【付费推荐：https://socks.news】29, server: 45.140.146.223, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: YjJiYzBj}
   - {name: 🇷🇺 俄罗斯【付费推荐：https://socks.news】49, server: 195.58.49.50, port: 17926, type: vmess, uuid: 1cc59a3a-9625-40f7-b0e6-e233286ae82d, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
   - {name: 🇨🇳 中国【付费推荐：https://socks.news】26, server: cm1.awslcn.info, port: 25230, type: vmess, uuid: 243eab52-9ac1-405c-887c-eb112c0985b8, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: cm1.awslcn.info}}}
+  - {name: 🇷🇺 俄罗斯【付费推荐：https://socks.news】41, server: 89.221.224.166, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: MDZhNTAz}
+  - {name: 🇬🇧 英国【付费推荐：https://socks.news】44, server: 5.39.252.204, port: 17926, type: vmess, uuid: 960c95a9-8502-4cbc-a527-d40c2d68d2b1, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
+  - {name: 🇺🇦 乌克兰【付费推荐：https://socks.news】4, server: 95.164.36.59, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: ZmQwZjFk}
   - {name: 🇨🇳 中国【付费推荐：https://socks.news】64, server: ctmm.gscloud.bond, port: 31620, type: ss, cipher: chacha20-ietf-poly1305, password: f16d3752-7bae-474e-87dc-f892df2caeaf}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://socks.news】11, server: 185.204.109.190, port: 8443, type: trojan, password: Aimer, sni: ameqo.esslh.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: ameqo.esslh.filegear-sg.me}}}
-  - {name: 🇵🇱 波兰【付费推荐：https://socks.news】43, server: 2.forlive.live, port: 61005, type: ss, cipher: chacha20-ietf-poly1305, password: 82fb692e-1c8b-3a65-ad83-23ad9deee111}
-  - {name: 🇺🇦 乌克兰【付费推荐：https://socks.news】13, server: at1.opensocks.site, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: ZmQwZjFk}
+  - {name: 🇷🇺 俄罗斯【付费推荐：https://socks.news】1, server: 194.87.69.52, port: 17926, type: vmess, uuid: 1cc59a3a-9625-40f7-b0e6-e233286ae82d, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
+  - {name: 🇨🇦 加拿大【付费推荐：https://socks.news】47, server: 64.74.163.130, port: 990, type: ss, cipher: chacha20-ietf-poly1305, password: f8f7aCzcPKbsF8p3}
   - {name: 🇳🇱 荷兰【付费推荐：https://socks.news】56, server: 5.8.35.208, port: 443, type: trojan, password: !<str> 3648425794742788096, sni: loving-boa.treefrog761.one}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://socks.news】55, server: 195.58.49.86, port: 17926, type: vmess, uuid: 1cc59a3a-9625-40f7-b0e6-e233286ae82d, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】25, server: 104.19.57.183, port: 2096, type: trojan, password: Aimer, sni: ameqo.esslh.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: ameqo.esslh.filegear-sg.me}}}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】46, server: w72tapyb.slashdevslashnetslashtun.net, port: 16004, type: ss, cipher: aes-256-gcm, password: BUP3OYED8WELSLPM}
-  - {name: 🇱🇻 拉脱维亚【付费推荐：https://socks.news】30, server: 46.183.217.232, port: 990, type: ss, cipher: chacha20-ietf-poly1305, password: f8f7aCzcPKbsF8p3}
-  - {name: 🇺🇦 乌克兰【付费推荐：https://socks.news】58, server: 185.234.64.35, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: ZWRiM2Ix}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】3, server: 45.250.184.183, port: 6181, type: ss, cipher: chacha20-ietf-poly1305, password: 11a805f2-41a7-4cd8-8406-0470c3cde0d3}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】10, server: qh62onjn.slashdevslashnetslashtun.net, port: 15003, type: ss, cipher: aes-256-gcm, password: 2MT8DJ2LPPCI5PH8}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】61, server: 8tv68qhq.slashdevslashnetslashtun.net, port: 18013, type: ss, cipher: aes-256-gcm, password: HEFXL9QGFUT6ET4L}
