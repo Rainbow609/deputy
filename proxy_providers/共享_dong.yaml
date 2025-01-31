@@ -1,49 +1,19 @@
 proxies:
-  - {name: 🇯🇵 节点日期：01-29, server: busy-buffalo.treefrog761.one, port: 443, type: trojan, password: !<str> 3723507166611775488, sni: busy-buffalo.treefrog761.one}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】2, server: pppasdfjetyj.461553.best, port: 25770, type: vmess, uuid: 08972930-1dc6-444b-914d-7cd4f7937f37, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: "/?ed=1024", headers: {Host: www.douyin.com}}}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】3, server: in01.trojanyyds.xyz, port: 443, type: trojan, password: 243eab52-9ac1-405c-887c-eb112c0985b8, sni: in01.trojanyyds.xyz}
-  - {name: 🇩🇪 德国【付费推荐：https://socks.news】4, server: 45.87.175.181, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: cvII85TrW6n0OGyfpHVS1u}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】5, server: 183.236.51.60, port: 25230, type: vmess, uuid: 243eab52-9ac1-405c-887c-eb112c0985b8, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: 183.236.51.60}}}
-  - {name: 🇬🇧 英国【付费推荐：https://socks.news】6, server: 18.132.75.85, port: 22222, type: trojan, password: telegram-id-privatevpns, sni: trojan.burgerip.co.uk}
-  - {name: 🇬🇧 英国【付费推荐：https://socks.news】7, server: 18.135.44.212, port: 22222, type: trojan, password: telegram-id-privatevpns, sni: trojan.burgerip.co.uk}
-  - {name: 🇮🇪 爱尔兰【付费推荐：https://socks.news】8, server: 3.255.33.156, port: 22222, type: trojan, password: telegram-id-privatevpns, sni: trojan.burgerip.co.uk}
-  - {name: 未知【付费推荐：https://socks.news】9, server: naiu-hk.05vr9nyqg5.download, port: 13004, type: trojan, password: e279c494-c426-443a-a034-a04516409242, sni: cloudflare.node-ssl.cdn-alibaba.com}
-  - {name: 🇫🇷 法国【付费推荐：https://socks.news】10, server: 35.181.249.29, port: 22222, type: trojan, password: telegram-id-privatevpns, sni: trojan.burgerip.co.uk}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】11, server: 77.83.246.74, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: 6N9EX6q8mYlgWHJ6FIsJZ5}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】12, server: 219.135.227.210, port: 17006, type: ss, cipher: aes-256-gcm, password: QX5ETP5KNLIN3Q4N}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】13, server: 219.135.227.210, port: 18014, type: ss, cipher: aes-256-gcm, password: W05U3QJLWPM8NDNH}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】14, server: 118.193.33.237, port: 40908, type: vmess, uuid: 43740b3d-16b7-4d31-cf20-f1eab5e35bc9, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】15, server: qh62onjn.slashdevslashnetslashtun.net, port: 16003, type: ss, cipher: aes-256-gcm, password: NKYSJ7T1AFPJLYVG}
-  - {name: 🇮🇷 伊朗【付费推荐：https://socks.news】16, server: 87.107.163.4, port: 37198, type: vmess, uuid: 6f338926-e323-43bd-8dc8-b41f29c49798, alterId: 0, cipher: auto, tls: false}
-  - {name: 未知【付费推荐：https://socks.news】17, server: naiu-other.05vr9nyqg5.download, port: 13035, type: trojan, password: e279c494-c426-443a-a034-a04516409242, sni: cloudflare.node-ssl.cdn-alibaba.com}
-  - {name: 🇭🇺 匈牙利【付费推荐：https://socks.news】18, server: 109.61.16.83, port: 443, type: trojan, password: !<str> 3763495982449565696, sni: sensible-crow.goat627.mom}
-  - {name: 🇮🇷 伊朗【付费推荐：https://socks.news】19, server: speed.erfanraki.shop, port: 37198, type: vmess, uuid: 6f338926-e323-43bd-8dc8-b41f29c49798, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】20, server: w72tapyb.slashdevslashnetslashtun.net, port: 15014, type: ss, cipher: aes-256-gcm, password: UEJBNJ5R5XAGT9YJ}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】21, server: 74.226.136.204, port: 443, type: trojan, password: 243eab52-9ac1-405c-887c-eb112c0985b8, sni: in01.trojanyyds.xyz}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】22, server: 45.250.184.183, port: 6181, type: ss, cipher: chacha20-ietf-poly1305, password: 11a805f2-41a7-4cd8-8406-0470c3cde0d3}
-  - {name: 🇮🇷 伊朗【付费推荐：https://socks.news】23, server: sgp.fastsoonlink.com, port: 40005, type: ss, cipher: chacha20-ietf-poly1305, password: 3FB23A19-9424-40C7-9139-3540228283FA}
-  - {name: 未知【付费推荐：https://socks.news】24, server: naiu-jp.05vr9nyqg5.download, port: 13012, type: trojan, password: e279c494-c426-443a-a034-a04516409242, sni: cloudflare.node-ssl.cdn-alibaba.com}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】25, server: tw01.trojanyyds.xyz, port: 443, type: trojan, password: 243eab52-9ac1-405c-887c-eb112c0985b8, sni: tw01.trojanyyds.xyz}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】26, server: 203.23.128.79, port: 51348, type: ss, cipher: chacha20-ietf-poly1305, password: dt31KYYCCAUBwu09QwG9flPBIuP9jA6VXnjN8StKTkgc45ny}
-  - {name: 🇷🇴 罗马尼亚【付费推荐：https://socks.news】27, server: 89.39.70.207, port: 443, type: trojan, password: !<str> 3763495894587285504, sni: pet-bulldog.goat627.mom}
-  - {name: 🇭🇺 匈牙利【付费推荐：https://socks.news】28, server: sensible-crow.goat627.mom, port: 443, type: trojan, password: !<str> 3763495982449565696, sni: sensible-crow.goat627.mom}
-  - {name: 🇿🇦 南非【付费推荐：https://socks.news】29, server: 129.232.134.112, port: 990, type: ss, cipher: chacha20-ietf-poly1305, password: f8f7aCzcPKbsF8p3}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】30, server: qh62onjn.slashdevslashnetslashtun.net, port: 18015, type: ss, cipher: aes-256-gcm, password: 3RU9RZ91MGOPITE7}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】31, server: sg02.trojanyyds.xyz, port: 443, type: trojan, password: 243eab52-9ac1-405c-887c-eb112c0985b8}
-  - {name: 🇸🇬 新加坡【付费推荐：https://socks.news】32, server: 165.22.49.134, port: 31209, type: ss, cipher: chacha20-ietf-poly1305, password: emxxIYJhAepa49HOSQ1yYN}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】33, server: 114.132.40.118, port: 30018, type: ss, cipher: aes-256-gcm, password: 81898fd1-12c9-4197-8017-26ec0b242647}
-  - {name: 🇸🇬 新加坡【付费推荐：https://socks.news】34, server: 128.199.230.77, port: 20215, type: ss, cipher: chacha20-ietf-poly1305, password: UfnvTYaFCfWGkiJ1nCTooc}
-  - {name: 🇸🇬 新加坡【付费推荐：https://socks.news】35, server: 68.183.190.16, port: 26925, type: ss, cipher: chacha20-ietf-poly1305, password: 1dqJx2RQfyTrvs4PVrGR7h}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】36, server: hk03.trojanyyds.xyz, port: 443, type: trojan, password: 243eab52-9ac1-405c-887c-eb112c0985b8, sni: hk03.trojanyyds.xyz}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】37, server: cm1.awslcn.info, port: 25230, type: vmess, uuid: 243eab52-9ac1-405c-887c-eb112c0985b8, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: cm1.awslcn.info}}}
-  - {name: 未知【付费推荐：https://socks.news】38, server: naiu-us.05vr9nyqg5.download, port: 13022, type: trojan, password: 2b39bbdd-a565-4f8e-b6b6-6b034b2076f4, sni: cloudflare.node-ssl.cdn-alibaba.com}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】39, server: ru01.trojanyyds.xyz, port: 443, type: trojan, password: 243eab52-9ac1-405c-887c-eb112c0985b8, sni: ru01.trojanyyds.xyz}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】40, server: my01.trojanyyds.xyz, port: 443, type: trojan, password: 243eab52-9ac1-405c-887c-eb112c0985b8}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】41, server: us02.trojanyyds.xyz, port: 443, type: trojan, password: 243eab52-9ac1-405c-887c-eb112c0985b8, sni: us02.trojanyyds.xyz}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】42, server: us01.trojanyyds.xyz, port: 443, type: trojan, password: 243eab52-9ac1-405c-887c-eb112c0985b8}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】43, server: tw02.trojanyyds.xyz, port: 443, type: trojan, password: 243eab52-9ac1-405c-887c-eb112c0985b8, sni: tw02.trojanyyds.xyz}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】44, server: ti3hyra4.slashdevslashnetslashtun.net, port: 17004, type: ss, cipher: aes-256-gcm, password: K0AA69ZLLFIBXP1Q}
-  - {name: 未知【付费推荐：https://socks.news】45, server: 46.229.253.79, port: 443, type: trojan, password: !<str> 3763495894587285504, sni: right-goldfish.goat627.mom}
-  - {name: 未知【付费推荐：https://socks.news】46, server: right-goldfish.goat627.mom, port: 443, type: trojan, password: !<str> 3763495894587285504, sni: right-goldfish.goat627.mom}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】47, server: 54.146.207.76, port: 443, type: trojan, password: !<str> 3723507166611775488, sni: busy-buffalo.treefrog761.one}
-  - {name: 🇷🇴 罗马尼亚【付费推荐：https://socks.news】48, server: pet-bulldog.goat627.mom, port: 443, type: trojan, password: !<str> 3763495894587285504, sni: pet-bulldog.goat627.mom}
+  - {name: 🇯🇵 节点日期：01-31, server: 46.17.42.248, port: 23456, type: ss, cipher: aes-256-gcm, password: dongtaiwang.com}
+  - {name: 🇩🇪 德国【付费推荐：https://socks.news】2, server: beesyar.org, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 4a2rfixophdjffa8KVA4Aa}
+  - {name: 🇩🇪 德国【付费推荐：https://socks.news】3, server: 45.87.175.157, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: QCXDxuDlTTMD7jtgHUjIoj}
+  - {name: 🇮🇷 伊朗【付费推荐：https://socks.news】4, server: sgp.fastsoonlink.com, port: 40005, type: ss, cipher: chacha20-ietf-poly1305, password: 3FB23A19-9424-40C7-9139-3540228283FA}
+  - {name: 🇨🇳 中国【付费推荐：https://socks.news】5, server: w72tapyb.slashdevslashnetslashtun.net, port: 15008, type: ss, cipher: aes-256-gcm, password: AAV5FFSS0OWDY2UA}
+  - {name: 🇷🇺 俄罗斯【付费推荐：https://socks.news】6, server: 89.221.224.166, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: MDZhNTAz}
+  - {name: 未知【付费推荐：https://socks.news】7, server: naiu-us.05vr9nyqg5.download, port: 13022, type: trojan, password: 2b39bbdd-a565-4f8e-b6b6-6b034b2076f4, sni: cloudflare.node-ssl.cdn-alibaba.com}
+  - {name: 🇨🇳 中国【付费推荐：https://socks.news】8, server: qh62onjn.slashdevslashnetslashtun.net, port: 16009, type: ss, cipher: aes-256-gcm, password: OYWWKWCLAJ8ZCO78}
+  - {name: 🇩🇪 德国【付费推荐：https://socks.news】9, server: 45.87.175.188, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 1RWwXhwfAB5gAEozU4G2Pg}
+  - {name: 🇮🇷 伊朗【付费推荐：https://socks.news】10, server: 87.107.163.4, port: 37198, type: vmess, uuid: 6f338926-e323-43bd-8dc8-b41f29c49798, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【付费推荐：https://socks.news】11, server: 183.232.239.172, port: 17005, type: ss, cipher: aes-256-gcm, password: B7LS4987BZH4EBPG}
+  - {name: 🇺🇸 美国【付费推荐：https://socks.news】12, server: visa.com, port: 443, type: vmess, uuid: 3655fcc0-759f-4567-8410-8912c1c4bd6b, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /, headers: {Host: hanguo.daluquan.top}}}
+  - {name: 🇳🇱 荷兰【付费推荐：https://socks.news】13, server: 45.150.32.195, port: 26580, type: ss, cipher: chacha20-ietf-poly1305, password: GH0a9ll02J21C9Tp1crgkR}
+  - {name: 🇬🇧 英国【付费推荐：https://socks.news】14, server: 185.121.134.12, port: 20301, type: vmess, uuid: 53acb2fc-aef9-48c6-8b1d-ff5efb67886a, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
+  - {name: 🇮🇷 伊朗【付费推荐：https://socks.news】15, server: speed.erfanraki.shop, port: 37198, type: vmess, uuid: 6f338926-e323-43bd-8dc8-b41f29c49798, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇮🇳 印度【付费推荐：https://socks.news】16, server: 103.104.247.47, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: oZIoA69Q8yhcQV8ka3Pa3A}
+  - {name: 🇨🇳 中国【付费推荐：https://socks.news】17, server: 45.250.184.183, port: 6181, type: ss, cipher: chacha20-ietf-poly1305, password: 11a805f2-41a7-4cd8-8406-0470c3cde0d3}
+  - {name: 🇨🇳 中国【付费推荐：https://socks.news】18, server: ti3hyra4.slashdevslashnetslashtun.net, port: 18012, type: ss, cipher: aes-256-gcm, password: 5QCGV4AXFQAJE5KA}
