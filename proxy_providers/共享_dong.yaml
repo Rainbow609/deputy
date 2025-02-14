@@ -1,30 +1,18 @@
 proxies:
-  - {name: 🇯🇵 节点日期：02-12, server: grateful-lark.shiner427.skin, port: 443, type: trojan, password: !<str> 65086441068973800}
-  - {name: 未知【付费推荐：https://socks.news】2, server: naiu-other.05vr9nyqg5.download, port: 13036, type: trojan, password: dc15d997-8b26-4294-870e-c90a5784dca4, sni: cloudflare.node-ssl.cdn-alibaba.com}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】3, server: 23.158.56.21, port: 48961, type: vmess, uuid: 6eef3448-bbc0-4933-894a-72b3e8786109, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】4, server: dave.ns.cloudflare.com, port: 443, type: vmess, uuid: f46bb68f-3069-494d-8650-f8e2a9294c92, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: "/serv00?ed=2048", headers: {Host: vmessde.trevely.us.kg}}}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】5, server: mature-flamingo.shiner427.skin, port: 443, type: trojan, password: !<str> 65086441068973800}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://socks.news】6, server: 185.22.153.73, port: 17479, type: vmess, uuid: af7f07dc-d726-4b1e-967d-dbb6c594999f, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: github.com/Alvin9999}}
-  - {name: 🇮🇪 爱尔兰【付费推荐：https://socks.news】7, server: tops-lobster.shiner427.skin, port: 443, type: trojan, password: !<str> 65086441068973800}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】8, server: live-serval.shiner427.skin, port: 443, type: trojan, password: !<str> 65086441068973800}
-  - {name: 未知【付费推荐：https://socks.news】9, server: naiu-us.05vr9nyqg5.download, port: 13019, type: trojan, password: dc15d997-8b26-4294-870e-c90a5784dca4, sni: cloudflare.node-ssl.cdn-alibaba.com}
-  - {name: 🇺🇦 乌克兰【付费推荐：https://socks.news】10, server: 188.191.147.127, port: 31348, type: ss, cipher: chacha20-ietf-poly1305, password: 6IVOuzMfH5ROpgwtRTcNJKYJvYe9FDVaU7wAYYh8PRLxxZs6}
-  - {name: 🇮🇷 伊朗【付费推荐：https://socks.news】11, server: 31.58.142.221, port: 8967, type: vmess, uuid: 7d29f1ca-647b-4b4e-b9c8-6beab7133535, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /BONRyKGhDE, headers: {Host: neo.nicme.me}}}
-  - {name: 🇵🇱 波兰【付费推荐：https://socks.news】12, server: pr.fastsoonlink.com, port: 40030, type: ss, cipher: chacha20-ietf-poly1305, password: 65abdb1c-1cdf-4630-a32b-8ae566b48c00}
-  - {name: 🇬🇧 英国【付费推荐：https://socks.news】13, server: 185.121.134.12, port: 20315, type: vmess, uuid: 0d76c471-e746-4731-919d-6664367aaa10, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
-  - {name: 🇮🇩 印度尼西亚【付费推荐：https://socks.news】14, server: idn.fastsoonlink.com, port: 40033, type: ss, cipher: chacha20-ietf-poly1305, password: 65abdb1c-1cdf-4630-a32b-8ae566b48c00}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://socks.news】15, server: 46.17.40.190, port: 12330, type: ss, cipher: aes-256-gcm, password: dongtaiwang.com}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】16, server: 151.101.2.165, port: 80, type: vmess, uuid: ca387597-d79e-48c2-89a7-e2dc66a88a70, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /racevpn, headers: {Host: telegram-isvvpn.ir}}}
-  - {name: 🇹🇷 土耳其【付费推荐：https://socks.news】17, server: tur.fastsoonlink.com, port: 40019, type: ss, cipher: chacha20-ietf-poly1305, password: 65abdb1c-1cdf-4630-a32b-8ae566b48c00}
-  - {name: 🇸🇬 新加坡【付费推荐：https://socks.news】18, server: summary-sawfish.shiner427.skin, port: 443, type: trojan, password: !<str> 65086441068973800}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】19, server: 193.42.25.242, port: 49691, type: vmess, uuid: c7e04382-01be-40ab-b174-4dbff44b5cf4, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇬🇧 英国【付费推荐：https://socks.news】20, server: hk.fastsoonlink.com, port: 40000, type: ss, cipher: chacha20-ietf-poly1305, password: 65abdb1c-1cdf-4630-a32b-8ae566b48c00}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】21, server: us.fastsoonlink.com, port: 40001, type: ss, cipher: chacha20-ietf-poly1305, password: 65abdb1c-1cdf-4630-a32b-8ae566b48c00}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】22, server: 45.250.184.183, port: 6181, type: ss, cipher: chacha20-ietf-poly1305, password: 11a805f2-41a7-4cd8-8406-0470c3cde0d3}
-  - {name: 🇮🇷 伊朗【付费推荐：https://socks.news】23, server: sgp.fastsoonlink.com, port: 40005, type: ss, cipher: chacha20-ietf-poly1305, password: 3FB23A19-9424-40C7-9139-3540228283FA}
-  - {name: 🇨🇳 中国【付费推荐：https://socks.news】24, server: 103.216.253.197, port: 40005, type: ss, cipher: chacha20-ietf-poly1305, password: 3FB23A19-9424-40C7-9139-3540228283FA}
-  - {name: 未知【付费推荐：https://socks.news】25, server: naiu-sg.05vr9nyqg5.download, port: 13028, type: trojan, password: dc15d997-8b26-4294-870e-c90a5784dca4, sni: cloudflare.node-ssl.cdn-alibaba.com}
-  - {name: 🇭🇺 匈牙利【付费推荐：https://socks.news】26, server: grown-mackerel.shiner427.skin, port: 443, type: trojan, password: !<str> 65086441068973800}
-  - {name: 🇬🇧 英国【付费推荐：https://socks.news】27, server: uk.fastsoonlink.com, port: 40007, type: trojan, password: 65abdb1c-1cdf-4630-a32b-8ae566b48c00, sni: uknode.soon.guru}
-  - {name: 🇷🇺 俄罗斯【付费推荐：https://socks.news】28, server: ru.fastsoonlink.com, port: 40031, type: ss, cipher: chacha20-ietf-poly1305, password: 65abdb1c-1cdf-4630-a32b-8ae566b48c00}
-  - {name: 🇺🇸 美国【付费推荐：https://socks.news】29, server: 155.138.208.122, port: 8881, type: vmess, uuid: db5afae4-ac23-41a6-8378-f307a9a47436, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇯🇵 节点日期：02-14, server: 192.71.249.146, port: 990, type: ss, cipher: chacha20-ietf-poly1305, password: f8f7aCzcPKbsF8p3}
+  - {name: 🇨🇳 中国【付费推荐：https://socks.news】2, server: AZHJ001.dmak.cyou, port: 20776, type: vmess, uuid: cd21873e-332d-3b13-98a7-f26996cfdfd9, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【付费推荐：https://socks.news】3, server: AZHJ.dmak.cyou, port: 20800, type: vmess, uuid: cd21873e-332d-3b13-98a7-f26996cfdfd9, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【付费推荐：https://socks.news】4, server: AZHJ001.dmak.cyou, port: 20965, type: vmess, uuid: cd21873e-332d-3b13-98a7-f26996cfdfd9, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇺🇸 美国【付费推荐：https://socks.news】5, server: 38.114.123.245, port: 8118, type: ss, cipher: aes-256-gcm, password: cdBIDV42DCwnfIN}
+  - {name: 🇨🇳 中国【付费推荐：https://socks.news】6, server: 45.250.184.183, port: 6181, type: ss, cipher: chacha20-ietf-poly1305, password: 11a805f2-41a7-4cd8-8406-0470c3cde0d3}
+  - {name: 🇵🇱 波兰【付费推荐：https://socks.news】7, server: 91.149.239.70, port: 443, type: trojan, password: Aimer, sni: agepq.ambercc.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: agepq.ambercc.filegear-sg.me}}}
+  - {name: 🇨🇦 加拿大【付费推荐：https://socks.news】8, server: 15.223.8.202, port: 22222, type: trojan, password: telegram-id-directvpn, sni: trojan.burgerip.co.uk}
+  - {name: 🇺🇦 乌克兰【付费推荐：https://socks.news】9, server: 85.90.194.160, port: 443, type: trojan, password: !<str> 3747000103274291200, sni: awaited-chicken.adder289.quest}
+  - {name: 🇨🇳 中国【付费推荐：https://socks.news】10, server: AZHJ.dmak.cyou, port: 20803, type: vmess, uuid: cd21873e-332d-3b13-98a7-f26996cfdfd9, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇺🇦 乌克兰【付费推荐：https://socks.news】11, server: 185.234.64.35, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: YTNjNDY5}
+  - {name: 🇧🇬 保加利亚【付费推荐：https://socks.news】12, server: 149.34.244.72, port: 443, type: ss, cipher: aes-128-gcm, password: shadowsocks}
+  - {name: 🇿🇦 南非【付费推荐：https://socks.news】13, server: 129.232.134.112, port: 990, type: ss, cipher: chacha20-ietf-poly1305, password: f8f7aCzcPKbsF8p3}
+  - {name: 🇺🇸 美国【付费推荐：https://socks.news】14, server: 154.26.177.9, port: 443, type: trojan, password: Aimer, sni: agepq.ambercc.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: agepq.ambercc.filegear-sg.me}}}
+  - {name: 🇦🇺 澳大利亚【付费推荐：https://socks.news】15, server: useful-jennet.shiner427.skin, port: 443, type: trojan, password: !<str> 65086441068973800}
+  - {name: 🇺🇸 美国【付费推荐：https://socks.news】16, server: www.visa.com.tw, port: 443, type: vmess, uuid: c6feb69b-a42e-4dc1-8d33-834a712b2505, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: "/vmess-argo?ed=2048", headers: {Host: sub-bike-pubs-industries.trycloudflare.com}}}
+  - {name: 🇺🇸 美国【付费推荐：https://socks.news】17, server: 154.26.176.94, port: 8443, type: trojan, password: Aimer, sni: agepq.ambercc.filegear-sg.me, network: ws, ws-opts: {path: /, headers: {Host: agepq.ambercc.filegear-sg.me}}}
