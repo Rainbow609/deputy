@@ -22,7 +22,6 @@ proxies:
   - {name: 🇫🇷 SS-法国-NF解锁法国自制剧-ChatGPT-TikTok-YouTube-62.210.88.22:443, server: 62.210.88.22, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: wcPj9Swi93cGqPacVNTMI4}
   - {name: 🇳🇱 SS-荷兰-NF解锁荷兰自制剧-ChatGPT-TikTok-YouTube-149.34.244.72:443, server: 149.34.244.72, port: 443, type: ss, cipher: aes-128-gcm, password: shadowsocks}
   - {name: 🇺🇸 VMESS-未知>美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-hkvm.gecs.top:443, server: hkvm.gecs.top, port: 443, type: vmess, uuid: 0a3cd062-241a-43fc-9c50-eccacbbd5aae, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-opts: {path: /vm, headers: {Host: hkvm.gecs.top}}}
-  - {name: 🇺🇸 SSR-美国-TikTok-YouTube-34.221.182.25:443, server: 34.221.182.25, port: 443, type: ssr, cipher: aes-256-cfb, password: amazonskr05, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
   - {name: 🇳🇱 SS-荷兰-NF解锁荷兰自制剧-ChatGPT-TikTok-YouTube-149.34.244.82:443, server: 149.34.244.82, port: 443, type: ss, cipher: aes-128-gcm, password: shadowsocks}
   - {name: 🇫🇷 SS-伊朗-NF解锁法国地区非自制剧-ChatGPT-YouTube-213.176.66.228:24495, server: 213.176.66.228, port: 24495, type: ss, cipher: chacha20-ietf-poly1305, password: LmQxtEywXKNue1IjNZWCua}
   - {name: 🇺🇸 SSR-美国-NF解锁自制剧-TikTok-YouTube-34.218.233.42:443, server: 34.218.233.42, port: 443, type: ssr, cipher: aes-256-cfb, password: amazonskr05, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
