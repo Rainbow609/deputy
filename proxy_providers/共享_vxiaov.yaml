@@ -39,5 +39,4 @@ proxies:
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.185.248.11:17001, server: 23.185.248.11, port: 17001, type: ss, cipher: aes-256-gcm, password: Z7ZSQR3OI9JVRA6N}
   - {name: 🇨🇦 SS-加拿大-NF解锁加拿大自制剧-ChatGPT-TikTok-YouTube-146.19.106.5:8388, server: 146.19.106.5, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: MzZjN}
   - {name: 🇺🇸 SSR-美国-TikTok-54.212.222.229:443, server: 54.212.222.229, port: 443, type: ssr, cipher: aes-256-cfb, password: amazonskr05, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
-  - {name: 🇺🇸 SSR-美国-YouTube-34.221.167.203:443, server: 34.221.167.203, port: 443, type: ssr, cipher: aes-256-cfb, password: amazonskr05, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
   - {name: 🇸🇬 VMESS-未知>新加坡-NF解锁新加坡自制剧-ChatGPT-TikTok-YouTube-104.16.155.10:80, server: 104.16.155.10, port: 80, type: vmess, uuid: e6543319-0574-42ac-b778-1c4325d626f5, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /, headers: {Host: chunchuan.kejixiaoqi666.store}}}
