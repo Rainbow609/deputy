@@ -31,4 +31,3 @@ proxies:
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-23.185.248.15:17005, server: 23.185.248.15, port: 17005, type: ss, cipher: aes-256-gcm, password: X1GBLWQ3U4ULO6XV}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.185.248.11:17001, server: 23.185.248.11, port: 17001, type: ss, cipher: aes-256-gcm, password: Z7ZSQR3OI9JVRA6N}
   - {name: 🇨🇦 SS-加拿大-NF解锁加拿大自制剧-ChatGPT-TikTok-YouTube-146.19.106.5:8388, server: 146.19.106.5, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: MzZjN}
-  - {name: 🇭🇰 SS-美国-NF解锁香港自制剧-ChatGPT-TikTok-YouTube-154.3.8.151:30067, server: 154.3.8.151, port: 30067, type: ss, cipher: aes-256-gcm, password: iUB0923RBA}
