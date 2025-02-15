@@ -20,6 +20,7 @@ proxies:
   - {name: 🇩🇪 SS-伊朗-NF解锁德国地区非自制剧-ChatGPT-TikTok-YouTube-62.60.217.17:64552, server: 62.60.217.17, port: 64552, type: ss, cipher: chacha20-ietf-poly1305, password: d3D4Q561Cq996yvjp9qHf4}
   - {name: 🇩🇪 SS-德国-NF解锁德国自制剧-ChatGPT-TikTok-YouTube-193.108.119.63:7002, server: 193.108.119.63, port: 7002, type: ss, cipher: aes-256-gcm, password: RexnBgU7EV5ADxG}
   - {name: 🇬🇧 SS-英国-NF解锁荷兰地区非自制剧-ChatGPT-TikTok-YouTube-77.239.100.183:65078, server: 77.239.100.183, port: 65078, type: ss, cipher: chacha20-ietf-poly1305, password: AQMByekkuegA3NbF9PnhTO}
+  - {name: 🇫🇷 VMESS-未知>法国-NF解锁法国自制剧-ChatGPT-TikTok-YouTube-172.66.46.216:2052, server: 172.66.46.216, port: 2052, type: vmess, uuid: fcc685c0-e718-11ef-b933-205c6d5f5d78, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, servername: eu-2.hihu.net, network: ws, ws-opts: {path: "/ek147r26/@AZARBAYJAB1@AZARBAYJAB1@AZARBAYJAB1?ed=2560"}}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-23.185.248.14:17004, server: 23.185.248.14, port: 17004, type: ss, cipher: aes-256-gcm, password: IC4APDY4ATHX890I}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-23.185.248.15:17005, server: 23.185.248.15, port: 17005, type: ss, cipher: aes-256-gcm, password: X1GBLWQ3U4ULO6XV}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-38.91.107.72:5500, server: 38.91.107.72, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
