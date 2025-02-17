@@ -1,5 +1,9 @@
+from typing import Dict, List, Optional, Set, Union
+import yaml
+import requests
+import chardet
+import os
 import logging
-from typing import List
 
 def process_providers(file_path: str, provider_type: str) -> None:
     """处理代理提供者文件"""
