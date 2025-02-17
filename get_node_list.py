@@ -5,6 +5,8 @@ import chardet
 import os
 import logging
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
 def process_providers(file_path: str, provider_type: str) -> None:
     """处理代理提供者文件"""
     # 假设这是处理逻辑
