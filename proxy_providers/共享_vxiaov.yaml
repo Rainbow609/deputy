@@ -49,3 +49,6 @@ proxies:
   - {name: 🇳🇱 SS-荷兰-NF解锁荷兰自制剧-ChatGPT-TikTok-213.109.147.242:62685, server: 213.109.147.242, port: 62685, type: ss, cipher: chacha20-ietf-poly1305, password: VpKABcOpNNA0l5G2AVOmw8}
   - {name: 🇺🇸 SS-美国-NF解锁加拿大自制剧-ChatGPT-TikTok-YouTube-23.154.136.106:5500, server: 23.154.136.106, port: 5500, type: ss, cipher: aes-256-gcm, password: KixLvKzwjekG00rm}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-69.50.95.203:5498, server: 69.50.95.203, port: 5498, type: ss, cipher: aes-256-gcm, password: lGqs95QkFHo2NV}
+  - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-69.50.95.203:5499, server: 69.50.95.203, port: 5499, type: ss, cipher: aes-256-gcm, password: lGqs95QkFHo2NV}
+  - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-69.50.95.203:5499 2, server: 69.50.95.203, port: 5499, type: ss, cipher: aes-256-gcm, password: lGqs95QkFHo2NV}
+  - {name: 🇳🇱 VMESS-未知>荷兰-NF解锁荷兰地区非自制剧-ChatGPT-TikTok-YouTube-esna.twn24.ir:443, server: esna.twn24.ir, port: 443, type: vmess, uuid: da45b52c-d643-4267-e5c4-12ad8a4c2cd3, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: esna.twn24.ir, network: ws, ws-opts: {path: /53019/mehdi, headers: {Host: esna.twn24.ir}}}
