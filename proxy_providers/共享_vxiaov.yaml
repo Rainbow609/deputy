@@ -67,3 +67,5 @@ proxies:
   - {name: 🇸🇬 SS-塞舌尔>新加坡-NF解锁新加坡自制剧-154.83.90.11:21115, server: 154.83.90.11, port: 21115, type: ss, cipher: aes-256-gcm, password: 9acfc574-acc3-4c2b-ab3b-491d43a6eb83}
   - {name: 🇸🇬 SS-塞舌尔>新加坡-YouTube-154.83.90.11:21114, server: 154.83.90.11, port: 21114, type: ss, cipher: aes-256-gcm, password: 9acfc574-acc3-4c2b-ab3b-491d43a6eb83}
   - {name: 🇩🇪 SS-德国-NF解锁德国地区非自制剧-ChatGPT-TikTok-YouTube-85.90.194.200:8080, server: 85.90.194.200, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: d0fa3a9b-2115-4cc0-a8f5-7f4f7caf6ec1}
+  - {name: 🇺🇸 VMESS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-glweidf.cfd:443, server: glweidf.cfd, port: 443, type: vmess, uuid: 1052f24e-7b09-45eb-b0c5-d858eb124192, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: glweidf.cfd, network: ws, ws-opts: {path: /linkws, headers: {Host: glweidf.cfd}}}
+  - {name: 🇭🇰 SS-美国-NF解锁香港自制剧-ChatGPT-TikTok-YouTube-154.3.8.151:30067, server: 154.3.8.151, port: 30067, type: ss, cipher: aes-256-gcm, password: iUB0923RBA}
