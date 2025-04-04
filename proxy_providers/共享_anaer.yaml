@@ -92,3 +92,6 @@ proxies:
   - {name: 🇺🇸 美国 345, server: 172.67.136.233, port: 443, type: vmess, uuid: 3f638f34-8dba-4186-bc43-2716a7ddd4be, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /link, headers: {Host: az05.beyondy.cfd}}}
   - {name: 🇺🇸 美国 346, server: 104.18.149.75, port: 443, type: vmess, uuid: de94cc0a-0592-4969-b1fc-97ea8f0ea0b3, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /aa, headers: {Host: us.insbot.filegear-sg.me}}}
   - {name: 🇮🇷 伊朗 010, server: fl.pr0xymare.com, port: 3378, type: vmess, uuid: b3a6435b-feae-41f4-a6b8-cf3c09e536e1, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true}
+  - {name: 🇺🇸 美国 347, server: us01.sh-cloudflare.sbs, port: 8443, type: vmess, uuid: 914584ee-3515-46ac-a09d-4677a2e9dc9a, alterId: 0, cipher: auto, tls: true, servername: us01.sh-cloudflare.sbs, network: ws, ws-opts: {path: /, headers: {Host: us01.sh-cloudflare.sbs}}, udp: true}
+  - {name: 🇺🇸 美国 348, server: 186.190.215.93, port: 22324, type: vmess, uuid: 04621bae-ab36-11ec-b909-0242ac120002, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇮🇷 伊朗 011, server: 37.27.182.109, port: 3378, type: vmess, uuid: b3a6435b-feae-41f4-a6b8-cf3c09e536e1, alterId: 0, cipher: auto, tls: false}
