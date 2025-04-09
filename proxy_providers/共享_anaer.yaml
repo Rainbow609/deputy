@@ -186,8 +186,11 @@ proxies:
   - {name: 🇺🇸 美国 438, server: 64.181.241.241, port: 8088, type: vmess, uuid: 6b414f6a-9cfd-46c3-bcc8-af2c3447871d, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: ora2.aihi.uk, network: ws, ws-opts: {path: /ray, headers: {Host: ora2.aihi.uk}}, udp: true}
   - {name: 🇭🇷 克罗地亚 001, server: 89.18.58.206, port: 180, type: vmess, uuid: d13fc2f5-3e05-4795-81eb-44143a09e552, alterId: 0, cipher: auto, tls: false}
   - {name: 🇬🇧 英国 013, server: 85.234.83.133, port: 443, type: trojan, password: !<str> 74260698218909400, sni: smooth-imp.shiner427.skin, skip-cert-verify: false}
-  - {name: 🇯🇴 约旦 001, server: 109.107.159.220, port: 443, type: trojan, password: !<str> 74260698218909400, sni: hopeful-halibut.shiner427.skin, skip-cert-verify: false}
-  - {name: 🇯🇴 约旦 002, server: hopeful-halibut.shiner427.skin, port: 443, type: trojan, password: !<str> 74260698218909400, sni: hopeful-halibut.shiner427.skin, skip-cert-verify: false}
   - {name: 🇯🇴 约旦 003, server: 109.107.159.122, port: 443, type: trojan, password: !<str> 74260698218909400, sni: electric-mallard.shiner427.skin, skip-cert-verify: false}
   - {name: 🇮🇳 印度 003, server: 202.78.163.140, port: 443, type: trojan, password: !<str> 74260698218909400, sni: supreme-penguin.shiner427.skin, skip-cert-verify: false}
   - {name: 🇭🇷 克罗地亚 002, server: 89.18.58.71, port: 180, type: vmess, uuid: d13fc2f5-3e05-4795-81eb-44143a09e552, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇬🇧 英国 014, server: happy-bluebird.shiner427.skin, port: 443, type: trojan, password: !<str> 74260698218909400, sni: happy-bluebird.shiner427.skin, skip-cert-verify: false}
+  - {name: 🇭🇷 克罗地亚 003, server: 89.18.58.63, port: 180, type: vmess, uuid: d13fc2f5-3e05-4795-81eb-44143a09e552, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇬🇧 英国 015, server: www.hk-jd.top, port: 10021, type: trojan, password: b19c4375-d847-4c40-9824-4767c88b5f38, sni: www.hk-jd.top, skip-cert-verify: true, udp: true}
+  - {name: 🇺🇸 美国 439, server: 172.67.189.27, port: 2096, type: vmess, uuid: f082eeca-e068-45f9-d1bf-46e9de9bdf57, alterId: 0, cipher: auto, tls: true, servername: ny2-dash.930.pp.ua, network: ws, ws-opts: {path: /ny2-sub.930.pp.ua, headers: {Host: ny2-sub.930.pp.ua}}}
+  - {name: 🇮🇳 英属印度洋领地 001, server: vc.fly.dev, port: 443, type: vmess, uuid: 35379219-6535-4f2e-a4fe-3e44f61e0eee, alterId: 32, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /vc, headers: {Host: vc.fly.dev}}}
