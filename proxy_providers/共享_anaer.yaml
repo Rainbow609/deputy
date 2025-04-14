@@ -301,3 +301,9 @@ proxies:
   - {name: 🇺🇸 美国 535, server: visa.cn, port: 443, type: trojan, password: bpb-trojan, sni: zamim340.ggff.net, skip-cert-verify: false, network: ws, ws-opts: {path: "/tr?ed=2560", headers: {Host: zamim340.ggff.net}}}
   - {name: 🇺🇸 美国 536, server: 162.159.153.2, port: 443, type: trojan, password: bpb-trojan, sni: zamim340.ggff.net, skip-cert-verify: true, network: ws, ws-opts: {path: "/tr?ed=2560", headers: {Host: zamim340.ggff.net}}, udp: true}
   - {name: 🇺🇸 美国 537, server: 104.26.5.60, port: 443, type: trojan, password: bpb-trojan, sni: zamim340.ggff.net, skip-cert-verify: false, network: ws, ws-opts: {path: "/tr?ed=2560", headers: {Host: zamim340.ggff.net}}}
+  - {name: 🇺🇸 美国 543, server: 129.151.163.120, port: 25131, type: trojan, password: 4467ae8518abf1ef321618c0bfb5549ccc, sni: www.cloudflare.com, skip-cert-verify: true}
+  - {name: 🇬🇧 英国 019, server: 158.180.228.226, port: 443, type: vmess, uuid: 9b456c2a-f2c1-45e1-87a9-b7628b04bb24, alterId: 0, cipher: auto, tls: true, servername: beyonddsz.cfd, network: ws, ws-opts: {path: /linkws, headers: {Host: beyonddsz.cfd}}}
+  - {name: 🇩🇪 德国 027, server: 130.61.173.105, port: 60800, type: trojan, password: 4467ae8518abf1ef321618c0bfb5549ccc, sni: www.cloudflare.com, skip-cert-verify: true}
+  - {name: 🇺🇸 美国 544, server: sydney-mini-ddns.faforex.eu.org, port: 25131, type: trojan, password: 4467ae8518abf1ef321618c0bfb5549ccc, sni: www.cloudflare.com, skip-cert-verify: true}
+  - {name: 🇺🇸 美国 545, server: jhb-01.oci.ee, port: 25131, type: trojan, password: 4467ae8518abf1ef321618c0bfb5549ccc, sni: www.cloudflare.com, skip-cert-verify: true}
+  - {name: 🇩🇪 德国 028, server: 84.235.237.61, port: 42600, type: trojan, password: 4467ae8518abf1ef321618c0bfb5549ccc, sni: www.cloudflare.com, skip-cert-verify: true}
