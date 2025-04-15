@@ -307,3 +307,5 @@ proxies:
   - {name: 🇺🇸 美国 544, server: sydney-mini-ddns.faforex.eu.org, port: 25131, type: trojan, password: 4467ae8518abf1ef321618c0bfb5549ccc, sni: www.cloudflare.com, skip-cert-verify: true}
   - {name: 🇺🇸 美国 545, server: jhb-01.oci.ee, port: 25131, type: trojan, password: 4467ae8518abf1ef321618c0bfb5549ccc, sni: www.cloudflare.com, skip-cert-verify: true}
   - {name: 🇩🇪 德国 028, server: 84.235.237.61, port: 42600, type: trojan, password: 4467ae8518abf1ef321618c0bfb5549ccc, sni: www.cloudflare.com, skip-cert-verify: true}
+  - {name: 🇷🇺 俄罗斯 009, server: fa.fxlcn.com, port: 45215, type: vmess, uuid: 469e0b31-30c3-4dab-800d-711232634ce1, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇺🇸 美国 546, server: m8d.457.pp.ua, port: 2053, type: vmess, uuid: 850ccc2e-382f-4875-ffe6-5cafdf888e54, alterId: 0, cipher: auto, tls: true, servername: m8s.457.pp.ua, network: ws, ws-opts: {path: /m8s.457.pp.ua, headers: {Host: m8s.457.pp.ua}}}
