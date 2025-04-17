@@ -333,3 +333,4 @@ proxies:
   - {name: 🇺🇸 美国 563, server: sanjose01.890614.filegear-sg.me, port: 443, type: vmess, uuid: 89c1aea7-4d0d-4013-b663-0f94a3e6bdbd, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, servername: sanjose01.890614.filegear-sg.me, network: ws, ws-opts: {path: /YfB29GXf4cThJQeJb, headers: {Host: sanjose01.890614.filegear-sg.me}}}
   - {name: 🇺🇸 美国 568, server: 18.171.119.248, port: 22222, type: trojan, password: telegram-id-directvpn, sni: trojan.burgerip.co.uk, skip-cert-verify: false}
   - {name: 🇭🇷 克罗地亚 003, server: 89.18.58.104, port: 180, type: vmess, uuid: d13fc2f5-3e05-4795-81eb-44143a09e552, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true}
+  - {name: 🇺🇸 美国 570, server: d3fgkhtpi57foq.cloudfront.net, port: 443, type: vmess, uuid: 2d6a51f1-6c41-4443-87fc-a2d32130942b, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /c02, headers: {Host: d3fgkhtpi57foq.cloudfront.net}}}
