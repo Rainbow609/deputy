@@ -26,3 +26,4 @@ proxies:
   - {name: 🇭🇰 SS-美国-NF解锁香港地区非自制剧-ChatGPT-TikTok-YouTube-154.3.8.151:30067, server: 154.3.8.151, port: 30067, type: ss, cipher: aes-256-gcm, password: iUB0923RBA}
   - {name: 🇺🇸 VMESS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-158.101.14.192:23451, server: 158.101.14.192, port: 23451, type: vmess, uuid: 60db6ccb-d3a9-4971-9e6a-02517f18ead3, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, servername: phx-plus-1ddns.faforex.eu.org, network: ws, ws-opts: {path: /}}
   - {name: 🇩🇪 SS-德国-NF解锁德国地区非自制剧-ChatGPT-TikTok-YouTube-95.164.16.152:12240, server: 95.164.16.152, port: 12240, type: ss, cipher: chacha20-ietf-poly1305, password: zqNBkZNoXgqtiD0wo49QdY}
+  - {name: 🇸🇬 SS-塞舌尔>新加坡-NF解锁新加坡地区非自制剧-ChatGPT-TikTok-okanc.node-is.green:21115, server: okanc.node-is.green, port: 21115, type: ss, cipher: aes-256-gcm, password: 9acfc574-acc3-4c2b-ab3b-491d43a6eb83}
