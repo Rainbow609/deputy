@@ -25,3 +25,4 @@ proxies:
   - {name: 🇸🇬 SS-塞舌尔>新加坡-NF解锁新加坡地区非自制剧-ChatGPT-TikTok-YouTube-154.83.90.11:21115, server: 154.83.90.11, port: 21115, type: ss, cipher: aes-256-gcm, password: 9acfc574-acc3-4c2b-ab3b-491d43a6eb83}
   - {name: 🇸🇬 SS-塞舌尔>新加坡-NF解锁新加坡地区非自制剧-ChatGPT-TikTok-YouTube-154.83.90.11:21114, server: 154.83.90.11, port: 21114, type: ss, cipher: aes-256-gcm, password: 9acfc574-acc3-4c2b-ab3b-491d43a6eb83}
   - {name: 🇨🇦 SS-加拿大-79.127.233.170:990, server: 79.127.233.170, port: 990, type: ss, cipher: chacha20-ietf-poly1305, password: f8f7aCzcPKbsF8p3}
+  - {name: 🇺🇸 SS-美国-NF解锁自制剧-TikTok-107.175.96.74:16899, server: 107.175.96.74, port: 16899, type: ss, cipher: aes-128-gcm, password: Yc2CtrIz8L}
