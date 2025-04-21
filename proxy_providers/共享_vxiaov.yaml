@@ -27,3 +27,6 @@ proxies:
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-97.107.140.236:1234, server: 97.107.140.236, port: 1234, type: ss, cipher: chacha20-ietf-poly1305, password: !<str> 1234}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-97.107.140.236:1234 2, server: 97.107.140.236, port: 1234, type: ss, cipher: chacha20-ietf-poly1305, password: !<str> 1234}
   - {name: 🇺🇸 SSR-美国-NF解锁自制剧-TikTok-YouTube-34.222.45.211:443, server: 34.222.45.211, port: 443, type: ssr, cipher: aes-256-cfb, password: amazonskr05, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
+  - {name: 🇸🇬 SS-塞舌尔>新加坡-NF解锁新加坡自制剧-ChatGPT-TikTok-YouTube-okanc.node-is.green:21114, server: okanc.node-is.green, port: 21114, type: ss, cipher: aes-256-gcm, password: 9acfc574-acc3-4c2b-ab3b-491d43a6eb83}
+  - {name: 🇸🇬 SS-塞舌尔>新加坡-NF解锁新加坡地区非自制剧-ChatGPT-TikTok-YouTube-154.83.90.11:21115, server: 154.83.90.11, port: 21115, type: ss, cipher: aes-256-gcm, password: 9acfc574-acc3-4c2b-ab3b-491d43a6eb83}
+  - {name: 🇸🇬 SS-塞舌尔>新加坡-NF解锁新加坡地区非自制剧-ChatGPT-TikTok-YouTube-154.83.90.11:21114, server: 154.83.90.11, port: 21114, type: ss, cipher: aes-256-gcm, password: 9acfc574-acc3-4c2b-ab3b-491d43a6eb83}
