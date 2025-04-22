@@ -21,4 +21,3 @@ proxies:
   - {name: 🇭🇰 SS-荷兰-NF解锁香港地区非自制剧-ChatGPT-TikTok-YouTube-85.209.158.11:8388, server: 85.209.158.11, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: MWYyN}
   - {name: 🇦🇷 SS-荷兰-NF解锁阿根廷地区非自制剧-ChatGPT-TikTok-YouTube-45.86.66.16:8388, server: 45.86.66.16, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: NGJiN}
   - {name: 🇦🇹 SS-荷兰-NF解锁奥地利地区非自制剧-ChatGPT-TikTok-YouTube-194.124.250.4:8388, server: 194.124.250.4, port: 8388, type: ss, cipher: chacha20-ietf-poly1305, password: NGQ1Y}
-  - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.175.96.74:16899, server: 107.175.96.74, port: 16899, type: ss, cipher: aes-128-gcm, password: Yc2CtrIz8L}
