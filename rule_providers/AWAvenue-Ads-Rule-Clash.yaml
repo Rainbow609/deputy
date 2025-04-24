@@ -1,9 +1,9 @@
 #Title: AWAvenue Ads Rule
 #--------------------------------------
-#Total lines: 759
+#Total lines: 776
 #Version: 1.6.0-release
-#Update time: 2025-04-25 01:32:05 UTC+8
-#Update content: block unity、adsmoloco、inmobi、applovin ads.
+#Update time: 2025-04-25 02:04:04 UTC+8
+#Update content: GO HELL applvn ads... this is the third addition !!!
 
 #Homepage: https://github.com/TG-Twilight/AWAvenue-Ads-Rule
 #License: https://github.com/TG-Twilight/AWAvenue-Ads-Rule/blob/main/LICENSE
@@ -200,6 +200,7 @@ payload:
   - 'applog.lc.quark.cn'
   - 'applog.uc.cn'
   - 'applog.zijieapi.com'
+  - 'applovin.com'
   - 'aspect-upush.umeng.com'
   - 'auction.unityads.unity3d.com'
   - 'audid-api.taobao.com'
@@ -246,6 +247,7 @@ payload:
   - 'cdn.aiclk.com'
   - 'cdn.chinaliftoff-creatives.io'
   - 'cdn.hpplay.com.cn'
+  - 'cdn.iads.unitychina.cn'
   - 'cdn.liftoff-creatives.io'
   - 'cdn.ynuf.aliapp.org'
   - 'cfg.imtt.qq.com'
@@ -267,12 +269,15 @@ payload:
   - 'commdata.v.qq.com'
   - 'conf.hpplay.cn'
   - 'config.chsmarttv.com'
+  - 'config.inmobi.com'
   - 'config.unityads.unity3d.com'
   - 'cpc-service-square.aiclk.com'
   - 'cpro.baidustatic.com'
   - 'crashlyticsreports-pa.googleapis.com'
   - 'csjplatform.com'
   - 'cws-cctv.conviva.com'
+  - 'd.applovin.com'
+  - 'd.applvn.com'
   - 'data.ads.oppomobile.com'
   - 'data.chsmarttv.com'
   - 'data.mistat.india.xiaomi.com'
@@ -304,6 +309,7 @@ payload:
   - 'entry.baidu.com'
   - 'errlog.umeng.com'
   - 'errnewlog.umeng.com'
+  - 'et-eus.w.inmobi.com'
   - 'event.tradplusad.com'
   - 'events-drcn.op.dbankcloud.cn'
   - 'events.reddit.com'
@@ -334,6 +340,7 @@ payload:
   - 'googleadservices.com'
   - 'googletagservices-cn.com'
   - 'gorgon.youdao.com'
+  - 'graph.facebook.com'
   - 'gromore.pangolin-sdk-toutiao.com'
   - 'grs.dbankcloud.com'
   - 'grs.hicloud.com'
@@ -362,6 +369,8 @@ payload:
   - 'hybrid.miniapp.taobao.com'
   - 'hye.comp.360os.com'
   - 'hyt.comp.360os.com'
+  - 'i.l-new.inmobicdn.net'
+  - 'i.l.inmobicdn.net'
   - 'iad.apple.com'
   - 'iadctest.qwapi.com'
   - 'iadsdk.apple.com'
@@ -487,6 +496,8 @@ payload:
   - 'monitor.uu.qq.com'
   - 'monsetting.toutiao.com'
   - 'ms.applovin.com'
+  - 'ms.applvn.com'
+  - 'ms4.applovin.com'
   - 'ms4.applvn.com'
   - 'mssdk.volces.com'
   - 'mssdk.zijieapi.com'
@@ -549,6 +560,7 @@ payload:
   - 'qzs.gdtimg.com'
   - 'recommend-drcn.hms.dbankcloud.cn'
   - 'report.tv.kohesport.qq.com'
+  - 'res1.applovin.com'
   - 'res1.hubcloud.com.cn'
   - 'resolve.umeng.com'
   - 'review.gdtimg.com'
@@ -558,6 +570,8 @@ payload:
   - 'rp.hpplay.cn'
   - 'rps.hpplay.cn'
   - 'rpt.gdt.qq.com'
+  - 'rt.applovin.com'
+  - 'rt.applvn.com'
   - 'rtb.voiceads.cn'
   - 's.amazon-adsystem.com'
   - 's8t.teads.tv'
@@ -572,6 +586,7 @@ payload:
   - 'sdk-ab-config.qquanquan.com'
   - 'sdk-cache.video.ptqy.gitv.tv'
   - 'sdk.1rtb.net'
+  - 'sdk.ad.smaato.net'
   - 'sdk.beizi.biz'
   - 'sdk.e.qq.com'
   - 'sdk.hzsanjiaomao.com'
@@ -616,10 +631,12 @@ payload:
   - 'stg-data.ads.heytapmobi.com'
   - 'stun.hitv.com'
   - 'success.ctobsnssdk.com'
+  - 'supply.inmobicdn.net'
   - 'sv-video.play.aiseet.atianqi.com'
   - 'syh-imp.cdnjtzy.com'
   - 'szbdyd.com'
   - 't-dsp.pinduoduo.com'
+  - 't.applovin.com'
   - 't.teads.tv'
   - 't.track.ad.xiaomi.com'
   - 't1.a.market.xiaomi.com'
