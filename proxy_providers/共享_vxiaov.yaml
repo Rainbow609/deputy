@@ -13,8 +13,6 @@ proxies:
   - {name: 🇬🇧 SSR-英国-NF解锁英国地区非自制剧-ChatGPT-YouTube-62.100.205.48:989, server: 62.100.205.48, port: 989, type: ssr, cipher: aes-256-cfb, password: f8f7aCzcPKbsF8p3, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
   - {name: 🇬🇧 SS-英国-NF解锁荷兰地区非自制剧-ChatGPT-TikTok-YouTube-85.234.65.100:11359, server: 85.234.65.100, port: 11359, type: ss, cipher: aes-256-gcm, password: XaAIkJjp}
   - {name: 🇬🇧 SS-英国-NF解锁荷兰地区非自制剧-ChatGPT-TikTok-YouTube-85.234.65.227:26993, server: 85.234.65.227, port: 26993, type: ss, cipher: aes-256-gcm, password: emNIUBjL}
-  - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-5.34.178.225:19360, server: 5.34.178.225, port: 19360, type: ss, cipher: aes-256-gcm, password: QiuC2UiY}
-  - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-195.123.240.26:29591, server: 195.123.240.26, port: 29591, type: ss, cipher: aes-256-gcm, password: Frqd8v92}
   - {name: 🇳🇱 SS-荷兰-NF解锁荷兰地区非自制剧-ChatGPT-TikTok-YouTube-212.34.150.176:4199, server: 212.34.150.176, port: 4199, type: ss, cipher: chacha20-ietf-poly1305, password: gpW0ffUApVv0u5q1NwGHAX}
   - {name: 🇺🇸 SS-美国-NF解锁法国地区非自制剧-ChatGPT-TikTok-YouTube-150.241.91.184:8724, server: 150.241.91.184, port: 8724, type: ss, cipher: chacha20-ietf-poly1305, password: hY4vxI8XY3YJghRe4Gp2g2}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-204.136.10.115:1866, server: 204.136.10.115, port: 1866, type: ss, cipher: chacha20-ietf-poly1305, password: oXGp1+ihlfKg826H}
@@ -39,8 +37,6 @@ proxies:
   - {name: 🇬🇧 SS-英国-NF解锁英国地区非自制剧-ChatGPT-TikTok-YouTube-51.24.5.76:6110, server: 51.24.5.76, port: 6110, type: ss, cipher: aes-256-gcm, password: Y09Etfs6}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-135.148.11.54:1080, server: 135.148.11.54, port: 1080, type: ss, cipher: chacha20-ietf-poly1305, password: fk_91bifUJx9dQcp2FSgvg}
   - {name: 🇭🇰 SS-美国-NF解锁香港地区非自制剧-ChatGPT-TikTok-YouTube-154.3.8.151:30067, server: 154.3.8.151, port: 30067, type: ss, cipher: aes-256-gcm, password: iUB0923RBA}
-  - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-34.215.118.253:27826, server: 34.215.118.253, port: 27826, type: ss, cipher: aes-256-gcm, password: FnUBfINL}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-18.190.62.192:14743, server: 18.190.62.192, port: 14743, type: ss, cipher: aes-256-gcm, password: JLMk9bhp}
-  - {name: 🇮🇪 SS-爱尔兰-NF解锁爱尔兰地区非自制剧-ChatGPT-TikTok-YouTube-193.57.138.81:27082, server: 193.57.138.81, port: 27082, type: ss, cipher: aes-128-gcm, password: YHRRtsm3X+x2mgl76yY9uidsOwnEe30/tyblQU/hGtU=}
   - {name: 🇩🇪 VMESS-未知>塞舌尔-NF解锁德国地区非自制剧-ChatGPT-TikTok-YouTube-v33.emoyes.top:443, server: v33.emoyes.top, port: 443, type: vmess, uuid: 08b24d8d-10ab-4c5a-990e-4e0e194870af, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: v33.emoyes.top, network: ws, ws-opts: {path: /, headers: {Host: v33.emoyes.top}}}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-3.218.100.218:15802, server: 3.218.100.218, port: 15802, type: ss, cipher: aes-256-gcm, password: omoa8ufq}
