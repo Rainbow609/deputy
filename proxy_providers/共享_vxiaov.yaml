@@ -26,7 +26,6 @@ proxies:
   - {name: 🇬🇧 SS-英国-NF解锁英国地区非自制剧-ChatGPT-TikTok-YouTube-57.128.190.110:11703, server: 57.128.190.110, port: 11703, type: ss, cipher: chacha20-ietf-poly1305, password: d275849ebcfcec7e}
   - {name: 🇬🇧 SS-英国-NF解锁英国地区非自制剧-ChatGPT-TikTok-YouTube-57.128.190.238:18992, server: 57.128.190.238, port: 18992, type: ss, cipher: chacha20-ietf-poly1305, password: b20ae8db3d278526}
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-5.34.178.225:19360, server: 5.34.178.225, port: 19360, type: ss, cipher: aes-256-gcm, password: QiuC2UiY}
-  - {name: 🇭🇰 SS-美国-NF解锁香港地区非自制剧-ChatGPT-TikTok-YouTube-154.3.8.151:30067, server: 154.3.8.151, port: 30067, type: ss, cipher: aes-256-gcm, password: iUB0923RBA}
   - {name: 🇨🇦 SS-加拿大-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-147.45.177.65:443, server: 147.45.177.65, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: VekzIVJwbk1f}
   - {name: 🇬🇧 SS-英国-NF解锁英国地区非自制剧-ChatGPT-TikTok-YouTube-57.128.190.212:46264, server: 57.128.190.212, port: 46264, type: ss, cipher: chacha20-ietf-poly1305, password: 0c4f81a78eb123dd}
   - {name: 🇭🇰 VMESS-未知>塞舌尔-NF解锁香港地区非自制剧-ChatGPT-hk2.lrzdx.uk:443, server: hk2.lrzdx.uk, port: 443, type: vmess, uuid: db69d5bc-d36c-4903-f471-74b98c5cefe5, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: hk2.lrzdx.uk, network: ws, ws-opts: {path: /register, headers: {Host: hk2.lrzdx.uk}}}
