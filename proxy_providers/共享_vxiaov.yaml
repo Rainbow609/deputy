@@ -26,4 +26,3 @@ proxies:
   - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-38.110.1.146:8091, server: 38.110.1.146, port: 8091, type: ss, cipher: aes-256-gcm, password: PCnnH6SQSnfoS27}
   - {name: 🇺🇸 VMESS-未知>美国-NF解锁自制剧-ChatGPT-YouTube-time.is:80, server: time.is, port: 80, type: vmess, uuid: 7bded3af-da8e-4cf5-858f-8ea67a94ef93, alterId: 0, cipher: auto, tls: false, skip-cert-verify: true, servername: mgus2.zhousi.link, network: ws, ws-opts: {path: /xiaoqi, headers: {Host: time.is}}}
   - {name: 🇳🇱 SS-荷兰-NF解锁荷兰地区非自制剧-ChatGPT-TikTok-89.110.70.175:1080, server: 89.110.70.175, port: 1080, type: ss, cipher: chacha20-ietf-poly1305, password: y-1ADjy85ZjwTP2RF5vfOQ}
-  - {name: 🇭🇰 SS-美国-NF解锁香港地区非自制剧-ChatGPT-TikTok-YouTube-154.3.8.151:30067, server: 154.3.8.151, port: 30067, type: ss, cipher: aes-256-gcm, password: iUB0923RBA}
