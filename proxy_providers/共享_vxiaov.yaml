@@ -28,4 +28,3 @@ proxies:
   - {name: 🇩🇪 SS-英国-NF解锁德国自制剧-ChatGPT-TikTok-YouTube-45.150.32.13:38707, server: 45.150.32.13, port: 38707, type: ss, cipher: chacha20-ietf-poly1305, password: NMiJKeh4yMumfyYVvjq0LR}
   - {name: 🇺🇸 VMESS-未知>美国-ChatGPT-v37.emoyes.top:8443, server: v37.emoyes.top, port: 8443, type: vmess, uuid: a78fc14e-4e8b-4fc0-8cab-86fd81c583ca, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, network: ws, ws-opts: {path: /, headers: {Host: v37.emoyes.top}}}
   - {name: 🇬🇧 SS-英国-92.119.199.33:443, server: 92.119.199.33, port: 443, type: ss, cipher: aes-256-gcm, password: I1hTma0BoL}
-  - {name: 🇦🇹 SS-奥地利-NF解锁奥地利自制剧-ChatGPT-TikTok-YouTube-5.181.21.194:18660, server: 5.181.21.194, port: 18660, type: ss, cipher: chacha20-ietf-poly1305, password: pV5BAzqLZosOfuIrkyoadT}
