@@ -1,38 +1,27 @@
 proxies:
-  - {name: 🇯🇵 节点日期：05-27, server: 120.234.102.229, port: 42174, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】17, server: ti3hyra4.slashdevslashnetslashtun.net, port: 16015, type: ss, cipher: aes-256-gcm, password: 3IJTYIFVEXKSJ92G}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】19, server: 120.232.153.63, port: 37805, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】12, server: 183.238.90.8, port: 41766, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】23, server: 120.198.71.214, port: 42375, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇯🇵 日本【机场推荐：https://socks.news】20, server: arxfw2b78fi2q9hzylhn.freesocks.work, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: Nk9asglDzHzjktVzTkvhaA}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】18, server: 183.238.90.8, port: 46920, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
-  - {name: 🇺🇸 美国【机场推荐：https://socks.news】5, server: www.hdmoli.com, port: 80, type: vmess, uuid: 2f38f848-a899-4c87-9807-207a41615e3c, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: "/rongseven?ed=2048", headers: {Host: fr.freeyyds.dpdns.org}}}
+  - {name: 🇯🇵 节点日期：05-28, server: dozo01.flztjc.top, port: 8313, type: trojan, password: 2c605663-b89a-5734-a9d6-97d4743d72cf, sni: hk-13-568.flztjc.net}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】9, server: 183.236.51.38, port: 39919, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
   - {name: 🇨🇳 中国【机场推荐：https://socks.news】21, server: 120.198.71.219, port: 49355, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇺🇸 美国【机场推荐：https://socks.news】7, server: cdvbghy7.999182.xyz, port: 80, type: vmess, uuid: 90f357dd-79ac-47c6-b0b8-958e2d19de07, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /10W6SJaK0F0oVXeNU6S2RVRP, headers: {Host: cdvbghy7.999182.xyz}}}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】38, server: 183.236.51.38, port: 30052, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】40, server: vt-bana2-cn-11.ghpgwqswodgzv.com, port: 40021, type: trojan, password: a38c9e28-9960-4e31-9f18-ed2495a756aa, sni: vt-bana2-cn-11.ghpgwqswodgzv.com, network: ws, ws-opts: {path: /dl_media, headers: {Host: vt-bana2-cn-11.ghpgwqswodgzv.com}}}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】24, server: 183.238.90.8, port: 39076, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】36, server: 183.237.84.53, port: 55002, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】28, server: 183.236.51.38, port: 41024, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】37, server: 8tv68qhq.slashdevslashnetslashtun.net, port: 15010, type: ss, cipher: aes-256-gcm, password: ENYGONDU94UW1G6X}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】23, server: 120.198.71.214, port: 42375, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
   - {name: 🇨🇳 中国【机场推荐：https://socks.news】25, server: eac1462b-swxgg0-sxkd63-17z95.cu.plebai.net, port: 15229, type: trojan, password: 0a335fd6-be0b-11ec-8dfa-f23c91cfbbc9, sni: eac1462b-swxgg0-sxkd63-17z95.cu.plebai.net}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】29, server: 120.233.147.197, port: 23335, type: ss, cipher: chacha20-ietf-poly1305, password: 0fbed6c9-0fb4-4ec3-8582-f569f8d773d5}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】26, server: 120.198.71.219, port: 51095, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】41, server: 120.198.71.219, port: 44915, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】22, server: 120.198.71.216, port: 35921, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】2, server: 120.232.153.41, port: 41597, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】19, server: 120.232.153.63, port: 37805, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
   - {name: 🇨🇳 中国【机场推荐：https://socks.news】4, server: ti3hyra4.slashdevslashnetslashtun.net, port: 18010, type: ss, cipher: aes-256-gcm, password: HO86LQ8KH31JNMBQ}
   - {name: 🇨🇳 中国【机场推荐：https://socks.news】16, server: 183.232.235.2, port: 8313, type: trojan, password: 2c605663-b89a-5734-a9d6-97d4743d72cf, sni: hk-13-568.flztjc.net}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】9, server: 183.236.51.38, port: 39919, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
   - {name: 🇺🇸 美国【机场推荐：https://socks.news】39, server: auth0.openai.com, port: 443, type: vmess, uuid: e537f2f5-2a0c-4f59-92c9-832ca6433bf3, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /irvideo.cfd/linkws, headers: {Host: admin.kasrax.ir}}}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】37, server: 8tv68qhq.slashdevslashnetslashtun.net, port: 15010, type: ss, cipher: aes-256-gcm, password: ENYGONDU94UW1G6X}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】1, server: dozo01.flztjc.top, port: 8313, type: trojan, password: 2c605663-b89a-5734-a9d6-97d4743d72cf, sni: hk-13-568.flztjc.net}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】8, server: 120.198.44.126, port: 47883, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】33, server: 120.233.147.197, port: 23340, type: ss, cipher: chacha20-ietf-poly1305, password: 0fbed6c9-0fb4-4ec3-8582-f569f8d773d5}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】31, server: 120.232.153.40, port: 52182, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】3, server: 120.198.71.214, port: 32980, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】32, server: uk001.dogsvip.site, port: 23001, type: ss, cipher: aes-256-gcm, password: 323537df-dbdf-4f7e-a4c7-6c290d8e53ff}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】17, server: ti3hyra4.slashdevslashnetslashtun.net, port: 16015, type: ss, cipher: aes-256-gcm, password: 3IJTYIFVEXKSJ92G}
+  - {name: 🇯🇵 日本【机场推荐：https://socks.news】20, server: arxfw2b78fi2q9hzylhn.freesocks.work, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: Nk9asglDzHzjktVzTkvhaA}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】22, server: 120.198.71.216, port: 35921, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
   - {name: 🇨🇳 中国【机场推荐：https://socks.news】6, server: 183.236.51.38, port: 49291, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
-  - {name: 🇫🇷 法国【机场推荐：https://socks.news】35, server: 195.154.54.171, port: 13355, type: ss, cipher: aes-256-gcm, password: dongtaiwang.com}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】27, server: kr001.dogsvip.site, port: 21001, type: ss, cipher: aes-256-gcm, password: 323537df-dbdf-4f7e-a4c7-6c290d8e53ff}
-  - {name: 🇬🇧 英国【机场推荐：https://socks.news】34, server: 158.180.228.226, port: 443, type: vmess, uuid: 9b456c2a-f2c1-45e1-87a9-b7628b04bb24, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /linkws, headers: {Host: beyonddsz.cfd}}}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】2, server: 120.232.153.41, port: 41597, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】26, server: 120.198.71.219, port: 51095, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】40, server: vt-bana2-cn-11.ghpgwqswodgzv.com, port: 40021, type: trojan, password: a38c9e28-9960-4e31-9f18-ed2495a756aa, sni: vt-bana2-cn-11.ghpgwqswodgzv.com, network: ws, ws-opts: {path: /dl_media, headers: {Host: vt-bana2-cn-11.ghpgwqswodgzv.com}}}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】31, server: 120.232.153.40, port: 52182, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】41, server: 120.198.71.219, port: 44915, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】36, server: 183.237.84.53, port: 55002, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】3, server: 120.198.71.214, port: 32980, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
   - {name: 🇨🇳 中国【机场推荐：https://socks.news】10, server: 183.236.51.38, port: 49121, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 64, cipher: auto, tls: false}
-  - {name: 🇨🇳 中国【机场推荐：https://socks.news】28, server: 183.236.51.38, port: 41024, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇨🇳 中国【机场推荐：https://socks.news】38, server: 183.236.51.38, port: 30052, type: vmess, uuid: 418048af-a293-4b99-9b0c-98ca3580dd24, alterId: 0, cipher: auto, tls: false}
+  - {name: 🇺🇸 美国【机场推荐：https://socks.news】5, server: www.hdmoli.com, port: 80, type: vmess, uuid: 2f38f848-a899-4c87-9807-207a41615e3c, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: "/rongseven?ed=2048", headers: {Host: fr.freeyyds.dpdns.org}}}
+  - {name: 🇫🇷 法国【机场推荐：https://socks.news】35, server: 195.154.54.171, port: 13355, type: ss, cipher: aes-256-gcm, password: dongtaiwang.com}
