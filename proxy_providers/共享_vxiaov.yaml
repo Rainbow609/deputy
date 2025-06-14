@@ -10,6 +10,5 @@ proxies:
   - {name: 🇫🇷 SS-英国-NF解锁法国地区非自制剧-ChatGPT-TikTok-YouTube-77.239.116.76:8315, server: 77.239.116.76, port: 8315, type: ss, cipher: chacha20-ietf-poly1305, password: oHOP1bWFMkQVx3PdbhRlOk}
   - {name: 🇩🇪 SS-英国-NF解锁德国地区非自制剧-ChatGPT-TikTok-YouTube-45.150.32.13:14628, server: 45.150.32.13, port: 14628, type: ss, cipher: chacha20-ietf-poly1305, password: DKyRdoqQIebdKZVYs5GzW8}
   - {name: 🇩🇪 SS-斯洛文尼亚-NF解锁德国地区非自制剧-ChatGPT-TikTok-YouTube-45.144.54.33:34803, server: 45.144.54.33, port: 34803, type: ss, cipher: chacha20-ietf-poly1305, password: LiHQX9cDbdooBHlIg0eiqQ}
-  - {name: 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.151.182.253:8080, server: 107.151.182.253, port: 8080, type: ssr, cipher: rc4-md5, password: 14fFPrbezE3HDZzsMOr6, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
   - {name: 🇫🇷 SS-法国-NF解锁法国地区非自制剧-ChatGPT-TikTok-YouTube-62.210.88.22:443, server: 62.210.88.22, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: fYKOUGVv1Oau4C33x4fsTr}
   - {name: 🇺🇸 SS-美国-NF解锁英国地区非自制剧-ChatGPT-TikTok-YouTube-150.241.69.126:3452, server: 150.241.69.126, port: 3452, type: ss, cipher: chacha20-ietf-poly1305, password: OX76ndgTcyESeUnZe0r5dO}
