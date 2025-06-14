@@ -13,3 +13,4 @@ proxies:
   - {name: 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-107.151.182.253:8080, server: 107.151.182.253, port: 8080, type: ssr, cipher: rc4-md5, password: 14fFPrbezE3HDZzsMOr6, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
   - {name: 🇫🇷 SS-法国-NF解锁法国地区非自制剧-ChatGPT-TikTok-YouTube-62.210.88.22:443, server: 62.210.88.22, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: fYKOUGVv1Oau4C33x4fsTr}
   - {name: 🇺🇸 SS-美国-NF解锁英国地区非自制剧-ChatGPT-TikTok-YouTube-150.241.69.126:3452, server: 150.241.69.126, port: 3452, type: ss, cipher: chacha20-ietf-poly1305, password: OX76ndgTcyESeUnZe0r5dO}
+  - {name: 🇮🇪 SS-爱尔兰-NF解锁爱尔兰地区非自制剧-TikTok-3.255.250.127:23456, server: 3.255.250.127, port: 23456, type: ss, cipher: chacha20-ietf-poly1305, password: LXnnefYwEZM78mPUvl9wfz}
