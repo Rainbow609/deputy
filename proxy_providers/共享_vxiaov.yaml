@@ -15,4 +15,3 @@ proxies:
   - {name: 🇫🇷 SS-法国-NF解锁法国地区非自制剧-ChatGPT-TikTok-YouTube-62.210.88.22:443, server: 62.210.88.22, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: fYKOUGVv1Oau4C33x4fsTr}
   - {name: 🇨🇦 SS-加拿大-NF解锁加拿大地区非自制剧-ChatGPT-TikTok-YouTube-79.127.233.170:990, server: 79.127.233.170, port: 990, type: ss, cipher: chacha20-ietf-poly1305, password: f8f7aCzcPKbsF8p3}
   - {name: 🇺🇸 SS-美国-NF解锁英国地区非自制剧-ChatGPT-TikTok-YouTube-150.241.69.126:3452, server: 150.241.69.126, port: 3452, type: ss, cipher: chacha20-ietf-poly1305, password: OX76ndgTcyESeUnZe0r5dO}
-  - {name: 🇳🇱 SS-荷兰-NF解锁荷兰地区非自制剧-ChatGPT-TikTok-YouTube-77.246.98.67:4343, server: 77.246.98.67, port: 4343, type: ss, cipher: chacha20-ietf-poly1305, password: vnME7ufWGReQ4utmWBbLm6}
