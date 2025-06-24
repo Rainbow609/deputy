@@ -39,3 +39,6 @@ proxies:
   - {name: 🇺🇸 SSR-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-104.192.226.106:989, server: 104.192.226.106, port: 989, type: ssr, cipher: aes-256-cfb, password: f8f7aCzcPKbsF8p3, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
   - {name: 🇫🇷 SS-法国-NF解锁法国地区非自制剧-ChatGPT-TikTok-YouTube-62.210.88.22:443, server: 62.210.88.22, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: PtLH7Hul5zHhGqoDzsrrri}
   - {name: 🇫🇷 SS-法国-NF解锁法国地区非自制剧-ChatGPT-TikTok-YouTube-107.191.63.241:30665, server: 107.191.63.241, port: 30665, type: ss, cipher: chacha20-ietf-poly1305, password: 44fe4b7d-cd48-45fc-a036-60ea40e4a96c}
+  - {name: 🇺🇸 SS-美国-NF解锁自制剧-ChatGPT-TikTok-YouTube-87.251.79.34:20684, server: 87.251.79.34, port: 20684, type: ss, cipher: chacha20-ietf-poly1305, password: 6pmgeUx8lJnzxXcYxxU6Z6}
+  - {name: 🇦🇹 SSR-法国>瑞典-NF解锁奥地利地区非自制剧-TikTok-YouTube-51.15.23.63:989, server: 51.15.23.63, port: 989, type: ssr, cipher: aes-256-cfb, password: f8f7aCzcPKbsF8p3, protocol: origin, obfs: plain, protocol-param: "", obfs-param: ""}
+  - {name: SS-黎巴嫩-NF解锁自制剧-ChatGPT-TikTok-YouTube-77.110.109.86:4443, server: 77.110.109.86, port: 4443, type: ss, cipher: chacha20-ietf-poly1305, password: XfMw0nyPsfjlo9AfbFTlTP}
