@@ -1,26 +1,10 @@
 proxies:
-  - {name: 🇯🇵 节点日期：10-11, server: 160.16.196.59, port: 1572, type: trojan, password: 253bc477d4e43c209f2d427272968280, sni: www.nintendogames.net}
-  - {name: 🇪🇸 西班牙【机场推荐：https://a0a.xyz/】2, server: 212.192.15.176, port: 23185, type: vmess, uuid: fc00469f-a4d4-4901-8611-1457badc86c3, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
-  - {name: 🇨🇳 中国【机场推荐：https://a0a.xyz/】3, server: 47.243.245.143, port: 11455, type: vmess, uuid: 06e10e0b-57ae-48db-a37a-f2fd207e3b11, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇺🇦 乌克兰【机场推荐：https://a0a.xyz/】4, server: switcher-nick-croquet.freesocks.work, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: 9tqhMdIrTkgQ46PvhyAtMH}
-  - {name: 🇯🇵 日本【机场推荐：https://a0a.xyz/】5, server: 160.16.68.250, port: 2381, type: trojan, password: 253bc477d4e43c209f2d427272968280, sni: www.nintendogames.net}
-  - {name: 🇨🇳 中国【机场推荐：https://a0a.xyz/】6, server: 203.198.123.190, port: 443, type: trojan, password: 253bc477d4e43c209f2d427272968280, sni: www.nintendogames.net}
-  - {name: 🇮🇷 伊朗【机场推荐：https://a0a.xyz/】7, server: 151.242.251.144, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 4a2rfixophdjffa8KVA4Aa}
-  - {name: 🇫🇷 法国【机场推荐：https://a0a.xyz/】8, server: 2001:bc8:32d7:302::10, port: 44579, type: vmess, uuid: 8e34e170-13ae-4892-9d20-05962acc9f84, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
-  - {name: 🇨🇳 中国【机场推荐：https://a0a.xyz/】9, server: 221.128.195.220, port: 4400, type: trojan, password: 253bc477d4e43c209f2d427272968280, sni: www.nintendogames.net}
-  - {name: 🇯🇵 日本【机场推荐：https://a0a.xyz/】10, server: 160.16.116.227, port: 2283, type: trojan, password: 253bc477d4e43c209f2d427272968280, sni: www.nintendogames.net}
-  - {name: 🇵🇦 巴拿马【机场推荐：https://a0a.xyz/】11, server: 138.186.142.80, port: 990, type: ss, cipher: chacha20-ietf-poly1305, password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=}
+  - {name: 🇯🇵 节点日期：10-12, server: 2001:bc8:32d7:302::10, port: 44579, type: vmess, uuid: 8e34e170-13ae-4892-9d20-05962acc9f84, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
   - {name: 🇮🇹 意大利【机场推荐：https://a0a.xyz/】12, server: 37.143.130.203, port: 990, type: ss, cipher: chacha20-ietf-poly1305, password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=}
-  - {name: 🇯🇵 日本【机场推荐：https://a0a.xyz/】13, server: 160.16.68.250, port: 4451, type: trojan, password: 253bc477d4e43c209f2d427272968280, sni: www.nintendogames.net}
-  - {name: 🇩🇪 德国【机场推荐：https://a0a.xyz/】14, server: beesyar.org, port: 8080, type: ss, cipher: chacha20-ietf-poly1305, password: 1RWwXhwfAB5gAEozU4G2Pg}
-  - {name: 🇨🇳 中国【机场推荐：https://a0a.xyz/】15, server: 36.156.102.84, port: 6752, type: trojan, password: 253bc477d4e43c209f2d427272968280, sni: www.nintendogames.net}
-  - {name: 🇨🇳 中国【机场推荐：https://a0a.xyz/】16, server: kf5uhgscrdl73kmihv8c.appsworld.shop, port: 21791, type: vmess, uuid: 3b14ba6e-786f-3b86-8bce-2803ea19b8cc, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /cbf7f6acabd0dde4bef067580c126fed77a00de7, headers: {Host: www.baidu.com}}}
+  - {name: 🇪🇸 西班牙【机场推荐：https://a0a.xyz/】2, server: 212.192.15.176, port: 23185, type: vmess, uuid: fc00469f-a4d4-4901-8611-1457badc86c3, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
   - {name: 🇺🇸 美国【机场推荐：https://a0a.xyz/】17, server: ebc.zoom.us, port: 8443, type: vmess, uuid: 44e57485-eccc-46ef-808f-cd17ac810018, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /@Malinda6104, headers: {Host: node4.rtxconfigz.com}}}
-  - {name: 🇯🇵 日本【机场推荐：https://a0a.xyz/】18, server: 160.16.116.227, port: 1331, type: trojan, password: 253bc477d4e43c209f2d427272968280, sni: www.nintendogames.net}
-  - {name: 🇺🇸 美国【机场推荐：https://a0a.xyz/】19, server: support.zoom.us, port: 8080, type: vmess, uuid: 44e57485-eccc-46ef-808f-cd17ac810018, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /@Malinda6104, headers: {Host: node4.rtxconfigz.com}}}
   - {name: 🇪🇸 西班牙【机场推荐：https://a0a.xyz/】20, server: 212.192.15.176, port: 25168, type: vmess, uuid: 0b4d2a2c-7ac1-4cf5-bac8-c6b8fa9afd77, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /}}
-  - {name: 🇸🇬 新加坡【机场推荐：https://a0a.xyz/】21, server: node4.rtxconfigz.com, port: 443, type: vmess, uuid: 44e57485-eccc-46ef-808f-cd17ac810018, alterId: 0, cipher: auto, tls: true, network: ws, ws-opts: {path: /@Malinda6104, headers: {Host: node4.rtxconfigz.com}}}
   - {name: 🇺🇸 美国【机场推荐：https://a0a.xyz/】22, server: pupas-shirting-unsung.freesocks.work, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: p78naCf2EfOlRSLTX0wFVx}
+  - {name: 🇺🇦 乌克兰【机场推荐：https://a0a.xyz/】4, server: switcher-nick-croquet.freesocks.work, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: 9tqhMdIrTkgQ46PvhyAtMH}
+  - {name: 🇺🇸 美国【机场推荐：https://a0a.xyz/】19, server: support.zoom.us, port: 8080, type: vmess, uuid: 44e57485-eccc-46ef-808f-cd17ac810018, alterId: 0, cipher: auto, tls: false, network: ws, ws-opts: {path: /@Malinda6104, headers: {Host: node4.rtxconfigz.com}}}
   - {name: 未知【机场推荐：https://a0a.xyz/】23, server: liubu9.singdns.com, port: 17459, type: ss, cipher: aes-128-gcm, password: 57bc0c04-8184-48f5-906b-897d095ed445}
-  - {name: 🇳🇱 荷兰【机场推荐：https://a0a.xyz/】24, server: 155.254.35.214, port: 51409, type: vmess, uuid: d2b794b2-3bdc-49e2-827a-1bf9fcba4b1c, alterId: 0, cipher: auto, tls: false}
-  - {name: 🇯🇵 日本【机场推荐：https://a0a.xyz/】25, server: 160.16.116.227, port: 5041, type: trojan, password: 253bc477d4e43c209f2d427272968280, sni: www.nintendogames.net}
