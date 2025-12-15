@@ -1,9 +1,9 @@
 #Title: AWAvenue Ads Rule
 #--------------------------------------
-#Total lines: 897
+#Total lines: 894
 #Version: 1.6.9-release
-#Update time: 2025-12-11 21:51:15 UTC+8
-#Update content: fix uBlockOrigin/uAssets/issues/31096 close
+#Update time: 2025-12-15 14:46:15 UTC+8
+#Update content: fix umeng error #185 close
 
 #Homepage: https://github.com/TG-Twilight/AWAvenue-Ads-Rule
 #License: https://github.com/TG-Twilight/AWAvenue-Ads-Rule/blob/main/LICENSE
@@ -332,7 +332,6 @@ payload:
   - 'de.tynt.com'
   - 'diagnosis.ad.xiaomi.com'
   - 'dig.bdurl.net'
-  - 'dl.zuimeitianqi.com'
   - 'dlogs.bwton.com'
   - 'dm.toutiao.com'
   - 'domain.aishengji.com'
@@ -352,8 +351,6 @@ payload:
   - 'ef-dongfeng.tanx.com'
   - 'engine.dcad01.com'
   - 'entry.baidu.com'
-  - 'errlog.umeng.com'
-  - 'errnewlog.umeng.com'
   - 'et-eus.w.inmobi.com'
   - 'event.tradplusad.com'
   - 'events-drcn.op.dbankcloud.cn'
@@ -663,7 +660,6 @@ payload:
   - 's8t.teads.tv'
   - 'saad.ms.zhangyue.net'
   - 'saas.hpplay.cn'
-  - 'safebrowsing.googleapis.com'
   - 'safebrowsing.urlsec.gg.com'
   - 'samsung-com.112.2o7.net'
   - 'samsungads.com'
@@ -731,6 +727,7 @@ payload:
   - 'supply.inmobicdn.net'
   - 'sv-video.play.aiseet.atianqi.com'
   - 'syh-imp.cdnjtzy.com'
+  - 'syh.zybang.com'
   - 'szbdyd.com'
   - 't-dsp.pinduoduo.com'
   - 't.applovin.com'
