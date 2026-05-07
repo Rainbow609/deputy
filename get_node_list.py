@@ -6,12 +6,14 @@
 3. 自動創建所需目錄結構
 """
 
-from typing import Dict, List, Optional, Set, Union
+from typing import Dict, List, Optional, Set
 import yaml
 import requests
-import chardet
 import os
 import logging
+import tempfile
+import shutil
+from urllib.parse import urlparse
 
 
 # 配置日誌
@@ -21,37 +23,22 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 def create_parent_directory(file_path: str) -> None:
     """
         創建文件的父目錄
-    
+
     Args:
         file_path (str): 文件路徑
     """
     parent_dir = os.path.dirname(file_path)
     if not os.path.exists(parent_dir):
-        os.makedirs(parent_dir)
-
-
-def detect_encoding(file: str) -> str:
-    """
-        檢測文件的編碼
-    
-    Args:
-        file (str): 文件路徑
-        
-    Returns:
-        str: 檢測到的文件編碼
-    """
-    with open(file, 'rb') as f:
-        result = chardet.detect(f.read())
-    return result['encoding']
+        os.makedirs(parent_dir, mode=0o755)
 
 
 def parse_yaml(file_path: str) -> Optional[Dict]:
     """
         解析 YAML 文件
-    
+
     Args:
         file_path (str): YAML 文件路徑
-        
+
     Returns:
         Optional[Dict]: 解析後的字典數據，如果解析失敗則返回 None
     """
@@ -59,7 +46,7 @@ def parse_yaml(file_path: str) -> Optional[Dict]:
         with open(file_path, 'r', encoding='utf-8') as file:
             data = yaml.safe_load(file)
         return data
-    except Exception as e:
+    except (yaml.YAMLError, IOError, OSError) as e:
         logging.error(f"Error parsing YAML file {file_path}: {e}")
         return None
 
@@ -86,17 +73,20 @@ def merge_yamls(files: List[str], output_file: str) -> None:
 def download_file(url: str, path: str) -> None:
     """
         下載文件
-    
+
     Args:
         url (str): 文件下載 URL
         path (str): 本地保存路徑
     """
     try:
-        response = requests.get(url)
+        response = requests.get(url, timeout=30)
         response.raise_for_status()
         create_parent_directory(path)
-        with open(path, 'wb') as f:
-            f.write(response.content)
+        dir_path = os.path.dirname(path)
+        with tempfile.NamedTemporaryFile(mode='wb', dir=dir_path, delete=False) as tmp:
+            tmp.write(response.content)
+            tmp_path = tmp.name
+        shutil.move(tmp_path, path)
         logging.info(f"Successfully downloaded file from {url} to {path}")
     except Exception as e:
         logging.error(f"Error downloading file from {url}: {e}")
@@ -105,7 +95,7 @@ def download_file(url: str, path: str) -> None:
 def process_providers(file_path: str, provider_type: str) -> None:
     """
         處理 proxy 或 rule providers
-    
+
     Args:
         file_path (str): 配置文件路徑
         provider_type (str): provider 類型 ('proxy' 或 'rule')
@@ -123,9 +113,11 @@ def process_providers(file_path: str, provider_type: str) -> None:
         logging.info(f"URL: {url}")
         logging.info(f"Path: {path}")
 
-        if url not in downloaded_files:
+        # Normalize URL for deduplication: strip query params (e.g., cache busters)
+        normalized_url = urlparse(url)._replace(query='').geturl()
+        if normalized_url not in downloaded_files:
             download_file(url, path)
-            downloaded_files.add(url)
+            downloaded_files.add(normalized_url)
         logging.info("")
 
 
