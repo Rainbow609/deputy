@@ -1,0 +1,1 @@
+build_command: uv run pytest tests/
