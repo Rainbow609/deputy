@@ -1377,7 +1377,7 @@ git commit -m "feat: add quality metrics and release notes formatting"
 - Create: `scripts/release_publisher.py`
 - Create: `tests/test_release_publisher.py`
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 In `tests/test_release_publisher.py`:
 
@@ -1393,10 +1393,10 @@ def test_make_version_tag_uses_utc_timestamp():
 
 def test_make_version_tag_default_is_now():
     tag = make_version_tag()
-    assert tag.startswith("v") and len(tag) == 19  # vYYYY-MM-DD-HHMMSS
+    assert tag.startswith("v") and len(tag) == 18  # vYYYY-MM-DD-HHMMSS (v + 17 chars)
 
 
-def test_release_publisher_skips_when_unchanged(monkeypatch, tmp_path):
+def test_release_publisher_skips_when_unchanged(tmp_path):
     """If config.yaml hasn't changed, publisher should report no-op without calling the API."""
     cfg = tmp_path / "config.yaml"
     cfg.write_text("a: 1\n", encoding="utf-8")
@@ -1416,7 +1416,7 @@ def test_release_publisher_skips_when_unchanged(monkeypatch, tmp_path):
     assert calls == []  # no API call made
 
 
-def test_release_publisher_creates_release_when_changed(monkeypatch, tmp_path):
+def test_release_publisher_creates_release_when_changed(tmp_path):
     cfg = tmp_path / "config.yaml"
     cfg.write_text("a: 2\n", encoding="utf-8")
     calls: list = []
@@ -1436,12 +1436,12 @@ def test_release_publisher_creates_release_when_changed(monkeypatch, tmp_path):
     assert calls[0]["tag"] == "v2024-06-18-120000"
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `uv run pytest tests/test_release_publisher.py -v`
 Expected: FAIL with `ModuleNotFoundError`
 
-- [ ] **Step 3: Implement release_publisher.py**
+- [x] **Step 3: Implement release_publisher.py**
 
 In `scripts/release_publisher.py`:
 
@@ -1514,12 +1514,12 @@ class ReleasePublisher:
         return result
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `uv run pytest tests/test_release_publisher.py -v`
 Expected: 4 tests PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/release_publisher.py tests/test_release_publisher.py

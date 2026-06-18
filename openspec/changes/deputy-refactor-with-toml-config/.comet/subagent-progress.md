@@ -16,17 +16,19 @@
 | 5 — Concrete Transport Implementations | 2fb8acfe | ✅ done |
 | 6 — Template Renderer | 14d5bb9c | ✅ done |
 | 7 — Node Verifier | cf224cee | ✅ done |
-| 8 — Quality Metrics | 071436120 + ee41f7567 (fix) | ✅ done |
+| 8 — Quality Metrics | 071436120 + ee41f7567 | ✅ done |
+| 9 — Release Publisher | cc938cb7 | ✅ done |
 
-## Active Checkpoint — Task 9: Release Publisher (GitHub Releases)
+## Active Checkpoint — Task 10: Main Sync Script
 
-- **Plan text (unique)**: `## Task 9: Release Publisher (GitHub Releases)` (line 1374)
-- **Step 1 text (unique)**: `- [ ] **Step 1: Write the failing test**` (line 1380)
+- **Plan text (unique)**: `## Task 10: Main Sync Script (sync_nodes.py)` (line 1531)
+- **Step 1 text (unique)**: `- [ ] **Step 1: Write the failing test for the orchestration entry point**` (line 1537)
 - **Stage**: implementing (about to dispatch)
 - **Round**: 1
-- **Files**: `scripts/release_publisher.py` (new), `tests/test_release_publisher.py` (new)
-- **Dependencies**: None (uses Protocol-based ReleaseAPI for testability)
+- **Files**: `scripts/sync_nodes.py` (new, ~240 lines), `tests/test_sync_nodes.py` (new, 5 tests)
+- **Dependencies**: All previous tasks (integrates TransportChain, NodeVerifier, QualityMetrics, ReleasePublisher, TemplateRenderer, TomlConfig, Logger)
+- **Size**: Largest task in the plan — orchestration integrates all upstream modules
 
 ## Next Dispatch
 
-Implementer will implement Task 9: 4 tests covering version_tag generation (UTC timestamp + default now), conditional publish (skip on unchanged, create on changed).
+Implementer will implement Task 10: 5 tests covering parse_clash_yaml, filter_proxies, deduplicate_proxies, load_previous_config (×2). Implementation is ~240 lines integrating all upstream modules.
