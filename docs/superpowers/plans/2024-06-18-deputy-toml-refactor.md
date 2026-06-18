@@ -450,7 +450,7 @@ git commit -m "feat: add GitHub Actions-aware structured logger"
 - Create: `scripts/fetch_transport.py`
 - Create: `tests/test_fetch_transport.py`
 
-- [ ] **Step 1: Write the failing test for TransportChain**
+- [x] **Step 1: Write the failing test for TransportChain**
 
 In `tests/test_fetch_transport.py`:
 
@@ -537,12 +537,12 @@ def test_chain_retries_on_403():
     assert result.body == "ok-b"
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `uv run pytest tests/test_fetch_transport.py -v`
 Expected: FAIL with `ModuleNotFoundError`
 
-- [ ] **Step 3: Implement fetch_transport.py — base classes**
+- [x] **Step 3: Implement fetch_transport.py — base classes**
 
 In `scripts/fetch_transport.py`:
 
@@ -636,6 +636,10 @@ class TransportChain:
                         f"status {result.status}", retryable=True, status_code=result.status
                     )
                     continue
+                if result.status != 200:
+                    raise TransportError(
+                        f"status {result.status}", retryable=False, status_code=result.status
+                    )
                 return result
             except TransportError as e:
                 last_error = e
@@ -644,9 +648,17 @@ class TransportChain:
                 self._logger.debug("transport %s failed: %s", transport.name, e)
                 continue
         if last_error:
-            raise last_error
+            raise TransportError(
+                f"all transports failed: {last_error}", retryable=False
+            ) from last_error
         raise TransportError("all transports failed without a captured error", retryable=False)
 ```
+
+Note: The reference code above had two bugs that the tests caught during Task 4 implementation (commit `3d073bf32`):
+1. **404/4xx non-retryable handling**: The original `return result` after the retryable check returned a 404 result without raising. Tests required `TransportError` with "404" message — added explicit `if result.status != 200: raise TransportError(...)` check.
+2. **All-failed message**: The original `raise last_error` propagated the inner error's message (e.g. `"fail"`), but tests required `"all transports failed"` — wrapped in a new `TransportError("all transports failed: ...", retryable=False) from last_error`.
+
+Tests are authoritative; reference code now matches the actual implementation.
 
 - [ ] **Step 4: Run test to verify it passes**
 
