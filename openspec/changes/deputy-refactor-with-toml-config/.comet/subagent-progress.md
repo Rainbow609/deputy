@@ -3,19 +3,24 @@
 - Generated: 2026-06-18
 - Mode: subagent-driven-development
 - Plan: docs/superpowers/plans/2024-06-18-deputy-toml-refactor.md
-- Phase: recovery + retrospective review
+- Branch: feature/20240618/deputy-refactor-with-toml-config
 
-## Recovery Notes
+## Completed Tasks
 
-工作树已有 4 个 commit，但未走标准 subagent 派发流程：
-- `45be01405` feat: add pyproject.toml with uv-managed dependencies (Task 1)
-- `f5f1d602d` feat: add TOML config parser with validation (Task 2)
-- `13a202a8f` feat: add GitHub Actions-aware structured logger (Task 3)
-- `cefee8d0b` fix(logger): flush stdout after writing ::error:: annotation (Task 3 fix)
+| Task | Commit | Status | Notes |
+|------|--------|--------|-------|
+| 1 — Project Foundation | 45be01405 | ✅ done | retrospective |
+| 2 — TOML Config Parser | f5f1d602d | ✅ done | retrospective |
+| 3 — GitHub Actions Logger | 13a202a8f + cefee8d0b | ✅ done | retrospective |
+| 4 — Transport Chain Foundation | 3d073bf32 | ✅ done | spec+code quality ✅ |
+| 5 — Concrete Transport Implementations | 2fb8acfe | ✅ done | spec+code quality ✅ |
 
-`plan` 文档无 step 勾选，`openspec/tasks.md` 同样全空。用户确认走 retrospective review：
-派发 spec compliance + code quality 双审查 agent 对 Task 1-3 现有 commit 验收，通过后勾选，再派发 Task 4 implementer。
+## Active Checkpoint — Task 6: Template Renderer
 
-## Active Checkpoint
-
-(尚无活跃 checkpoint — 即将派发 Task 1-3 的 retrospective review)
+- **Plan text (unique)**: `## Task 6: Template Renderer (port of mihomo-config's _safe_format_map)` (line 811)
+- **Step 1 text (unique)**: `- [ ] **Step 1: Copy config.template.yaml from mihomo-config**` (line 818)
+- **Stage**: implementing (about to dispatch)
+- **Round**: 1
+- **Files**: `scripts/template_renderer.py` (create), `tests/test_template_renderer.py` (create), `config.template.yaml` (copy from mihomo-config)
+- **Dependencies**: None
+- **External**: depends on `/Users/liangzongyou/git/mihomo-config/config.template.yaml` existing

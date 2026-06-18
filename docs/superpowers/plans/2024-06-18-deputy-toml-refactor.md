@@ -680,7 +680,7 @@ git commit -m "feat: add TransportChain with round-robin fallback"
 - Modify: `scripts/fetch_transport.py` (append three transport classes)
 - Modify: `tests/test_fetch_transport.py` (add a smoke test for each transport)
 
-- [ ] **Step 1: Write the failing test for concrete transports**
+- [x] **Step 1: Write the failing test for concrete transports**
 
 Append to `tests/test_fetch_transport.py`:
 
@@ -719,12 +719,12 @@ def test_requests_transport_calls_get(monkeypatch):
     assert result.transport_name == "requests"
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `uv run pytest tests/test_fetch_transport.py::test_cloudscraper_transport_calls_session -v`
 Expected: FAIL with `ImportError: cannot import name 'CloudscraperTransport'`
 
-- [ ] **Step 3: Implement the three transport classes**
+- [x] **Step 3: Implement the three transport classes**
 
 Append to `scripts/fetch_transport.py`:
 
@@ -794,12 +794,12 @@ class CurlCffiTransport(_RequestsLikeTransport):
         return self._requests.get(url, impersonate="chrome", timeout=timeout)
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `uv run pytest tests/test_fetch_transport.py -v`
 Expected: 8 tests PASS (6 existing + 2 new)
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/fetch_transport.py tests/test_fetch_transport.py
