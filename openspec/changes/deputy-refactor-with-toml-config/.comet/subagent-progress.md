@@ -20,13 +20,15 @@
 | 9 — Release Publisher | cc938cb7 | ✅ done |
 | 10 — Main Sync Script | d6c27beeb + 30ee1bf70 | ✅ done |
 | 11 — nodes.toml Example | a0205ee7 | ✅ done |
-| 12 — GitHub Actions Workflow | 0efb538f | ✅ done (manual commit, auto mode blocked subagent commit) |
+| 12 — GitHub Actions Workflow | 0efb538f | ✅ done |
+| 13 — Documentation | 715e2b8f | ✅ done (3 plan bugs fixed: TOML bare-key, markdown fence) |
 
-## Active Checkpoint — Task 13: Documentation
+## Active Checkpoint — Task 14: E2E Smoke Test
 
-- **Plan text (unique)**: `## Task 13: Documentation (README + nodes.toml guide)` (line 2005)
-- **Step 1 text (unique)**: `- [ ] **Step 1: Write docs/nodes-toml-guide.md**` (line 2011)
+- **Plan text (unique)**: `## Task 14: End-to-End Smoke Test` (line 2132)
+- **Step 1 text (unique)**: `- [ ] **Step 1: Write the smoke test**` (line 2137)
 - **Stage**: implementing (about to dispatch)
 - **Round**: 1
-- **Files**: `docs/nodes-toml-guide.md` (new), `README.md` (modify)
-- **Dependencies**: None (docs only)
+- **Files**: `tests/test_e2e_smoke.py` (new, 1 e2e test with mocks)
+- **Dependencies**: All upstream modules (tests full pipeline end-to-end)
+- **Risk**: Plan uses multi-layer mocking (TransportChain + socket + getaddrinfo); may need adaptation for actual code paths

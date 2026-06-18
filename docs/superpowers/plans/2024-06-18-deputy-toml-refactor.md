@@ -2010,7 +2010,7 @@ git commit -m "feat: add GitHub Actions workflow for 3-hour sync and release"
 - Modify: `README.md`
 - Create: `docs/nodes-toml-guide.md`
 
-- [ ] **Step 1: Write docs/nodes-toml-guide.md**
+- [x] **Step 1: Write docs/nodes-toml-guide.md**
 
 In `docs/nodes-toml-guide.md`:
 
@@ -2076,7 +2076,7 @@ cipher = "auto"
 键值对表。键是订阅源名称，会作为前缀加到该源的所有节点名上；值是订阅 URL。
 ```
 
-- [ ] **Step 2: Write a concise new README.md**
+- [x] **Step 2: Write a concise new README.md**
 
 Replace `README.md`:
 
@@ -2115,12 +2115,12 @@ https://github.com/<user>/<repo>/releases/latest/download/config.yaml
 - 技术设计: [docs/superpowers/specs/2024-06-18-deputy-refactor-design.md](docs/superpowers/specs/2024-06-18-deputy-refactor-design.md)
 ```
 
-- [ ] **Step 3: Verify docs render correctly**
+- [x] **Step 3: Verify docs render correctly**
 
 Run: `ls -la docs/`
 Expected: `docs/nodes-toml-guide.md` exists.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add README.md docs/nodes-toml-guide.md
