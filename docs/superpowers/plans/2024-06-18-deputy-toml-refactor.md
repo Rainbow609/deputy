@@ -1534,7 +1534,7 @@ git commit -m "feat: add release publisher with conditional no-op-on-unchanged"
 - Create: `scripts/sync_nodes.py`
 - Create: `tests/test_sync_nodes.py`
 
-- [ ] **Step 1: Write the failing test for the orchestration entry point**
+- [x] **Step 1: Write the failing test for the orchestration entry point**
 
 In `tests/test_sync_nodes.py`:
 
@@ -1597,12 +1597,12 @@ def test_load_previous_config_existing(tmp_path):
     assert load_previous_config(p) == "a: 1\n"
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `uv run pytest tests/test_sync_nodes.py -v`
 Expected: FAIL with `ModuleNotFoundError`
 
-- [ ] **Step 3: Implement the orchestration helpers in sync_nodes.py**
+- [x] **Step 3: Implement the orchestration helpers in sync_nodes.py**
 
 In `scripts/sync_nodes.py`:
 
@@ -1846,12 +1846,12 @@ if __name__ == "__main__":
     sys.exit(main())
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `uv run pytest tests/test_sync_nodes.py -v`
 Expected: 5 tests PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/sync_nodes.py tests/test_sync_nodes.py
