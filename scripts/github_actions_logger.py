@@ -50,6 +50,7 @@ class GhaLogger:
             self.output.write(f"::error::{msg}\n")
             if fields:
                 self.output.write(self._format(level, msg, fields) + "\n")
+            self.output.flush()
             return
         self.output.write(self._format(level, msg, fields) + "\n")
         self.output.flush()
