@@ -102,3 +102,73 @@ class TransportChain:
                 f"all transports failed: {last_error}", retryable=False
             ) from last_error
         raise TransportError("all transports failed without a captured error", retryable=False)
+
+
+class _RequestsLikeTransport:
+    """Shared fetch() logic for all requests-style transports.
+
+    Concrete subclasses only need to implement `_do_request()` and set `name`.
+    """
+
+    name: str = ""
+
+    def _do_request(self, url: str, *, timeout: int):
+        raise NotImplementedError
+
+    def fetch(self, url: str, *, timeout: int = 10) -> TransportResult:
+        try:
+            resp = self._do_request(url, timeout=timeout)
+        except Exception as e:  # network errors are retryable
+            raise TransportError(str(e), retryable=True) from e
+        status = getattr(resp, "status_code", 200)
+        text = getattr(resp, "text", "")
+        if isinstance(text, bytes):
+            body: str | bytes = text
+        else:
+            body = text or getattr(resp, "content", b"")
+        return TransportResult(body=body, status=status, transport_name=self.name)
+
+
+class CloudscraperTransport(_RequestsLikeTransport):
+    """Transport using cloudscraper to bypass Cloudflare challenges."""
+
+    name = "cloudscraper"
+
+    def __init__(self):
+        import cloudscraper  # imported lazily so missing dep doesn't break other transports
+        self._scraper = cloudscraper.create_cloudScraper()
+
+    def _do_request(self, url: str, *, timeout: int):
+        return self._scraper.get(url, timeout=timeout)
+
+
+class RequestsTransport(_RequestsLikeTransport):
+    """Transport using the standard `requests` library."""
+
+    name = "requests"
+
+    def __init__(self):
+        import requests
+        self._session = requests.Session()
+
+    def _do_request(self, url: str, *, timeout: int):
+        return self._session.get(url, timeout=timeout)
+
+
+class CurlCffiTransport(_RequestsLikeTransport):
+    """Transport using curl_cffi to impersonate browser TLS fingerprints.
+
+    Used as a last-resort fallback against aggressive anti-bot systems.
+    """
+
+    name = "curl_cffi"
+
+    def __init__(self):
+        try:
+            from curl_cffi import requests as curl_requests
+        except ImportError as e:
+            raise TransportError("curl_cffi not installed", retryable=False) from e
+        self._requests = curl_requests
+
+    def _do_request(self, url: str, *, timeout: int):
+        return self._requests.get(url, impersonate="chrome", timeout=timeout)

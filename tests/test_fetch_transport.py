@@ -80,3 +80,77 @@ def test_chain_retries_on_403():
     chain = TransportChain([a, b], max_attempts=3)
     result = chain.fetch("https://x")
     assert result.body == "ok-b"
+
+
+# ---------------------------------------------------------------------------
+# Concrete transport implementations (cloudscraper / requests / curl_cffi)
+# ---------------------------------------------------------------------------
+
+
+def test_cloudscraper_transport_calls_session(monkeypatch):
+    """CloudscraperTransport should call cloudscraper.create_cloudScraper().get()."""
+    import types
+    fake_session = types.SimpleNamespace()
+    fake_session.get = lambda url, **kw: types.SimpleNamespace(
+        status_code=200, text="hello", content=b"hello"
+    )
+    fake_module = types.SimpleNamespace(create_cloudScraper=lambda: fake_session)
+    monkeypatch.setitem(__import__("sys").modules, "cloudscraper", fake_module)
+    from scripts.fetch_transport import CloudscraperTransport
+    t = CloudscraperTransport()
+    result = t.fetch("https://example.com")
+    assert result.status == 200
+    assert result.text() == "hello"
+    assert result.transport_name == "cloudscraper"
+
+
+def test_requests_transport_calls_get(monkeypatch):
+    import types
+    fake_session = types.SimpleNamespace()
+    fake_session.get = lambda url, **kw: types.SimpleNamespace(
+        status_code=200, text="hi", content=b"hi"
+    )
+    fake_module = types.SimpleNamespace(Session=lambda: fake_session)
+    monkeypatch.setitem(__import__("sys").modules, "requests", fake_module)
+    from scripts.fetch_transport import RequestsTransport
+    t = RequestsTransport()
+    result = t.fetch("https://example.com")
+    assert result.status == 200
+    assert result.text() == "hi"
+    assert result.transport_name == "requests"
+
+
+def test_curl_cffi_transport_calls_get(monkeypatch):
+    """CurlCffiTransport uses curl_cffi.requests with impersonate='chrome'."""
+    import types
+    fake_module = types.SimpleNamespace()
+    captured_kwargs = {}
+
+    def fake_get(url, **kw):
+        captured_kwargs.update(kw)
+        return types.SimpleNamespace(status_code=200, text="curl-ok", content=b"curl-ok")
+
+    fake_module.get = fake_get
+    fake_pkg = types.SimpleNamespace(requests=fake_module)
+    monkeypatch.setitem(__import__("sys").modules, "curl_cffi", fake_pkg)
+    from scripts.fetch_transport import CurlCffiTransport
+    t = CurlCffiTransport()
+    result = t.fetch("https://example.com")
+    assert result.status == 200
+    assert result.text() == "curl-ok"
+    assert result.transport_name == "curl_cffi"
+    # verify the impersonate kwarg is passed
+    assert captured_kwargs.get("impersonate") == "chrome"
+
+
+def test_curl_cffi_transport_raises_when_not_installed(monkeypatch):
+    """If curl_cffi is not installed, constructor raises TransportError(retryable=False)."""
+    # Force the ImportError inside the constructor by making the module raise on access.
+    class _RaisingModule:
+        def __getattr__(self, name):
+            raise ImportError("simulated missing curl_cffi")
+
+    monkeypatch.setitem(__import__("sys").modules, "curl_cffi", _RaisingModule())
+    from scripts.fetch_transport import CurlCffiTransport
+    with pytest.raises(TransportError, match="curl_cffi not installed"):
+        CurlCffiTransport()
