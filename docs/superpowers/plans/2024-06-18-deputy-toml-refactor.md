@@ -815,7 +815,7 @@ git commit -m "feat: add CloudscraperTransport, RequestsTransport, CurlCffiTrans
 - Create: `tests/test_template_renderer.py`
 - Create: `config.template.yaml` (copied from mihomo-config)
 
-- [ ] **Step 1: Copy config.template.yaml from mihomo-config**
+- [x] **Step 1: Copy config.template.yaml from mihomo-config**
 
 Run:
 ```bash
@@ -827,7 +827,7 @@ Verify the file contains the expected placeholders:
 Run: `grep -E '\{(LOCAL_PROXIES|SUB_PROXIES|PROXIES|NODE_SELECT_LIST|DIALER_LIST)\}' config.template.yaml`
 Expected: At least 4 lines matching the placeholder pattern.
 
-- [ ] **Step 2: Write the failing test**
+- [x] **Step 2: Write the failing test**
 
 In `tests/test_template_renderer.py`:
 
@@ -877,12 +877,12 @@ def test_generate_proxy_items_yaml_quotes_special_names():
     assert '"🇸🇬 SG | 專線"' in out
 ```
 
-- [ ] **Step 3: Run test to verify it fails**
+- [x] **Step 3: Run test to verify it fails**
 
 Run: `uv run pytest tests/test_template_renderer.py -v`
 Expected: FAIL with `ModuleNotFoundError`
 
-- [ ] **Step 4: Implement template_renderer.py**
+- [x] **Step 4: Implement template_renderer.py**
 
 In `scripts/template_renderer.py`:
 
@@ -998,12 +998,12 @@ def render_template(
     return _safe_format_map(text, mapping)
 ```
 
-- [ ] **Step 5: Run tests to verify they pass**
+- [x] **Step 5: Run tests to verify they pass**
 
 Run: `uv run pytest tests/test_template_renderer.py -v`
 Expected: 5 tests PASS
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add scripts/template_renderer.py tests/test_template_renderer.py config.template.yaml

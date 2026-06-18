@@ -14,13 +14,17 @@
 | 3 — GitHub Actions Logger | 13a202a8f + cefee8d0b | ✅ done | retrospective |
 | 4 — Transport Chain Foundation | 3d073bf32 | ✅ done | spec+code quality ✅ |
 | 5 — Concrete Transport Implementations | 2fb8acfe | ✅ done | spec+code quality ✅ |
+| 6 — Template Renderer | 14d5bb9c | ✅ done | spec+code quality ✅ |
 
-## Active Checkpoint — Task 6: Template Renderer
+## Active Checkpoint — Task 7: Node Verifier
 
-- **Plan text (unique)**: `## Task 6: Template Renderer (port of mihomo-config's _safe_format_map)` (line 811)
-- **Step 1 text (unique)**: `- [ ] **Step 1: Copy config.template.yaml from mihomo-config**` (line 818)
+- **Plan text (unique)**: `## Task 7: Node Verifier (TCP/HTTP/Latency)` (line 1015)
+- **Step 1 text (unique)**: `- [ ] **Step 1: Write the failing test**` (line 1021)
 - **Stage**: implementing (about to dispatch)
 - **Round**: 1
-- **Files**: `scripts/template_renderer.py` (create), `tests/test_template_renderer.py` (create), `config.template.yaml` (copy from mihomo-config)
-- **Dependencies**: None
-- **External**: depends on `/Users/liangzongyou/git/mihomo-config/config.template.yaml` existing
+- **Files**: `scripts/node_verifier.py` (new), `tests/test_node_verifier.py` (new)
+- **Dependencies**: None (pure Python + stdlib only)
+
+## Next Dispatch
+
+Implementer will implement Task 7. Plan has 7 tests covering classify_failure × 5 cases + verify_node × 2 cases (alive when TCP succeeds, dead when endpoint missing).
