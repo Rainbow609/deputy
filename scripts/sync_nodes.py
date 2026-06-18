@@ -16,9 +16,7 @@ simplified to a single platform output.
 from __future__ import annotations
 
 import argparse
-import re
 import sys
-import unicodedata
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
@@ -66,17 +64,6 @@ def filter_proxies(
     return out
 
 
-def _normalize_name(name: str) -> str:
-    """Strip emojis/decorations and collapse whitespace.
-
-    Mirrors mihomo-config's behavior: ensures consecutive runs produce
-    byte-identical output for unchanged upstream nodes.
-    """
-    name = unicodedata.normalize("NFKC", name)
-    name = re.sub(r"[​-‍️⁠]", "", name)
-    return " ".join(name.split())
-
-
 def deduplicate_proxies(proxies: list[dict[str, Any]]) -> list[dict[str, Any]]:
     seen: set = set()
     out: list[dict[str, Any]] = []
@@ -96,7 +83,8 @@ def fetch_subscription_yaml(
     try:
         result = chain.fetch(url, timeout=15)
     except TransportError as e:
-        raise RuntimeError(f"failed to fetch {source_name}: {e}") from e
+        detail = f" (status={e.status_code})" if e.status_code is not None else ""
+        raise RuntimeError(f"failed to fetch {source_name}: {e}{detail}") from e
     data = parse_clash_yaml(result.text())
     return list(data.get("proxies") or [])
 
