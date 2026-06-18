@@ -660,12 +660,12 @@ Note: The reference code above had two bugs that the tests caught during Task 4 
 
 Tests are authoritative; reference code now matches the actual implementation.
 
-- [ ] **Step 4: Run test to verify it passes**
+- [x] **Step 4: Run test to verify it passes**
 
 Run: `uv run pytest tests/test_fetch_transport.py -v`
 Expected: 6 tests PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/fetch_transport.py tests/test_fetch_transport.py
