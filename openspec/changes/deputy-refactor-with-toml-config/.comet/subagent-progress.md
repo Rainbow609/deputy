@@ -5,36 +5,28 @@
 - Plan: docs/superpowers/plans/2024-06-18-deputy-toml-refactor.md
 - Branch: feature/20240618/deputy-refactor-with-toml-config
 
-## All 14 Tasks Complete ✅
+## All 14 Tasks Complete ✅ — Final Review APPROVED
 
-| # | Task | Commit | Notes |
-|---|------|--------|-------|
-| 1 | Project Foundation | 45be01405 | retrospective |
-| 2 | TOML Config Parser | f5f1d602d | retrospective |
-| 3 | GitHub Actions Logger | 13a202a8f + cefee8d0b | retrospective |
-| 4 | Transport Chain Foundation | 3d073bf32 | plan 2 bugs fixed (404, all-failed) |
-| 5 | Concrete Transport Implementations | 2fb8acfe | |
-| 6 | Template Renderer | 14d5bb9c | |
-| 7 | Node Verifier | cf224cee | |
-| 8 | Quality Metrics | 071436120 + ee41f7567 | plan percentile p95 fix |
-| 9 | Release Publisher | cc938cb7 | plan test length 19→18 |
-| 10 | Main Sync Script | d6c27beeb + 30ee1bf70 | dead code removed |
-| 11 | nodes.toml Example | a0205ee7 | plan TOML bare-key fix |
-| 12 | GitHub Actions Workflow | 0efb538f | manual commit (auto mode blocked subagent) |
-| 13 | Documentation | 715e2b8f | 3 plan bugs fixed (bare-key, fence) |
-| 14 | E2E Smoke Test | a3993407 | 43/43 tests pass |
+43/43 tests pass. Zero CRITICAL findings. Security scan clean (no secrets, no TODO markers, minimal permissions, no fork exposure).
 
-## Next: Final Review (transition to final-review checkpoint)
+## Deferred Issues (Important, Non-blocking)
 
-Per subagent-driven-development protocol: dispatch fresh final code quality
-reviewer to audit the entire implementation. CRITICAL findings → fix agent
-+ re-review (max 3 rounds). After final review passes, transition back to
-comet-build to run guard and advance to verify phase.
+Final code quality reviewer flagged 2 Important issues, accepted as follow-ups:
+
+1. **`scripts/sync_nodes.py:181`** — `"added": 0` hardcoded in release notes stats. Diff logic comparing current vs previous alive nodes is deferred. The "新增节点" field in release notes is currently meaningless.
+
+2. **`.github/workflows/sync-and-release.yml:36-37`** — `GITHUB_TOKEN` env var passed to `Run sync` step but never consumed by Python code (release is created by `softprops/action-gh-release` using its own implicit token). Dead env var can be removed.
+
+These are tracked as follow-up work; they do not block merge or progression to verify phase.
 
 ## Plan Spec Drift (Documented in plan notes)
 
-- Task 4: 404 raises TransportError (not return result); all-failed wraps with "all transports failed:" prefix
+- Task 4: 404 raises TransportError; all-failed wraps with "all transports failed:" prefix
 - Task 8: p95 uses numpy 'higher' semantics (math.ceil upper index) for p≥90
 - Task 9: test_make_version_tag_default_is_now uses len == 18; monkeypatch removed (unused)
 - Task 11: TOML Chinese subscription names quoted (matches test_toml_config fixture)
 - Task 13: README.md starts with # deputy directly (no outer markdown fence)
+
+## Next: Transition to verify phase
+
+Run `comet-guard build --apply` to advance .comet.yaml phase, then invoke `/comet-verify` per comet-build protocol.
