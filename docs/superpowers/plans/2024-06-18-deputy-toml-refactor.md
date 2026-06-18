@@ -1865,7 +1865,7 @@ git commit -m "feat: add main sync orchestration script"
 **Files:**
 - Create: `nodes.toml`
 
-- [ ] **Step 1: Create example nodes.toml**
+- [x] **Step 1: Create example nodes.toml**
 
 In `nodes.toml`:
 
@@ -1898,18 +1898,20 @@ address_family = "auto"
 [subscription_sources]
 # 订阅源名称 = 订阅 URL
 # 节点会自动添加订阅源名称作为前缀，避免冲突
-星链云 = "https://starlinkcloud.xyz/api/v1/client/subscribe?token=REPLACE_WITH_YOUR_TOKEN"
-三分 = "https://sub.sanfen018.xyz/api/v1/client/subscribe?token=REPLACE_WITH_YOUR_TOKEN"
+"星链云" = "https://starlinkcloud.xyz/api/v1/client/subscribe?token=REPLACE_WITH_YOUR_TOKEN"
+"三分" = "https://sub.sanfen018.xyz/api/v1/client/subscribe?token=REPLACE_WITH_YOUR_TOKEN"
 ```
 
-- [ ] **Step 2: Add nodes.toml to .gitignore for actual secrets, keep template in repo**
+Note: TOML 1.0 requires bare keys to be `A-Za-z0-9_-` only. Chinese subscription names must be wrapped in quotes (`"星链云"`) — implementation commit `a0205ee72` corrected this. Matches the project's own `test_toml_config.py` reference fixture.
+
+- [x] **Step 2: Add nodes.toml to .gitignore for actual secrets, keep template in repo**
 
 The example file is just a template. Real users will copy it to `nodes.local.toml` or override with their own. Verify:
 
 Run: `ls -la nodes.toml`
 Expected: File exists and is non-empty.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add nodes.toml
