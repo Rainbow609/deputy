@@ -1,0 +1,58 @@
+name: Sync Nodes and Release
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"  # every 3 hours
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "config.template.yaml"
+      - "nodes.toml"
+      - "pyproject.toml"
+      - "uv.lock"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+        with:
+          enable-cache: true
+
+      - name: Sync dependencies
+        run: uv sync --locked
+
+      - name: Run sync
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: uv run python -m scripts.sync_nodes --config nodes.toml --template config.template.yaml --output config.yaml --previous config.previous.yaml
+
+      - name: Save previous config
+        if: always()
+        run: |
+          if [ -f config.yaml ]; then
+            cp config.yaml config.previous.yaml || true
+          fi
+
+      - name: Create GitHub Release
+        if: hashFiles('config.yaml') != ''
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: deputy-latest
+          name: Latest Deputy Config
+          body: |
+            Latest mihomo-config-style Clash Meta configuration.
+            See `config.yaml` asset for the rendered configuration.
+            See workflow logs for node statistics and any failed sources.
+          files: config.yaml
+          fail_on_unmatched_files: false
