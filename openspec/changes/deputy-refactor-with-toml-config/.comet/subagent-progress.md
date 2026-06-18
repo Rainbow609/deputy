@@ -16,16 +16,17 @@
 | 5 — Concrete Transport Implementations | 2fb8acfe | ✅ done |
 | 6 — Template Renderer | 14d5bb9c | ✅ done |
 | 7 — Node Verifier | cf224cee | ✅ done |
+| 8 — Quality Metrics | 071436120 + ee41f7567 (fix) | ✅ done |
 
-## Active Checkpoint — Task 8: Quality Metrics
+## Active Checkpoint — Task 9: Release Publisher (GitHub Releases)
 
-- **Plan text (unique)**: `## Task 8: Quality Metrics` (line 1219)
-- **Step 1 text (unique)**: `- [ ] **Step 1: Write the failing test**` (line 1225)
+- **Plan text (unique)**: `## Task 9: Release Publisher (GitHub Releases)` (line 1374)
+- **Step 1 text (unique)**: `- [ ] **Step 1: Write the failing test**` (line 1380)
 - **Stage**: implementing (about to dispatch)
 - **Round**: 1
-- **Files**: `scripts/quality_metrics.py` (new), `tests/test_quality_metrics.py` (new)
-- **Dependencies**: None (pure stdlib statistics)
+- **Files**: `scripts/release_publisher.py` (new), `tests/test_release_publisher.py` (new)
+- **Dependencies**: None (uses Protocol-based ReleaseAPI for testability)
 
 ## Next Dispatch
 
-Implementer will implement Task 8: 5 tests (survival rate × 2, latency stats × 2, release notes × 1).
+Implementer will implement Task 9: 4 tests covering version_tag generation (UTC timestamp + default now), conditional publish (skip on unchanged, create on changed).

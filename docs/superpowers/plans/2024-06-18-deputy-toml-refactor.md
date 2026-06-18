@@ -1222,7 +1222,7 @@ git commit -m "feat: add node verifier with TCP probing and concurrent execution
 - Create: `scripts/quality_metrics.py`
 - Create: `tests/test_quality_metrics.py`
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 In `tests/test_quality_metrics.py`:
 
@@ -1278,12 +1278,12 @@ def test_format_release_notes_includes_summary():
     assert "timeout" in notes
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `uv run pytest tests/test_quality_metrics.py -v`
 Expected: FAIL with `ModuleNotFoundError`
 
-- [ ] **Step 3: Implement quality_metrics.py**
+- [x] **Step 3: Implement quality_metrics.py**
 
 In `scripts/quality_metrics.py`:
 
@@ -1357,12 +1357,12 @@ def format_release_notes(
     return "\n".join(lines) + "\n"
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `uv run pytest tests/test_quality_metrics.py -v`
 Expected: 5 tests PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/quality_metrics.py tests/test_quality_metrics.py
