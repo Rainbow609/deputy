@@ -2134,7 +2134,7 @@ git commit -m "docs: add nodes.toml guide and updated README"
 **Files:**
 - Create: `tests/test_e2e_smoke.py`
 
-- [ ] **Step 1: Write the smoke test**
+- [x] **Step 1: Write the smoke test**
 
 In `tests/test_e2e_smoke.py`:
 
@@ -2225,17 +2225,17 @@ mock = "https://mock.example.com/sub"
     assert summary["version"].startswith("v")
 ```
 
-- [ ] **Step 2: Run the smoke test**
+- [x] **Step 2: Run the smoke test**
 
 Run: `uv run pytest tests/test_e2e_smoke.py -v`
 Expected: PASS (1 test).
 
-- [ ] **Step 3: Run the full test suite**
+- [x] **Step 3: Run the full test suite**
 
 Run: `uv run pytest -v`
 Expected: All tests pass.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add tests/test_e2e_smoke.py
