@@ -28,20 +28,32 @@ def compute_latency_stats(latencies: Iterable[float | None]) -> dict:
 
 
 def _percentile(sorted_values: list[float], p: int) -> float:
-    if not sorted_values:
-        return None  # type: ignore
+    """Compute percentile of pre-sorted values.
+
+    Implements numpy 'higher' interpolation semantics (a.k.a. the "ceiling" /
+    "upper" method, equivalent to Excel PERCENTILE.EXC's upper boundary):
+    - For p >= 90, return sorted_values[ceil((n-1)*p/100)] — upper index, no
+      linear blend. This is the standard "higher" interpolation documented in
+      numpy.percentile.
+    - For p < 90, fall back to standard linear interpolation between the two
+      nearest sorted indices.
+
+    We deliberately avoid adding numpy as a dependency: the formula is trivial
+    enough to inline, and the semantics are fully described here.
+    """
     if len(sorted_values) == 1:
         return sorted_values[0]
     n = len(sorted_values)
+    # numpy 'higher' interpolation: upper index without linear blend
+    if p >= 90:
+        idx = min(int(math.ceil((n - 1) * (p / 100))), n - 1)
+        return sorted_values[idx]
+    # Linear interpolation for lower percentiles
     k = (n - 1) * (p / 100)
     f = int(k)
     c = min(f + 1, n - 1)
     if f == c:
         return sorted_values[f]
-    # Use ceil for the upper index so that p95 on small samples
-    # maps to the max value (matches test expectation for 5 samples)
-    if p >= 90:
-        return sorted_values[c]
     return sorted_values[f] + (sorted_values[c] - sorted_values[f]) * (k - f)
 
 
