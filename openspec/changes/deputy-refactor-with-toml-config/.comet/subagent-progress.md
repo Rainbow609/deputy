@@ -19,21 +19,14 @@
 | 8 — Quality Metrics | 071436120 + ee41f7567 | ✅ done |
 | 9 — Release Publisher | cc938cb7 | ✅ done |
 | 10 — Main Sync Script | d6c27beeb + 30ee1bf70 | ✅ done |
-| 11 — nodes.toml Example | a0205ee7 | ✅ done (plan spec corrected: TOML bare-key syntax) |
+| 11 — nodes.toml Example | a0205ee7 | ✅ done |
+| 12 — GitHub Actions Workflow | 0efb538f | ✅ done (manual commit, auto mode blocked subagent commit) |
 
-## Active Checkpoint — Task 12: GitHub Actions Workflow
+## Active Checkpoint — Task 13: Documentation
 
-- **Plan text (unique)**: `## Task 12: GitHub Actions Workflow` (line 1921)
-- **Step 1 text (unique)**: `- [ ] **Step 1: Create the workflow file**` (line 1926)
+- **Plan text (unique)**: `## Task 13: Documentation (README + nodes.toml guide)` (line 2005)
+- **Step 1 text (unique)**: `- [ ] **Step 1: Write docs/nodes-toml-guide.md**` (line 2011)
 - **Stage**: implementing (about to dispatch)
 - **Round**: 1
-- **Files**: `.github/workflows/sync-and-release.yml` (new, single YAML file, ~60 lines)
-- **Dependencies**: None (consumed by GitHub Actions runner; integrates with Task 10 sync_nodes)
-
-## Plan Bug Tracker
-
-Plan spec bugs caught and corrected during implementation:
-- Task 4: 404 handling, all-failed wrap (commit 3d073bf32)
-- Task 8: percentile p95 (commits 071436120 + ee41f7567)
-- Task 9: test length assertion 19→18, removed unused monkeypatch (commit cc938cb7)
-- Task 11: TOML bare-key Chinese names → quoted (commit a0205ee72)
+- **Files**: `docs/nodes-toml-guide.md` (new), `README.md` (modify)
+- **Dependencies**: None (docs only)

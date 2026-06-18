@@ -1925,7 +1925,7 @@ git commit -m "feat: add nodes.toml example configuration"
 **Files:**
 - Create: `.github/workflows/sync-and-release.yml`
 
-- [ ] **Step 1: Create the workflow file**
+- [x] **Step 1: Create the workflow file**
 
 In `.github/workflows/sync-and-release.yml`:
 
@@ -1990,12 +1990,12 @@ jobs:
           fail_on_unmatched_files: false
 ```
 
-- [ ] **Step 2: Verify YAML is valid**
+- [x] **Step 2: Verify YAML is valid**
 
 Run: `python3 -c "import yaml; yaml.safe_load(open('.github/workflows/sync-and-release.yml'))"`
 Expected: No output (silent success).
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add .github/workflows/sync-and-release.yml
