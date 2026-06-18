@@ -1,0 +1,18 @@
+{
+  "change": "deputy-refactor-with-toml-config",
+  "phase": "design",
+  "mode": "compact",
+  "canonical_spec": "openspec",
+  "generated_by": "comet-handoff.sh",
+  "context_hash": "169cf8295983fd5f05ba2f93d2d4f4e5e125e7f90c06e7bf8227659925f48236",
+  "files": [
+    { "path": "openspec/changes/deputy-refactor-with-toml-config/proposal.md", "sha256": "6b23dbca188c5a030db4d8f7fcbf56deaf610f228605aeace6d29a1ed0706d45" },
+    { "path": "openspec/changes/deputy-refactor-with-toml-config/design.md", "sha256": "2d83c541c5dfd7508b52236cfda415e78f4223c93b3134e0c98eac0dc8d9c98f" },
+    { "path": "openspec/changes/deputy-refactor-with-toml-config/tasks.md", "sha256": "3ec66520cda4793e52f245ceb02d1795c7596fa921b6e9b2e2c85c02cfcf9d87" },
+    { "path": "openspec/changes/deputy-refactor-with-toml-config/specs/github-releases-distribution/spec.md", "sha256": "0bdf65efd9184338d1378bc4964c381c6770c0941723ba7b256100d571f3e9a0" },
+    { "path": "openspec/changes/deputy-refactor-with-toml-config/specs/multi-platform-config/spec.md", "sha256": "fac5c61ecf56a0ccfdf68f21c3430f6b53ad09ceda7e28dbfd3f603ccc01e380" },
+    { "path": "openspec/changes/deputy-refactor-with-toml-config/specs/node-verification/spec.md", "sha256": "5b4c183bdbfc929893babe8fca5950ab82be829ef5d327108b628ac75cb0501e" },
+    { "path": "openspec/changes/deputy-refactor-with-toml-config/specs/quality-metrics/spec.md", "sha256": "50036c52e1a798d514f848b0e54f80a7ae2c95ca6728ee857b46f80937a2ce3d" },
+    { "path": "openspec/changes/deputy-refactor-with-toml-config/specs/toml-node-config/spec.md", "sha256": "adbb71746ba51ce09c9bef9c07b9c39c00bd100252e320addff7661c619d24a4" }
+  ]
+}
