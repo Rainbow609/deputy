@@ -1,0 +1,30 @@
+# deputy 节点配置
+# 详细文档见 docs/nodes-toml-guide.md
+
+[subscription]
+format = "clash"
+exclude_keywords = ["官网", "到期", "剩余流量", "距离下次重置剩余"]
+
+[probe]
+timeout = 3
+concurrency = 30
+retries = 0
+address_family = "auto"
+
+# 静态节点（可选）。所有支持的标准 Clash 代理类型都可使用。
+# [[static_nodes]] 段为列表，每段一个节点。
+
+# [[static_nodes]]
+# name = "手动-hk-1"
+# type = "vmess"
+# server = "hk1.example.com"
+# port = 443
+# uuid = "your-uuid"
+# alterId = 0
+# cipher = "auto"
+
+[subscription_sources]
+# 订阅源名称 = 订阅 URL
+# 节点会自动添加订阅源名称作为前缀，避免冲突
+"星链云" = "https://starlinkcloud.xyz/api/v1/client/subscribe?token=REPLACE_WITH_YOUR_TOKEN"
+"三分" = "https://sub.sanfen018.xyz/api/v1/client/subscribe?token=REPLACE_WITH_YOUR_TOKEN"
