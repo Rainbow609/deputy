@@ -1018,7 +1018,7 @@ git commit -m "feat: add template renderer ported from mihomo-config"
 - Create: `scripts/node_verifier.py`
 - Create: `tests/test_node_verifier.py`
 
-- [ ] **Step 1: Write the failing test**
+- [x] **Step 1: Write the failing test**
 
 In `tests/test_node_verifier.py`:
 
@@ -1072,12 +1072,12 @@ def test_verify_node_marks_dead_when_endpoint_missing():
     assert result.failure_reason == "missing-endpoint"
 ```
 
-- [ ] **Step 2: Run test to verify it fails**
+- [x] **Step 2: Run test to verify it fails**
 
 Run: `uv run pytest tests/test_node_verifier.py -v`
 Expected: FAIL with `ModuleNotFoundError`
 
-- [ ] **Step 3: Implement node_verifier.py**
+- [x] **Step 3: Implement node_verifier.py**
 
 In `scripts/node_verifier.py`:
 
@@ -1202,12 +1202,12 @@ class NodeVerifier:
         return results
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `uv run pytest tests/test_node_verifier.py -v`
 Expected: 7 tests PASS
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add scripts/node_verifier.py tests/test_node_verifier.py
