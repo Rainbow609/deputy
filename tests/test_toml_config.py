@@ -76,3 +76,40 @@ separator = "_"
     assert "星链云" in config.rename
     assert config.rename["星链云"]["prefix"] == "XL"
     assert config.rename["星链云"]["separator"] == "_"
+
+
+def test_load_config_rejects_non_table_rename(tmp_path: Path):
+    """[rename] 不是 table 时应报错而不是静默忽略。"""
+    toml_text = """
+rename = "nope"
+
+[subscription]
+format = "clash"
+exclude_keywords = ["官网", "到期"]
+
+[probe]
+timeout = 3
+concurrency = 30
+retries = 0
+address_family = "auto"
+
+[subscription_sources]
+"星链云" = "https://example.com/sub?token=abc"
+"""
+    config_file = tmp_path / "nodes.toml"
+    config_file.write_text(toml_text, encoding="utf-8")
+    with pytest.raises(ConfigError, match="rename"):
+        load_config(config_file)
+
+
+def test_load_config_rejects_invalid_rename_value_types(tmp_path: Path):
+    """[rename] 中已知字段类型错误时应报错。"""
+    toml_text = VALID_TOML + """
+[rename]
+sanitize = "false"
+separator = 123
+"""
+    config_file = tmp_path / "nodes.toml"
+    config_file.write_text(toml_text, encoding="utf-8")
+    with pytest.raises(ConfigError, match="rename"):
+        load_config(config_file)

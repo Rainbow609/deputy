@@ -147,7 +147,7 @@ def test_e2e_rename_applies_prefix_and_sanitizes(tmp_path: Path):
         """
 [subscription]
 format = "clash"
-exclude_keywords = []
+exclude_keywords = ["⚡"]
 
 [probe]
 timeout = 1
@@ -211,7 +211,8 @@ proxies:
     rendered = output.read_text(encoding="utf-8")
     # Node names should be prefixed with "MK-" and sanitized (no emoji/pipes)
     assert "MK-HK01" in rendered
-    assert "MK-SG-02" in rendered
+    assert "MK-SG-02" not in rendered
+    assert "SG-02" not in rendered
     # Raw emoji and pipe should NOT appear in output
     assert "\U0001F1ED" not in rendered
     assert "|" not in rendered

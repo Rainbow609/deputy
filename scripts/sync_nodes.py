@@ -152,13 +152,18 @@ def run_sync(
 
     rename_raw = config.rename
     global_rename = {k: v for k, v in rename_raw.items() if not isinstance(v, dict)}
-    all_sub_proxies: list[dict[str, Any]] = []
-    for source_name, source_proxies in _group_by_source(all_subs).items():
+    filtered_sources = _group_by_source(
+        (source_name, proxy)
+        for source_name, proxy in all_subs
+        if proxy.get("name") and not any(
+            kw in (proxy.get("name", "") or "") for kw in config.subscription.exclude_keywords
+        )
+    )
+    filtered: list[dict[str, Any]] = []
+    for source_name, source_proxies in filtered_sources.items():
         source_rename = rename_raw.get(source_name) if isinstance(rename_raw.get(source_name), dict) else None
         rename_cfg = build_rename_config(global_rename or None, source_rename)
-        renamed = apply_node_rename(source_proxies, source_name, rename_cfg)
-        all_sub_proxies.extend(renamed)
-    filtered = filter_proxies(all_sub_proxies, exclude_keywords=config.subscription.exclude_keywords)
+        filtered.extend(apply_node_rename(source_proxies, source_name, rename_cfg))
     static = config.static_nodes
     if config.subscription_sources and not filtered and not static and failed_sources:
         failed = ", ".join(name for name, _ in failed_sources)

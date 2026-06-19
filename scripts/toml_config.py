@@ -67,6 +67,25 @@ def _build_probe(raw: dict[str, Any]) -> ProbeConfig:
     )
 
 
+def _validate_rename_table(raw: dict[str, Any], *, path: str = "rename") -> dict[str, Any]:
+    validated: dict[str, Any] = {}
+    for key, value in raw.items():
+        if key in {"sanitize", "separator", "prefix"}:
+            if key == "sanitize":
+                if not isinstance(value, bool):
+                    raise ConfigError(f"{path}.sanitize 必须是 bool")
+            elif not isinstance(value, str):
+                raise ConfigError(f"{path}.{key} 必须是 string")
+            validated[key] = value
+            continue
+
+        if not isinstance(value, dict):
+            raise ConfigError(f"{path}.{key} 必须是 table")
+        validated[key] = _validate_rename_table(value, path=f"{path}.{key}")
+
+    return validated
+
+
 def load_config(path: Path) -> DeputyConfig:
     if not path.exists():
         raise ConfigError(f"配置文件不存在: {path}")
@@ -85,8 +104,8 @@ def load_config(path: Path) -> DeputyConfig:
     sources = dict(raw.get("subscription_sources", {}))
     rename_raw = raw.get("rename", {})
     if not isinstance(rename_raw, dict):
-        rename_raw = {}
-    rename = dict(rename_raw)
+        raise ConfigError("rename 必须是 table")
+    rename = _validate_rename_table(rename_raw)
 
     return DeputyConfig(
         subscription=sub,
