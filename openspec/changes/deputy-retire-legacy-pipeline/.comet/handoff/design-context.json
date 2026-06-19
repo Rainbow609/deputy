@@ -1,0 +1,14 @@
+{
+  "change": "deputy-retire-legacy-pipeline",
+  "phase": "design",
+  "mode": "compact",
+  "canonical_spec": "openspec",
+  "generated_by": "comet-handoff.sh",
+  "context_hash": "d4ba0e6b2e061cd5dbaf6b91e5d86672777452dd4b4f26377dcd45f7e232ca0d",
+  "files": [
+    { "path": "openspec/changes/deputy-retire-legacy-pipeline/proposal.md", "sha256": "e1dd2583a0c69c8f7cf30fdee23f5361d64804af8cd1bee76c2414fd13807b65" },
+    { "path": "openspec/changes/deputy-retire-legacy-pipeline/design.md", "sha256": "bfaf6d3905441862487c3a30a359230b6207cbf0cef96c2318a5f62de14a573e" },
+    { "path": "openspec/changes/deputy-retire-legacy-pipeline/tasks.md", "sha256": "d7fd937fe1950977b7056042eaa4670200248ac67aa72eb31e5098ec213b3c1a" },
+    { "path": "openspec/changes/deputy-retire-legacy-pipeline/specs/multi-platform-config/spec.md", "sha256": "8a481c178a6fe5113c57809c73005acd9395b91780994c9f5a8236d76d360495" }
+  ]
+}
