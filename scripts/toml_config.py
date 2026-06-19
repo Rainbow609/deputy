@@ -39,6 +39,7 @@ class DeputyConfig:
     probe: ProbeConfig
     static_nodes: list[dict[str, Any]] = field(default_factory=list)
     subscription_sources: dict[str, str] = field(default_factory=dict)
+    rename: dict[str, Any] = field(default_factory=dict)
 
 
 def _build_subscription(raw: dict[str, Any]) -> SubscriptionConfig:
@@ -82,10 +83,15 @@ def load_config(path: Path) -> DeputyConfig:
     probe = _build_probe(raw.get("probe", {}))
     static = list(raw.get("static_nodes", []))
     sources = dict(raw.get("subscription_sources", {}))
+    rename_raw = raw.get("rename", {})
+    if not isinstance(rename_raw, dict):
+        rename_raw = {}
+    rename = dict(rename_raw)
 
     return DeputyConfig(
         subscription=sub,
         probe=probe,
         static_nodes=static,
         subscription_sources=sources,
+        rename=rename,
     )

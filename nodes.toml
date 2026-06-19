@@ -28,3 +28,16 @@ address_family = "auto"
 # 节点会自动添加订阅源名称作为前缀，避免冲突
 "anaer" = "https://anaer.github.io/Sub/proxies.yaml"
 "vxiaov" = "https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml"
+
+# [rename] 节点重命名配置（可选）
+# 全局默认设置 + 逐源覆盖，未配置时使用默认值（sanitize=true, separator="-"）
+#
+# [rename]
+# sanitize = true      # 是否清洗节点名（去 emoji/标点/折叠空白）
+# separator = "-"      # 前缀与节点名之间的分隔符
+#
+# [rename."anaer"]     # 逐源覆盖：为该源指定自定义前缀
+# prefix = "AN"
+#
+# [rename."vxiaov"]
+# prefix = "VX"

@@ -31,6 +31,7 @@ from scripts.fetch_transport import (
     TransportError,
 )
 from scripts.github_actions_logger import GhaLogger, LogLevel
+from scripts.node_renamer import apply_node_rename, build_rename_config
 from scripts.node_verifier import NodeVerifier
 from scripts.quality_metrics import (
     compute_latency_stats,
@@ -89,6 +90,16 @@ def fetch_subscription_yaml(
     return list(data.get("proxies") or [])
 
 
+def _group_by_source(
+    pairs: list[tuple[str, dict[str, Any]]],
+) -> dict[str, list[dict[str, Any]]]:
+    """将 (source_name, proxy) 对按 source 分组。"""
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for name, proxy in pairs:
+        grouped.setdefault(name, []).append(proxy)
+    return grouped
+
+
 def load_previous_config(path: Path) -> str:
     if not path.exists():
         return ""
@@ -139,7 +150,14 @@ def run_sync(
                     failed_sources.append((name, str(e)))
                     logger.warning("source failed", {"source": name, "error": str(e)})
 
-    all_sub_proxies = [p for _, p in all_subs]
+    rename_raw = config.rename
+    global_rename = {k: v for k, v in rename_raw.items() if not isinstance(v, dict)}
+    all_sub_proxies: list[dict[str, Any]] = []
+    for source_name, source_proxies in _group_by_source(all_subs).items():
+        source_rename = rename_raw.get(source_name) if isinstance(rename_raw.get(source_name), dict) else None
+        rename_cfg = build_rename_config(global_rename or None, source_rename)
+        renamed = apply_node_rename(source_proxies, source_name, rename_cfg)
+        all_sub_proxies.extend(renamed)
     filtered = filter_proxies(all_sub_proxies, exclude_keywords=config.subscription.exclude_keywords)
     static = config.static_nodes
     if config.subscription_sources and not filtered and not static and failed_sources:
