@@ -26,5 +26,4 @@ address_family = "auto"
 [subscription_sources]
 # 订阅源名称 = 订阅 URL
 # 节点会自动添加订阅源名称作为前缀，避免冲突
-"星链云" = "https://starlinkcloud.xyz/api/v1/client/subscribe?token=REPLACE_WITH_YOUR_TOKEN"
-"三分" = "https://sub.sanfen018.xyz/api/v1/client/subscribe?token=REPLACE_WITH_YOUR_TOKEN"
+"anaer" = "https://anaer.github.io/Sub/proxies.yaml"
