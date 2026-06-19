@@ -94,7 +94,7 @@ def test_cloudscraper_transport_calls_session(monkeypatch):
     fake_session.get = lambda url, **kw: types.SimpleNamespace(
         status_code=200, text="hello", content=b"hello"
     )
-    fake_module = types.SimpleNamespace(create_cloudScraper=lambda: fake_session)
+    fake_module = types.SimpleNamespace(create_scraper=lambda: fake_session, create_cloudScraper=lambda: fake_session)
     monkeypatch.setitem(__import__("sys").modules, "cloudscraper", fake_module)
     from scripts.fetch_transport import CloudscraperTransport
     t = CloudscraperTransport()

@@ -136,7 +136,9 @@ class CloudscraperTransport(_RequestsLikeTransport):
 
     def __init__(self):
         import cloudscraper  # imported lazily so missing dep doesn't break other transports
-        self._scraper = cloudscraper.create_cloudScraper()
+        # cloudscraper >= 1.2.71 renamed create_cloudScraper to create_scraper
+        create = getattr(cloudscraper, "create_scraper", None) or cloudscraper.create_cloudScraper
+        self._scraper = create()
 
     def _do_request(self, url: str, *, timeout: int):
         return self._scraper.get(url, timeout=timeout)
