@@ -12,7 +12,7 @@ rule-providers:
     type: http
     behavior: domain
     format: yaml
-    path: ./rule_provider/AWAvenue-Ads.yaml
+    path: ./rule_providers/AWAvenue-Ads.yaml
     url: "https://ghfast.top/https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/refs/heads/main/Filters/AWAvenue-Ads-Rule-Clash-Classical.yaml"
     interval: 600
 
@@ -20,7 +20,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
-    path: ./rule_provider/StevenBlack.yaml
+    path: ./rule_providers/StevenBlack.yaml
     url: "https://fastly.jsdelivr.net/gh/Ckrvxr/MihomoYAML@release/StevenBlack.yaml"
     interval: 600
 
@@ -28,7 +28,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
-    path: ./rule_provider/Adguard-Adblock.yaml
+    path: ./rule_providers/Adguard-Adblock.yaml
     url: "https://fastly.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/adblockmihomo.yaml"
     interval: 600
 
