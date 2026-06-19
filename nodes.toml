@@ -27,3 +27,4 @@ address_family = "auto"
 # 订阅源名称 = 订阅 URL
 # 节点会自动添加订阅源名称作为前缀，避免冲突
 "anaer" = "https://anaer.github.io/Sub/proxies.yaml"
+"vxiaov" = "https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml"
