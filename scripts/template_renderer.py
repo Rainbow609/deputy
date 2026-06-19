@@ -66,10 +66,21 @@ def generate_proxy_items_yaml(proxies: Iterable[dict[str, Any]]) -> str:
         for k, v in p.items():
             if k == "name":
                 continue
-            fields.append(f"      {k}: {_yaml_scalar(v)}")
+            fields.append(f"    {k}: {_yaml_scalar(v)}")
         body = "\n".join(fields)
         lines.append(f"  - name: {quoted_name}\n{body}")
     return "\n".join(lines) + ("\n" if lines else "")
+
+
+def _generate_proxy_list_yaml(proxies: Iterable[dict[str, Any]]) -> str:
+    return generate_proxy_items_yaml(proxies) or "[]\n"
+
+
+def _generate_proxy_block_yaml(proxies: Iterable[dict[str, Any]]) -> str:
+    items = generate_proxy_items_yaml(proxies)
+    if not items:
+        return "proxies: []\n"
+    return f"proxies:\n{items}"
 
 
 def render_template(
@@ -84,6 +95,7 @@ def render_template(
     - {LOCAL_PROXIES}: YAML list of static proxies
     - {SUB_PROXIES}: YAML list of subscription proxies
     - {PROXIES}: YAML list of all proxies combined
+    - {PROXIES_BLOCK}: complete `proxies` YAML field
     - {NODE_SELECT_LIST}: comma-separated proxy names for `select` groups
     - {DIALER_LIST}: comma-separated subscription proxy names
     """
@@ -100,7 +112,8 @@ def render_template(
     mapping = {
         "LOCAL_PROXIES": generate_proxy_items_yaml(local_proxies),
         "SUB_PROXIES": generate_proxy_items_yaml(sub_proxies),
-        "PROXIES": generate_proxy_items_yaml(all_proxies),
+        "PROXIES": _generate_proxy_list_yaml(all_proxies),
+        "PROXIES_BLOCK": _generate_proxy_block_yaml(all_proxies),
         "NODE_SELECT_LIST": node_list,
         "DIALER_LIST": dialer_list,
     }

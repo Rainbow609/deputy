@@ -142,6 +142,9 @@ def run_sync(
     all_sub_proxies = [p for _, p in all_subs]
     filtered = filter_proxies(all_sub_proxies, exclude_keywords=config.subscription.exclude_keywords)
     static = config.static_nodes
+    if config.subscription_sources and not filtered and not static and failed_sources:
+        failed = ", ".join(name for name, _ in failed_sources)
+        raise RuntimeError(f"all subscription sources failed; refusing to publish empty config: {failed}")
     combined = static + filtered
     deduped = deduplicate_proxies(combined)
 
@@ -149,6 +152,8 @@ def run_sync(
         results = verifier.verify_many(deduped, concurrency=config.probe.concurrency)
     alive_nodes = [n for n, r in results if r.alive]
     dead_nodes = [(n, r) for n, r in results if not r.alive]
+    if not alive_nodes:
+        raise RuntimeError("node verification produced zero alive nodes; refusing to publish empty config")
     logger.info("verification done", {
         "alive": len(alive_nodes),
         "dead": len(dead_nodes),

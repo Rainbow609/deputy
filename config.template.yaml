@@ -33,9 +33,7 @@ rule-providers:
     interval: 600
 
 # proxies 段由 scripts/sync_nodes.py 自动维护，手动节点见 proxies.yaml
-proxies:
-{LOCAL_PROXIES}
-{SUB_PROXIES}
+{PROXIES_BLOCK}
 
 proxy-groups:
   - { name: 节点选择, type: select, proxies: [{NODE_SELECT_LIST}] }

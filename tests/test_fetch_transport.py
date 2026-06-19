@@ -120,6 +120,22 @@ def test_requests_transport_calls_get(monkeypatch):
     assert result.transport_name == "requests"
 
 
+def test_requests_transport_prefers_utf8_content_over_misdecoded_text(monkeypatch):
+    import types
+    fake_session = types.SimpleNamespace()
+    fake_session.get = lambda url, **kw: types.SimpleNamespace(
+        status_code=200,
+        text="ä¸\xadå\x9b½",
+        content="中国".encode("utf-8"),
+    )
+    fake_module = types.SimpleNamespace(Session=lambda: fake_session)
+    monkeypatch.setitem(__import__("sys").modules, "requests", fake_module)
+    from scripts.fetch_transport import RequestsTransport
+    t = RequestsTransport()
+    result = t.fetch("https://example.com")
+    assert result.text() == "中国"
+
+
 def test_curl_cffi_transport_calls_get(monkeypatch):
     """CurlCffiTransport uses curl_cffi.requests with impersonate='chrome'."""
     import types

@@ -5,6 +5,7 @@ from scripts.template_renderer import (
     _safe_format_map,
     generate_proxy_items_yaml,
 )
+import yaml
 
 
 def test_safe_format_map_replaces_known_keys():
@@ -43,3 +44,43 @@ def test_generate_proxy_items_yaml_quotes_special_names():
     out = generate_proxy_items_yaml(proxies)
     # Special chars must be wrapped in double quotes to satisfy mihomo parser
     assert '"🇸🇬 SG | 專線"' in out
+
+
+def test_render_template_empty_proxy_sections_are_yaml_lists(tmp_path):
+    template = tmp_path / "t.yaml"
+    template.write_text(
+        "{PROXIES_BLOCK}"
+        "proxy-groups:\n"
+        "  - { name: 节点选择, type: select, proxies: [{NODE_SELECT_LIST}] }\n"
+        "  - { name: 中转节点, type: url-test, proxies: [{DIALER_LIST}] }\n",
+        encoding="utf-8",
+    )
+    out = render_template(template, local_proxies=[], sub_proxies=[])
+
+    data = yaml.safe_load(out)
+    groups = {g["name"]: g for g in data["proxy-groups"]}
+    assert data["proxies"] == []
+    assert groups["节点选择"]["proxies"] == ["DIRECT"]
+    assert groups["中转节点"]["proxies"] == []
+
+
+def test_render_template_proxy_block_with_nodes_is_valid_yaml(tmp_path):
+    template = tmp_path / "t.yaml"
+    template.write_text(
+        "{PROXIES_BLOCK}"
+        "proxy-groups:\n"
+        "  - { name: 节点选择, type: select, proxies: [{NODE_SELECT_LIST}] }\n"
+        "  - { name: 中转节点, type: url-test, proxies: [{DIALER_LIST}] }\n",
+        encoding="utf-8",
+    )
+    out = render_template(
+        template,
+        local_proxies=[{"name": "static-1", "type": "ss", "server": "1.1.1.1", "port": 8388, "cipher": "aes-256-gcm", "password": "p"}],
+        sub_proxies=[{"name": "sub-1", "type": "vmess", "server": "2.2.2.2", "port": 443, "uuid": "u", "alterId": 0, "cipher": "auto"}],
+    )
+
+    data = yaml.safe_load(out)
+    groups = {g["name"]: g for g in data["proxy-groups"]}
+    assert [p["name"] for p in data["proxies"]] == ["static-1", "sub-1"]
+    assert groups["节点选择"]["proxies"] == ["static-1", "sub-1", "DIRECT"]
+    assert groups["中转节点"]["proxies"] == ["sub-1"]

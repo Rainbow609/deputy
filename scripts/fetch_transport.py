@@ -121,11 +121,10 @@ class _RequestsLikeTransport:
         except Exception as e:  # network errors are retryable
             raise TransportError(str(e), retryable=True) from e
         status = getattr(resp, "status_code", 200)
-        text = getattr(resp, "text", "")
-        if isinstance(text, bytes):
-            body: str | bytes = text
-        else:
-            body = text or getattr(resp, "content", b"")
+        body = getattr(resp, "content", b"")
+        if not body:
+            text = getattr(resp, "text", "")
+            body = text
         return TransportResult(body=body, status=status, transport_name=self.name)
 
 
