@@ -26,18 +26,9 @@
 - [x] 5.2 第 23 行 `path: ./rule_provider/StevenBlack.yaml` → `path: ./rule_providers/StevenBlack.yaml`
 - [x] 5.3 第 31 行 `path: ./rule_provider/Adguard-Adblock.yaml` → `path: ./rule_providers/Adguard-Adblock.yaml`
 
-## 6. multi-platform-config spec 收敛为单 config.yaml 语义 — **deferred to archive 阶段**
+## 6. multi-platform-config spec 收敛为单 config.yaml 语义
 
-- [ ] 6.1 删除 `openspec/specs/multi-platform-config/spec.md` 中 Desktop platform configuration generation requirement
-- [ ] 6.2 删除 Mobile platform configuration generation requirement
-- [ ] 6.3 删除 Magisk platform configuration generation requirement
-- [ ] 6.4 删除 Multi-platform concurrent generation requirement
-- [ ] 6.5 新增 Single pipeline configuration generation requirement
-- [ ] 6.6 将 Template-based configuration generation 改写为单一 `config.yaml` 模板渲染 requirement
-- [ ] 6.7 将 Configuration validation 改写为单一输出 YAML 校验 requirement
-- [ ] 6.8 将 Configuration output management 改写为 `config.yaml` Release artifact 输出管理 requirement
-
-> 上述 8 项由 `comet-archive` 阶段处理。delta spec 已在 `openspec/changes/deputy-retire-legacy-pipeline/specs/multi-platform-config/spec.md` 就绪, archive 脚本会把 REMOVED/ADDED/MODIFIED 合入 `openspec/specs/multi-platform-config/spec.md`。build 阶段不动 main spec 文件, 避免双源漂移。
+> **Out of build scope.** Group 6 涉及修改 main spec (`openspec/specs/multi-platform-config/spec.md`), 按设计 D2 由 `comet-archive` 阶段处理。8 个子任务已迁移到 `archive-tasks.md` (同目录), build 阶段不动 main spec 文件。
 
 ## 7. 验证
 

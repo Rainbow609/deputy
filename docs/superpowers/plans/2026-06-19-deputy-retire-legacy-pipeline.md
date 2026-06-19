@@ -451,9 +451,7 @@ Expected:
 - `git log` 最顶行包含 `chore(deputy): retire legacy...`
 - `git show --stat HEAD` 列出 ~37 个变更文件（35 删除 + 1 修改 + 1 workflow 删除 = 37 个文件条目）
 
-- [ ] **Step 5: 推送（待用户确认）**
-
-**不要自动推送**。向用户报告 commit 已就绪，等待用户决定是否 push / 开 PR。
+> **推送（Step 5）从本 plan 中移除**：plan 范围 = 协调者跑完 commit 即结束。push 决策由用户在 build 阶段结束后的 verify 之前拍板（`git push origin feature/20260619/deputy-retire-legacy-pipeline`），不在本 plan 自动范围内。
 
 ---
 
