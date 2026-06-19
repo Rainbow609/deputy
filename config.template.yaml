@@ -40,25 +40,25 @@ proxy-groups:
   - { name: 中转模式, type: select, proxies: [中转节点, DIRECT] }
   - { name: 中转节点, type: url-test, proxies: [{DIALER_LIST}], url: https://cp.cloudflare.com, interval: 300 }
   - { name: 广告拦截, type: select, proxies: [REJECT, DIRECT, 节点选择] }
-  - { name: 境外AI, type: select, proxies: &select-only [节点选择] }
-  - { name: Apple, type: select, proxies: &select-direct [节点选择, DIRECT] }
-  - { name: Google, type: select, proxies: *select-direct }
-  - { name: Telegram, type: select, proxies: *select-direct }
-  - { name: Twitter, type: select, proxies: *select-only }
-  - { name: Pixiv, type: select, proxies: *select-direct }
-  - { name: EHentai, type: select, proxies: *select-only }
-  - { name: 巴哈姆特, type: select, proxies: *select-only }
-  - { name: 任天堂, type: select, proxies: *select-direct }
-  - { name: YouTube, type: select, proxies: *select-direct }
-  - { name: NETFLIX, type: select, proxies: *select-direct }
-  - { name: TikTok, type: select, proxies: *select-direct }
-  - { name: Spotify, type: select, proxies: *select-direct }
-  - { name: Github, type: select, proxies: *select-direct }
-  - { name: Steam, type: select, proxies: *select-direct }
-  - { name: OneDrive, type: select, proxies: *select-direct }
-  - { name: 微软服务, type: select, proxies: *select-direct }
+  - { name: 境外AI, type: select, proxies: [节点选择] }
+  - { name: Apple, type: select, proxies: [节点选择, DIRECT] }
+  - { name: Google, type: select, proxies: [节点选择, DIRECT] }
+  - { name: Telegram, type: select, proxies: [节点选择, DIRECT] }
+  - { name: Twitter, type: select, proxies: [节点选择] }
+  - { name: Pixiv, type: select, proxies: [节点选择, DIRECT] }
+  - { name: EHentai, type: select, proxies: [节点选择] }
+  - { name: 巴哈姆特, type: select, proxies: [节点选择] }
+  - { name: 任天堂, type: select, proxies: [节点选择, DIRECT] }
+  - { name: YouTube, type: select, proxies: [节点选择, DIRECT] }
+  - { name: NETFLIX, type: select, proxies: [节点选择, DIRECT] }
+  - { name: TikTok, type: select, proxies: [节点选择, DIRECT] }
+  - { name: Spotify, type: select, proxies: [节点选择, DIRECT] }
+  - { name: Github, type: select, proxies: [节点选择, DIRECT] }
+  - { name: Steam, type: select, proxies: [节点选择, DIRECT] }
+  - { name: OneDrive, type: select, proxies: [节点选择, DIRECT] }
+  - { name: 微软服务, type: select, proxies: [节点选择, DIRECT] }
   - { name: 国内, type: select, proxies: [DIRECT, 节点选择] }
-  - { name: 其他, type: select, proxies: *select-direct }
+  - { name: 其他, type: select, proxies: [节点选择, DIRECT] }
 
 rules:
   - RULE-SET,AWAvenue-Ads,广告拦截

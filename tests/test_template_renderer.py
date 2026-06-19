@@ -84,3 +84,18 @@ def test_render_template_proxy_block_with_nodes_is_valid_yaml(tmp_path):
     assert [p["name"] for p in data["proxies"]] == ["static-1", "sub-1"]
     assert groups["节点选择"]["proxies"] == ["static-1", "sub-1", "DIRECT"]
     assert groups["中转节点"]["proxies"] == ["sub-1"]
+
+
+def test_project_template_renders_without_yaml_anchors():
+    out = render_template(
+        __import__("pathlib").Path("config.template.yaml"),
+        local_proxies=[{"name": "static-1", "type": "ss", "server": "1.1.1.1", "port": 8388, "cipher": "aes-256-gcm", "password": "p"}],
+        sub_proxies=[{"name": "sub-1", "type": "vmess", "server": "2.2.2.2", "port": 443, "uuid": "u", "alterId": 0, "cipher": "auto"}],
+    )
+    assert "&select" not in out
+    assert "*select" not in out
+
+    data = yaml.safe_load(out)
+    groups = {g["name"]: g for g in data["proxy-groups"]}
+    assert groups["Apple"]["proxies"] == ["节点选择", "DIRECT"]
+    assert groups["Twitter"]["proxies"] == ["节点选择"]
