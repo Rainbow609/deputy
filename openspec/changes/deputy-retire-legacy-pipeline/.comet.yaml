@@ -1,5 +1,5 @@
 workflow: full
-phase: verify
+phase: archive
 context_compression: off
 build_mode: subagent-driven-development
 build_pause: null
@@ -11,11 +11,11 @@ auto_transition: true
 base_ref: 7d0a6d3158a059b17500f46cb56a90675ba5e2fc
 design_doc: docs/superpowers/specs/2026-06-19-deputy-retire-legacy-pipeline-design.md
 plan: docs/superpowers/plans/2026-06-19-deputy-retire-legacy-pipeline.md
-verify_result: pending
+verify_result: pass
 verification_report: docs/superpowers/reports/2026-06-19-deputy-retire-legacy-pipeline-verify.md
-branch_status: pending
+branch_status: handled
 created_at: 2026-06-19
-verified_at: null
+verified_at: 2026-06-19
 archived: false
 handoff_context: openspec/changes/deputy-retire-legacy-pipeline/.comet/handoff/design-context.json
 handoff_hash: d4ba0e6b2e061cd5dbaf6b91e5d86672777452dd4b4f26377dcd45f7e232ca0d
