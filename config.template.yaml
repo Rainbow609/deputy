@@ -38,7 +38,7 @@ rule-providers:
 proxy-groups:
   - { name: 节点选择, type: select, proxies: [{NODE_SELECT_LIST}] }
   - { name: 中转模式, type: select, proxies: [中转节点, DIRECT] }
-  - { name: 中转节点, type: url-test, proxies: [{DIALER_LIST}], url: https://cp.cloudflare.com, interval: 300 }
+  - { name: 中转节点, type: url-test, proxies: [{DIALER_LIST}], url: https://cp.cloudflare.com, interval: 300, timeout: 1000, tolerance: 100 }
   - { name: 广告拦截, type: select, proxies: [REJECT, DIRECT, 节点选择] }
   - { name: 境外AI, type: select, proxies: [节点选择] }
   - { name: Apple, type: select, proxies: [节点选择, DIRECT] }

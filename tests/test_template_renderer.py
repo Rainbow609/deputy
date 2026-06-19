@@ -97,5 +97,12 @@ def test_project_template_renders_without_yaml_anchors():
 
     data = yaml.safe_load(out)
     groups = {g["name"]: g for g in data["proxy-groups"]}
+    assert groups["节点选择"]["proxies"] == ["static-1", "sub-1", "DIRECT"]
+    assert groups["中转节点"]["type"] == "url-test"
+    assert groups["中转节点"]["proxies"] == ["sub-1"]
+    assert groups["中转节点"]["url"] == "https://cp.cloudflare.com"
+    assert groups["中转节点"]["interval"] == 300
+    assert groups["中转节点"]["timeout"] == 1000
+    assert groups["中转节点"]["tolerance"] == 100
     assert groups["Apple"]["proxies"] == ["节点选择", "DIRECT"]
     assert groups["Twitter"]["proxies"] == ["节点选择"]
