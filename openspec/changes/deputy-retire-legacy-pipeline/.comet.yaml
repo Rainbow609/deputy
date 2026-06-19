@@ -12,7 +12,7 @@ base_ref: 7d0a6d3158a059b17500f46cb56a90675ba5e2fc
 design_doc: docs/superpowers/specs/2026-06-19-deputy-retire-legacy-pipeline-design.md
 plan: docs/superpowers/plans/2026-06-19-deputy-retire-legacy-pipeline.md
 verify_result: pending
-verification_report: null
+verification_report: docs/superpowers/reports/2026-06-19-deputy-retire-legacy-pipeline-verify.md
 branch_status: pending
 created_at: 2026-06-19
 verified_at: null
