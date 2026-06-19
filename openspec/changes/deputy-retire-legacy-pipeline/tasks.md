@@ -1,6 +1,6 @@
 ## 1. Reference grep audit (前置防御性检查)
 
-- [x] 1.1 全仓库 grep 确认老管线 0 引用 (脚本: `grep -rn "get_node_list\|proxy_providers\|clash_config_v3\|config_magisk\|config_mobile_baipiao\|schedule-get-node-list" --include="*.py" --include="*.yml" --include="*.yaml" --include="*.toml" --include="*.md" . | grep -v "openspec/changes/deputy-retire-legacy-pipeline" | grep -v "openspec/changes/archive" | grep -v "docs/superpowers/specs/2024-06-18-deputy-refactor-design.md"`)
+- [x] 1.1 全仓库 grep 确认运行路径中老管线 0 引用 (脚本: `grep -rn "get_node_list\|proxy_providers\|clash_config_v3\|config_magisk\|config_mobile_baipiao\|schedule-get-node-list" --include="*.py" --include="*.yml" --include="*.yaml" --include="*.toml" --include="*.md" . | grep -v "openspec/changes/deputy-retire-legacy-pipeline" | grep -v "openspec/changes/archive" | grep -v "openspec/specs/multi-platform-config/spec.md" | grep -v "docs/superpowers/plans/2026-06-19-deputy-retire-legacy-pipeline.md" | grep -v "docs/superpowers/specs/2026-06-19-deputy-retire-legacy-pipeline-design.md" | grep -v "docs/superpowers/specs/2024-06-18-deputy-refactor-design.md"`)
 
 ## 2. 老管线脚本与目录删除
 
@@ -32,7 +32,7 @@
 
 ## 7. 验证
 
-- [x] 7.1 `grep -rn "get_node_list\|proxy_providers\|clash_config_v3\|config_magisk\|config_mobile_baipiao\|schedule-get-node-list" --include="*.py" --include="*.yml" --include="*.yaml" --include="*.toml" --include="*.md" . | grep -v "openspec/changes/deputy-retire-legacy-pipeline" | grep -v "openspec/changes/archive" | grep -v "docs/superpowers/specs/2024-06-18-deputy-refactor-design.md"` → 0 匹配
+- [x] 7.1 `grep -rn "get_node_list\|proxy_providers\|clash_config_v3\|config_magisk\|config_mobile_baipiao\|schedule-get-node-list" --include="*.py" --include="*.yml" --include="*.yaml" --include="*.toml" --include="*.md" . | grep -v "openspec/changes/deputy-retire-legacy-pipeline" | grep -v "openspec/changes/archive" | grep -v "openspec/specs/multi-platform-config/spec.md" | grep -v "docs/superpowers/plans/2026-06-19-deputy-retire-legacy-pipeline.md" | grep -v "docs/superpowers/specs/2026-06-19-deputy-retire-legacy-pipeline-design.md" | grep -v "docs/superpowers/specs/2024-06-18-deputy-refactor-design.md"` → 0 匹配
 - [x] 7.2 `uv run python -m scripts.sync_nodes --config nodes.toml --template config.template.yaml --output /tmp/test-config.yaml --previous /tmp/test-prev.yaml` → 退出码 0, 生成非空 config
 - [x] 7.3 `uv run pytest tests/` → 全绿
 

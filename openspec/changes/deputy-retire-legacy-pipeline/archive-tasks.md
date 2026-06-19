@@ -4,9 +4,9 @@
 
 ## A.1 main spec 合入 (由 comet-archive 脚本执行)
 
-- [ ] A.1.1 把 `openspec/changes/deputy-retire-legacy-pipeline/specs/multi-platform-config/spec.md` 的 REMOVED Requirements (4 项: Desktop / Mobile / Magisk / Multi-platform concurrent) 写入 `openspec/specs/multi-platform-config/spec.md`
+- [ ] A.1.1 从 `openspec/specs/multi-platform-config/spec.md` 移除 delta spec 中的 REMOVED Requirements (4 项: Desktop / Mobile / Magisk / Multi-platform concurrent)
 - [ ] A.1.2 把 ADDED Requirements (1 项: Single pipeline configuration generation) 写入 main spec
-- [ ] A.1.3 把 MODIFIED Requirements (3 项: Template-based / Configuration validation / Configuration output management) 改写后写入 main spec
+- [ ] A.1.3 按 MODIFIED Requirements (3 项: Template-based / Configuration validation / Configuration output management) 改写 main spec
 - [ ] A.1.4 验证 main spec 语法/格式与 OpenSpec 校验器一致 (`openspec validate --strict`)
 
 ## A.2 archive metadata 收尾

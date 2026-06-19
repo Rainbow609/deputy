@@ -278,4 +278,3 @@ The system SHALL manage `config.yaml` as the canonical generated configuration o
 - **THEN** the system keeps node ordering and rendered template sections deterministic
 - **AND** the system avoids creating legacy platform-specific configuration files
 ```
-

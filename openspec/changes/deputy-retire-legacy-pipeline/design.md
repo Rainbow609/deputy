@@ -81,7 +81,7 @@ deputy 仓库当前有两条配置生成管线并存：
 2. 修改 `config.template.yaml` 3 行 typo
 3. 通过 delta spec 修改 `multi-platform-config`：删 4 个多平台 requirement，新增单管线 generation requirement，并把剩余 requirement 改写为单一 `config.yaml` 语义
 4. 验证：
-   - `grep -rn "get_node_list\|proxy_providers\|clash_config_v3\|config_magisk\|config_mobile_baipiao\|schedule-get-node-list" --include="*.py" --include="*.yml" --include="*.yaml" --include="*.toml" --include="*.md" . | grep -v "openspec/changes/deputy-retire-legacy-pipeline" | grep -v "openspec/changes/archive" | grep -v "docs/superpowers/specs/2024-06-18-deputy-refactor-design.md"` → 0 匹配
+   - `grep -rn "get_node_list\|proxy_providers\|clash_config_v3\|config_magisk\|config_mobile_baipiao\|schedule-get-node-list" --include="*.py" --include="*.yml" --include="*.yaml" --include="*.toml" --include="*.md" . | grep -v "openspec/changes/deputy-retire-legacy-pipeline" | grep -v "openspec/changes/archive" | grep -v "openspec/specs/multi-platform-config/spec.md" | grep -v "docs/superpowers/plans/2026-06-19-deputy-retire-legacy-pipeline.md" | grep -v "docs/superpowers/specs/2026-06-19-deputy-retire-legacy-pipeline-design.md" | grep -v "docs/superpowers/specs/2024-06-18-deputy-refactor-design.md"` → 0 匹配
    - `uv run python -m scripts.sync_nodes --config nodes.toml --template config.template.yaml --output /tmp/test-config.yaml --previous /tmp/test-prev.yaml` → 退出码 0
    - `uv run pytest tests/` → 全绿
 5. commit message: `chore(deputy): retire legacy get_node_list.py pipeline, keep only nodes.toml → sync_nodes.py`

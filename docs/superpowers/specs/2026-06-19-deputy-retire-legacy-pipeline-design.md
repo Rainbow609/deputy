@@ -11,7 +11,7 @@ status: final
 
 本文档是 change `deputy-retire-legacy-pipeline` 的技术设计。所有决策已经在 OpenSpec 阶段（`openspec/changes/deputy-retire-legacy-pipeline/`）由用户拍板，本文档不引入新设计决策，只做"实施级"落地说明。
 
-**范围性质**：纯减法 + 2 处文本修正。不新增 capability、不改架构、不引入依赖。
+**范围性质**：纯减法 + 1 个模板文件的 3 行文本修正。不新增 capability、不改架构、不引入依赖。
 
 **OpenSpec canonical spec**: `openspec/changes/deputy-retire-legacy-pipeline/`（proposal.md / design.md / specs/multi-platform-config/spec.md / tasks.md）。本文档不复制 spec 内容，仅描述实施层面。
 
@@ -32,7 +32,7 @@ status: final
 
 ## 实施分解
 
-### 阶段 A：删除文件（35 个文件 + 1 个目录）
+### 阶段 A：删除文件（37 个文件）
 
 ```
 [Stage A.1] 脚本
@@ -69,20 +69,20 @@ status: final
 
 ### 阶段 C：验证
 
-1. **引用 grep 守卫** — 排除 change 自身目录、archive、legacy design doc 后，对老路径 0 匹配
+1. **引用 grep 守卫** — 排除 OpenSpec/docs 历史与当前产物后，对运行路径中的老路径 0 匹配
 2. **smoke render** — `python -m scripts.sync_nodes` 在 nodes.toml 现有内容下能成功跑完（防止误删影响新管线）
 3. **pytest** — 全绿
 
 ### 阶段 D：Commit
 
-单 commit 单 PR。Commit message 见 `tasks.md` 8.1。
+核心实现单 commit。OpenSpec/docs 状态整理可追加独立 cleanup commit。Commit message 见 `tasks.md` 8.1。
 
 ## 风险与防护
 
 | 实施风险 | 防护 |
 |----------|------|
 | 删除中途老 workflow 又跑一次 | 阶段 A 内先删 workflow (A.4) 再删其他 |
-| grep 验证漏判（archive 内有引用） | 显式排除 `openspec/changes/archive` 和 `docs/superpowers/specs/2024-06-18-deputy-refactor-design.md` |
+| grep 验证漏判（OpenSpec/docs 产物内有历史引用） | 显式排除 current change、archive、main spec、当前 plan/design doc 和历史 design doc |
 | 误删 `config.template.yaml` 中 rule-providers 整段 | tasks.md 5.1-5.3 只改 path 字段，不动其他；Build 阶段 diff review 必看 |
 | main spec 提前被手改 | 严格走 delta → archive 流程，build 阶段不动 main spec |
 
@@ -95,7 +95,7 @@ status: final
 
 ## OpenSpec → Build 衔接
 
-- `tasks.md` 8 组 19 个 task 是 build 阶段唯一执行清单
+- `tasks.md` 是 build 阶段唯一执行清单；`archive-tasks.md` 仅记录 archive 阶段待办
 - 本文档不复制 task 列表，避免双源同步漂移
 - Build 阶段工作方式（subagent-driven / direct）由 build 阶段用户选择决定
 

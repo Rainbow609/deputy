@@ -10,7 +10,7 @@ base-ref: 7d0a6d3158a059b17500f46cb56a90675ba5e2fc
 
 **Goal:** 从 main 分支删除老 `get_node_list.py` 管线（脚本、缓存目录、模板目录、老输出配置、cron workflow），修正 `config.template.yaml` 中 3 处单复数 typo，并准备 delta spec 供 archive 阶段合入 main spec。
 
-**Architecture:** 纯减法 + 2 处文本修正。删除顺序关键 — 先删 cron workflow 防止删除中途老管线被重新触发并 commit。delta spec 已就绪在 `openspec/changes/deputy-retire-legacy-pipeline/specs/multi-platform-config/spec.md`，build 阶段不动 `openspec/specs/multi-platform-config/spec.md`（由 archive 脚本合入）。
+**Architecture:** 纯减法 + 1 个模板文件的 3 行文本修正。删除顺序关键 — 先删 cron workflow 防止删除中途老管线被重新触发并 commit。delta spec 已就绪在 `openspec/changes/deputy-retire-legacy-pipeline/specs/multi-platform-config/spec.md`，build 阶段不动 `openspec/specs/multi-platform-config/spec.md`（由 archive 脚本合入）。
 
 **Tech Stack:** Bash / git / Python (smoke render) / pytest
 
@@ -19,9 +19,9 @@ base-ref: 7d0a6d3158a059b17500f46cb56a90675ba5e2fc
 ## 范围与不变项
 
 **变更范围（build 阶段全部产物）：**
-- 删除 35 个文件 + 3 个目录
+- 删除 37 个文件（其中 31 个位于 `proxy_providers/`、`rule_providers/`、`templates/` 三个目录内）
 - 修改 `config.template.yaml` 3 行
-- 单 commit 提交
+- 核心实现单 commit 提交；OpenSpec/docs 状态整理可追加独立 cleanup commit
 
 **明确不动：**
 - `nodes.toml` — 用户明示不动
@@ -64,7 +64,7 @@ Task 1 (前置 grep audit)
                     └─> Task 5 (删 4 个老输出 A.3)
                           └─> Task 6 (改 config.template.yaml B.1)
                                 └─> Task 7 (3 项验证)
-                                      └─> Task 8 (commit + push)
+                                      └─> Task 8 (commit)
 ```
 
 **关键顺序**：Task 2 (workflow) 必须在 Task 3/4/5 之前。否则老 cron 可能在删除过程中触发并 commit 已被部分删除的代码到 main。
@@ -86,6 +86,9 @@ grep -rn "get_node_list\|proxy_providers\|clash_config_v3\|config_magisk\|config
   . \
   | grep -v "openspec/changes/deputy-retire-legacy-pipeline" \
   | grep -v "openspec/changes/archive" \
+  | grep -v "openspec/specs/multi-platform-config/spec.md" \
+  | grep -v "docs/superpowers/plans/2026-06-19-deputy-retire-legacy-pipeline.md" \
+  | grep -v "docs/superpowers/specs/2026-06-19-deputy-retire-legacy-pipeline-design.md" \
   | grep -v "docs/superpowers/specs/2024-06-18-deputy-refactor-design.md"
 ```
 
@@ -105,11 +108,14 @@ grep -rn "get_node_list\|proxy_providers\|clash_config_v3\|config_magisk\|config
   . \
   | grep -v "openspec/changes/deputy-retire-legacy-pipeline" \
   | grep -v "openspec/changes/archive" \
+  | grep -v "openspec/specs/multi-platform-config/spec.md" \
+  | grep -v "docs/superpowers/plans/2026-06-19-deputy-retire-legacy-pipeline.md" \
+  | grep -v "docs/superpowers/specs/2026-06-19-deputy-retire-legacy-pipeline-design.md" \
   | grep -v "docs/superpowers/specs/2024-06-18-deputy-refactor-design.md" \
   | wc -l
 ```
 
-Expected: 数字 = 35（11 proxy_providers + 6 templates + 14 rule_providers + 4 老输出 config 内 proxy_providers 路径 + 1 get_node_list.py + 1 workflow + 1 design doc 引用）。
+Expected: build 完成后数字 = 0。pre-build 审计阶段只要求命中均属于待删除目标，不依赖固定行数。
 
 **注意**：本 Task 不产生 commit。这是 build 前的事实记录，不属于 change 本身的产物。
 
@@ -348,6 +354,9 @@ grep -rn "get_node_list\|proxy_providers\|clash_config_v3\|config_magisk\|config
   . \
   | grep -v "openspec/changes/deputy-retire-legacy-pipeline" \
   | grep -v "openspec/changes/archive" \
+  | grep -v "openspec/specs/multi-platform-config/spec.md" \
+  | grep -v "docs/superpowers/plans/2026-06-19-deputy-retire-legacy-pipeline.md" \
+  | grep -v "docs/superpowers/specs/2026-06-19-deputy-retire-legacy-pipeline-design.md" \
   | grep -v "docs/superpowers/specs/2024-06-18-deputy-refactor-design.md"
 ```
 
@@ -393,7 +402,7 @@ rm -f /tmp/test-config.yaml /tmp/test-prev.yaml
 ## Task 8: 单 commit 提交
 
 **Files:**
-- Stage all: 上述 35+ 个删除 + 1 个文本修改
+- Stage all: 上述 37 个删除 + 1 个文本修改
 
 - [x] **Step 1: 查看 git status 确认变更范围**
 
@@ -466,7 +475,7 @@ build 阶段完成的客观证据：
 - [x] Task 5 4 个老输出配置已删除
 - [x] Task 6 `config.template.yaml` 仅 3 行 path 字段变更
 - [x] Task 7 grep 0 匹配 + smoke render exit=0 + pytest 全绿
-- [x] Task 8 单 commit 已落地，commit message 准确
+- [x] Task 8 核心实现 commit 已落地，commit message 准确
 
 ---
 
