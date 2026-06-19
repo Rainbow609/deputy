@@ -16,6 +16,6 @@ verification_report: docs/superpowers/reports/2026-06-19-deputy-retire-legacy-pi
 branch_status: handled
 created_at: 2026-06-19
 verified_at: 2026-06-19
-archived: false
+archived: true
 handoff_context: openspec/changes/deputy-retire-legacy-pipeline/.comet/handoff/design-context.json
 handoff_hash: d4ba0e6b2e061cd5dbaf6b91e5d86672777452dd4b4f26377dcd45f7e232ca0d

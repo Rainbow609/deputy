@@ -1,6 +1,9 @@
 # Node Verification
 
-## ADDED Requirements
+## Purpose
+Define how Deputy verifies proxy nodes and records node health signals.
+
+## Requirements
 
 ### Requirement: TCP connectivity probing
 The system SHALL perform TCP connectivity probing to verify node server and port accessibility.

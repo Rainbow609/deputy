@@ -1,94 +1,56 @@
 # Multi-Platform Configuration Generation
 
-## ADDED Requirements
-
-### Requirement: Desktop platform configuration generation
-The system SHALL generate optimized configuration files for desktop platforms.
-
-#### Scenario: Desktop configuration generation
-- **WHEN** the system generates configuration for desktop platforms
-- **THEN** the system uses desktop-specific optimizations and settings
-- **AND** the system outputs the configuration to `config_desktop.yaml`
-
-#### Scenario: Desktop-specific features
-- **WHEN** generating desktop configuration
-- **THEN** the system includes desktop-specific features like TUN mode, DNS settings, and process sniffing
-- **AND** the system excludes mobile-specific features that are not applicable
-
-### Requirement: Mobile platform configuration generation
-The system SHALL generate optimized configuration files for mobile platforms.
-
-#### Scenario: Mobile configuration generation
-- **WHEN** the system generates configuration for mobile platforms
-- **THEN** the system uses mobile-specific optimizations and settings
-- **AND** the system outputs the configuration to `config_mobile.yaml`
-
-#### Scenario: Mobile-specific features
-- **WHEN** generating mobile configuration
-- **THEN** the system includes mobile-specific features like battery optimization and cellular network handling
-- **AND** the system excludes desktop-specific features that are not applicable
-
-### Requirement: Magisk platform configuration generation
-The system SHALL generate optimized configuration files for Magisk platform.
-
-#### Scenario: Magisk configuration generation
-- **WHEN** the system generates configuration for Magisk platform
-- **THEN** the system uses Magisk-specific optimizations and settings
-- **AND** the system outputs the configuration to `config_magisk.yaml`
-
-#### Scenario: Magisk-specific features
-- **WHEN** generating Magisk configuration
-- **THEN** the system includes Magisk-specific integration settings
-- **AND** the system excludes features that conflict with Magisk environment
-
+## Purpose
+Define how Deputy generates and manages publishable Mihomo configuration outputs.
+## Requirements
 ### Requirement: Template-based configuration generation
-The system SHALL use template-based approach to generate configuration files for different platforms.
+The system SHALL use `config.template.yaml` as the single source template for generating `config.yaml`.
 
 #### Scenario: Template variable substitution
-- **WHEN** the system processes configuration templates
-- **THEN** the system substitutes template variables with actual node and configuration data
-- **AND** the system maintains template structure and formatting
+- **WHEN** the system processes `config.template.yaml`
+- **THEN** the system substitutes node placeholders with data from `nodes.toml` and subscription fetch results
+- **AND** the system preserves the static template sections, including http rule-providers and rule definitions
 
-#### Scenario: Platform-specific templates
-- **WHEN** the system has platform-specific templates
-- **THEN** the system uses the appropriate template for each platform
-- **AND** the system applies platform-specific variable substitutions
-
-### Requirement: Multi-platform concurrent generation
-The system SHALL generate configurations for multiple platforms concurrently to optimize performance.
-
-#### Scenario: Concurrent platform generation
-- **WHEN** the system generates configurations for multiple platforms
-- **THEN** the system processes platform configurations concurrently
-- **AND** the system ensures each platform configuration is generated correctly
-
-#### Scenario: Shared node data
-- **WHEN** generating configurations for multiple platforms
-- **THEN** the system uses shared node verification and quality data
-- **AND** the system applies platform-specific transformations independently
+#### Scenario: Single template selection
+- **WHEN** the system generates the publishable configuration
+- **THEN** the system uses only `config.template.yaml`
+- **AND** the system does not require platform-specific template files under `templates/`
 
 ### Requirement: Configuration validation
-The system SHALL validate generated configuration files for each platform.
+The system SHALL validate the generated `config.yaml` before publication.
 
 #### Scenario: YAML syntax validation
-- **WHEN** the system generates configuration files
-- **THEN** the system validates YAML syntax for each output file
-- **AND** the system reports any syntax errors before publication
+- **WHEN** the system generates `config.yaml`
+- **THEN** the system validates YAML syntax for that output file
+- **AND** the system reports syntax errors before publication
 
-#### Scenario: Platform-specific validation
-- **WHEN** the system generates platform-specific configurations
-- **THEN** the system validates platform-specific requirements and constraints
-- **AND** the system ensures each configuration meets its platform's specifications
+#### Scenario: Single output validation
+- **WHEN** validation completes
+- **THEN** the system treats `config.yaml` as the only required publishable configuration artifact
+- **AND** the system does not require validation of removed platform-specific outputs
 
 ### Requirement: Configuration output management
-The system SHALL properly manage output files for different platforms.
+The system SHALL manage `config.yaml` as the canonical generated configuration output.
 
 #### Scenario: Output file organization
-- **WHEN** the system generates multiple platform configurations
-- **THEN** the system organizes output files with clear naming conventions
-- **AND** the system places files in appropriate locations for publication
+- **WHEN** the system writes generated configuration
+- **THEN** the system writes the publishable file as `config.yaml`
+- **AND** the system makes that artifact available through the release pipeline
 
 #### Scenario: Output file consistency
-- **WHEN** generating configurations for multiple platforms
-- **THEN** the system ensures consistent node data across platforms
-- **AND** the system maintains platform-appropriate differences where required
+- **WHEN** generating `config.yaml`
+- **THEN** the system keeps node ordering and rendered template sections deterministic
+- **AND** the system avoids creating legacy platform-specific configuration files
+
+### Requirement: Single pipeline configuration generation
+The system SHALL generate one publishable Mihomo configuration through the `nodes.toml` to `config.yaml` pipeline.
+
+#### Scenario: Single output generation
+- **WHEN** the scheduled sync pipeline runs
+- **THEN** the system renders one `config.yaml` output
+- **AND** the system does not generate desktop, mobile, baipiao, or magisk variant files
+
+#### Scenario: Shared node data
+- **WHEN** generating `config.yaml`
+- **THEN** the system uses the shared node data from `nodes.toml` and configured subscription sources
+- **AND** the system applies one consistent transformation for all consumers

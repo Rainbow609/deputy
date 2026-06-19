@@ -1,6 +1,9 @@
 # TOML Node Configuration
 
-## ADDED Requirements
+## Purpose
+Define how Deputy reads static nodes and subscription sources from `nodes.toml`.
+
+## Requirements
 
 ### Requirement: Parse TOML configuration file
 The system SHALL parse a TOML configuration file that contains both static nodes and subscription sources.

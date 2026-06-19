@@ -2,6 +2,7 @@
 comet_change: deputy-retire-legacy-pipeline
 role: technical-design
 canonical_spec: openspec
+archived-with: 2026-06-19-deputy-retire-legacy-pipeline
 status: final
 ---
 

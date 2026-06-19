@@ -2,6 +2,7 @@
 change: deputy-retire-legacy-pipeline
 design-doc: docs/superpowers/specs/2026-06-19-deputy-retire-legacy-pipeline-design.md
 base-ref: 7d0a6d3158a059b17500f46cb56a90675ba5e2fc
+archived-with: 2026-06-19-deputy-retire-legacy-pipeline
 ---
 
 # Deputy 退役老管线 — 实施计划

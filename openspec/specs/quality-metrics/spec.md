@@ -1,6 +1,9 @@
 # Quality Metrics
 
-## ADDED Requirements
+## Purpose
+Define how Deputy calculates and reports node quality and release metrics.
+
+## Requirements
 
 ### Requirement: Node survival rate calculation
 The system SHALL calculate and report node survival rates.

@@ -1,6 +1,9 @@
 # GitHub Releases Distribution
 
-## ADDED Requirements
+## Purpose
+Define how Deputy publishes generated configuration artifacts through GitHub Releases.
+
+## Requirements
 
 ### Requirement: GitHub Release creation
 The system SHALL create GitHub Releases for publishing configuration files.

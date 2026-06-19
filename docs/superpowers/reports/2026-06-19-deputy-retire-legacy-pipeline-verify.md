@@ -7,7 +7,7 @@
 | Completeness | PASS: OpenSpec reports 17/17 tasks complete |
 | Correctness | PASS: implementation matches retire-legacy-pipeline scope |
 | Coherence | PASS: design, plan, delta spec, and build artifacts are aligned |
-| Branch handling | PENDING: user decision required |
+| Branch handling | PASS: merged locally to `main` and feature branch removed |
 
 ## Evidence
 
@@ -19,6 +19,7 @@
 - `git diff --check 7d0a6d3158a059b17500f46cb56a90675ba5e2fc...HEAD` -> PASS
 - `uv run python -m scripts.sync_nodes --config nodes.toml --template config.template.yaml --output /tmp/test-config.yaml --previous /tmp/test-prev.yaml` -> exit 0
 - `uv run pytest tests/` -> 43 passed
+- Local branch handling option 1 -> fast-forward merged into `main`; post-merge `uv run pytest tests/` -> 43 passed
 
 ## Scope Verification
 
@@ -58,4 +59,4 @@ None.
 
 ## Final Assessment
 
-No critical issues found. Build artifacts are ready for branch handling and Comet verify guard progression after the user chooses how to handle the branch.
+No critical issues found. Build artifacts passed verification, branch handling is complete, and the change is ready for archive.
