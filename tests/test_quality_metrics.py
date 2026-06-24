@@ -1,8 +1,13 @@
-from scripts.quality_metrics import (
-    compute_survival_rate,
+"""Tests for quality metrics and release-notes builder."""
+
+from __future__ import annotations
+
+from deputy.utils.quality import (
     compute_latency_stats,
-    format_release_notes,
+    compute_survival_rate,
 )
+from deputy.utils.summary import build_release_notes, fetch_status_rows
+from deputy.sources.subscription import SubscriptionFetchResult
 
 
 def test_survival_rate_all_alive():
@@ -21,7 +26,7 @@ def test_latency_stats_basic():
     assert stats["min"] == 10
     assert stats["max"] == 50
     assert stats["p50"] == 30
-    assert stats["p95"] == 50  # with 5 samples, p95 is the max
+    assert stats["p95"] == 50
 
 
 def test_latency_stats_empty():
@@ -31,8 +36,13 @@ def test_latency_stats_empty():
     assert stats["max"] is None
 
 
+def test_latency_stats_drops_none_values():
+    stats = compute_latency_stats([10, None, 20, None, 30])
+    assert stats["avg"] == 20.0
+
+
 def test_format_release_notes_includes_summary():
-    notes = format_release_notes(
+    notes = build_release_notes(
         version="v2024-06-18-120000",
         stats={
             "total": 50, "alive": 40, "survival_rate": 80.0,
@@ -47,3 +57,25 @@ def test_format_release_notes_includes_summary():
     assert "80.0%" in notes or "80%" in notes
     assert "星链云" in notes
     assert "timeout" in notes
+
+
+def test_fetch_status_rows_marks_fresh_updated():
+    rows = fetch_status_rows([SubscriptionFetchResult("src", [{"name": "a"}],
+                                                      "fresh", "updated")])
+    assert rows[0][0] == "src"
+    assert "已更新" in rows[0][1]
+    assert rows[0][2] == "1"
+
+
+def test_fetch_status_rows_marks_fallback():
+    rows = fetch_status_rows([SubscriptionFetchResult("src", [{"name": "a"}],
+                                                      "fallback", "fallback",
+                                                      "2024-06-18T00:00:00Z")])
+    assert "缓存" in rows[0][1]
+    assert "2024-06-18T00:00:00Z" in rows[0][2]
+
+
+def test_fetch_status_rows_marks_failed():
+    rows = fetch_status_rows([SubscriptionFetchResult("src", [], "failed", "none")])
+    assert "失败" in rows[0][1]
+    assert rows[0][2] == "0"
