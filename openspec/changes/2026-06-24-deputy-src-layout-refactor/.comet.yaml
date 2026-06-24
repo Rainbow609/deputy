@@ -1,0 +1,6 @@
+workflow: full
+phase: active
+build_mode: subagent-driven-development
+tdd_mode: tdd
+verify_mode: full
+auto_transition: true
