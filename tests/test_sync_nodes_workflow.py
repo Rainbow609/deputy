@@ -100,9 +100,11 @@ def test_workflow_has_cache_save_step():
 
     cache_step = cache_save_steps[0]
     assert cache_step["uses"].startswith("actions/cache/save"), "Cache save should use actions/cache/save"
-    assert cache_step.get("if") == "always()", "Cache save should run even if sync fails"
+    assert (
+        "steps.cache-restore.outputs.cache-hit != 'true'" in cache_step.get("if", "")
+    ), "Cache save should skip when cache was already restored (avoid save failure)"
     assert cache_step["with"]["path"] == "subscriptions/", "Cache path should be subscriptions/"
-    assert "key" in cache_step["with"], "Cache step should have key"
+    assert "cache-primary-key" in cache_step["with"]["key"], "Cache save key should use restore step's primary key output"
 
 
 def test_workflow_does_not_introduce_gist_or_config_output():

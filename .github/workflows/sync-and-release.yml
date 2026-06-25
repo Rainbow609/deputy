@@ -52,11 +52,11 @@ jobs:
         run: uv run python scripts/sync_nodes.py --config sync_config.toml --template config.template.yaml --output config.yaml --previous config.previous.yaml
 
       - name: Save subscription caches
-        if: always()
+        if: always() && steps.cache-restore.outputs.cache-hit != 'true'
         uses: actions/cache/save@v5
         with:
           path: subscriptions/
-          key: subscriptions-${{ runner.os }}-${{ hashFiles('sync_config.toml') }}
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
 
       - name: Save previous config
         if: always()
