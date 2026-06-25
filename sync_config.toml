@@ -36,7 +36,7 @@ address_family = "auto"
 [subscription_sources]
 # 订阅源名称 = 订阅 URL
 # 节点会自动添加订阅源名称作为前缀，避免冲突
-"anaer" = "https://anaer.github.io/Sub/proxies.yaml"
+"anaer" = "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
 "vxiaov" = "https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml"
 
 # [rename] 节点重命名配置（可选）
