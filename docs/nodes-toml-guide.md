@@ -1,6 +1,6 @@
-# nodes.toml 配置指南
+# sync_config.toml 配置指南
 
-`nodes.toml` 是 deputy 的统一节点配置文件。它支持两种节点来源：
+`sync_config.toml` 是 deputy 的统一节点配置文件（原 `nodes.toml`，v0.2 起改名）。它支持两种节点来源：
 
 1. **静态节点** — 直接写在文件里，由你维护
 2. **订阅源** — 从远端 URL 拉取，自动验证

@@ -1,0 +1,20 @@
+port: 7890
+proxies:
+  - name: "hk-1"
+    type: vmess
+    server: 1.1.1.1
+    port: 443
+    uuid: u
+    alterId: 0
+    cipher: auto
+  - name: "🇸🇬 SG-1"
+    type: ss
+    server: 2.2.2.2
+    port: 8388
+    cipher: aes-256-gcm
+    password: p
+  - name: "us-1"
+    type: trojan
+    server: 3.3.3.3
+    port: 443
+    password: pp

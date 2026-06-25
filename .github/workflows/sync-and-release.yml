@@ -7,14 +7,19 @@ on:
   push:
     branches: [main]
     paths:
-      - "scripts/**"
+      - "src/deputy/**"
+      - "scripts/sync_nodes.py"
       - "config.template.yaml"
-      - "nodes.toml"
+      - "sync_config.toml"
       - "pyproject.toml"
       - "uv.lock"
 
 permissions:
   contents: write
+
+concurrency:
+  group: sync-nodes-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   sync:
@@ -35,7 +40,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: uv run python -m scripts.sync_nodes --config nodes.toml --template config.template.yaml --output config.yaml --previous config.previous.yaml
+        run: uv run python scripts/sync_nodes.py --config sync_config.toml --template config.template.yaml --output config.yaml --previous config.previous.yaml
 
       - name: Save previous config
         if: always()

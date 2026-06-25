@@ -1,10 +1,4 @@
-"""Template renderer for Clash Meta config.
-
-Direct port of mihomo-config's _safe_format_map. Only uppercase-brace
-identifiers (e.g. {LOCAL_PROXIES}) are treated as placeholders; flow-style
-YAML like `{ name: ... }` is left untouched to avoid breaking the
-generated config.
-"""
+"""Render mihomo config text from template and proxy data."""
 
 from __future__ import annotations
 
@@ -12,8 +6,12 @@ import re
 from pathlib import Path
 from typing import Any, Iterable
 
+import yaml
+
 
 _PLACEHOLDER_PATTERN = re.compile(r"\{([A-Z_][A-Z0-9_]*)\}")
+
+_SPECIAL_NAME_CHARS = set(" \t#&*!|>'\"%@`,[]{}()") | {chr(c) for c in range(0x1F300, 0x1FAFF)}
 
 
 def _safe_format_map(template_text: str, mapping: dict[str, str]) -> str:
@@ -26,9 +24,6 @@ def _safe_format_map(template_text: str, mapping: dict[str, str]) -> str:
         return match.group(0)
 
     return _PLACEHOLDER_PATTERN.sub(repl, template_text)
-
-
-_SPECIAL_NAME_CHARS = set(" \t#&*!|>'\"%@`,[]{}()") | {chr(c) for c in range(0x1F300, 0x1FAFF)}
 
 
 def _quote_if_needed(name: str) -> str:
@@ -72,8 +67,24 @@ def generate_proxy_items_yaml(proxies: Iterable[dict[str, Any]]) -> str:
     return "\n".join(lines) + ("\n" if lines else "")
 
 
+def generate_proxies_yaml(proxies: Iterable[dict[str, Any]]) -> str:
+    """Generate the full ``proxies:`` YAML block.
+
+    Identical output to ``generate_proxy_items_yaml`` but with the leading
+    ``proxies:`` key, suitable for direct substitution into a template that
+    uses a single ``{PROXIES}`` placeholder.
+    """
+    items = generate_proxy_items_yaml(proxies)
+    if not items:
+        return "proxies: []\n"
+    return f"proxies:\n{items}"
+
+
 def _generate_proxy_list_yaml(proxies: Iterable[dict[str, Any]]) -> str:
-    return generate_proxy_items_yaml(proxies) or "[]\n"
+    items = generate_proxy_items_yaml(proxies)
+    if not items:
+        return "[]\n"
+    return items
 
 
 def _generate_proxy_block_yaml(proxies: Iterable[dict[str, Any]]) -> str:
@@ -89,15 +100,15 @@ def render_template(
     sub_proxies: list[dict[str, Any]] | None = None,
     extra_replacements: dict[str, str] | None = None,
 ) -> str:
-    """Render the template at `template_path` by substituting placeholders.
+    """Render the template at ``template_path`` by substituting placeholders.
 
     Available placeholders:
-    - {LOCAL_PROXIES}: YAML list of static proxies
-    - {SUB_PROXIES}: YAML list of subscription proxies
-    - {PROXIES}: YAML list of all proxies combined
-    - {PROXIES_BLOCK}: complete `proxies` YAML field
-    - {NODE_SELECT_LIST}: comma-separated proxy names for `select` groups
-    - {DIALER_LIST}: comma-separated subscription proxy names
+    - ``{LOCAL_PROXIES}``: YAML list of static proxies
+    - ``{SUB_PROXIES}``: YAML list of subscription proxies
+    - ``{PROXIES}``: YAML list of all proxies combined
+    - ``{PROXIES_BLOCK}``: complete ``proxies`` YAML field
+    - ``{NODE_SELECT_LIST}``: comma-separated proxy names for ``select`` groups
+    - ``{DIALER_LIST}``: comma-separated subscription proxy names
     """
     text = template_path.read_text(encoding="utf-8")
     sub_proxies = sub_proxies or []
@@ -120,3 +131,14 @@ def render_template(
     if extra_replacements:
         mapping.update(extra_replacements)
     return _safe_format_map(text, mapping)
+
+
+def yaml_dump(data: Any) -> str:
+    """Dump data to YAML with consistent formatting options."""
+    return yaml.dump(
+        data,
+        default_flow_style=False,
+        indent=2,
+        sort_keys=False,
+        allow_unicode=True,
+    )

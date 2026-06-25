@@ -1,9 +1,19 @@
-# deputy 节点配置
+# deputy 节点配置 (sync_config.toml)
 # 详细文档见 docs/nodes-toml-guide.md
 
 [subscription]
 format = "clash"
 exclude_keywords = ["官网", "到期", "剩余流量", "距离下次重置剩余"]
+
+# Transport chain retry/backoff tuning (mirrors mihomo-config).
+# Defaults are conservative; tune down max_total_attempts for faster sync.
+[subscription.fetch]
+base_delay = 0.5
+max_delay = 8.0
+jitter_range = 0.3
+max_attempts_per_transport = 4
+max_total_attempts = 20
+timeout = 45
 
 [probe]
 timeout = 3

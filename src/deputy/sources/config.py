@@ -1,14 +1,20 @@
-"""TOML configuration parser for deputy.
+"""TOML configuration loader and atomic file-writer for deputy.
 
-Loads and validates nodes.toml containing:
-- subscription settings (format, exclude_keywords)
-- probe settings (timeout, concurrency, retries, address_family)
-- static_nodes list
-- subscription_sources dict
+Loads and validates ``sync_config.toml`` (formerly ``nodes.toml``):
+
+- ``[subscription]`` — format and exclude_keywords
+- ``[subscription.fetch]`` — exponential-backoff parameters for the
+  transport chain (mirrors mihomo-config's fetch block)
+- ``[probe]`` — TCP probe tuning (timeout, concurrency, retries, family)
+- ``[subscription_sources]`` — static name → URL mapping
+- ``[[static_nodes]]`` — hand-curated proxy entries (list of tables)
+- ``[rename]`` — global defaults + per-source overrides
 """
 
 from __future__ import annotations
 
+import os
+import tempfile
 import tomllib
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -26,6 +32,18 @@ class SubscriptionConfig:
 
 
 @dataclass
+class FetchConfig:
+    """Transport-chain retry/backoff tuning. Values mirror mihomo-config."""
+
+    base_delay: float = 0.5
+    max_delay: float = 8.0
+    jitter_range: float = 0.3
+    max_attempts_per_transport: int = 4
+    max_total_attempts: int = 20
+    timeout: int = 45
+
+
+@dataclass
 class ProbeConfig:
     timeout: int = 3
     concurrency: int = 30
@@ -37,6 +55,7 @@ class ProbeConfig:
 class DeputyConfig:
     subscription: SubscriptionConfig
     probe: ProbeConfig
+    fetch: FetchConfig
     static_nodes: list[dict[str, Any]] = field(default_factory=list)
     subscription_sources: dict[str, str] = field(default_factory=dict)
     rename: dict[str, Any] = field(default_factory=dict)
@@ -49,6 +68,18 @@ def _build_subscription(raw: dict[str, Any]) -> SubscriptionConfig:
     return SubscriptionConfig(
         format=fmt,
         exclude_keywords=list(raw.get("exclude_keywords", [])),
+    )
+
+
+def _build_fetch(raw: dict[str, Any] | None) -> FetchConfig:
+    raw = raw or {}
+    return FetchConfig(
+        base_delay=float(raw.get("base_delay", 0.5)),
+        max_delay=float(raw.get("max_delay", 8.0)),
+        jitter_range=float(raw.get("jitter_range", 0.3)),
+        max_attempts_per_transport=int(raw.get("max_attempts_per_transport", 4)),
+        max_total_attempts=int(raw.get("max_total_attempts", 20)),
+        timeout=int(raw.get("timeout", 45)),
     )
 
 
@@ -99,6 +130,8 @@ def load_config(path: Path) -> DeputyConfig:
         raise ConfigError("TOML 根节点必须是 table")
 
     sub = _build_subscription(raw.get("subscription", {}))
+    sub_raw = raw.get("subscription", {})
+    fetch = _build_fetch(sub_raw.get("fetch") if isinstance(sub_raw, dict) else None)
     probe = _build_probe(raw.get("probe", {}))
     static = list(raw.get("static_nodes", []))
     sources = dict(raw.get("subscription_sources", {}))
@@ -110,7 +143,30 @@ def load_config(path: Path) -> DeputyConfig:
     return DeputyConfig(
         subscription=sub,
         probe=probe,
+        fetch=fetch,
         static_nodes=static,
         subscription_sources=sources,
         rename=rename,
     )
+
+
+def write_text_atomic(path: Path, text: str) -> None:
+    """Write text to path via a temporary file and atomic replace.
+
+    Prevents partial writes from corrupting the released ``config.yaml``
+    asset when interrupted mid-flush.
+    """
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp_name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=path.parent)
+    tmp_path = Path(tmp_name)
+    try:
+        with os.fdopen(fd, "w") as f:
+            f.write(text)
+        tmp_path.replace(path)
+    except Exception:
+        try:
+            tmp_path.unlink()
+        except FileNotFoundError:
+            pass
+        raise
