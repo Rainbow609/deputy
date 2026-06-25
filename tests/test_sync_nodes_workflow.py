@@ -63,6 +63,48 @@ def test_workflow_release_step_guarded_by_hashfiles():
     assert "hashFiles" in release_step.get("if", "")
 
 
+def test_workflow_has_cache_restore_step():
+    """Ensure the workflow restores subscription caches before running sync."""
+    data = yaml.safe_load(WORKFLOW_PATH.read_text())
+    steps = data["jobs"]["sync"]["steps"]
+
+    run_sync_idx = next(
+        i for i, s in enumerate(steps) if s.get("name") == "Run sync"
+    )
+
+    cache_restore_steps = [
+        s for s in steps[:run_sync_idx] if s.get("name") == "Restore subscription caches"
+    ]
+    assert len(cache_restore_steps) == 1, "Missing cache restore step before Run sync"
+
+    cache_step = cache_restore_steps[0]
+    assert cache_step["uses"].startswith("actions/cache/restore"), "Cache restore should use actions/cache/restore"
+    assert cache_step["with"]["path"] == "subscriptions/", "Cache path should be subscriptions/"
+    assert "key" in cache_step["with"], "Cache step should have key"
+    assert "restore-keys" in cache_step["with"], "Cache restore step should have restore-keys"
+
+
+def test_workflow_has_cache_save_step():
+    """Ensure the workflow saves subscription caches after running sync."""
+    data = yaml.safe_load(WORKFLOW_PATH.read_text())
+    steps = data["jobs"]["sync"]["steps"]
+
+    run_sync_idx = next(
+        i for i, s in enumerate(steps) if s.get("name") == "Run sync"
+    )
+
+    cache_save_steps = [
+        s for s in steps[run_sync_idx + 1 :] if s.get("name") == "Save subscription caches"
+    ]
+    assert len(cache_save_steps) == 1, "Missing cache save step after Run sync"
+
+    cache_step = cache_save_steps[0]
+    assert cache_step["uses"].startswith("actions/cache/save"), "Cache save should use actions/cache/save"
+    assert cache_step.get("if") == "always()", "Cache save should run even if sync fails"
+    assert cache_step["with"]["path"] == "subscriptions/", "Cache path should be subscriptions/"
+    assert "key" in cache_step["with"], "Cache step should have key"
+
+
 def test_workflow_does_not_introduce_gist_or_config_output():
     """Per design decision: do not migrate to mihomo-config's Gist / config-output."""
     text = WORKFLOW_PATH.read_text()

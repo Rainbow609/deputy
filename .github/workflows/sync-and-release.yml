@@ -36,11 +36,27 @@ jobs:
       - name: Sync dependencies
         run: uv sync --locked
 
+      - name: Restore subscription caches
+        uses: actions/cache/restore@v4
+        id: cache-restore
+        with:
+          path: subscriptions/
+          key: subscriptions-${{ runner.os }}-${{ hashFiles('sync_config.toml') }}
+          restore-keys: |
+            subscriptions-${{ runner.os }}-
+
       - name: Run sync
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: uv run python scripts/sync_nodes.py --config sync_config.toml --template config.template.yaml --output config.yaml --previous config.previous.yaml
+
+      - name: Save subscription caches
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: subscriptions/
+          key: subscriptions-${{ runner.os }}-${{ hashFiles('sync_config.toml') }}
 
       - name: Save previous config
         if: always()
