@@ -21,19 +21,63 @@ _FULLWIDTH_SPACE = "　"
 
 _BENCHMARK_RANGE_PREFIX = (198, (18, 19))
 
+# Protocol prefixes that appear in node names (e.g. "VMESS-美国").
+_PROTOCOL_PREFIXES = re.compile(
+    r"^(?:VMESS|VMess|vmess|SS|ss|SSR|ssr|Trojan|trojan|VLESS|vless|Hysteria|hysteria)\s*-\s*"
+)
+
+# Unlock / feature suffixes like "-NF解锁...", "-ChatGPT", "-TikTok", "-YouTube".
+# We strip everything from the first such marker onward.
+_UNLOCK_MARKERS = re.compile(
+    r"-NF(?:解锁|解鎖)[^\s-]*(?:\s*-\s*[^\s-]+)*|"
+    r"-ChatGPT|"
+    r"-TikTok|"
+    r"-YouTube|"
+    r"-Netflix|"
+    r"-Disney\+|"
+    r"-HBO|"
+    r"-Spotify|"
+    r"-解锁[^\s-]*|"
+    r"-解鎖[^\s-]*"
+)
+
+# Server address at the end (IP:port or domain:port).
+_SERVER_SUFFIX = re.compile(r"-[a-zA-Z0-9][a-zA-Z0-9._-]*:\d{2,5}$")
+
 
 # ── sanitize_node_name ──────────────────────────────────────────────────────
+
+
+def _strip_protocol(name: str) -> str:
+    """Remove protocol prefix like VMESS-, SS-, SSR-, Trojan- etc."""
+    return _PROTOCOL_PREFIXES.sub("", name)
+
+
+def _strip_unlock_markers(name: str) -> str:
+    """Remove unlock/feature suffixes and everything after them."""
+    match = _UNLOCK_MARKERS.search(name)
+    if match:
+        return name[:match.start()]
+    return name
+
+
+def _strip_server_suffix(name: str) -> str:
+    """Remove trailing server address like -1.2.3.4:8080 or -domain.com:443."""
+    return _SERVER_SUFFIX.sub("", name)
 
 
 def sanitize_node_name(name: str) -> str:
     """Normalize subscription node names before prefixing them.
 
     Steps (order matters; each handles characters not covered by earlier steps):
-    1. Strip ASCII punctuation: ``|()[]{}!@#$%^&*=+`~?``
-    2. Strip emoji / decorative symbols: Unicode category ``So`` / ``Sm``.
-    3. Fullwidth space U+3000 → halfwidth space.
-    4. Collapse runs of whitespace to a single halfwidth space.
-    5. Strip leading / trailing whitespace.
+    1. Strip protocol prefix (VMESS-, SS-, SSR-, Trojan- etc.).
+    2. Strip unlock/feature suffixes (NF解锁..., ChatGPT, TikTok, YouTube etc.).
+    3. Strip trailing server address (IP:port or domain:port).
+    4. Strip ASCII punctuation: ``|()[]{}!@#$%^&*=+`~?``
+    5. Strip emoji / decorative symbols: Unicode category ``So`` / ``Sm``.
+    6. Fullwidth space U+3000 → halfwidth space.
+    7. Collapse runs of whitespace to a single halfwidth space.
+    8. Strip leading / trailing whitespace.
 
     Returns ``""`` when the result is empty; callers are responsible for
     dropping such nodes.
@@ -41,7 +85,10 @@ def sanitize_node_name(name: str) -> str:
     if not name:
         return ""
 
-    s = _SANITIZE_ASCII_PUNCT.sub("", name)
+    s = _strip_protocol(name)
+    s = _strip_unlock_markers(s)
+    s = _strip_server_suffix(s)
+    s = _SANITIZE_ASCII_PUNCT.sub("", s)
     s = "".join(c for c in s if unicodedata.category(c) not in _SANITIZE_SYMBOL_CAT)
     s = s.replace(_FULLWIDTH_SPACE, " ")
     s = re.sub(r"\s+", " ", s)

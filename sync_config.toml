@@ -53,6 +53,3 @@ address_family = "auto"
 #
 # [rename."vxiaov"]
 # prefix = "VX"
-
-[rename.vxiaov]
-max_length = 40
