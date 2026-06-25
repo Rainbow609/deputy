@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import importlib.util
 import sys
 import types
 
@@ -20,6 +21,8 @@ def _install_fake_module(name, **attrs):
     mod = types.ModuleType(name)
     for k, v in attrs.items():
         setattr(mod, k, v)
+    # Provide a minimal __spec__ so importlib.util.find_spec works.
+    mod.__spec__ = types.SimpleNamespace(name=name, origin="<test>", loader=None, submodule_search_locations=None)
     sys.modules[name] = mod
     return mod
 
@@ -46,13 +49,17 @@ def test_cloudscraper_transport_calls_session(monkeypatch):
 
 
 def test_cloudscraper_transport_raises_when_fetch_fails(monkeypatch):
-    """If cloudscraper.create_scraper raises ImportError on first call, fetch raises."""
-    class _Raising:
-        def __getattr__(self, name):
-            raise ImportError("simulated missing cloudscraper dependency")
+    """If cloudscraper is not installed, fetch raises TransportError."""
+    original_find_spec = importlib.util.find_spec
 
-    monkeypatch.setitem(sys.modules, "cloudscraper", _Raising())
+    def _mock_find_spec(name, *args, **kwargs):
+        if name == "cloudscraper":
+            return None
+        return original_find_spec(name, *args, **kwargs)
+
+    monkeypatch.setattr("importlib.util.find_spec", _mock_find_spec)
     t = CloudscraperTransport()
+    assert not t.available
     with pytest.raises(TransportError, match="cloudscraper"):
         t.fetch("https://example.com")
 

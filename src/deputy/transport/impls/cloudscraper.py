@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import importlib.util
 import logging
 
 from deputy.transport.chain import TransportError, TransportResult
@@ -16,16 +17,14 @@ class CloudscraperTransport:
     def __init__(self, browser: dict | None = None):
         self._browser = browser or {"browser": "chrome", "platform": "windows", "mobile": False}
         self._logger = logging.getLogger("deputy.transport.cloudscraper")
-        try:
-            import cloudscraper  # noqa: F401
-        except ImportError as e:
-            raise TransportError("cloudscraper not installed", retryable=False) from e
+        if importlib.util.find_spec("cloudscraper") is None:
+            self.available = False
+            self._logger.debug("cloudscraper not installed; transport marked unavailable")
 
     def fetch(self, url: str, *, timeout: int = 30) -> TransportResult:
-        try:
-            import cloudscraper
-        except ImportError as e:
-            raise TransportError("cloudscraper not installed", retryable=False) from e
+        if not self.available:
+            raise TransportError("cloudscraper not installed", retryable=False)
+        import cloudscraper
 
         try:
             create = getattr(cloudscraper, "create_scraper", None) or cloudscraper.create_cloudScraper
