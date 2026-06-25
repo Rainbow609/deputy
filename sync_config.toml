@@ -38,6 +38,7 @@ address_family = "auto"
 # 节点会自动添加订阅源名称作为前缀，避免冲突
 "anaer" = "https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
 "vxiaov" = "https://raw.githubusercontent.com/vxiaov/free_proxies/main/clash/clash.provider.yaml"
+"一元" = "https://dp3.config-sync.com/api/v1/client/subscribe?token=7b34d51b1b6de86017e88b209b83730a"
 
 # [rename] 节点重命名配置（可选）
 # 全局默认设置 + 逐源覆盖，未配置时使用默认值（sanitize=true, separator="-"）
