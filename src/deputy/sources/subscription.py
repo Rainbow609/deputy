@@ -163,19 +163,18 @@ def _sanitize_proxies(
     prefix: str | None,
     source_name: str,
 ) -> list[dict]:
-    """Drop nameless / empty-name entries after prefixing with the source.
+    """Drop nameless / empty-name entries.
 
-    Sanitization (cleaning emojis/punctuation/whitespace) is handled later by
-    ``deputy.core.nodes.sanitize_node_name``; here we only attach the prefix.
+    Prefixing and sanitization (cleaning emojis/punctuation/whitespace) are
+    handled later by ``deputy.core.nodes.apply_node_rename``; here we only
+    validate that each proxy has a non-empty name.
     """
     sanitized: list[dict] = []
     for proxy in raw_proxies:
         original_name = proxy.get("name", "")
         if not original_name:
             continue
-        proxy = dict(proxy)
-        proxy["name"] = f"{prefix}-{original_name}" if prefix else original_name
-        sanitized.append(proxy)
+        sanitized.append(dict(proxy))
     return sanitized
 
 
