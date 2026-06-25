@@ -43,7 +43,7 @@ def _yaml_scalar(value: Any) -> str:
     if isinstance(value, (int, float)):
         return str(value)
     if isinstance(value, str):
-        if any(ch in value for ch in [":", "#", "\n", '"']) or value.strip() != value:
+        if any(ch in value for ch in [":", "#", "\n", '"', "%"]) or value.strip() != value:
             escaped = value.replace("\\", "\\\\").replace('"', '\\"')
             return f'"{escaped}"'
         return value
