@@ -58,6 +58,7 @@ class RenameConfig:
     prefix: str = ""
     sanitize: bool = True
     separator: str = "-"
+    max_length: int = 0  # 0 means no limit
 
 
 @dataclass(frozen=True)
@@ -82,6 +83,7 @@ def build_rename_config(
         prefix=str(merged.get("prefix", "")),
         sanitize=bool(merged.get("sanitize", True)),
         separator=str(merged.get("separator", "-")),
+        max_length=int(merged.get("max_length", 0)),
     )
 
 
@@ -123,8 +125,11 @@ def apply_node_rename(
         else:
             cleaned = original_name
 
+        new_name = f"{prefix}{sep}{cleaned}" if prefix else cleaned
+        if cfg.max_length and len(new_name) > cfg.max_length:
+            new_name = new_name[:cfg.max_length]
         new_proxy = dict(proxy)
-        new_proxy["name"] = f"{prefix}{sep}{cleaned}" if prefix else cleaned
+        new_proxy["name"] = new_name
         result.append(new_proxy)
 
     return result

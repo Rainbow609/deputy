@@ -46,9 +46,13 @@ address_family = "auto"
 # [rename]
 # sanitize = true      # 是否清洗节点名（去 emoji/标点/折叠空白）
 # separator = "-"      # 前缀与节点名之间的分隔符
+# max_length = 0       # 节点名最大长度（0 表示不限制）
 #
 # [rename."anaer"]     # 逐源覆盖：为该源指定自定义前缀
 # prefix = "AN"
 #
 # [rename."vxiaov"]
 # prefix = "VX"
+
+[rename.vxiaov]
+max_length = 40
