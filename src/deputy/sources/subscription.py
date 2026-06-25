@@ -33,6 +33,22 @@ CACHE_DIR = Path("subscriptions")
 _CACHE_PREFIX_SAFE = re.compile(r"^[A-Za-z0-9_.-]+$")
 
 
+def _safe_cache_name(prefix: str) -> str:
+    """Convert any source name into a safe filesystem cache filename.
+
+    ASCII-safe names (A-Z, a-z, 0-9, _, ., -) are returned as-is.
+    Everything else is replaced with underscores so the result is always
+    a valid, portable filename.  Leading dots are also stripped to avoid
+    hidden-file and path-traversal issues.
+    """
+    if _CACHE_PREFIX_SAFE.match(prefix):
+        return prefix
+    safe = re.sub(r"[^A-Za-z0-9_.-]", "_", prefix)
+    # Strip leading dots to prevent hidden files or ".." traversal
+    safe = safe.lstrip(".")
+    return safe or "_"
+
+
 @dataclass(frozen=True)
 class SubscriptionFetchResult:
     source: str
@@ -44,9 +60,10 @@ class SubscriptionFetchResult:
 
 def cache_path(cache_dir: Path | str, prefix: str) -> Path:
     """Return the cache path for a subscription prefix."""
-    if not prefix or not _CACHE_PREFIX_SAFE.match(prefix):
-        raise ValueError(f"unsafe cache prefix: {prefix!r}")
-    return Path(cache_dir) / f"{prefix}.yaml"
+    if not prefix:
+        raise ValueError("cache prefix must not be empty")
+    safe = _safe_cache_name(prefix)
+    return Path(cache_dir) / f"{safe}.yaml"
 
 
 def redact_url_tokens(text: str | Exception) -> str:

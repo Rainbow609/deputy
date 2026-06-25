@@ -27,9 +27,18 @@ def test_cache_path_safe_prefix():
     assert str(p).endswith("anaer.yaml")
 
 
-def test_cache_path_rejects_unsafe_prefix():
-    with pytest.raises(ValueError, match="unsafe cache prefix"):
-        cache_path("/tmp/cache", "../etc/passwd")
+def test_cache_path_escapes_unsafe_prefix():
+    """Path-traversal and non-ASCII characters are sanitized to underscores."""
+    p = cache_path("/tmp/cache", "../etc/passwd")
+    # Leading dots are stripped to avoid hidden-file / path-traversal issues
+    assert not Path(p).name.startswith(".")
+    assert str(p).endswith("_etc_passwd.yaml")
+
+
+def test_cache_path_handles_cjk_prefix():
+    """Chinese source names are safely mapped to filesystem names."""
+    p = cache_path("/tmp/cache", "一元")
+    assert str(p).endswith("__.yaml")
 
 
 def test_redact_url_tokens_strips_token_query():
