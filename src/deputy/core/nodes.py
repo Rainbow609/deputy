@@ -144,6 +144,7 @@ def apply_node_rename(
     - Skips nodes without a ``name``.
     - When ``sanitize=True``, calls ``sanitize_node_name`` and drops empties.
     - When name changes by ≥ 3 chars, prints a warning to stderr.
+    - Duplicate names within the same source get a `` 01``, `` 02``, ... suffix.
     - Returns a new list; original dicts are not mutated.
     """
     cfg = rename_cfg or RenameConfig()
@@ -151,6 +152,8 @@ def apply_node_rename(
     sep = cfg.separator
 
     result: list[dict[str, Any]] = []
+    seen_names: dict[str, int] = {}
+
     for proxy in proxies:
         original_name = proxy.get("name", "") or ""
         if not original_name:
@@ -175,6 +178,14 @@ def apply_node_rename(
         new_name = f"{prefix}{sep}{cleaned}" if prefix else cleaned
         if cfg.max_length and len(new_name) > cfg.max_length:
             new_name = new_name[:cfg.max_length]
+
+        # Deduplicate names by appending a counter suffix (" 01", " 02", ...)
+        if new_name in seen_names:
+            seen_names[new_name] += 1
+            new_name = f"{new_name} {seen_names[new_name]:02d}"
+        else:
+            seen_names[new_name] = 0
+
         new_proxy = dict(proxy)
         new_proxy["name"] = new_name
         result.append(new_proxy)

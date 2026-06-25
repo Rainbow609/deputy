@@ -147,6 +147,33 @@ def test_apply_skips_nameless_proxies():
     assert result == []
 
 
+def test_apply_deduplicates_duplicate_names():
+    """Same cleaned name from different servers gets 01, 02, ... suffix."""
+    proxies = [
+        {"name": "美国", "server": "1.1.1.1", "port": 443},
+        {"name": "美国", "server": "2.2.2.2", "port": 443},
+        {"name": "美国", "server": "3.3.3.3", "port": 443},
+        {"name": "英国", "server": "4.4.4.4", "port": 443},
+    ]
+    result = apply_node_rename(proxies, "vxiaov")
+    assert result[0]["name"] == "vxiaov-美国"
+    assert result[1]["name"] == "vxiaov-美国 01"
+    assert result[2]["name"] == "vxiaov-美国 02"
+    assert result[3]["name"] == "vxiaov-英国"
+
+
+def test_apply_deduplicates_with_custom_prefix():
+    """Custom prefix + duplicate names still get suffixes."""
+    cfg = RenameConfig(prefix="AN")
+    proxies = [
+        {"name": "HK", "server": "1.1.1.1", "port": 443},
+        {"name": "HK", "server": "2.2.2.2", "port": 443},
+    ]
+    result = apply_node_rename(proxies, "anaer", cfg)
+    assert result[0]["name"] == "AN-HK"
+    assert result[1]["name"] == "AN-HK 01"
+
+
 # ── build_rename_config ─────────────────────────────────────────────────────
 
 
