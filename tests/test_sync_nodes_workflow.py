@@ -110,3 +110,23 @@ def test_workflow_does_not_introduce_gist_or_config_output():
     text = WORKFLOW_PATH.read_text()
     assert "gist" not in text.lower()
     assert "config-output" not in text
+
+
+def test_workflow_uses_node24_compatible_actions():
+    """Ensure actions use Node 24 compatible versions to avoid deprecation warnings.
+
+    References:
+    - actions/cache v5: https://github.com/actions/cache (updated to node 24)
+    - actions/checkout v7: https://github.com/actions/checkout (ESM, node 24)
+    - setup-uv v8.2.0: https://github.com/astral-sh/setup-uv (immutable release)
+    """
+    text = WORKFLOW_PATH.read_text()
+    # actions/cache v4 uses Node 20 which is deprecated as of June 2026
+    assert "actions/cache/restore@v4" not in text, "Upgrade to actions/cache/restore@v5 for Node 24"
+    assert "actions/cache/save@v4" not in text, "Upgrade to actions/cache/save@v5 for Node 24"
+    assert "actions/cache/restore@v5" in text, "Use actions/cache/restore@v5 (Node 24)"
+    assert "actions/cache/save@v5" in text, "Use actions/cache/save@v5 (Node 24)"
+
+    # astral-sh/setup-uv v7 may use Node 20; v8+ uses immutable releases
+    assert "astral-sh/setup-uv@v7" not in text, "Upgrade to setup-uv@v8.2.0+ for Node 24"
+    assert "astral-sh/setup-uv@v8.2.0" in text, "Use setup-uv@v8.2.0 (immutable, Node 24)"
