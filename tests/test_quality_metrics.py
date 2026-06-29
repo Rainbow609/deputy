@@ -59,6 +59,13 @@ def test_format_release_notes_includes_summary():
                 "cn_refused_count": 0,
                 "cn_success_rate": 80.0,
             },
+            "mihomo_overview": {
+                "tested_nodes": 10,
+                "success_count": 7,
+                "failure_count": 3,
+                "timeout_count": 2,
+                "success_rate": 70.0,
+            },
         },
         failed_sources=[("星链云", "timeout")],
     )
@@ -71,6 +78,9 @@ def test_format_release_notes_includes_summary():
     assert "itdog" in notes
     assert "30" in notes
     assert "itdog, noop" in notes
+    assert "Mihomo 实拨" in notes
+    assert "10" in notes
+    assert "70.0%" in notes or "70%" in notes
 
 
 def test_fetch_status_rows_marks_fresh_updated():

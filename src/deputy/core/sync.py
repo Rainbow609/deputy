@@ -53,7 +53,7 @@ from deputy.sources.subscription import (
     prune_subscription_caches,
 )
 from deputy.transport.chain import TransportChain
-from deputy.utils.logging import GhaLogger, LogLevel, StepSummaryBuilder, group as gha_group, endgroup as gha_endgroup
+from deputy.utils.logging import GhaLogger, LogLevel, StepSummaryBuilder, endgroup as gha_endgroup, group as gha_group, set_output
 from deputy.utils.quality import compute_latency_stats, compute_survival_rate
 from deputy.utils.summary import (
     build_release_notes,
@@ -262,6 +262,13 @@ def run_sync(
         )
     status_counts = count_statuses(assessments)
     verification_overview = summarize_verification_assessments(assessments)
+    mihomo_overview = {
+        "tested_nodes": verification_overview.get("mihomo_tested_nodes", 0),
+        "success_count": verification_overview.get("mihomo_success_count", 0),
+        "failure_count": verification_overview.get("mihomo_failure_count", 0),
+        "timeout_count": verification_overview.get("mihomo_timeout_count", 0),
+        "success_rate": verification_overview.get("mihomo_success_rate", 0.0),
+    }
     policy_counts = Counter(policy_actions.values())
     filtered_out = policy_counts.get("exclude", 0)
     if not policy_alive_nodes:
@@ -320,6 +327,7 @@ def run_sync(
             "filter_mode": config.probe.classifier.filter_mode,
             "filtered_out": filtered_out,
             "verification_overview": verification_overview,
+            "mihomo_overview": mihomo_overview,
         },
         failed_sources=failed_sources,
     )
@@ -337,6 +345,12 @@ def run_sync(
 
     # 7. GitHub Actions Step Summary (no-op outside CI).
     if _should_emit_ci_artifacts():
+        set_output("mihomo_health_enabled", str(config.probe.health.enabled).lower())
+        set_output("mihomo_tested_nodes", str(mihomo_overview["tested_nodes"]))
+        set_output("mihomo_success_count", str(mihomo_overview["success_count"]))
+        set_output("mihomo_failure_count", str(mihomo_overview["failure_count"]))
+        set_output("mihomo_timeout_count", str(mihomo_overview["timeout_count"]))
+        set_output("mihomo_success_rate", str(mihomo_overview["success_rate"]))
         try:
             sb = StepSummaryBuilder()
             sb.heading("Deputy 同步结果", level=2)
@@ -379,6 +393,18 @@ def run_sync(
                         ("样本成功率", f"{verification_overview.get('cn_success_rate', 0):.1f}%"),
                     ],
                 )
+            if mihomo_overview["tested_nodes"] > 0:
+                sb.heading("Mihomo 实拨摘要", level=3)
+                sb.table(
+                    ["指标", "数值"],
+                    [
+                        ("测试节点", str(mihomo_overview["tested_nodes"])),
+                        ("成功节点", str(mihomo_overview["success_count"])),
+                        ("失败节点", str(mihomo_overview["failure_count"])),
+                        ("超时节点", str(mihomo_overview["timeout_count"])),
+                        ("成功率", f"{mihomo_overview['success_rate']:.1f}%"),
+                    ],
+                )
             if failed_sources:
                 sb.heading("失败的订阅源", level=3)
                 sb.table(["订阅源", "原因"], failed_sources)
@@ -418,6 +444,7 @@ def run_sync(
         "policy_counts": policy_counts,
         "filtered_out": filtered_out,
         "verification_overview": verification_overview,
+        "mihomo_overview": mihomo_overview,
         "assessments": {key: value.to_dict() for key, value in assessments.items()},
     }
 

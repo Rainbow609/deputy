@@ -35,7 +35,7 @@ def test_workflow_push_paths_include_src_deputy():
 def test_workflow_run_sync_uses_new_entry_point():
     data = yaml.safe_load(WORKFLOW_PATH.read_text())
     sync_step = next(
-        s for s in data["jobs"]["sync"]["steps"] if s.get("name") == "Run sync"
+        s for s in data["jobs"]["sync"]["steps"] if s.get("name") == "Run bootstrap sync"
     )
     cmd = sync_step["run"]
     assert "scripts/sync_nodes.py" in cmd
@@ -69,13 +69,13 @@ def test_workflow_has_cache_restore_step():
     steps = data["jobs"]["sync"]["steps"]
 
     run_sync_idx = next(
-        i for i, s in enumerate(steps) if s.get("name") == "Run sync"
+        i for i, s in enumerate(steps) if s.get("name") == "Run bootstrap sync"
     )
 
     cache_restore_steps = [
         s for s in steps[:run_sync_idx] if s.get("name") == "Restore subscription caches"
     ]
-    assert len(cache_restore_steps) == 1, "Missing cache restore step before Run sync"
+    assert len(cache_restore_steps) == 1, "Missing cache restore step before bootstrap sync"
 
     cache_step = cache_restore_steps[0]
     assert cache_step["uses"].startswith("actions/cache/restore"), "Cache restore should use actions/cache/restore"
@@ -90,7 +90,7 @@ def test_workflow_has_cache_save_step():
     steps = data["jobs"]["sync"]["steps"]
 
     run_sync_idx = next(
-        i for i, s in enumerate(steps) if s.get("name") == "Run sync"
+        i for i, s in enumerate(steps) if s.get("name") == "Run sync with CN probe and Mihomo health"
     )
 
     cache_save_steps = [

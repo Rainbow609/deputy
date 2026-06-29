@@ -415,6 +415,10 @@ def test_actions_workflow_runs_two_pass_mihomo_health_path():
     assert 's/(\\[probe\\.cn\\]\\s*enabled\\s*=\\s*)false/${1}true/s' in workflow
     assert 's/(provider\\s*=\\s*)"noop"/${1}"auto"/s' in workflow
     assert "Run sync with CN probe and Mihomo health" in workflow
+    assert "id: verification_sync" in workflow
+    assert "Validate Mihomo connectivity results" in workflow
+    assert "steps.verification_sync.outputs.mihomo_tested_nodes" in workflow
+    assert "steps.verification_sync.outputs.mihomo_success_count" in workflow
     assert "sync_config.health.toml" in workflow
     assert "http://127.0.0.1:9093/version" in workflow
     assert "Authorization: Bearer deputy-ci" in workflow

@@ -175,6 +175,7 @@ def assess_node(
     mihomo_delay_ms: int | None,
     classifier: VerificationClassifierConfig,
     history_record: HistoryRecord | None,
+    mihomo_failure_reason: str | None = None,
     min_vantages: int = 3,
     min_success_vantages: int = 2,
 ) -> VerificationAssessment:
@@ -196,7 +197,11 @@ def assess_node(
             signal_summary={
                 "control_tcp": {"ok": False, "failure_reason": control_failure_reason},
                 "cn_tcp": cn_summary.to_dict(),
-                "mihomo_delay": {"ok": mihomo_delay_ok, "delay_ms": mihomo_delay_ms},
+                "mihomo_delay": {
+                    "ok": mihomo_delay_ok,
+                    "delay_ms": mihomo_delay_ms,
+                    "failure_reason": mihomo_failure_reason,
+                },
             },
             history=history,
         )
@@ -220,7 +225,11 @@ def assess_node(
             signal_summary={
                 "control_tcp": {"ok": True},
                 "cn_tcp": cn_summary.to_dict(),
-                "mihomo_delay": {"ok": mihomo_delay_ok, "delay_ms": mihomo_delay_ms},
+                "mihomo_delay": {
+                    "ok": mihomo_delay_ok,
+                    "delay_ms": mihomo_delay_ms,
+                    "failure_reason": mihomo_failure_reason,
+                },
             },
             history=history,
         )
@@ -241,7 +250,11 @@ def assess_node(
             signal_summary={
                 "control_tcp": {"ok": True},
                 "cn_tcp": cn_summary.to_dict(),
-                "mihomo_delay": {"ok": mihomo_delay_ok, "delay_ms": mihomo_delay_ms},
+                "mihomo_delay": {
+                    "ok": mihomo_delay_ok,
+                    "delay_ms": mihomo_delay_ms,
+                    "failure_reason": mihomo_failure_reason,
+                },
             },
             history=history,
         )
@@ -261,7 +274,11 @@ def assess_node(
             signal_summary={
                 "control_tcp": {"ok": True},
                 "cn_tcp": cn_summary.to_dict(),
-                "mihomo_delay": {"ok": mihomo_delay_ok, "delay_ms": mihomo_delay_ms},
+                "mihomo_delay": {
+                    "ok": mihomo_delay_ok,
+                    "delay_ms": mihomo_delay_ms,
+                    "failure_reason": mihomo_failure_reason,
+                },
             },
             history=history,
         )
@@ -303,7 +320,11 @@ def assess_node(
             signal_summary={
                 "control_tcp": {"ok": True},
                 "cn_tcp": cn_summary.to_dict(),
-                "mihomo_delay": {"ok": mihomo_delay_ok, "delay_ms": mihomo_delay_ms},
+                "mihomo_delay": {
+                    "ok": mihomo_delay_ok,
+                    "delay_ms": mihomo_delay_ms,
+                    "failure_reason": mihomo_failure_reason,
+                },
             },
             history=history,
         )
@@ -321,7 +342,11 @@ def assess_node(
         signal_summary={
             "control_tcp": {"ok": True},
             "cn_tcp": cn_summary.to_dict(),
-            "mihomo_delay": {"ok": mihomo_delay_ok, "delay_ms": mihomo_delay_ms},
+            "mihomo_delay": {
+                "ok": mihomo_delay_ok,
+                "delay_ms": mihomo_delay_ms,
+                "failure_reason": mihomo_failure_reason,
+            },
         },
         history=history,
     )
@@ -363,6 +388,7 @@ def assess_nodes(
             cn_summary=cn_summary,
             mihomo_delay_ok=health_result.ok,
             mihomo_delay_ms=health_result.delay_ms,
+            mihomo_failure_reason=health_result.failure_reason,
             classifier=classifier,
             history_record=history.get(node_key),
             min_vantages=cn_config.min_vantages,

@@ -62,6 +62,15 @@ def build_release_notes(
         lines.append(f"- 拒绝样本: {verification_overview.get('cn_refused_count', 0)}")
         lines.append(f"- 重置样本: {verification_overview.get('cn_reset_count', 0)}")
         lines.append(f"- 样本成功率: {verification_overview.get('cn_success_rate', 0):.1f}%")
+    mihomo_overview = stats.get("mihomo_overview") or {}
+    if mihomo_overview.get("tested_nodes", 0) > 0:
+        lines.append("")
+        lines.append("## Mihomo 实拨")
+        lines.append(f"- 测试节点: {mihomo_overview.get('tested_nodes', 0)}")
+        lines.append(f"- 成功节点: {mihomo_overview.get('success_count', 0)}")
+        lines.append(f"- 失败节点: {mihomo_overview.get('failure_count', 0)}")
+        lines.append(f"- 超时节点: {mihomo_overview.get('timeout_count', 0)}")
+        lines.append(f"- 成功率: {mihomo_overview.get('success_rate', 0):.1f}%")
     if failed_sources:
         lines.append("")
         lines.append("## 失败的订阅源")
@@ -118,11 +127,19 @@ def build_verification_json_payload(
     filtered_count: int,
 ) -> str:
     overview = summarize_verification_assessments(assessments)
+    mihomo_overview = {
+        "tested_nodes": overview.get("mihomo_tested_nodes", 0),
+        "success_count": overview.get("mihomo_success_count", 0),
+        "failure_count": overview.get("mihomo_failure_count", 0),
+        "timeout_count": overview.get("mihomo_timeout_count", 0),
+        "success_rate": overview.get("mihomo_success_rate", 0.0),
+    }
     return json.dumps(
         {
             "phase": "verification",
             "total": filtered_count,
             "overview": overview,
+            "mihomo_overview": mihomo_overview,
             "nodes": [assessment.to_dict() for assessment in assessments.values()],
         },
         ensure_ascii=False,
@@ -140,10 +157,15 @@ def summarize_verification_assessments(
     cn_timeout_count = 0
     cn_reset_count = 0
     cn_refused_count = 0
+    mihomo_tested_nodes = 0
+    mihomo_success_count = 0
+    mihomo_failure_count = 0
+    mihomo_timeout_count = 0
 
     for raw in assessments.values():
         signal_summary = raw.signal_summary if isinstance(raw, VerificationAssessment) else raw.get("signal_summary", {})
         cn_tcp = signal_summary.get("cn_tcp", {}) if isinstance(signal_summary, dict) else {}
+        mihomo_delay = signal_summary.get("mihomo_delay", {}) if isinstance(signal_summary, dict) else {}
         sample_count = int(cn_tcp.get("sample_count", 0) or 0)
         success_count = int(cn_tcp.get("success_count", 0) or 0)
         timeout_count = int(cn_tcp.get("timeout_count", 0) or 0)
@@ -175,7 +197,20 @@ def summarize_verification_assessments(
         for provider in attempted_providers:
             attempted_provider_counts[provider] += 1
 
+        mihomo_ok = bool(mihomo_delay.get("ok", False))
+        mihomo_failure_reason = str(mihomo_delay.get("failure_reason", "") or "")
+        mihomo_attempted = mihomo_ok or (mihomo_failure_reason not in {"", "health-disabled"})
+        if mihomo_attempted:
+            mihomo_tested_nodes += 1
+            if mihomo_ok:
+                mihomo_success_count += 1
+            else:
+                mihomo_failure_count += 1
+                if mihomo_failure_reason == "timeout":
+                    mihomo_timeout_count += 1
+
     cn_success_rate = round((cn_success_count / cn_sample_count) * 100, 1) if cn_sample_count else 0.0
+    mihomo_success_rate = round((mihomo_success_count / mihomo_tested_nodes) * 100, 1) if mihomo_tested_nodes else 0.0
     return {
         "cn_provider": provider_counts.most_common(1)[0][0] if provider_counts else "",
         "cn_attempted_providers": [name for name, _ in attempted_provider_counts.most_common()],
@@ -186,6 +221,11 @@ def summarize_verification_assessments(
         "cn_reset_count": cn_reset_count,
         "cn_refused_count": cn_refused_count,
         "cn_success_rate": cn_success_rate,
+        "mihomo_tested_nodes": mihomo_tested_nodes,
+        "mihomo_success_count": mihomo_success_count,
+        "mihomo_failure_count": mihomo_failure_count,
+        "mihomo_timeout_count": mihomo_timeout_count,
+        "mihomo_success_rate": mihomo_success_rate,
     }
 
 

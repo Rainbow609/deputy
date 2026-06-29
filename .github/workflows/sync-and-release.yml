@@ -88,10 +88,25 @@ jobs:
           perl -0pi -e 's/(\[probe\.cn\]\s*enabled\s*=\s*)false/${1}true/s; s/(provider\s*=\s*)"noop"/${1}"auto"/s; s/(\[probe\.health\]\s*enabled\s*=\s*)false/${1}true/s; s/(secret\s*=\s*)""/${1}"deputy-ci"/s' sync_config.health.toml
 
       - name: Run sync with CN probe and Mihomo health
+        id: verification_sync
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: uv run python scripts/sync_nodes.py --config sync_config.health.toml --template config.template.yaml --output config.yaml --previous config.previous.yaml
+
+      - name: Validate Mihomo connectivity results
+        run: |
+          set -euo pipefail
+          tested="${{ steps.verification_sync.outputs.mihomo_tested_nodes }}"
+          success="${{ steps.verification_sync.outputs.mihomo_success_count }}"
+          enabled="${{ steps.verification_sync.outputs.mihomo_health_enabled }}"
+          echo "Mihomo health enabled: ${enabled}"
+          echo "Mihomo tested nodes: ${tested}"
+          echo "Mihomo success nodes: ${success}"
+          if [ "${enabled}" = "true" ] && [ "${tested}" -gt 0 ] && [ "${success}" -eq 0 ]; then
+            echo "Mihomo connectivity gate failed: health enabled, tested nodes > 0, but success_count == 0" >&2
+            exit 1
+          fi
 
       - name: Save subscription caches
         if: always() && steps.cache-restore.outputs.cache-hit != 'true'

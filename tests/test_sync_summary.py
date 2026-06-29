@@ -63,7 +63,8 @@ def test_build_verification_json_payload_shape():
                     "sample_count": 3,
                     "success_count": 2,
                     "samples": [{"provider": "itdog", "location": "辽宁大连电信", "ok": True}],
-                }
+                },
+                "mihomo_delay": {"ok": True, "delay_ms": 123},
             },
             history=HistoryRecord("reachable", 0, 0, "2026-06-29T00:00:00Z"),
         )
@@ -74,6 +75,11 @@ def test_build_verification_json_payload_shape():
     assert payload["overview"]["cn_sample_count"] == 3
     assert payload["overview"]["cn_provider"] == "itdog"
     assert payload["overview"]["cn_attempted_providers"] == ["itdog"]
+    assert payload["mihomo_overview"]["tested_nodes"] == 1
+    assert payload["mihomo_overview"]["success_count"] == 1
+    assert payload["mihomo_overview"]["failure_count"] == 0
+    assert payload["mihomo_overview"]["timeout_count"] == 0
+    assert payload["mihomo_overview"]["success_rate"] == 100.0
     assert payload["nodes"][0]["name"] == "alive-1"
     assert payload["nodes"][0]["status"] == "reachable"
     assert payload["nodes"][0]["block_confidence"] == 0
@@ -102,7 +108,8 @@ def test_summarize_verification_assessments_aggregates_cn_probe_signal():
                         {"provider": "itdog", "location": "江苏镇江电信", "ok": True},
                         {"provider": "itdog", "location": "湖南长沙电信", "ok": False},
                     ],
-                }
+                },
+                "mihomo_delay": {"ok": True, "delay_ms": 120},
             },
             history=HistoryRecord("reachable", 0, 0, "2026-06-29T00:00:00Z"),
         ),
@@ -127,7 +134,8 @@ def test_summarize_verification_assessments_aggregates_cn_probe_signal():
                         {"provider": "itdog", "location": "江苏镇江电信", "ok": False},
                         {"provider": "itdog", "location": "湖南长沙电信", "ok": False},
                     ],
-                }
+                },
+                "mihomo_delay": {"ok": False, "delay_ms": None, "failure_reason": "timeout"},
             },
             history=HistoryRecord("suspected_gfw_blocked", 1, 80, "2026-06-29T00:00:00Z"),
         ),
@@ -143,6 +151,11 @@ def test_summarize_verification_assessments_aggregates_cn_probe_signal():
     assert overview["cn_reset_count"] == 1
     assert overview["cn_refused_count"] == 0
     assert overview["cn_success_rate"] == 33.3
+    assert overview["mihomo_tested_nodes"] == 2
+    assert overview["mihomo_success_count"] == 1
+    assert overview["mihomo_failure_count"] == 1
+    assert overview["mihomo_timeout_count"] == 1
+    assert overview["mihomo_success_rate"] == 50.0
 
 
 def test_summarize_verification_assessments_counts_sample_provider_per_node():

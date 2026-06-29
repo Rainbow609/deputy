@@ -245,7 +245,8 @@ mock = "https://mock.example.com/sub"
                         "reset_count": 0,
                         "refused_count": 0,
                         "samples": [{"provider": "itdog", "location": "辽宁大连电信", "ok": True}],
-                    }
+                    },
+                    "mihomo_delay": {"ok": True, "delay_ms": 111},
                 },
             },
             "vmess|2.2.2.2|443": {
@@ -261,7 +262,8 @@ mock = "https://mock.example.com/sub"
                         "reset_count": 1,
                         "refused_count": 0,
                         "samples": [{"provider": "itdog", "location": "江苏宿迁联通", "ok": False}],
-                    }
+                    },
+                    "mihomo_delay": {"ok": False, "delay_ms": None, "failure_reason": "timeout"},
                 },
             },
         }
@@ -284,6 +286,11 @@ mock = "https://mock.example.com/sub"
     assert summary["status_counts"]["blocked_confirmed"] == 1
     assert summary["verification_overview"]["cn_provider"] == "itdog"
     assert summary["verification_overview"]["cn_sample_count"] == 6
+    assert summary["mihomo_overview"]["tested_nodes"] == 2
+    assert summary["mihomo_overview"]["success_count"] == 1
+    assert summary["mihomo_overview"]["failure_count"] == 1
+    assert summary["mihomo_overview"]["timeout_count"] == 1
+    assert summary["mihomo_overview"]["success_rate"] == 50.0
 
 
 def test_should_emit_ci_artifacts_respects_bootstrap_opt_out(monkeypatch):
