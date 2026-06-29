@@ -7,6 +7,7 @@ on:
   push:
     branches: [main]
     paths:
+      - ".github/workflows/sync-and-release.yml"
       - "src/deputy/**"
       - "scripts/sync_nodes.py"
       - "config.template.yaml"
@@ -45,11 +46,51 @@ jobs:
           restore-keys: |
             subscriptions-${{ runner.os }}-
 
-      - name: Run sync
+      - name: Run bootstrap sync
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: uv run python scripts/sync_nodes.py --config sync_config.toml --template config.template.yaml --output config.yaml --previous config.previous.yaml
+
+      - name: Download Mihomo
+        run: |
+          set -euo pipefail
+          url="$(curl -fsSL https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | jq -r '.assets[] | select(.name | test("linux-amd64.*\\.gz$")) | .browser_download_url' | head -n1)"
+          test -n "$url"
+          curl -fsSL "$url" -o /tmp/mihomo.gz
+          gunzip -c /tmp/mihomo.gz > /tmp/mihomo
+          chmod +x /tmp/mihomo
+          /tmp/mihomo -v
+
+      - name: Start Mihomo controller
+        run: |
+          set -euo pipefail
+          {
+            printf 'external-controller: 127.0.0.1:9093\n'
+            printf 'secret: deputy-ci\n'
+            cat config.yaml
+          } > config.mihomo.yaml
+          nohup /tmp/mihomo -f config.mihomo.yaml > mihomo.log 2>&1 &
+          for _ in $(seq 1 20); do
+            if curl -fsS -H 'Authorization: Bearer deputy-ci' http://127.0.0.1:9093/version >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat mihomo.log
+          exit 1
+
+      - name: Prepare health-enabled config
+        run: |
+          set -euo pipefail
+          cp sync_config.toml sync_config.health.toml
+          perl -0pi -e 's/(\[probe\.health\]\s*enabled\s*=\s*)false/${1}true/s; s/(secret\s*=\s*)""/${1}"deputy-ci"/s' sync_config.health.toml
+
+      - name: Run sync with Mihomo health
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: uv run python scripts/sync_nodes.py --config sync_config.health.toml --template config.template.yaml --output config.yaml --previous config.previous.yaml
 
       - name: Save subscription caches
         if: always() && steps.cache-restore.outputs.cache-hit != 'true'

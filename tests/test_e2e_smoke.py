@@ -403,3 +403,15 @@ mock = "https://mock.example.com/sub"
     assert second["status_counts"]["blocked_confirmed"] == 1
     assert second["status_counts"]["reachable"] == 1
     assert second["policy_counts"]["exclude"] == 1
+
+
+def test_actions_workflow_runs_two_pass_mihomo_health_path():
+    workflow = Path(".github/workflows/sync-and-release.yml").read_text(encoding="utf-8")
+
+    assert "Run bootstrap sync" in workflow
+    assert "Download Mihomo" in workflow
+    assert "Start Mihomo controller" in workflow
+    assert "Run sync with Mihomo health" in workflow
+    assert "sync_config.health.toml" in workflow
+    assert "http://127.0.0.1:9093/version" in workflow
+    assert "Authorization: Bearer deputy-ci" in workflow
