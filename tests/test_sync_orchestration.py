@@ -293,6 +293,115 @@ mock = "https://mock.example.com/sub"
     assert summary["mihomo_overview"]["success_rate"] == 50.0
 
 
+def test_run_sync_writes_merged_github_summary(tmp_path: Path, monkeypatch):
+    cfg = tmp_path / "sync_config.toml"
+    cfg.write_text(
+        """
+[subscription]
+format = "clash"
+exclude_keywords = []
+
+[probe]
+timeout = 1
+concurrency = 4
+retries = 0
+address_family = "auto"
+
+[probe.classifier]
+filter_mode = "mark"
+
+[subscription_sources]
+broken = "https://broken.example.com/sub"
+ok = "https://ok.example.com/sub"
+""",
+        encoding="utf-8",
+    )
+    template = tmp_path / "config.template.yaml"
+    template.write_text("proxies:\n{LOCAL_PROXIES}{SUB_PROXIES}\n", encoding="utf-8")
+    output = tmp_path / "config.yaml"
+    previous = tmp_path / "config.previous.yaml"
+    summary_file = tmp_path / "summary.md"
+    monkeypatch.setenv("GITHUB_STEP_SUMMARY", str(summary_file))
+
+    fetch_results = [
+        SubscriptionFetchResult("ok", [{"name": "ok-1"}], "fresh", "updated"),
+        SubscriptionFetchResult("broken", [], "failed", "none"),
+    ]
+
+    def fake_fetch_with_cache(sub_url, prefix, cache_dir, fetch_cfg, transport_chain):
+        for result in fetch_results:
+            if result.source == prefix:
+                return result
+        raise AssertionError(prefix)
+
+    logger = GhaLogger("deputy", output=io.StringIO())
+    logger.set_level = lambda lvl: None  # type: ignore[assignment]
+
+    fake_probe_result = type(
+        "ProbeResult",
+        (),
+        {
+            "alive": [{"name": "ok-1", "type": "vmess", "server": "1.1.1.1", "port": 443}],
+            "dead": [],
+            "stats_by_name": {"ok-1": {"avg_ms": 50.0}},
+        },
+    )()
+
+    def fake_assess_nodes(*args, **kwargs):
+        return {
+            "vmess|1.1.1.1|443": {
+                "status": "reachable",
+                "block_confidence": 0,
+                "policy_action": "keep",
+                "reasons": ["cn-tcp-ok"],
+                "signal_summary": {
+                    "cn_tcp": {
+                        "source_provider": "itdog",
+                        "attempted_providers": ["itdog"],
+                        "sample_count": 3,
+                        "success_count": 2,
+                        "timeout_count": 1,
+                        "reset_count": 0,
+                        "refused_count": 0,
+                        "samples": [{"provider": "itdog", "location": "辽宁大连电信", "ok": True}],
+                    },
+                    "mihomo_delay": {"ok": True, "delay_ms": 111},
+                },
+                "history": {
+                    "last_status": "reachable",
+                    "consecutive_suspected_runs": 0,
+                    "last_block_confidence": 0,
+                    "last_seen_at": "2026-06-29T00:00:00Z",
+                },
+            }
+        }
+
+    with patch("deputy.core.sync.fetch_subscription_with_cache", side_effect=fake_fetch_with_cache):
+        with patch("deputy.core.sync.tcp_probe", return_value=fake_probe_result):
+            with patch("deputy.core.sync.assess_nodes", side_effect=fake_assess_nodes):
+                run_sync(
+                    config_path=cfg,
+                    template_path=template,
+                    output_config=output,
+                    previous_config=previous,
+                    logger=logger,
+                )
+
+    text = summary_file.read_text(encoding="utf-8")
+    assert "## 同步概览" in text
+    assert "### 连通性测试" in text
+    assert "### 订阅源状态" in text
+    assert "### 地区分布" in text
+    assert "判定结果" not in text
+    assert "大陆拨测摘要" not in text
+    assert "Mihomo 实拨摘要" not in text
+    assert "失败的订阅源" not in text
+    assert "| 订阅源 | 状态 | 节点数 | 原因 |" in text
+    assert "broken" in text
+    assert "bad upstream" not in text
+    assert "见工作流日志" in text
+
+
 def test_should_emit_ci_artifacts_respects_bootstrap_opt_out(monkeypatch):
     monkeypatch.delenv("DEPUTY_SKIP_CI_ARTIFACTS", raising=False)
     assert _should_emit_ci_artifacts() is True

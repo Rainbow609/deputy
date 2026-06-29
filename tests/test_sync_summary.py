@@ -254,3 +254,4 @@ def test_region_counts_zero_when_empty():
 def test_fetch_status_rows_handles_unknown_status():
     rows = fetch_status_rows([SubscriptionFetchResult("src", [], "weird", "none")])
     assert "weird" in rows[0][1]
+    assert rows[0][3] == ""

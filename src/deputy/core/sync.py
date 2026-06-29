@@ -353,7 +353,7 @@ def run_sync(
         set_output("mihomo_success_rate", str(mihomo_overview["success_rate"]))
         try:
             sb = StepSummaryBuilder()
-            sb.heading("Deputy 同步结果", level=2)
+            sb.heading("同步概览", level=2)
             sb.table(
                 ["指标", "数量"],
                 [
@@ -363,53 +363,48 @@ def run_sync(
                     ("存活节点", str(len(policy_alive_nodes))),
                     ("失效节点", str(len(dead_nodes))),
                     ("存活率", f"{survival_rate:.1f}%"),
-                    ("过滤模式", config.probe.classifier.filter_mode),
-                    ("被过滤节点", str(filtered_out)),
-                ],
-            )
-            sb.heading("判定结果", level=3)
-            sb.table(
-                ["状态", "数量"],
-                [
                     ("reachable", str(status_counts.get("reachable", 0))),
                     ("suspected_gfw_blocked", str(status_counts.get("suspected_gfw_blocked", 0))),
                     ("blocked_confirmed", str(status_counts.get("blocked_confirmed", 0))),
                     ("protocol_unhealthy", str(status_counts.get("protocol_unhealthy", 0))),
+                    ("过滤模式", config.probe.classifier.filter_mode),
+                    ("被过滤节点", str(filtered_out)),
                 ],
             )
+            sb.heading("连通性测试", level=3)
+            connectivity_rows = []
             if verification_overview.get("cn_sample_count", 0) > 0:
-                sb.heading("大陆拨测摘要", level=3)
-                sb.table(
-                    ["指标", "数值"],
+                connectivity_rows.extend(
                     [
-                        ("Provider", verification_overview.get("cn_provider", "")),
-                        ("尝试 Providers", ", ".join(verification_overview.get("cn_attempted_providers", []))),
-                        ("覆盖节点", str(verification_overview.get("cn_nodes", 0))),
-                        ("样本总数", str(verification_overview.get("cn_sample_count", 0))),
-                        ("成功样本", str(verification_overview.get("cn_success_count", 0))),
-                        ("超时样本", str(verification_overview.get("cn_timeout_count", 0))),
-                        ("拒绝样本", str(verification_overview.get("cn_refused_count", 0))),
-                        ("重置样本", str(verification_overview.get("cn_reset_count", 0))),
-                        ("样本成功率", f"{verification_overview.get('cn_success_rate', 0):.1f}%"),
-                    ],
+                        ("大陆拨测", "Provider", verification_overview.get("cn_provider", "")),
+                        ("大陆拨测", "尝试 Providers", ", ".join(verification_overview.get("cn_attempted_providers", []))),
+                        ("大陆拨测", "覆盖节点", str(verification_overview.get("cn_nodes", 0))),
+                        ("大陆拨测", "样本总数", str(verification_overview.get("cn_sample_count", 0))),
+                        ("大陆拨测", "成功样本", str(verification_overview.get("cn_success_count", 0))),
+                        ("大陆拨测", "超时样本", str(verification_overview.get("cn_timeout_count", 0))),
+                        ("大陆拨测", "拒绝样本", str(verification_overview.get("cn_refused_count", 0))),
+                        ("大陆拨测", "重置样本", str(verification_overview.get("cn_reset_count", 0))),
+                        ("大陆拨测", "样本成功率", f"{verification_overview.get('cn_success_rate', 0):.1f}%"),
+                    ]
                 )
             if mihomo_overview["tested_nodes"] > 0:
-                sb.heading("Mihomo 实拨摘要", level=3)
-                sb.table(
-                    ["指标", "数值"],
+                connectivity_rows.extend(
                     [
-                        ("测试节点", str(mihomo_overview["tested_nodes"])),
-                        ("成功节点", str(mihomo_overview["success_count"])),
-                        ("失败节点", str(mihomo_overview["failure_count"])),
-                        ("超时节点", str(mihomo_overview["timeout_count"])),
-                        ("成功率", f"{mihomo_overview['success_rate']:.1f}%"),
-                    ],
+                        ("Mihomo 实拨", "测试节点", str(mihomo_overview["tested_nodes"])),
+                        ("Mihomo 实拨", "成功节点", str(mihomo_overview["success_count"])),
+                        ("Mihomo 实拨", "失败节点", str(mihomo_overview["failure_count"])),
+                        ("Mihomo 实拨", "超时节点", str(mihomo_overview["timeout_count"])),
+                        ("Mihomo 实拨", "成功率", f"{mihomo_overview['success_rate']:.1f}%"),
+                    ]
                 )
-            if failed_sources:
-                sb.heading("失败的订阅源", level=3)
-                sb.table(["订阅源", "原因"], failed_sources)
+            if connectivity_rows:
+                sb.table(["测试", "指标", "数值"], connectivity_rows)
             sb.heading("订阅源状态", level=3)
-            sb.table(["订阅源", "状态", "节点数"], fetch_status_rows(fetch_results))
+            failure_reason_map = {name: reason for name, reason in failed_sources}
+            source_rows = []
+            for source, status, count, reason in fetch_status_rows(fetch_results):
+                source_rows.append((source, status, count, failure_reason_map.get(source, reason)))
+            sb.table(["订阅源", "状态", "节点数", "原因"], source_rows)
             if policy_alive_nodes:
                 region = region_counts([p.get("name", "") for p in policy_alive_nodes])
                 sb.heading("地区分布", level=3)

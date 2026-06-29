@@ -89,6 +89,7 @@ def test_fetch_status_rows_marks_fresh_updated():
     assert rows[0][0] == "src"
     assert "已更新" in rows[0][1]
     assert rows[0][2] == "1"
+    assert rows[0][3] == ""
 
 
 def test_fetch_status_rows_marks_fallback():
@@ -97,9 +98,11 @@ def test_fetch_status_rows_marks_fallback():
                                                       "2024-06-18T00:00:00Z")])
     assert "缓存" in rows[0][1]
     assert "2024-06-18T00:00:00Z" in rows[0][2]
+    assert rows[0][3] == "使用缓存"
 
 
 def test_fetch_status_rows_marks_failed():
     rows = fetch_status_rows([SubscriptionFetchResult("src", [], "failed", "none")])
     assert "失败" in rows[0][1]
     assert rows[0][2] == "0"
+    assert rows[0][3] == "见工作流日志"

@@ -86,16 +86,20 @@ def fetch_status_rows(fetch_results: Iterable[SubscriptionFetchResult]) -> list[
         if r.status == "fresh":
             label = "✅ 已更新" if r.cache_status == "updated" else "✅ 未变化"
             detail = ""
+            reason = ""
         elif r.status == "fallback":
             label = "🔄 缓存"
             detail = f" (缓存时间: {r.updated_at})" if r.updated_at else ""
+            reason = "使用缓存"
         elif r.status == "failed":
             label = "❌ 失败"
             detail = ""
+            reason = "见工作流日志"
         else:
             label = f"❓ {r.status}"
             detail = ""
-        rows.append((r.source, label, str(len(r.proxies)) + detail))
+            reason = ""
+        rows.append((r.source, label, str(len(r.proxies)) + detail, reason))
     return rows
 
 
