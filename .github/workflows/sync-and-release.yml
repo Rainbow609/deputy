@@ -80,13 +80,13 @@ jobs:
           cat mihomo.log
           exit 1
 
-      - name: Prepare health-enabled config
+      - name: Prepare verification-enabled config
         run: |
           set -euo pipefail
           cp sync_config.toml sync_config.health.toml
-          perl -0pi -e 's/(\[probe\.health\]\s*enabled\s*=\s*)false/${1}true/s; s/(secret\s*=\s*)""/${1}"deputy-ci"/s' sync_config.health.toml
+          perl -0pi -e 's/(\[probe\.cn\]\s*enabled\s*=\s*)false/${1}true/s; s/(provider\s*=\s*)"noop"/${1}"auto"/s; s/(\[probe\.health\]\s*enabled\s*=\s*)false/${1}true/s; s/(secret\s*=\s*)""/${1}"deputy-ci"/s' sync_config.health.toml
 
-      - name: Run sync with Mihomo health
+      - name: Run sync with CN probe and Mihomo health
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}

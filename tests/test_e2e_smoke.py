@@ -411,7 +411,10 @@ def test_actions_workflow_runs_two_pass_mihomo_health_path():
     assert "Run bootstrap sync" in workflow
     assert "Download Mihomo" in workflow
     assert "Start Mihomo controller" in workflow
-    assert "Run sync with Mihomo health" in workflow
+    assert "Prepare verification-enabled config" in workflow
+    assert 's/(\\[probe\\.cn\\]\\s*enabled\\s*=\\s*)false/${1}true/s' in workflow
+    assert 's/(provider\\s*=\\s*)"noop"/${1}"auto"/s' in workflow
+    assert "Run sync with CN probe and Mihomo health" in workflow
     assert "sync_config.health.toml" in workflow
     assert "http://127.0.0.1:9093/version" in workflow
     assert "Authorization: Bearer deputy-ci" in workflow
