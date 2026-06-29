@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 import pytest
 
-from deputy.core.sync import run_sync
+from deputy.core.sync import _should_emit_ci_artifacts, run_sync
 from deputy.sources.subscription import SubscriptionFetchResult
 from deputy.transport.chain import TransportError
 from deputy.utils.logging import GhaLogger
@@ -284,3 +284,11 @@ mock = "https://mock.example.com/sub"
     assert summary["status_counts"]["blocked_confirmed"] == 1
     assert summary["verification_overview"]["cn_provider"] == "itdog"
     assert summary["verification_overview"]["cn_sample_count"] == 6
+
+
+def test_should_emit_ci_artifacts_respects_bootstrap_opt_out(monkeypatch):
+    monkeypatch.delenv("DEPUTY_SKIP_CI_ARTIFACTS", raising=False)
+    assert _should_emit_ci_artifacts() is True
+
+    monkeypatch.setenv("DEPUTY_SKIP_CI_ARTIFACTS", "1")
+    assert _should_emit_ci_artifacts() is False

@@ -48,6 +48,7 @@ jobs:
 
       - name: Run bootstrap sync
         env:
+          DEPUTY_SKIP_CI_ARTIFACTS: "1"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: uv run python scripts/sync_nodes.py --config sync_config.toml --template config.template.yaml --output config.yaml --previous config.previous.yaml
