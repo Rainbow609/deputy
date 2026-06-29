@@ -13,6 +13,18 @@ _PLACEHOLDER_PATTERN = re.compile(r"\{([A-Z_][A-Z0-9_]*)\}")
 
 _SPECIAL_NAME_CHARS = set(" \t#&*!|>'\"%@`,[]{}()") | {chr(c) for c in range(0x1F300, 0x1FAFF)}
 
+# Region regex patterns used to bucket proxy names for the regional url-test
+# groups (``{HK_LIST}``/``{JP_LIST}``/``{US_LIST}``/``{SG_LIST}``/``{TW_LIST}``).
+# Mirrors ``deputy.utils.summary.region_counts`` so renderer and metrics
+# agree on what counts as "HK" / "JP" / etc.
+_REGION_PATTERNS: dict[str, re.Pattern[str]] = {
+    "HK": re.compile(r"(?i)香港|HK|Hong"),
+    "JP": re.compile(r"(?i)日本|JP|Japan"),
+    "US": re.compile(r"(?i)美国|US|United States"),
+    "SG": re.compile(r"(?i)新加坡|SG|Singapore"),
+    "TW": re.compile(r"(?i)台湾|TW|Taiwan"),
+}
+
 
 def _safe_format_map(template_text: str, mapping: dict[str, str]) -> str:
     """Replace {KEY} only when KEY is in mapping; preserve other braces."""
@@ -94,6 +106,32 @@ def _generate_proxy_block_yaml(proxies: Iterable[dict[str, Any]]) -> str:
     return f"proxies:\n{items}"
 
 
+def _region_lists(names: Iterable[str]) -> dict[str, str]:
+    """Bucket proxy names by region for the regional url-test groups.
+
+    Each name is assigned to the first region whose regex matches. Empty
+    buckets fall back to ``DIRECT`` so the rendered template always has at
+    least one proxy in each regional url-test group (matches mihomo-config
+    behaviour; prevents mihomo from failing to start with an empty group).
+
+    Returns a dict with keys ``HK_LIST`` / ``JP_LIST`` / ``US_LIST`` /
+    ``SG_LIST`` / ``TW_LIST`` whose values are comma-separated name lists
+    (or the literal ``DIRECT``). Names are passed through
+    ``_quote_if_needed`` so special characters (``|``, spaces, emoji,
+    etc.) remain valid inside the rendered flow-style YAML list.
+    """
+    grouped: dict[str, list[str]] = {f"{k}_LIST": [] for k in _REGION_PATTERNS}
+    for n in names:
+        for key, pat in _REGION_PATTERNS.items():
+            if pat.search(n):
+                grouped[f"{key}_LIST"].append(n)
+                break
+    return {
+        slot: ", ".join(_quote_if_needed(v) for v in values) if values else "DIRECT"
+        for slot, values in grouped.items()
+    }
+
+
 def render_template(
     template_path: Path,
     local_proxies: list[dict[str, Any]],
@@ -106,9 +144,16 @@ def render_template(
     - ``{LOCAL_PROXIES}``: YAML list of static proxies
     - ``{SUB_PROXIES}``: YAML list of subscription proxies
     - ``{PROXIES}``: YAML list of all proxies combined
-    - ``{PROXIES_BLOCK}``: complete ``proxies`` YAML field
-    - ``{NODE_SELECT_LIST}``: comma-separated proxy names for ``select`` groups
+    - ``{PROXIES_BLOCK}``: complete ``proxies`` YAML field (legacy, kept for
+      backwards compatibility with custom templates)
+    - ``{NODE_SELECT_LIST}``: comma-separated proxy names for ``select``
+      groups, prefixed with ``自动选择, `` (mihomo-config behaviour) so the
+      ``节点选择`` group exposes the ``自动选择`` url-test option as a child;
+      ``DIRECT`` is appended if not already present
     - ``{DIALER_LIST}``: comma-separated subscription proxy names
+    - ``{HK_LIST}`` / ``{JP_LIST}`` / ``{US_LIST}`` / ``{SG_LIST}`` /
+      ``{TW_LIST}``: comma-separated proxy names matching each region's
+      regex; falls back to ``DIRECT`` when the bucket is empty
     """
     text = template_path.read_text(encoding="utf-8")
     sub_proxies = sub_proxies or []
@@ -116,11 +161,13 @@ def render_template(
     names = [p["name"] for p in all_proxies if p.get("name")]
     if "DIRECT" not in names:
         names.append("DIRECT")
-    node_list = ", ".join(_quote_if_needed(n) for n in names)
+    # Match mihomo-config: prepend ``自动选择`` so the ``节点选择`` select
+    # group exposes the ``自动选择`` url-test option as a child.
+    node_list = "自动选择, " + ", ".join(_quote_if_needed(n) for n in names)
     dialer_names = [p["name"] for p in sub_proxies if p.get("name")]
     dialer_list = ", ".join(_quote_if_needed(n) for n in sorted(dialer_names))
 
-    mapping = {
+    mapping: dict[str, str] = {
         "LOCAL_PROXIES": generate_proxy_items_yaml(local_proxies),
         "SUB_PROXIES": generate_proxy_items_yaml(sub_proxies),
         "PROXIES": _generate_proxy_list_yaml(all_proxies),
@@ -128,6 +175,7 @@ def render_template(
         "NODE_SELECT_LIST": node_list,
         "DIALER_LIST": dialer_list,
     }
+    mapping.update(_region_lists(names))
     if extra_replacements:
         mapping.update(extra_replacements)
     return _safe_format_map(text, mapping)

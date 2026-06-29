@@ -12,7 +12,7 @@ rule-providers:
     type: http
     behavior: domain
     format: yaml
-    path: ./rule_providers/AWAvenue-Ads.yaml
+    path: ./rule_provider/AWAvenue-Ads.yaml
     url: "https://ghfast.top/https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/refs/heads/main/Filters/AWAvenue-Ads-Rule-Clash-Classical.yaml"
     interval: 600
 
@@ -20,7 +20,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
-    path: ./rule_providers/StevenBlack.yaml
+    path: ./rule_provider/StevenBlack.yaml
     url: "https://fastly.jsdelivr.net/gh/Ckrvxr/MihomoYAML@release/StevenBlack.yaml"
     interval: 600
 
@@ -28,37 +28,63 @@ rule-providers:
     type: http
     behavior: domain
     format: text
-    path: ./rule_providers/Adguard-Adblock.yaml
+    path: ./rule_provider/Adguard-Adblock.yaml
     url: "https://fastly.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/adblockmihomo.yaml"
     interval: 600
 
+# 分组
+pr:
+  &pr {
+    type: select,
+    proxies: [自动选择, 香港节点, 日本节点, 美国节点, 新加坡节点, 台湾节点, 节点选择, DIRECT],
+  }
+
+# 延迟检测 URL
+p: &p
+  type: http
+  interval: 3600
+  health-check:
+    enable: true
+    url: https://cp.cloudflare.com
+    interval: 300
+    timeout: 1000
+    tolerance: 100
+
 # proxies 段由 scripts/sync_nodes.py 自动维护，手动节点见 proxies.yaml
-{PROXIES_BLOCK}
+proxies:
+{LOCAL_PROXIES}
+{SUB_PROXIES}
 
 proxy-groups:
   - { name: 节点选择, type: select, proxies: [{NODE_SELECT_LIST}] }
+  - { name: 自动选择, type: url-test, proxies: [{DIALER_LIST}], url: https://cp.cloudflare.com, interval: 300, tolerance: 50 }
+  - { name: 香港节点, type: url-test, proxies: [{HK_LIST}], url: https://cp.cloudflare.com, interval: 300 }
+  - { name: 日本节点, type: url-test, proxies: [{JP_LIST}], url: https://cp.cloudflare.com, interval: 300 }
+  - { name: 美国节点, type: url-test, proxies: [{US_LIST}], url: https://cp.cloudflare.com, interval: 300 }
+  - { name: 新加坡节点, type: url-test, proxies: [{SG_LIST}], url: https://cp.cloudflare.com, interval: 300 }
+  - { name: 台湾节点, type: url-test, proxies: [{TW_LIST}], url: https://cp.cloudflare.com, interval: 300 }
   - { name: 中转模式, type: select, proxies: [中转节点, DIRECT] }
-  - { name: 中转节点, type: url-test, proxies: [{DIALER_LIST}], url: https://cp.cloudflare.com, interval: 300, timeout: 1000, tolerance: 100 }
+  - { name: 中转节点, type: url-test, proxies: [{DIALER_LIST}], url: https://cp.cloudflare.com, interval: 300 }
   - { name: 广告拦截, type: select, proxies: [REJECT, DIRECT, 节点选择] }
-  - { name: 境外AI, type: select, proxies: [节点选择] }
-  - { name: Apple, type: select, proxies: [节点选择, DIRECT] }
-  - { name: Google, type: select, proxies: [节点选择, DIRECT] }
-  - { name: Telegram, type: select, proxies: [节点选择, DIRECT] }
-  - { name: Twitter, type: select, proxies: [节点选择] }
-  - { name: Pixiv, type: select, proxies: [节点选择, DIRECT] }
-  - { name: EHentai, type: select, proxies: [节点选择] }
-  - { name: 巴哈姆特, type: select, proxies: [节点选择] }
-  - { name: 任天堂, type: select, proxies: [节点选择, DIRECT] }
-  - { name: YouTube, type: select, proxies: [节点选择, DIRECT] }
-  - { name: NETFLIX, type: select, proxies: [节点选择, DIRECT] }
-  - { name: TikTok, type: select, proxies: [节点选择, DIRECT] }
-  - { name: Spotify, type: select, proxies: [节点选择, DIRECT] }
-  - { name: Github, type: select, proxies: [节点选择, DIRECT] }
-  - { name: Steam, type: select, proxies: [节点选择, DIRECT] }
-  - { name: OneDrive, type: select, proxies: [节点选择, DIRECT] }
-  - { name: 微软服务, type: select, proxies: [节点选择, DIRECT] }
+  - { name: 境外AI, <<: *pr }
+  - { name: Apple, <<: *pr }
+  - { name: Google, <<: *pr }
+  - { name: Telegram, <<: *pr }
+  - { name: Twitter, <<: *pr }
+  - { name: Pixiv, <<: *pr }
+  - { name: EHentai, <<: *pr }
+  - { name: 巴哈姆特, type: select, proxies: [台湾节点, 香港节点, 节点选择] }
+  - { name: 任天堂, <<: *pr }
+  - { name: YouTube, <<: *pr }
+  - { name: NETFLIX, <<: *pr }
+  - { name: TikTok, <<: *pr }
+  - { name: Spotify, <<: *pr }
+  - { name: Github, <<: *pr }
+  - { name: Steam, <<: *pr }
+  - { name: OneDrive, <<: *pr }
+  - { name: 微软服务, <<: *pr }
   - { name: 国内, type: select, proxies: [DIRECT, 节点选择] }
-  - { name: 其他, type: select, proxies: [节点选择, DIRECT] }
+  - { name: 其他, <<: *pr }
 
 rules:
   - RULE-SET,AWAvenue-Ads,广告拦截

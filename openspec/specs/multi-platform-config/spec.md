@@ -10,6 +10,12 @@ The system SHALL use `config.template.yaml` as the single source template for ge
 - **WHEN** the system processes `config.template.yaml`
 - **THEN** the system substitutes node placeholders with data from `nodes.toml` and subscription fetch results
 - **AND** the system preserves the static template sections, including http rule-providers and rule definitions
+- **AND** the system supports regional placeholders ``{HK_LIST}`` / ``{JP_LIST}`` / ``{US_LIST}`` / ``{SG_LIST}`` / ``{TW_LIST}`` populated from the rendered proxy names that match each region's regex
+- **AND** the system computes those regional placeholders during rendering, producing concrete proxy-name lists rather than client-side ``include-all`` / ``filter`` rules
+- **AND** the system preserves YAML anchor declarations (``&pr``) and merge keys (``<<: *pr``) verbatim so that PyYAML and mihomo resolve the shared proxy list across select sub-groups
+- **AND** the system preserves any top-level static YAML anchor blocks such as ``p: &p`` verbatim, without requiring the renderer to apply those anchors programmatically
+- **AND** the system prefixes ``{NODE_SELECT_LIST}`` with ``自动选择, `` so the ``节点选择`` select group exposes the ``自动选择`` url-test option as a child
+- **AND** the system falls back to ``DIRECT`` for any regional placeholder whose bucket is empty
 
 #### Scenario: Single template selection
 - **WHEN** the system generates the publishable configuration
