@@ -146,6 +146,42 @@ timeout = 15
     assert config.fetch.timeout == 15
 
 
+def test_load_config_with_verification_subblocks(tmp_path: Path):
+    toml_text = VALID_TOML + """
+[probe.cn]
+enabled = true
+provider = "mock"
+min_vantages = 4
+min_success_vantages = 2
+timeout = 5
+stale_after_seconds = 600
+
+[probe.health]
+enabled = true
+kind = "mihomo_delay"
+controller_url = "http://127.0.0.1:9093"
+secret = "token"
+test_url = "https://www.gstatic.com/generate_204"
+timeout_ms = 9000
+expected = "200,204"
+
+[probe.classifier]
+confirm_after_runs = 4
+filter_mode = "exclude_confirmed"
+history_path = "/tmp/deputy-history.json"
+"""
+    config_file = tmp_path / "sync_config.toml"
+    config_file.write_text(toml_text, encoding="utf-8")
+    config = load_config(config_file)
+    assert config.probe.cn.enabled is True
+    assert config.probe.cn.provider == "mock"
+    assert config.probe.cn.min_vantages == 4
+    assert config.probe.health.enabled is True
+    assert config.probe.health.controller_url == "http://127.0.0.1:9093"
+    assert config.probe.classifier.confirm_after_runs == 4
+    assert config.probe.classifier.filter_mode == "exclude_confirmed"
+
+
 def test_write_text_atomic_replaces_target(tmp_path: Path):
     target = tmp_path / "out.txt"
     target.write_text("old", encoding="utf-8")

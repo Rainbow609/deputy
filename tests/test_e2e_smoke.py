@@ -262,3 +262,144 @@ def test_e2e_does_not_publish_when_no_nodes_survive_verification(tmp_path: Path)
                     raise AssertionError("run_sync should fail before publishing an empty config")
 
     assert not output.exists()
+
+
+def test_e2e_history_promotes_suspected_to_confirmed_and_filters(tmp_path: Path):
+    config_toml = tmp_path / "sync_config.toml"
+    config_toml.write_text(
+        """
+[subscription]
+format = "clash"
+exclude_keywords = []
+
+[probe]
+timeout = 1
+concurrency = 4
+retries = 0
+address_family = "auto"
+
+[probe.cn]
+enabled = true
+provider = "mock"
+min_vantages = 3
+min_success_vantages = 2
+timeout = 5
+stale_after_seconds = 600
+
+[probe.health]
+enabled = true
+kind = "mihomo_delay"
+controller_url = "http://127.0.0.1:9093"
+secret = ""
+test_url = "https://www.gstatic.com/generate_204"
+timeout_ms = 10000
+expected = "200,204"
+
+[probe.classifier]
+confirm_after_runs = 2
+filter_mode = "exclude_confirmed"
+history_path = "artifacts/verification-history.json"
+
+[subscription_sources]
+mock = "https://mock.example.com/sub"
+""",
+        encoding="utf-8",
+    )
+    template = tmp_path / "config.template.yaml"
+    template.write_text("proxies:\n{LOCAL_PROXIES}\n{SUB_PROXIES}\n", encoding="utf-8")
+    output = tmp_path / "config.yaml"
+    previous = tmp_path / "config.previous.yaml"
+
+    def fake_fetch_with_cache(sub_url, prefix, cache_dir, fetch_cfg, transport_chain):
+        return SubscriptionFetchResult(
+            source=prefix,
+            proxies=[
+                {"name": "healthy-1", "type": "vmess", "server": "1.1.1.1", "port": 443, "uuid": "u", "alterId": 0, "cipher": "auto"},
+                {"name": "blocked-1", "type": "vmess", "server": "2.2.2.2", "port": 443, "uuid": "u", "alterId": 0, "cipher": "auto"},
+            ],
+            status="fresh",
+            cache_status="updated",
+        )
+
+    class FakeCnProvider:
+        def probe(self, proxy, config):
+            from deputy.probing.verification import ChinaProbeSample, ChinaProbeSummary
+
+            if proxy["server"] == "1.1.1.1":
+                return ChinaProbeSummary(
+                    samples=[
+                        ChinaProbeSample("mock", "cn-1", True, 50.0, None),
+                        ChinaProbeSample("mock", "cn-2", True, 55.0, None),
+                        ChinaProbeSample("mock", "cn-3", False, None, "timeout"),
+                    ],
+                    sample_count=3,
+                    success_count=2,
+                    timeout_count=1,
+                    reset_count=0,
+                    refused_count=0,
+                )
+            return ChinaProbeSummary(
+                samples=[
+                    ChinaProbeSample("mock", "cn-1", False, None, "timeout"),
+                    ChinaProbeSample("mock", "cn-2", False, None, "timeout"),
+                    ChinaProbeSample("mock", "cn-3", False, None, "connection-refused"),
+                ],
+                sample_count=3,
+                success_count=0,
+                timeout_count=2,
+                reset_count=0,
+                refused_count=1,
+            )
+
+    class FakeProbeResult:
+        alive = [
+            {"name": "healthy-1", "type": "vmess", "server": "1.1.1.1", "port": 443},
+            {"name": "blocked-1", "type": "vmess", "server": "2.2.2.2", "port": 443},
+        ]
+        dead = []
+        stats_by_name = {
+            "healthy-1": {"avg_ms": 50.0},
+            "blocked-1": {"avg_ms": 80.0},
+        }
+
+    def fake_health_check(self, proxy, config):
+        from deputy.probing.health import HealthCheckResult
+
+        if proxy["server"] == "1.1.1.1":
+            return HealthCheckResult(ok=True, delay_ms=120)
+        return HealthCheckResult(ok=False, failure_reason="timeout")
+
+    logger = GhaLogger("deputy", output=io.StringIO())
+    logger.set_level = lambda lvl: None  # type: ignore[assignment]
+
+    with patch("deputy.core.sync.fetch_subscription_with_cache", side_effect=fake_fetch_with_cache):
+        with patch("deputy.core.sync.tcp_probe", return_value=FakeProbeResult()):
+            with patch("deputy.core.sync.get_china_probe_provider", return_value=FakeCnProvider()):
+                with patch("deputy.core.sync.MihomoDelayChecker.check", new=fake_health_check):
+                    first = run_sync(
+                        config_path=config_toml,
+                        template_path=template,
+                        output_config=output,
+                        previous_config=previous,
+                        logger=logger,
+                    )
+                    first_rendered = output.read_text(encoding="utf-8")
+
+                    second = run_sync(
+                        config_path=config_toml,
+                        template_path=template,
+                        output_config=output,
+                        previous_config=previous,
+                        logger=logger,
+                    )
+                    second_rendered = output.read_text(encoding="utf-8")
+
+    assert "blocked-1" in first_rendered
+    assert "healthy-1" in first_rendered
+    assert first["status_counts"]["suspected_gfw_blocked"] == 1
+    assert first["status_counts"]["reachable"] == 1
+    assert "blocked-1" not in second_rendered
+    assert "healthy-1" in second_rendered
+    assert second["status_counts"]["blocked_confirmed"] == 1
+    assert second["status_counts"]["reachable"] == 1
+    assert second["policy_counts"]["exclude"] == 1

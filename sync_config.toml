@@ -21,6 +21,30 @@ concurrency = 30
 retries = 0
 address_family = "auto"
 
+[probe.cn]
+enabled = false
+# provider: "auto" | "noop" | "itdog" | "itdog,noop"
+# auto currently resolves to "itdog,noop".
+provider = "noop"
+min_vantages = 3
+min_success_vantages = 2
+timeout = 5
+stale_after_seconds = 600
+
+[probe.health]
+enabled = false
+kind = "mihomo_delay"
+controller_url = "http://127.0.0.1:9093"
+secret = ""
+test_url = "https://www.gstatic.com/generate_204"
+timeout_ms = 10000
+expected = "200,204"
+
+[probe.classifier]
+confirm_after_runs = 3
+filter_mode = "mark"
+history_path = "artifacts/verification-history.json"
+
 # 静态节点（可选）。所有支持的标准 Clash 代理类型都可使用。
 # [[static_nodes]] 段为列表，每段一个节点。
 

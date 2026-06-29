@@ -48,6 +48,17 @@ def test_format_release_notes_includes_summary():
             "total": 50, "alive": 40, "survival_rate": 80.0,
             "latency_avg": 120, "latency_min": 30, "latency_max": 400,
             "added": 5, "removed": 2,
+            "verification_overview": {
+                "cn_provider": "itdog",
+                "cn_attempted_providers": ["itdog", "noop"],
+                "cn_nodes": 10,
+                "cn_sample_count": 30,
+                "cn_success_count": 24,
+                "cn_timeout_count": 5,
+                "cn_reset_count": 1,
+                "cn_refused_count": 0,
+                "cn_success_rate": 80.0,
+            },
         },
         failed_sources=[("星链云", "timeout")],
     )
@@ -57,6 +68,9 @@ def test_format_release_notes_includes_summary():
     assert "80.0%" in notes or "80%" in notes
     assert "星链云" in notes
     assert "timeout" in notes
+    assert "itdog" in notes
+    assert "30" in notes
+    assert "itdog, noop" in notes
 
 
 def test_fetch_status_rows_marks_fresh_updated():

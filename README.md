@@ -13,7 +13,7 @@
 - **`src/` 包布局** — 8 个子包（`core` / `transport` / `sources` / `probing` / `rendering` / `publishing` / `utils`），与 mihomo-config 完全同构。
 - **6 个传输实现 + 指数退避** — `cloudscraper` → `requests` → `curl_cffi` → `curl_cffi_safari` → `mihomo` (clash-meta UA) → `tls_client`，每轮之间 `base_delay × 2^attempt + jitter` 退避。
 - **订阅缓存回退** — `subscriptions/<source>.yaml` 暂存上次成功结果，临时错误自动回退到缓存。
-- **TCP 探活 + 延迟统计** — 并发探测，支持 `address_family=auto` IPv4/IPv6 回退，输出 `avg_ms / min_ms / max_ms / variance / jitter / p50 / p95`。
+- **多信号节点判定** — 保留 TCP 探活，新增大陆探针聚合、Mihomo delay 健康检查、历史连续怀疑轮次判定，可输出 `reachable / suspected_gfw_blocked / blocked_confirmed / protocol_unhealthy` 等状态。
 - **节点名清洗** — 去 ASCII 标点 + 去 emoji/装饰符号 + 折叠空白 + 全角空格归一化。
 - **TOML 配置** — `sync_config.toml`（原 `nodes.toml`）统一管理 `[subscription]` / `[subscription.fetch]` / `[probe]` / `[subscription_sources]` / `[[static_nodes]]` / `[rename]`。
 - **GHA Step Summary** — `StepSummaryBuilder` 写入 `$GITHUB_STEP_SUMMARY`，含订阅源状态表、地区分布表、节点统计。
@@ -92,7 +92,10 @@ uv run python -m deputy.core.sync
 |---|---|
 | `[subscription]` | 格式 (`clash` / `v2ray`) + 排除关键词 |
 | `[subscription.fetch]` | 传输链退避参数（`base_delay` / `max_delay` / `jitter_range` / `max_attempts_per_transport` / `max_total_attempts` / `timeout`） |
-| `[probe]` | TCP 探活参数（`timeout` / `concurrency` / `retries` / `address_family`） |
+| `[probe]` | 本地 TCP 探活参数（`timeout` / `concurrency` / `retries` / `address_family`） |
+| `[probe.cn]` | 大陆探针聚合参数（`enabled` / `provider` / `min_vantages` / `min_success_vantages` / `timeout` / `stale_after_seconds`），当前支持 `auto` / `noop` / `itdog`，也支持逗号分隔回退链；`auto` 当前默认走 `itdog -> noop` |
+| `[probe.health]` | Mihomo delay 健康检查（`enabled` / `controller_url` / `secret` / `test_url` / `timeout_ms` / `expected`） |
+| `[probe.classifier]` | 聚合判定与策略（`confirm_after_runs` / `filter_mode` / `history_path`） |
 | `[subscription_sources]` | `name = url` 映射 |
 | `[[static_nodes]]` | 静态节点列表 |
 | `[rename]` | 全局默认 + `name-keyed` 逐源覆盖（`prefix` / `sanitize` / `separator`） |
@@ -117,6 +120,33 @@ timeout = 3
 concurrency = 30
 retries = 0
 address_family = "auto"
+
+[probe.cn]
+enabled = false
+provider = "auto" # 可选: "auto" / "noop" / "itdog" / "itdog,noop"
+min_vantages = 3
+min_success_vantages = 2
+timeout = 5
+stale_after_seconds = 600
+
+# 说明:
+# - itdog: 当前已接入的公开大陆 TCPing 结果页 provider
+# - auto: 当前等价于 "itdog,noop"
+# - 暂未将 boce/17ce 纳入 auto，因为匿名访问下一个会遇到配额/拦截，一个缺少公开可直接抓取的 TCPing 结果页
+
+[probe.health]
+enabled = false
+kind = "mihomo_delay"
+controller_url = "http://127.0.0.1:9093"
+secret = ""
+test_url = "https://www.gstatic.com/generate_204"
+timeout_ms = 10000
+expected = "200,204"
+
+[probe.classifier]
+confirm_after_runs = 3
+filter_mode = "mark"
+history_path = "artifacts/verification-history.json"
 
 [subscription_sources]
 "anaer"  = "https://anaer.github.io/Sub/proxies.yaml"

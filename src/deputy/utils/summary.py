@@ -6,12 +6,14 @@ existing Chinese release notes format (``build_release_notes``).
 
 from __future__ import annotations
 
+from collections import Counter
 import json
 import re
 import sys
-from typing import Iterable
+from typing import Any, Iterable
 
 from deputy.probing.tcp import ProbeResult
+from deputy.probing.verification import VerificationAssessment
 from deputy.sources.subscription import SubscriptionFetchResult
 from deputy.utils.logging import is_ci
 
@@ -37,6 +39,29 @@ def build_release_notes(
     lines.append("## 变更")
     lines.append(f"- 新增节点: {stats.get('added', 0)}")
     lines.append(f"- 失效节点: {stats.get('removed', 0)}")
+    if stats.get("status_counts"):
+        lines.append("")
+        lines.append("## 判定结果")
+        status_counts = stats["status_counts"]
+        lines.append(f"- reachable: {status_counts.get('reachable', 0)}")
+        lines.append(f"- suspected_gfw_blocked: {status_counts.get('suspected_gfw_blocked', 0)}")
+        lines.append(f"- blocked_confirmed: {status_counts.get('blocked_confirmed', 0)}")
+        lines.append(f"- protocol_unhealthy: {status_counts.get('protocol_unhealthy', 0)}")
+        lines.append(f"- 过滤模式: {stats.get('filter_mode', 'mark')}")
+        lines.append(f"- 被过滤节点: {stats.get('filtered_out', 0)}")
+    verification_overview = stats.get("verification_overview") or {}
+    if verification_overview.get("cn_sample_count", 0) > 0:
+        lines.append("")
+        lines.append("## 大陆拨测")
+        lines.append(f"- Provider: {verification_overview.get('cn_provider', 'unknown')}")
+        lines.append(f"- 尝试 Providers: {', '.join(verification_overview.get('cn_attempted_providers', []))}")
+        lines.append(f"- 覆盖节点: {verification_overview.get('cn_nodes', 0)}")
+        lines.append(f"- 样本总数: {verification_overview.get('cn_sample_count', 0)}")
+        lines.append(f"- 成功样本: {verification_overview.get('cn_success_count', 0)}")
+        lines.append(f"- 超时样本: {verification_overview.get('cn_timeout_count', 0)}")
+        lines.append(f"- 拒绝样本: {verification_overview.get('cn_refused_count', 0)}")
+        lines.append(f"- 重置样本: {verification_overview.get('cn_reset_count', 0)}")
+        lines.append(f"- 样本成功率: {verification_overview.get('cn_success_rate', 0):.1f}%")
     if failed_sources:
         lines.append("")
         lines.append("## 失败的订阅源")
@@ -87,11 +112,96 @@ def build_probe_json_payload(filtered: list[dict], probe_result: ProbeResult) ->
     )
 
 
+def build_verification_json_payload(
+    assessments: dict[str, VerificationAssessment],
+    *,
+    filtered_count: int,
+) -> str:
+    overview = summarize_verification_assessments(assessments)
+    return json.dumps(
+        {
+            "phase": "verification",
+            "total": filtered_count,
+            "overview": overview,
+            "nodes": [assessment.to_dict() for assessment in assessments.values()],
+        },
+        ensure_ascii=False,
+    )
+
+
+def summarize_verification_assessments(
+    assessments: dict[str, VerificationAssessment | dict[str, Any]],
+) -> dict[str, Any]:
+    provider_counts: Counter[str] = Counter()
+    attempted_provider_counts: Counter[str] = Counter()
+    cn_nodes = 0
+    cn_sample_count = 0
+    cn_success_count = 0
+    cn_timeout_count = 0
+    cn_reset_count = 0
+    cn_refused_count = 0
+
+    for raw in assessments.values():
+        signal_summary = raw.signal_summary if isinstance(raw, VerificationAssessment) else raw.get("signal_summary", {})
+        cn_tcp = signal_summary.get("cn_tcp", {}) if isinstance(signal_summary, dict) else {}
+        sample_count = int(cn_tcp.get("sample_count", 0) or 0)
+        success_count = int(cn_tcp.get("success_count", 0) or 0)
+        timeout_count = int(cn_tcp.get("timeout_count", 0) or 0)
+        reset_count = int(cn_tcp.get("reset_count", 0) or 0)
+        refused_count = int(cn_tcp.get("refused_count", 0) or 0)
+        source_provider = str(cn_tcp.get("source_provider", "") or "")
+        attempted_providers = [str(item) for item in (cn_tcp.get("attempted_providers", []) or []) if item]
+        samples = cn_tcp.get("samples", []) or []
+
+        if sample_count > 0:
+            cn_nodes += 1
+        cn_sample_count += sample_count
+        cn_success_count += success_count
+        cn_timeout_count += timeout_count
+        cn_reset_count += reset_count
+        cn_refused_count += refused_count
+
+        sample_provider = ""
+        if not source_provider:
+            for sample in samples:
+                if isinstance(sample, dict) and sample.get("provider"):
+                    sample_provider = str(sample["provider"])
+                    break
+
+        if source_provider:
+            provider_counts[source_provider] += 1
+        elif sample_provider:
+            provider_counts[sample_provider] += 1
+        for provider in attempted_providers:
+            attempted_provider_counts[provider] += 1
+
+    cn_success_rate = round((cn_success_count / cn_sample_count) * 100, 1) if cn_sample_count else 0.0
+    return {
+        "cn_provider": provider_counts.most_common(1)[0][0] if provider_counts else "",
+        "cn_attempted_providers": [name for name, _ in attempted_provider_counts.most_common()],
+        "cn_nodes": cn_nodes,
+        "cn_sample_count": cn_sample_count,
+        "cn_success_count": cn_success_count,
+        "cn_timeout_count": cn_timeout_count,
+        "cn_reset_count": cn_reset_count,
+        "cn_refused_count": cn_refused_count,
+        "cn_success_rate": cn_success_rate,
+    }
+
+
 def print_ci_probe_json(filtered: list[dict], probe_result: ProbeResult) -> None:
     """Print CI probe JSON when running in GitHub Actions."""
     if is_ci():
         print(
             f"[PROBE_JSON]{build_probe_json_payload(filtered, probe_result)}[/PROBE_JSON]",
+            file=sys.stderr,
+        )
+
+
+def print_ci_verification_json(assessments: dict[str, VerificationAssessment], *, filtered_count: int) -> None:
+    if is_ci():
+        print(
+            f"[VERIFICATION_JSON]{build_verification_json_payload(assessments, filtered_count=filtered_count)}[/VERIFICATION_JSON]",
             file=sys.stderr,
         )
 

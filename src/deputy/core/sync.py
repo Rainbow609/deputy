@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import sys
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any
@@ -29,10 +30,18 @@ from deputy.core.nodes import (
     apply_node_rename,
     build_rename_config,
     deduplicate_proxies,
-    filter_proxies,
     group_by_source,
 )
+from deputy.probing.cn import get_china_probe_provider
+from deputy.probing.health import MihomoDelayChecker
 from deputy.probing.tcp import tcp_probe
+from deputy.probing.verification import (
+    apply_policy,
+    assess_nodes,
+    count_statuses,
+    load_history,
+    save_history,
+)
 from deputy.publishing.release import ReleasePublisher, make_version_tag
 from deputy.rendering.config import render_template
 from deputy.sources.config import DeputyConfig, load_config
@@ -49,8 +58,10 @@ from deputy.utils.summary import (
     build_release_notes,
     fetch_status_rows,
     print_ci_probe_json,
+    print_ci_verification_json,
     print_latency_overview,
     region_counts,
+    summarize_verification_assessments,
 )
 
 
@@ -83,6 +94,15 @@ def build_transport_chain(fetch_cfg=None) -> TransportChain:
         max_delay=cfg.get("max_delay", 8.0),
         jitter_range=cfg.get("jitter_range", 0.3),
     )
+
+
+def _resolve_history_path(config_path: Path, configured_path: str) -> Path | None:
+    if not configured_path:
+        return None
+    path = Path(configured_path)
+    if not path.is_absolute():
+        path = config_path.parent / path
+    return path
 
 
 # ── Main pipeline ───────────────────────────────────────────────────────────
@@ -212,26 +232,58 @@ def run_sync(
         raise RuntimeError(
             "node verification produced zero alive nodes; refusing to publish empty config"
         )
+
+    history_path = _resolve_history_path(config_path, config.probe.classifier.history_path)
+    history = load_history(history_path) if history_path else {}
+    assessments = assess_nodes(
+        deduped,
+        probe_result,
+        cn_config=config.probe.cn,
+        health_config=config.probe.health,
+        classifier=config.probe.classifier,
+        history=history,
+        cn_provider=get_china_probe_provider(config.probe.cn.provider),
+        health_checker=MihomoDelayChecker(),
+    )
+    policy_alive_nodes, policy_actions = apply_policy(
+        alive_nodes,
+        assessments,
+        config.probe.classifier.filter_mode,
+    )
+    if history_path:
+        save_history(
+            history_path,
+            {key: assessment.history for key, assessment in assessments.items()},
+        )
+    status_counts = count_statuses(assessments)
+    verification_overview = summarize_verification_assessments(assessments)
+    policy_counts = Counter(policy_actions.values())
+    filtered_out = policy_counts.get("exclude", 0)
+    if not policy_alive_nodes:
+        raise RuntimeError(
+            "node verification produced zero publishable nodes after policy filtering"
+        )
     logger.info(
         "verification done",
         {
-            "alive": len(alive_nodes),
+            "alive": len(policy_alive_nodes),
             "dead": len(dead_nodes),
             "total": len(deduped),
+            "filtered_out": filtered_out,
         },
     )
     print_latency_overview(probe_result.stats_by_name)
 
-    survival_rate = compute_survival_rate(alive=len(alive_nodes), total=len(deduped))
+    survival_rate = compute_survival_rate(alive=len(policy_alive_nodes), total=len(deduped))
     latencies = [
         info.get("avg_ms")  # type: ignore[union-attr]
-        for proxy, info in zip(probe_result.alive, [probe_result.stats_by_name.get(p.get("name", ""), {}) for p in probe_result.alive])
+        for proxy, info in zip(policy_alive_nodes, [probe_result.stats_by_name.get(p.get("name", ""), {}) for p in policy_alive_nodes])
         if info and info.get("avg_ms") is not None
     ]
     # Fallback to per-result latency_ms (latency_stats works with floats).
     if not latencies:
         # Build latencies list from stats dict by name.
-        for p in probe_result.alive:
+        for p in policy_alive_nodes:
             info = probe_result.stats_by_name.get(p.get("name", ""), {})
             if "avg_ms" in info:
                 latencies.append(info["avg_ms"])
@@ -242,7 +294,7 @@ def run_sync(
         output_text = render_template(
             template_path,
             local_proxies=static,
-            sub_proxies=alive_nodes,
+            sub_proxies=policy_alive_nodes,
         )
     output_config.write_text(output_text, encoding="utf-8")
 
@@ -252,13 +304,17 @@ def run_sync(
         version=version_tag,
         stats={
             "total": len(deduped),
-            "alive": len(alive_nodes),
+            "alive": len(policy_alive_nodes),
             "survival_rate": survival_rate,
             "latency_avg": latency_stats["avg"],
             "latency_min": latency_stats["min"],
             "latency_max": latency_stats["max"],
             "added": 0,
             "removed": len(dead_nodes),
+            "status_counts": dict(status_counts),
+            "filter_mode": config.probe.classifier.filter_mode,
+            "filtered_out": filtered_out,
+            "verification_overview": verification_overview,
         },
         failed_sources=failed_sources,
     )
@@ -284,18 +340,46 @@ def run_sync(
                 ("订阅源", str(len(config.subscription_sources))),
                 ("静态节点", str(len(static))),
                 ("订阅节点", str(len(filtered))),
-                ("存活节点", str(len(alive_nodes))),
+                ("存活节点", str(len(policy_alive_nodes))),
                 ("失效节点", str(len(dead_nodes))),
                 ("存活率", f"{survival_rate:.1f}%"),
+                ("过滤模式", config.probe.classifier.filter_mode),
+                ("被过滤节点", str(filtered_out)),
             ],
         )
+        sb.heading("判定结果", level=3)
+        sb.table(
+            ["状态", "数量"],
+            [
+                ("reachable", str(status_counts.get("reachable", 0))),
+                ("suspected_gfw_blocked", str(status_counts.get("suspected_gfw_blocked", 0))),
+                ("blocked_confirmed", str(status_counts.get("blocked_confirmed", 0))),
+                ("protocol_unhealthy", str(status_counts.get("protocol_unhealthy", 0))),
+            ],
+        )
+        if verification_overview.get("cn_sample_count", 0) > 0:
+            sb.heading("大陆拨测摘要", level=3)
+            sb.table(
+                ["指标", "数值"],
+                [
+                    ("Provider", verification_overview.get("cn_provider", "")),
+                    ("尝试 Providers", ", ".join(verification_overview.get("cn_attempted_providers", []))),
+                    ("覆盖节点", str(verification_overview.get("cn_nodes", 0))),
+                    ("样本总数", str(verification_overview.get("cn_sample_count", 0))),
+                    ("成功样本", str(verification_overview.get("cn_success_count", 0))),
+                    ("超时样本", str(verification_overview.get("cn_timeout_count", 0))),
+                    ("拒绝样本", str(verification_overview.get("cn_refused_count", 0))),
+                    ("重置样本", str(verification_overview.get("cn_reset_count", 0))),
+                    ("样本成功率", f"{verification_overview.get('cn_success_rate', 0):.1f}%"),
+                ],
+            )
         if failed_sources:
             sb.heading("失败的订阅源", level=3)
             sb.table(["订阅源", "原因"], failed_sources)
         sb.heading("订阅源状态", level=3)
         sb.table(["订阅源", "状态", "节点数"], fetch_status_rows(fetch_results))
-        if alive_nodes:
-            region = region_counts([p.get("name", "") for p in alive_nodes])
+        if policy_alive_nodes:
+            region = region_counts([p.get("name", "") for p in policy_alive_nodes])
             sb.heading("地区分布", level=3)
             sb.table(
                 ["地区", "节点数"],
@@ -314,15 +398,21 @@ def run_sync(
 
     # CI-only: emit [PROBE_JSON] markers for downstream tooling.
     print_ci_probe_json(deduped, probe_result)
+    print_ci_verification_json(assessments, filtered_count=len(deduped))
 
     return {
         "version": version_tag,
         "publish": publish_result,
         "survival_rate": survival_rate,
-        "alive": len(alive_nodes),
+        "alive": len(policy_alive_nodes),
         "dead": len(dead_nodes),
         "failed_sources": failed_sources,
         "fetch_results": [r.__dict__ for r in fetch_results],
+        "status_counts": status_counts,
+        "policy_counts": policy_counts,
+        "filtered_out": filtered_out,
+        "verification_overview": verification_overview,
+        "assessments": {key: value.to_dict() for key, value in assessments.items()},
     }
 
 

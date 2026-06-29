@@ -20,6 +20,13 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+from deputy.probing.verification import (
+    ChinaProbeConfig,
+    ProbeHealthConfig,
+    VerificationClassifierConfig,
+    VALID_FILTER_MODES,
+)
+
 
 class ConfigError(Exception):
     """Raised when TOML config is invalid or missing."""
@@ -49,6 +56,9 @@ class ProbeConfig:
     concurrency: int = 30
     retries: int = 0
     address_family: str = "auto"
+    cn: ChinaProbeConfig = field(default_factory=ChinaProbeConfig)
+    health: ProbeHealthConfig = field(default_factory=ProbeHealthConfig)
+    classifier: VerificationClassifierConfig = field(default_factory=VerificationClassifierConfig)
 
 
 @dataclass
@@ -90,11 +100,40 @@ def _build_probe(raw: dict[str, Any]) -> ProbeConfig:
     timeout = int(raw.get("timeout", 3))
     if timeout < 1 or timeout > 30:
         raise ConfigError(f"timeout 必须在 1-30 秒之间, 当前: {timeout}")
+    cn_raw = raw.get("cn", {}) if isinstance(raw.get("cn", {}), dict) else {}
+    health_raw = raw.get("health", {}) if isinstance(raw.get("health", {}), dict) else {}
+    classifier_raw = raw.get("classifier", {}) if isinstance(raw.get("classifier", {}), dict) else {}
+    filter_mode = str(classifier_raw.get("filter_mode", "mark"))
+    if filter_mode not in VALID_FILTER_MODES:
+        raise ConfigError(f"filter_mode 必须是 {sorted(VALID_FILTER_MODES)}, 当前: {filter_mode}")
+
     return ProbeConfig(
         timeout=timeout,
         concurrency=concurrency,
         retries=int(raw.get("retries", 0)),
         address_family=str(raw.get("address_family", "auto")),
+        cn=ChinaProbeConfig(
+            enabled=bool(cn_raw.get("enabled", False)),
+            provider=str(cn_raw.get("provider", "noop")),
+            min_vantages=int(cn_raw.get("min_vantages", 3)),
+            min_success_vantages=int(cn_raw.get("min_success_vantages", 2)),
+            timeout=int(cn_raw.get("timeout", 5)),
+            stale_after_seconds=int(cn_raw.get("stale_after_seconds", 600)),
+        ),
+        health=ProbeHealthConfig(
+            enabled=bool(health_raw.get("enabled", False)),
+            kind=str(health_raw.get("kind", "mihomo_delay")),
+            controller_url=str(health_raw.get("controller_url", "http://127.0.0.1:9093")),
+            secret=str(health_raw.get("secret", "")),
+            test_url=str(health_raw.get("test_url", "https://www.gstatic.com/generate_204")),
+            timeout_ms=int(health_raw.get("timeout_ms", 10_000)),
+            expected=str(health_raw.get("expected", "200,204")),
+        ),
+        classifier=VerificationClassifierConfig(
+            confirm_after_runs=int(classifier_raw.get("confirm_after_runs", 3)),
+            filter_mode=filter_mode,
+            history_path=str(classifier_raw.get("history_path", "")),
+        ),
     )
 
 
